@@ -20,7 +20,7 @@ Object Item:
 * Store and share your notebooks on OneDrive with your free Microsoft account
 * Doesn't expire - use OneNote for as long as you like
 
-<div class="FreemiumImageContainer" style="background-image: url(http://cdn.onenote.net/1666141560_Images/en-US/multiplatform.png)"></div>
+![Hands](http://cdn.onenote.net/1666141560_Images/en-US/multiplatform.png)
 - - -
 
 <small>Also Available</small>
