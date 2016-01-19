@@ -1,6 +1,7 @@
 ---
 title: Download
 date: 2016-01-19 10:29:00 -08:00
+Windows: Download
 ---
 
 # Get OneNote on your PC for Free
@@ -30,5 +31,7 @@ Want more than OneNote? [Try Office 365 free for one month.](//officeredir.micro
 [System Requirements](https://go.microsoft.com/fwlink/?LinkId=390454&clcid=0x409)
 
 **Other Download Options**
+
 For the best compatibility, we recommend the 32-bit version. If you already have other 64-bit Office products installed, use the 64-bit version of OneNote.
+
 [Free Download >](http://www.onenote.com/download/win32/x64/en-US)
