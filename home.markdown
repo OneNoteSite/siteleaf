@@ -1,6 +1,7 @@
 ---
 title: Home
 date: 2015-12-17 16:44:00 -08:00
+permalink: "/"
 ---
 
-This is the home page
+Hello World.
