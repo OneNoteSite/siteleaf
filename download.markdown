@@ -18,7 +18,7 @@ Object Item:
 
 * Capture thoughts, ideas, and to-dos and sync them to all your devices
 * Store and share your notebooks on OneDrive with your free Microsoft account
-* Doesn't expire - use OneNote for as long as you like
+* Does not expire - use OneNote for as long as you like
 
 ![Hands](http://cdn.onenote.net/1666141560_Images/en-US/multiplatform.png)
 - - -
