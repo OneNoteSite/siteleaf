@@ -9,7 +9,7 @@ collections:
   uploads:
     title: Uploads
     output: true
-  en-us:
+  en-us-welcome:
     title: en-us
     output: true
 defaults:
