@@ -2,7 +2,8 @@
 title: en-us
 date: 2016-01-25 23:39:00 -08:00
 hero:
-  hero: Download OneNote
+  account: Create a free account
+  download: Download OneNote
 feature:
   feature: Access anywhere
   body: Lorem ipsum dolor site amet, ...
@@ -24,3 +25,4 @@ feature-multi:
   need them.
 ---
 
+Your intelligent digial notebook
