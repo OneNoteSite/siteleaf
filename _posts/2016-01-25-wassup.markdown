@@ -1,6 +1,0 @@
----
-title: Wassup
-date: 2016-01-25 23:37:00 -08:00
----
-
-Wassup there.
