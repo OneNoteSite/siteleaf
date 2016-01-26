@@ -2,13 +2,13 @@
 title: en-us
 date: 2016-01-25 23:39:00 -08:00
 hero:
+  headline: Your intelligent digial notebook
   account: Create a free account
   download: Download OneNote
 feature:
-  feature: Access anywhere
+  headline: Collaboaration
   body: Lorem ipsum dolor site amet, ...
   action: See all platforms
-  headline: Collaboaration
 feature-solo:
   headline: Quick capture on mobile
   body: Lorem ipsum dolor site amet, ...
@@ -25,4 +25,4 @@ feature-multi:
   need them.
 ---
 
-Your intelligent digial notebook
+<!-- Enter Code here you want on your page... -->
