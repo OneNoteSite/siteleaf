@@ -4,7 +4,7 @@ date: 2016-01-25 23:39:00 -08:00
 hero:
   headline: Your intelligent digial notebook
   account: Create a free account
-  download: Download OneNote
+  action: Download OneNote
 feature:
   headline: Collaboaration
   body: Lorem ipsum dolor site amet, ...
