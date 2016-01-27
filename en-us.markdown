@@ -14,15 +14,17 @@ feature-solo:
   body: Lorem ipsum dolor site amet, ...
   image-src: none
 feature-multi:
-- Education
-- OneNote lets you insert files directly into your notes so you have them when you
-  need them.
-- Developers
-- Like writing instead of typing? OneNote converts handwriting to text. View that
-  in seamlessly.
-- Integrations
-- OneNote lets you insert files directly into your notes so you have them when you
-  need them.
+- headline: Education
+  body: OneNote lets you insert files directly into your notes so you have them when
+    you need them.
+- 
+- headline: Developers
+  body: Like writing instead of typing? OneNote converts handwriting to text. View
+    that in seamlessly.
+- 
+- headline: Integrations
+  body: OneNote lets you insert files directly into your notes so you have them when
+    you need them.
 ---
 
 <!-- Enter Code here you want on your page... -->
