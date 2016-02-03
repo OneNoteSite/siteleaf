@@ -1,0 +1,284 @@
+@import "global";
+
+
+html > body.education.home,
+html > body.education.create,
+html > body.education.dashboard {
+
+	> figure.placeholder-image,
+	> div.fixed-footer {
+		min-width: 1232px;
+		height: auto;
+		padding: 0;
+		margin: 0 auto;
+		position: relative;
+		box-sizing: border-box;
+		text-align: center;
+		overflow: hidden;
+
+		img {
+			margin: 0 auto;
+			position: relative;
+			min-width: 1232px;
+		}
+		
+		a {
+			left: 0;
+			right: 0;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			z-index: 4;
+			/*
+			width: 200px;
+			height: 48px;
+*/
+			background: "";
+			z-index: 2;
+			margin-left: -448px;
+// 			top: ($cellGroup-Height * 2) + 2rem;
+			opacity: 0;
+			&:hover {
+				opacity: .25;
+			}
+		}
+	}
+}
+
+/* ******************************************************************************** */
+
+html > body.education.dashboard {
+	background: #F2F2ED;
+	
+	> figure.placeholder-image {
+		padding-top: 14rem;
+	}
+	> div.fixed-nav,
+	> div.fixed-footer {	
+		position: fixed;			
+		left:  0;
+		right: 0;
+		z-index: 3;
+		text-align: center;
+	}
+	
+	> div.fixed-nav {
+		background-image: url("../_/img/dashboard-nav-bg.png");
+		background-position: center top;
+		background-repeat: repeat-x;
+	}
+	
+	> div.fixed-nav,
+	> div.fixed-footer {
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background-color: #e5e5e5;				
+		}
+	}
+
+	> div.fixed-nav {
+		height: 112px;
+		background-color: #fff;
+		&::before{ bottom: 0; }
+	}
+
+
+	> div.fixed-footer {
+		top: 100vh;
+		margin-top: -24rem;
+		min-width: 1232px;
+		background-color: #fff;
+	}
+}
+
+/* ******************************************************************************** */
+
+html > body.education {
+	
+		
+	&.setup { .spacer-setup{ height: 10rem; } }
+	
+	& >	section {
+		
+		@include Large           { min-height: auto !important; }
+		@include Large-Qtr-First { min-height: auto !important; }
+		@include Large-Half 		 { min-height: auto !important; }
+		@include Large-Qtr-Last  { min-height: auto !important; }
+		@include XLarge          { min-height: auto !important; }
+		
+		&::before { display: none; }
+		
+		h1 + h4 {
+			position: relative;
+			top: 1rem;
+		}
+		
+		header { margin-bottom: 3rem; }
+		
+		.form { width: 50%; }
+		
+		fieldset{
+			position: relative;
+			width: 83.63636364%
+		}
+	
+		input[type=email],
+		input[type=text],
+		input[type=password]{
+			width: 100%;
+			display: block;
+			padding: 0;
+			-webkit-appearance: none;
+			line-height: 2.75rem !important;
+			height: 4rem;
+		}
+		
+		label{
+			position: relative;
+			height: 4rem;
+			display: block;
+			margin-bottom: 2rem;
+		}
+		
+		input[type=email].completed + .check{
+			width: 6px;
+			height: 12px;
+			box-shadow: inset -2px -2px 0 #05a955;
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: -.125rem;
+			margin-top: -.125rem;
+			-webkit-transform-origin: top right;
+							transform-origin: top right;
+			-webkit-transform: rotate(45deg);
+							transform: rotate(45deg);
+			pointer-events: none;
+		}
+	
+		input[type=email],
+		input[type=text],
+		input[type=password] {
+			left: 0;
+			right: 1.5rem;
+			outline: none;
+			color: #656565;
+			background-color: "#fff";
+			box-shadow: inset 0 -1px 0 0 #c8c8c8;
+
+			&::-webkit-input-placeholder   { color: #c8c8c8; }
+			&:hover {
+				&::-webkit-input-placeholder { color: rgba(0,0,0,.15); }
+			}
+		}
+		
+		input[type=button] {
+			margin-top: 2rem;
+			height: 6rem;
+			min-width: 12rem;
+			text-align: center;
+			background: $purpleBrand;
+			background: #fff;
+			color: #fff;
+			color: $purpleBrand;
+			cursor: pointer;
+			padding: 0 2rem .25rem 2rem;
+			margin-bottom: 2rem;
+			box-shadow: inset 0 0 0 1px $purpleBrand;
+			box-shadow: inset 0 0 0 2px $purpleBrand;
+		}
+		input[type=button]:hover{
+			box-shadow: inset 0 0 0 2px $purpleBrand;
+		}
+		
+		figure {
+			margin-left: -4rem;
+			margin-top: 6.625rem;
+			padding-left: 4rem;
+			background-color: transparent;
+			height: auto;
+			padding-bottom: 2rem !important;
+			bottom: 0;
+			top: 0;
+			img {
+				width: 93rem;
+				height: 66rem;
+				background: none;
+				mix-blend-mode: none;
+			}
+		}
+	}
+
+}
+
+/* ******************************************************************************** */
+
+html > body.education.create > section {
+	header + p {
+		
+		$capFrameAdjust:   .75rem;
+		$capFrameAdjustXL: 1.25rem;
+		
+		margin-top:    -$capFrameAdjust - 3rem;
+		padding-bottom: $capFrameAdjust + 2rem;
+		
+		@include XLarge {
+			margin-top:           -$capFrameAdjustXL - 3rem;
+			padding-bottom: 6rem + $capFrameAdjustXL;
+		}
+	}
+	.form {
+		margin-top: 2rem;
+	}
+}
+
+/* ******************************************************************************** */
+
+html > body.education.home > section {
+	
+	$adjust: $cell-HeightWithMargin;
+	
+	@include Large           { min-height: $cellGroup-HeightContent * 3   - $adjust; }
+	@include Large-Qtr-First { min-height: $cellGroup-HeightContent * 4   - $adjust; }
+	@include Large-Half 		 { min-height: $cellGroup-HeightContent * 4.5 - $adjust; }
+	@include Large-Qtr-Last  { min-height: $cellGroup-HeightContent * 5.5 - $adjust; }
+	@include XLarge          { min-height: $cellGroup-HeightContent * 6.5 - $adjust; }
+	
+	ul.columns-thirds {
+
+		padding-top: $cellGroup-HeightContent + $cell-Margin;
+		
+		li{
+			position: relative;
+			padding-top: 1rem;
+		}
+		
+		p > a {	
+			position: relative;
+			top: -1rem;
+		}
+
+		figure{
+			width: 12rem;
+			height: 9rem;
+			position: absolute;
+			top: -(10rem);
+			padding-top: none;
+			margin-top: 0;
+		}
+	}
+}
+
+html > body.education.home > figure.placeholder-image {
+	left: -1rem;
+	
+	img {
+		margin: 0 auto;
+		position: relative;
+		min-width: 1232px;
+	}
+}

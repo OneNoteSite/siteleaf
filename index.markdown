@@ -25,7 +25,7 @@ feature-multi:
 - headline: Integrations
   body: OneNote lets you insert files directly into your notes so you have them when
     you need them.
-layout: default
+layout: home
 ---
 
 <!-- Enter Code here you want on your page... -->

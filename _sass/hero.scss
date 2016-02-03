@@ -1,0 +1,308 @@
+@import "global";
+@import "type";
+
+/*
+.top{
+	height: 6rem;
+}
+*/
+
+body > header {
+	position: relative;
+	box-sizing: border-box;
+
+	height: 100vh;
+	min-height: 100vmin;
+	max-height: 100vmin;
+	z-index: 1;
+	
+	padding: $nav-Height $gutter-width-half 0 $gutter-width-half;
+	
+	-webkit-transition: height .2 ease;
+	transition: height .2 ease;
+	
+	// Background Color
+	&::before{
+		@include absoluteSnapPseudo($left: -1rem, $right: -1rem);
+		background-color: $purpleBrand;
+		z-index: -1;
+	}
+	
+	h1{
+		padding-top: $nav-Height + 1rem;
+		-webkit-font-smoothing: antialiased;
+		position: relative;
+		top: -.125rem;
+		margin-bottom: .5em;
+	}
+	
+	.devices{ display: none; }
+}
+
+/* ******************************************************* */
+
+body.education > header {
+
+	$height: ($cellGroup-Height * 3) + $nav-Height;
+	
+	height:     $height;
+	min-height: $height;
+	max-height: $height;
+	
+	text-align: left;
+
+	// Fix - this makes it correct. Seems like the percentages are off	
+	> div { padding-left: 2px; }
+
+	h1 {
+		margin-left:  0;
+		margin-right: 0;
+		@include Large { width: 51%; }
+
+		padding-top: $nav-Height + 1rem;
+		div{ display: block; }
+	}
+	
+	p{
+		margin-top: -.3rem;
+		@include Large { width: 50%; }
+		div{ display: block; }
+	}
+	
+	.form {
+		margin-top: 5rem;
+		width: 50%;
+		margin-left: 0;
+		margin-right: 0;
+		position: relative;
+		top: -.3rem;
+	}
+	
+	fieldset{
+		width: 66.6666666666%;
+		position: relative;
+		height: 4rem;
+	}
+
+	input[type=email],
+	input[type=button],
+	button {
+		position: absolute;
+		top:     0;
+		bottom:  0;
+		padding: 0;
+		-webkit-appearance: none;
+		line-height: 2.75rem !important;
+	}
+
+	input[type=email] {
+		right: 1.5rem;
+		left: 0rem;
+		outline: none;
+		width: calc(100% - 1.5rem);	
+		background-color: transparent;
+		box-shadow: inset 0 -1px 0 0 #fff;
+		&::-webkit-input-placeholder           { color: rgba(255,255,255,0.66); }
+		&:hover { &::-webkit-input-placeholder { color: rgba(255,255,255,0.33); }}
+	}
+	
+	input[type=button]{
+		margin-left: 1rem;
+		margin-left: .75rem;
+		left: 100%;
+		width: 10rem;
+		text-align: center;
+		background: $white;
+		color: #7030a0;
+		cursor: pointer;
+		padding-bottom: .25rem;
+	}
+	
+	figure {
+		$position-adjust: 3rem;
+		position: absolute;
+		top: 0;
+		padding: $nav-Height 0 0 0;
+		left: 50%;
+		right: -1rem;
+		overflow: hidden;
+		margin-left: -($position-adjust);
+		
+		&:hover {
+			#Circle {
+				stroke-dashoffset: 0;
+			}
+		}
+		
+		.imageContainer{
+			height: 62rem;
+			margin: 3rem 0 0 0;
+			position: relative;
+			width: 104rem;
+		}
+		
+		img{
+			width: auto;
+			height: 62rem;
+		}
+		
+		#inking #box {
+			display: none;
+		}
+		
+		#Circle {
+			$length: 160;
+			stroke-dasharray: $length, $length;
+			stroke-dashoffset: $length;
+			pointer-events: all;
+			-webkit-transition: stroke-dashoffset .5s ease-out;
+		}
+
+		.drawOverlay {
+			position: absolute;
+			top:    0;
+			left:   0;
+			height: 62rem;
+			width: 104rem;
+		}
+	}
+}
+
+
+
+/* ******************************************************* */
+
+body > figure.color {
+	margin-top: 5rem;
+	padding: $gutter-width $gutter-width-half;
+	font-size: 0px !important;
+	
+	h2 {}
+	
+	h3 {
+		margin-top: 3rem;
+		position: relative;
+		min-height: 3rem;
+		color: #999;
+		&::before{
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background-color: #ccc;
+		}
+	}
+	
+	dl, dt, dd {
+		margin:  0;
+		padding: 0;
+		vertical-align: top;		
+	}	
+	
+	dl {
+		font-size: 0px !important;
+		padding-top: 4rem;
+	}
+	
+	dt{
+		display: inline-block;
+		width:  33.33333333333334%;
+		height: 12rem;
+		color: #fff;
+		text-indent: .5rem;
+		text-transform: capitalize;
+		position: relative;
+		&.purpleBrand, &.purpleBrandDark, &.purpleBrandLight {
+			width: 100%;
+			& + dd { left: -100%; }
+		}
+		&.purpleBrand{
+			height: 24rem;
+		}
+		&.purpleBrandDark, &.purpleBrandLight {
+			height: 6rem;
+		}
+	}
+	
+	dd{
+		box-sizing: border-box;
+		display: inline-block;
+		width:  0;
+		height: 14rem;
+		padding-top: 3rem;
+		vertical-align: top;
+		position: relative;
+		left: -33.33333333333334%;
+		text-indent: .5rem;
+		padding-bottom: 8rem;
+		color: #fff;
+		
+	}
+	
+	> p {
+		width: 100%;
+		@include Medium{ width: 50%; }
+		display: inline-block;
+		margin: 0;
+		vertical-align: top;
+		position: relative;
+		box-sizing: border-box;
+		padding-bottom: .75rem;
+		padding-top: 2.25rem;
+		&:first-child { top: -1rem; }
+	}
+	
+	@include Medium {
+		> p:nth-of-type(odd) { padding-right: 1rem;
+			& + p              { padding-left:  1rem; }
+		}		
+	}	
+}
+
+.purpleBrand      { background-color: $purpleBrand; }
+.purpleBrandLight { background-color: #491b7d; }
+.purpleBrandDark  { background-color: #b498d4; }
+
+
+.yellow      { background-color: $yellow;      }
+.tan         { background-color: $tan;         }
+.orange      { background-color: $orange;      }
+.red         { background-color: $red;         }
+.redChalk    { background-color: $redChalk;    }
+.magenta     { background-color: $magenta;     }
+.purple      { background-color: $purple;      }
+.purpleMist  { background-color: $purpleMist;  }
+.blue        { background-color: $blue;        }
+.blueMist    { background-color: $blueMist;    }
+.teal        { background-color: $teal;        }
+.cyan        { background-color: $cyan;        }
+.green       { background-color: $green;       }
+.apple       { background-color: $apple;       }
+.lemon       { background-color: $lemon;       }
+.silver      { background-color: $silver;      }
+.none        { background-color: $none;        }
+
+.greyLight1  { background-color: #f4f4f4; }
+.greyLight2  { background-color: #ebebeb; }
+.greyLight3  { background-color: #dddddd; }
+.greyLight4  { background-color: #cccccc; }
+.grey        { background-color: #999999; }
+.greyMedium  { background-color: #666666; }
+.greyDark1   { background-color: #333333; }
+.greyDark2   { background-color: #222222; }
+
+.greyLight1,
+.greyLight2,
+.greyLight3,
+.greyLight4{
+	p > small{
+		color: #000;
+	}
+}
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+/*
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+*/
+
+/*
+@function cellGroup($number) {
+	
+	$value
+	
+}
+*/
+
+@mixin absoluteSnapPseudo($top:false, $right:false, $bottom:false, $left:false) {
+	@if $top    { top:    $top;    } @else { top:    0; }
+	@if $right  { right:  $right;  } @else { right:  0; }
+	@if $bottom { bottom: $bottom; } @else { bottom: 0; }
+	@if $left   { left:   $left;   } @else { left:   0; }
+	position: absolute;
+	content: "";
+}

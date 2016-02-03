@@ -1,0 +1,56 @@
+
+$breakpoint-base-unit:  320px;
+$breakpoint-range-unit: 304px;
+
+// MAJOR BREAKPOINTS
+
+$breakpoint-size-S:  					$breakpoint-base-unit;																		// 320
+$breakpoint-size-M:  					$breakpoint-base-unit + ( $breakpoint-range-unit     );		// 624
+$breakpoint-size-M-Half: 			$breakpoint-size-M    + ( $breakpoint-range-unit     );		// 928
+$breakpoint-size-L:  					$breakpoint-base-unit + ( $breakpoint-range-unit * 3 );		// 1232 
+$breakpoint-size-L-Qtr-First: $breakpoint-size-L    + ( $breakpoint-range-unit     );
+$breakpoint-size-L-Half: 			$breakpoint-size-L    + ( $breakpoint-range-unit * 2 );
+$breakpoint-size-L-Qtr-Last:  $breakpoint-size-L    + ( $breakpoint-range-unit * 3 );
+$breakpoint-size-XL: 					$breakpoint-base-unit + ( $breakpoint-range-unit * 7 );
+
+// MINOR BREAKPOINTS
+
+$breakpoint-size-M-Qtr:  			$breakpoint-size-M    + ( $breakpoint-range-unit / 2 );		// 776
+
+
+
+$breakpoint-query-S:  					"only screen and (min-width : #{ $breakpoint-size-S })";
+$breakpoint-query-M: 	 					"only screen and (min-width : #{ $breakpoint-size-M })";
+$breakpoint-query-M-Half: 			"only screen and (min-width : #{ $breakpoint-size-M-Half })";
+$breakpoint-query-L: 	 					"only screen and (min-width : #{ $breakpoint-size-L })";
+$breakpoint-query-L-Qtr-First: 	"only screen and (min-width : #{ $breakpoint-size-L-Qtr-First })";
+$breakpoint-query-L-Half: 			"only screen and (min-width : #{ $breakpoint-size-L-Half })";
+$breakpoint-query-L-Qtr-Last:  	"only screen and (min-width : #{ $breakpoint-size-L-Qtr-Last })";
+$breakpoint-query-XL: 					"only screen and (min-width : #{ $breakpoint-size-XL })";
+
+
+$breakpoint-query-M-Qtr: 					"only screen and (min-width : #{ $breakpoint-size-M-Qtr })";
+
+@mixin Retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin Small           { @media #{ $breakpoint-query-S           } { @content; } }
+@mixin Medium          { @media #{ $breakpoint-query-M           } { @content; } }
+@mixin Medium-Half     { @media #{ $breakpoint-query-M-Half      } { @content; } }
+@mixin Large           { @media #{ $breakpoint-query-L           } { @content; } }
+@mixin Large-Qtr-First { @media #{ $breakpoint-query-L-Qtr-First } { @content; } }
+@mixin Large-Half      { @media #{ $breakpoint-query-L-Half      } { @content; } }
+@mixin Large-Qtr-Last  { @media #{ $breakpoint-query-L-Qtr-Last  } { @content; } }
+@mixin XLarge          { @media #{ $breakpoint-query-XL          } { @content; } }
+
+
+@mixin Medium-Qtr      { @media #{ $breakpoint-query-M-Qtr } { @content; } }

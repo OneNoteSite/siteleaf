@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/*
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+*/
+/*
+@function cellGroup($number) {
+	
+	$value
+	
+}
+*/
+/*
+.greyLight1  { background-color: #f4f4f4; }
+.greyLight2  { background-color: #ebebeb; }
+.greyLight3  { background-color: #dddddd; }
+.greyLight4  { background-color: #cccccc; }
+.grey        { background-color: #999999; }
+.greyMedium  { background-color: #666666; }
+.greyDark1   { background-color: #333333; }
+.greyDark2   { background-color: #222222; }
+*/
+/* TO DOs
+ * type.scss - Fix - Add in weight classes to font-face declarations
+*/
+/* Base Units */
+/* Column Widths */
+/* Cell Measurements */
+/* General UI ELEMENTs */

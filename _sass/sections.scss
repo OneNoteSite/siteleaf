@@ -1,0 +1,218 @@
+@import "global";
+@import "type";
+
+body > section {
+
+	display:     block;
+	position:    relative;
+	text-align:  left;
+	
+	$base-padding-top: ($cell-Height * 1) + ($cell-Margin * 2); // 8rem
+	$big-padding-top:  ($cell-Height * 3) + ($cell-Margin * 4); // 20rem
+	
+	padding-top: $base-padding-top;
+	@include Large-Half { padding-top: $big-padding-top; }
+	
+	/* Fix - Tie these to some patterns / values */
+	@include Large           { min-height: $cellGroup-HeightContent * 3;   }
+	@include Large-Qtr-First { min-height: $cellGroup-HeightContent * 4;   }
+	@include Large-Half 		 { min-height: $cellGroup-HeightContent * 4.5; }
+	@include Large-Qtr-Last  { min-height: $cellGroup-HeightContent * 5.5; }
+	@include XLarge          { min-height: $cellGroup-HeightContent * 6.5; }
+	
+	p, small, h1, h2, h3, h4, h5, h6, header, ul, ol {
+		display: block;
+		box-sizing: border-box;
+		margin:  0;
+		padding: 0;
+	}
+	
+	p strong > a { display: inline-block; }
+	
+	// HORIZONTAL LINE
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 1px;
+		left:  -1rem;
+		right: -1rem;
+		box-shadow: 0 1px 0 rgba(0,0,0,.25);
+		z-index: 3;
+		height: 1px;
+		@include Retina { height: .5px; }
+		@include Large  { left: 1rem; right: 1rem; }
+	}
+	
+	> p,
+	> header {
+		padding-right: 8rem;
+		@include Medium-Half     { width: 50.0%; }
+		@include Large           { padding-right: 3rem; }
+		@include Large-Qtr-Last  { padding-right: 10%;  }
+	}
+	
+	> header {
+		$capFrameAdjust:   1.0rem;
+		$capFrameAdjustXL: 1.5rem;
+		
+		margin-top:           -$capFrameAdjust;
+		padding-bottom: 2rem + $capFrameAdjust;
+		
+		@include XLarge {
+			margin-top:           -$capFrameAdjustXL;
+			padding-bottom: 6rem + $capFrameAdjustXL;
+		}
+		
+		h1 {
+			@include Large {
+				$capFrameAdjust: 2px;
+				position: relative;
+				top: -$capFrameAdjust;
+			}
+		}
+		
+		h2 {
+			@include Medium {
+				$capFrameAdjust: 2px;
+				position: relative;
+				top: -$capFrameAdjust;
+			}
+		}
+	}
+	
+	h4 {
+		$capFrameAdjust:   .75rem;
+		$capFrameAdjustXL: 1.25rem;
+		
+		margin-top:    -$capFrameAdjust;
+		padding-bottom: $capFrameAdjust;
+	}
+	
+	> p,
+	> ul > li > p {
+		
+		$capFrameAdjust:   .75rem;
+		$capFrameAdjustXL: 1.25rem;
+		
+		margin-top:    -$capFrameAdjust;
+		padding-bottom: $capFrameAdjust + 2rem;
+		
+		@include XLarge {
+			margin-top:           -$capFrameAdjustXL;
+			padding-bottom: 6rem + $capFrameAdjustXL;
+		}
+		
+		&:last-of-type { padding-bottom: $capFrameAdjust + 3rem; }
+
+		> strong a{
+			position: relative;
+			&::after  { content: " >" }
+			&::before {
+				content: "";
+				position: absolute;
+				top:    -1rem;
+				left:   -1rem;
+				right:  -1rem;
+				bottom: -1rem;
+			}
+		}
+	}
+	
+	> figure {
+		position: relative;
+		box-sizing: content-box;
+		margin: 0 -2rem;
+		overflow: hidden;
+		padding: 0;
+		
+		$base-width: 50%;
+		
+		$width-l:     $base-width + $grid-column-width-m-h;
+		$width-l-q-f: $base-width + $grid-column-width-l;
+		$width-l-h:   $base-width + $grid-column-width-l-q-f;
+		$width-l-q-l: $base-width + $grid-column-width-l-q-f * 2;
+		$width-xl:    $base-width + $grid-column-width-l-h   * 2;
+		
+		@include Medium-Half     { width: $base-width;  }
+		@include Large           { width: $width-l;     }
+		@include Large-Qtr-First { width: $width-l-q-f; }
+		@include Large-Half      { width: $width-l-h;   }
+		@include Large-Qtr-Last  { width: $width-l-q-l; }
+		@include XLarge          { width: $width-xl;    }
+
+
+		@include Medium-Half {
+			position: absolute;
+			top:    0rem;
+			bottom: 1rem;
+			right: -1rem;
+			margin: 0;
+			padding: 0 1rem 0 1rem;
+		}
+		
+		@include Large {
+			left:  50%;
+			right: 0;
+			padding: 0 1rem 0 0;
+		}
+		
+		// This enlargens the figure
+		&::before {
+			content:"";
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+			padding-top: 69%;
+		}
+		
+		&::after{
+			display: block;
+			z-index: 1;
+			@include absoluteSnapPseudo();
+			@include Large           { left: 1rem;    }
+
+/*
+			background-color: $cyan;
+			
+			@include Medium-Half     { background-color: $redChalk; }
+			@include Large           { background-color: $blueMist; }
+			@include Large-Qtr-First { background-color: $apple;    }
+			@include Large-Half      { background-color: $yellow;   }
+			@include Large-Qtr-Last  { background-color: $orange;   }
+			@include XLarge          { background-color: $lemon;    }
+*/
+		}
+		
+		// This is used for a quick check of the height
+		&.State-SizeCheck { height: auto !important; }
+		
+		img {
+			position: absolute;
+			display: block;
+			width:  100%;
+			height: 100%;
+			top:  0;
+			left: 0;
+			z-index: 2;
+			object-fit: cover;
+			mix-blend-mode: multiply;
+			
+			@include Large           { left: 1rem;  }
+		}
+	}
+	
+	ul.columns-thirds {
+		$adjust-middle: 2rem;
+		$adjust-last:   4rem;
+		font-size: 0 !important;
+		padding-right: $adjust-last;
+		
+		li {
+			display: inline-block;
+			width: 33.333333333%;
+			
+			& + li      { margin: 0 (-$adjust-middle) 0 $adjust-middle; }
+			& + li + li { margin: 0 (-$adjust-last  ) 0 $adjust-last;   }
+		}
+	}
+}

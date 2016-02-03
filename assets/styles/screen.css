@@ -1,0 +1,2534 @@
+@charset "UTF-8";
+/* line 5, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Applications/compass-2.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+*/
+/*
+@function cellGroup($number) {
+	
+	$value
+	
+}
+*/
+/*
+.greyLight1  { background-color: #f4f4f4; }
+.greyLight2  { background-color: #ebebeb; }
+.greyLight3  { background-color: #dddddd; }
+.greyLight4  { background-color: #cccccc; }
+.grey        { background-color: #999999; }
+.greyMedium  { background-color: #666666; }
+.greyDark1   { background-color: #333333; }
+.greyDark2   { background-color: #222222; }
+*/
+/* TO DOs
+ * type.scss - Fix - Add in weight classes to font-face declarations
+*/
+/* Base Units */
+/* Column Widths */
+/* Cell Measurements */
+/* General UI ELEMENTs */
+/*		From global.scss
+	
+			$grid-column-width-s:     50%;
+			$grid-column-width-m:     25%;
+			$grid-column-width-m-h:   16.666666667%;
+			$grid-column-width-l:     12.5%;
+			$grid-column-width-l-q-f: 10%;
+			$grid-column-width-l-h:   8.3333333333%;
+			$grid-column-width-l-q-l: 7.1428571429%;
+			$grid-column-width-xl:    6.25%;
+*/
+/* line 21, ../sass/grid.scss */
+#grid {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  z-index: 3000000;
+  box-shadow: 0 2rem 0 1rem rgba(0, 255, 255, 0.15);
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  transition: opacity .25s ease;
+}
+/* line 42, ../sass/grid.scss */
+#grid::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -1rem;
+  right: -1rem;
+  height: 1rem;
+  background-color: rgba(0, 255, 255, 0.15);
+}
+/* line 52, ../sass/grid.scss */
+#grid.hidden {
+  opacity: 0;
+}
+/* line 54, ../sass/grid.scss */
+#grid * {
+  pointer-events: none;
+}
+/* line 56, ../sass/grid.scss */
+#grid #rule_v {
+  /* Vertical lines of 8px */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: .33;
+  background-size: 1rem 1rem;
+  background-image: linear-gradient(#ff0000 12.5%, rgba(0, 0, 0, 0) 12.5%);
+  background-position: 50% 0;
+  padding: 0 1rem;
+  margin-left: -1rem;
+}
+/* line 72, ../sass/grid.scss */
+#grid #columnGroup {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  /* Handle Column Widths and which should be shown */
+}
+/* line 92, ../sass/grid.scss */
+#grid #columnGroup .gridColumn {
+  display: none;
+  box-shadow: inset 0 6rem 0 1rem rgba(0, 255, 255, 0.15);
+  position: absolute;
+  top: 1rem;
+  bottom: 0;
+  width: 50%;
+  /* Fix takes these values and move them out to global */
+  display: none;
+}
+@media only screen and (min-width: 624px) {
+  /* line 92, ../sass/grid.scss */
+  #grid #columnGroup .gridColumn {
+    width: 25%;
+  }
+}
+@media only screen and (min-width: 928px) {
+  /* line 92, ../sass/grid.scss */
+  #grid #columnGroup .gridColumn {
+    width: 16.666666667%;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 92, ../sass/grid.scss */
+  #grid #columnGroup .gridColumn {
+    width: 12.5%;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 92, ../sass/grid.scss */
+  #grid #columnGroup .gridColumn {
+    width: 10%;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 92, ../sass/grid.scss */
+  #grid #columnGroup .gridColumn {
+    width: 8.3333333333%;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 92, ../sass/grid.scss */
+  #grid #columnGroup .gridColumn {
+    width: 7.1428571429%;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 92, ../sass/grid.scss */
+  #grid #columnGroup .gridColumn {
+    width: 6.25%;
+  }
+}
+/* line 121, ../sass/grid.scss */
+#grid #columnGroup .gridColumn::after, #grid #columnGroup .gridColumn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  background-repeat: repeat-y;
+}
+/* line 131, ../sass/grid.scss */
+#grid #columnGroup .gridColumn::before {
+  top: 0;
+  background-size: 1px 48px, 1px 48px, 100% 48px, 100% 48px;
+  /* @include Retina {
+  	background-size: 0.5px $height, 0.5px $height, 100% $height, 100% $height;
+  } */
+  background-position: left top, right top, left top, left 1px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 16.6666666667%, #00adef 16.6666666667%, #00adef 83.3333333333%, rgba(0, 0, 0, 0) 83.3333333333%), linear-gradient(rgba(0, 0, 0, 0) 16.6666666667%, #00adef 16.6666666667%, #00adef 83.3333333333%, rgba(0, 0, 0, 0) 83.3333333333%), linear-gradient(rgba(0, 0, 0, 0) 16.6666666667%, #00adef 16.6666666667%, #00adef 18.75%, rgba(0, 0, 0, 0) 18.75%), linear-gradient(rgba(0, 0, 0, 0) 81.25%, #00adef 81.25%, #00adef 83.3333333333%, rgba(0, 0, 0, 0) 83.3333333333%);
+}
+/* line 145, ../sass/grid.scss */
+#grid #columnGroup .gridColumn::after {
+  top: 48px;
+  background-size: 1px 144px, 1px 144px, 2rem 2rem;
+  background-position: left top, right top, left top;
+  background-repeat: repeat-y, repeat-y, repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 5.5555555556%, #00adef 5.5555555556%, #00adef 94.4444444444%, rgba(0, 0, 0, 0) 94.4444444444%), linear-gradient(rgba(0, 0, 0, 0) 5.5555555556%, #00adef 5.5555555556%, #00adef 94.4444444444%, rgba(0, 0, 0, 0) 94.4444444444%), linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, rgba(59, 255, 255, 0.5) 50%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 5.5555555556%, #00adef 5.5555555556%, #00adef 94.4444444444%, rgba(0, 0, 0, 0) 94.4444444444%), linear-gradient(rgba(0, 0, 0, 0) 5.5555555556%, #00adef 5.5555555556%, #00adef 94.4444444444%, rgba(0, 0, 0, 0) 94.4444444444%);
+}
+/* line 174, ../sass/grid.scss */
+#grid #columnGroup #column8 {
+  right: 50%;
+}
+/* line 175, ../sass/grid.scss */
+#grid #columnGroup #column9 {
+  left: 50%;
+}
+@media only screen and (min-width: 624px) {
+  /* line 180, ../sass/grid.scss */
+  #grid #columnGroup #column7 {
+    right: 75%;
+  }
+  /* line 181, ../sass/grid.scss */
+  #grid #columnGroup #column8 {
+    right: 50%;
+  }
+  /* line 182, ../sass/grid.scss */
+  #grid #columnGroup #column9 {
+    left: 50%;
+  }
+  /* line 183, ../sass/grid.scss */
+  #grid #columnGroup #column10 {
+    left: 75%;
+  }
+}
+@media only screen and (min-width: 928px) {
+  /* line 189, ../sass/grid.scss */
+  #grid #columnGroup #column6 {
+    right: 83.333333334%;
+  }
+  /* line 190, ../sass/grid.scss */
+  #grid #columnGroup #column7 {
+    right: 66.666666667%;
+  }
+  /* line 191, ../sass/grid.scss */
+  #grid #columnGroup #column8 {
+    right: 50%;
+  }
+  /* line 192, ../sass/grid.scss */
+  #grid #columnGroup #column9 {
+    left: 50%;
+  }
+  /* line 193, ../sass/grid.scss */
+  #grid #columnGroup #column10 {
+    left: 66.666666667%;
+  }
+  /* line 194, ../sass/grid.scss */
+  #grid #columnGroup #column11 {
+    left: 83.333333334%;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 200, ../sass/grid.scss */
+  #grid #columnGroup #column5 {
+    right: 87.5%;
+  }
+  /* line 201, ../sass/grid.scss */
+  #grid #columnGroup #column6 {
+    right: 75%;
+  }
+  /* line 202, ../sass/grid.scss */
+  #grid #columnGroup #column7 {
+    right: 62.5%;
+  }
+  /* line 203, ../sass/grid.scss */
+  #grid #columnGroup #column8 {
+    right: 50%;
+  }
+  /* line 204, ../sass/grid.scss */
+  #grid #columnGroup #column9 {
+    left: 50%;
+  }
+  /* line 205, ../sass/grid.scss */
+  #grid #columnGroup #column10 {
+    left: 62.5%;
+  }
+  /* line 206, ../sass/grid.scss */
+  #grid #columnGroup #column11 {
+    left: 75%;
+  }
+  /* line 207, ../sass/grid.scss */
+  #grid #columnGroup #column12 {
+    left: 87.5%;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 213, ../sass/grid.scss */
+  #grid #columnGroup #column4 {
+    right: 90%;
+  }
+  /* line 214, ../sass/grid.scss */
+  #grid #columnGroup #column5 {
+    right: 80%;
+  }
+  /* line 215, ../sass/grid.scss */
+  #grid #columnGroup #column6 {
+    right: 70%;
+  }
+  /* line 216, ../sass/grid.scss */
+  #grid #columnGroup #column7 {
+    right: 60%;
+  }
+  /* line 217, ../sass/grid.scss */
+  #grid #columnGroup #column8 {
+    right: 50%;
+  }
+  /* line 218, ../sass/grid.scss */
+  #grid #columnGroup #column9 {
+    left: 50%;
+  }
+  /* line 219, ../sass/grid.scss */
+  #grid #columnGroup #column10 {
+    left: 60%;
+  }
+  /* line 220, ../sass/grid.scss */
+  #grid #columnGroup #column11 {
+    left: 70%;
+  }
+  /* line 221, ../sass/grid.scss */
+  #grid #columnGroup #column12 {
+    left: 80%;
+  }
+  /* line 222, ../sass/grid.scss */
+  #grid #columnGroup #column13 {
+    left: 90%;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 228, ../sass/grid.scss */
+  #grid #columnGroup #column3 {
+    right: 91.6666666665%;
+  }
+  /* line 229, ../sass/grid.scss */
+  #grid #columnGroup #column4 {
+    right: 83.3333333332%;
+  }
+  /* line 230, ../sass/grid.scss */
+  #grid #columnGroup #column5 {
+    right: 74.9999999999%;
+  }
+  /* line 231, ../sass/grid.scss */
+  #grid #columnGroup #column6 {
+    right: 66.6666666666%;
+  }
+  /* line 232, ../sass/grid.scss */
+  #grid #columnGroup #column7 {
+    right: 58.3333333333%;
+  }
+  /* line 233, ../sass/grid.scss */
+  #grid #columnGroup #column8 {
+    right: 50%;
+  }
+  /* line 234, ../sass/grid.scss */
+  #grid #columnGroup #column9 {
+    left: 50%;
+  }
+  /* line 235, ../sass/grid.scss */
+  #grid #columnGroup #column10 {
+    left: 58.3333333333%;
+  }
+  /* line 236, ../sass/grid.scss */
+  #grid #columnGroup #column11 {
+    left: 66.6666666666%;
+  }
+  /* line 237, ../sass/grid.scss */
+  #grid #columnGroup #column12 {
+    left: 74.9999999999%;
+  }
+  /* line 238, ../sass/grid.scss */
+  #grid #columnGroup #column13 {
+    left: 83.3333333332%;
+  }
+  /* line 239, ../sass/grid.scss */
+  #grid #columnGroup #column14 {
+    left: 91.6666666665%;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 245, ../sass/grid.scss */
+  #grid #columnGroup #column2 {
+    right: 92.8571428574%;
+  }
+  /* line 246, ../sass/grid.scss */
+  #grid #columnGroup #column3 {
+    right: 85.7142857145%;
+  }
+  /* line 247, ../sass/grid.scss */
+  #grid #columnGroup #column4 {
+    right: 78.5714285716%;
+  }
+  /* line 248, ../sass/grid.scss */
+  #grid #columnGroup #column5 {
+    right: 71.4285714287%;
+  }
+  /* line 249, ../sass/grid.scss */
+  #grid #columnGroup #column6 {
+    right: 64.2857142858%;
+  }
+  /* line 250, ../sass/grid.scss */
+  #grid #columnGroup #column7 {
+    right: 57.1428571429%;
+  }
+  /* line 251, ../sass/grid.scss */
+  #grid #columnGroup #column8 {
+    right: 50%;
+  }
+  /* line 252, ../sass/grid.scss */
+  #grid #columnGroup #column9 {
+    left: 50%;
+  }
+  /* line 253, ../sass/grid.scss */
+  #grid #columnGroup #column10 {
+    left: 57.1428571429%;
+  }
+  /* line 254, ../sass/grid.scss */
+  #grid #columnGroup #column11 {
+    left: 64.2857142858%;
+  }
+  /* line 255, ../sass/grid.scss */
+  #grid #columnGroup #column12 {
+    left: 71.4285714287%;
+  }
+  /* line 256, ../sass/grid.scss */
+  #grid #columnGroup #column13 {
+    left: 78.5714285716%;
+  }
+  /* line 257, ../sass/grid.scss */
+  #grid #columnGroup #column14 {
+    left: 85.7142857145%;
+  }
+  /* line 258, ../sass/grid.scss */
+  #grid #columnGroup #column15 {
+    left: 92.8571428574%;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 264, ../sass/grid.scss */
+  #grid #columnGroup #column1 {
+    right: 93.75%;
+  }
+  /* line 265, ../sass/grid.scss */
+  #grid #columnGroup #column2 {
+    right: 87.5%;
+  }
+  /* line 266, ../sass/grid.scss */
+  #grid #columnGroup #column3 {
+    right: 81.25%;
+  }
+  /* line 267, ../sass/grid.scss */
+  #grid #columnGroup #column4 {
+    right: 75%;
+  }
+  /* line 268, ../sass/grid.scss */
+  #grid #columnGroup #column5 {
+    right: 68.75%;
+  }
+  /* line 269, ../sass/grid.scss */
+  #grid #columnGroup #column6 {
+    right: 62.5%;
+  }
+  /* line 270, ../sass/grid.scss */
+  #grid #columnGroup #column7 {
+    right: 56.25%;
+  }
+  /* line 271, ../sass/grid.scss */
+  #grid #columnGroup #column8 {
+    right: 50%;
+  }
+  /* line 272, ../sass/grid.scss */
+  #grid #columnGroup #column9 {
+    left: 50%;
+  }
+  /* line 273, ../sass/grid.scss */
+  #grid #columnGroup #column10 {
+    left: 56.25%;
+  }
+  /* line 274, ../sass/grid.scss */
+  #grid #columnGroup #column11 {
+    left: 62.5%;
+  }
+  /* line 275, ../sass/grid.scss */
+  #grid #columnGroup #column12 {
+    left: 68.75%;
+  }
+  /* line 276, ../sass/grid.scss */
+  #grid #columnGroup #column13 {
+    left: 75%;
+  }
+  /* line 277, ../sass/grid.scss */
+  #grid #columnGroup #column14 {
+    left: 81.25%;
+  }
+  /* line 278, ../sass/grid.scss */
+  #grid #columnGroup #column15 {
+    left: 87.5%;
+  }
+  /* line 279, ../sass/grid.scss */
+  #grid #columnGroup #column16 {
+    left: 93.75%;
+  }
+}
+/* line 282, ../sass/grid.scss */
+#grid #columnGroup #column8, #grid #columnGroup #column9 {
+  display: block;
+}
+@media only screen and (min-width: 624px) {
+  /* line 284, ../sass/grid.scss */
+  #grid #columnGroup #column7, #grid #columnGroup #column10 {
+    display: block;
+  }
+}
+@media only screen and (min-width: 928px) {
+  /* line 285, ../sass/grid.scss */
+  #grid #columnGroup #column6, #grid #columnGroup #column11 {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 286, ../sass/grid.scss */
+  #grid #columnGroup #column5, #grid #columnGroup #column12 {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 287, ../sass/grid.scss */
+  #grid #columnGroup #column4, #grid #columnGroup #column13 {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 288, ../sass/grid.scss */
+  #grid #columnGroup #column3, #grid #columnGroup #column14 {
+    display: block;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 289, ../sass/grid.scss */
+  #grid #columnGroup #column2, #grid #columnGroup #column15 {
+    display: block;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 290, ../sass/grid.scss */
+  #grid #columnGroup #column1, #grid #columnGroup #column16 {
+    display: block;
+  }
+}
+
+/* line 294, ../sass/grid.scss */
+body.gridHidden *,
+body.gridHidden *::before,
+body.gridHidden *::after {
+  transition: outline .25s ease;
+  outline: none !important;
+}
+
+/*
+	TO DO
+	
+	* Add in UA controls
+	* Add in Font Faces for Regular / Light / Semibold
+	* Review Font stacks with Sean to Finalize
+	* Research Segoe UI for web w/ variant weights
+	* Determine Font resizing -webkit-font-resize: 100% etc
+	* pick a icon font?
+*/
+/* Resets */
+/* line 23, ../sass/screen.scss */
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Setup Default Units */
+/* line 39, ../sass/screen.scss */
+html {
+  font-size: 8px;
+}
+
+/* Setup JS Hooks for Breakpoints */
+/* line 43, ../sass/screen.scss */
+html:before {
+  display: none;
+  content: "Tiny";
+}
+@media only screen and (min-width: 320px) {
+  /* line 43, ../sass/screen.scss */
+  html:before {
+    content: "Small";
+  }
+}
+@media only screen and (min-width: 624px) {
+  /* line 43, ../sass/screen.scss */
+  html:before {
+    content: "Medium";
+  }
+}
+@media only screen and (min-width: 928px) {
+  /* line 43, ../sass/screen.scss */
+  html:before {
+    content: "Medium-Half";
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 43, ../sass/screen.scss */
+  html:before {
+    content: "Large";
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 43, ../sass/screen.scss */
+  html:before {
+    content: "Large-Qtr-First";
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 43, ../sass/screen.scss */
+  html:before {
+    content: "Large-Half";
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 43, ../sass/screen.scss */
+  html:before {
+    content: "Large-Qtr-Last";
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 43, ../sass/screen.scss */
+  html:before {
+    content: "XLarge";
+  }
+}
+
+/* General Layout Adjustments */
+/* line 58, ../sass/screen.scss */
+html {
+  height: 100%;
+}
+
+/* line 62, ../sass/screen.scss */
+body {
+  min-height: 100%;
+  text-align: center;
+  padding: 0 1rem;
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 6rem;
+  margin: 0;
+}
+
+/* line 74, ../sass/screen.scss */
+small,
+small.legal {
+  display: block;
+}
+
+/* line 77, ../sass/screen.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 79, ../sass/screen.scss */
+body {
+  color: #696969;
+}
+
+/* line 80, ../sass/screen.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+}
+
+/* line 81, ../sass/screen.scss */
+body > header * {
+  color: #fff;
+}
+
+/* line 82, ../sass/screen.scss */
+section a {
+  color: #ac008c;
+}
+
+/* Top Level Sections */
+/* line 88, ../sass/screen.scss */
+body > *,
+body > header *,
+body > footer * {
+  text-align: left;
+}
+/* line 91, ../sass/screen.scss */
+body > header,
+body > footer {
+  text-align: center;
+}
+/* line 94, ../sass/screen.scss */
+body > nav,
+body > section,
+body > figure,
+body > header h1,
+body > header div,
+body > footer > nav {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+/* line 104, ../sass/screen.scss */
+body > nav,
+body > figure,
+body > section,
+body > footer {
+  padding: 0 1rem;
+}
+@media only screen and (min-width: 1232px) {
+  /* line 111, ../sass/screen.scss */
+  body > nav,
+  body > section,
+  body > figure,
+  body > header > h1,
+  body > header > div,
+  body > footer > nav {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 111, ../sass/screen.scss */
+  body > nav,
+  body > section,
+  body > figure,
+  body > header > h1,
+  body > header > div,
+  body > footer > nav {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 111, ../sass/screen.scss */
+  body > nav,
+  body > section,
+  body > figure,
+  body > header > h1,
+  body > header > div,
+  body > footer > nav {
+    width: 83.333333333%;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 111, ../sass/screen.scss */
+  body > nav,
+  body > section,
+  body > figure,
+  body > header > h1,
+  body > header > div,
+  body > footer > nav {
+    width: 71.428571429%;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 111, ../sass/screen.scss */
+  body > nav,
+  body > section,
+  body > figure,
+  body > header > h1,
+  body > header > div,
+  body > footer > nav {
+    width: 75%;
+  }
+}
+/* line 124, ../sass/screen.scss */
+body a {
+  color: #71309E;
+}
+/* line 125, ../sass/screen.scss */
+body a:hover {
+  text-decoration: underline;
+}
+
+/* line 129, ../sass/screen.scss */
+.top {
+  background: green;
+  width: 100%;
+  height: 6rem;
+}
+
+/* line 135, ../sass/screen.scss */
+#page-cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #222222;
+  z-index: 300;
+  text-align: center;
+}
+@media only screen and (min-width: 1232px) {
+  /* line 135, ../sass/screen.scss */
+  #page-cover {
+    display: none;
+  }
+}
+/* line 145, ../sass/screen.scss */
+#page-cover > * {
+  margin: 0 auto;
+  padding: 8rem;
+}
+
+/* line 4, ../sass/nav.scss */
+body > .nav-helper {
+  height: 6rem;
+  max-height: 6rem;
+  background: #71309E;
+  padding: 0 1rem;
+  box-sizing: content-box;
+  width: 100%;
+  margin-left: -1rem;
+}
+/* line 14, ../sass/nav.scss */
+body > nav {
+  position: relative;
+  padding-top: 1rem;
+  z-index: 2;
+  height: 6rem;
+  max-height: 6rem;
+  margin-bottom: -6rem;
+}
+/* line 22, ../sass/nav.scss */
+body > nav::before {
+  content: "";
+  background: #71309E;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: -2rem;
+  right: -1rem;
+  z-index: -1;
+}
+/* line 34, ../sass/nav.scss */
+body > nav h1 a {
+  display: none;
+}
+/* line 36, ../sass/nav.scss */
+body > nav svg {
+  display: block;
+  height: 4rem;
+  width: 4rem;
+  text-align: left;
+}
+/* line 43, ../sass/nav.scss */
+body > nav a {
+  top: -1rem;
+  right: -1rem;
+  position: absolute;
+  padding: 2.5rem 2rem;
+  color: #fff;
+}
+@media only screen and (min-width: 1232px) {
+  /* line 43, ../sass/nav.scss */
+  body > nav a {
+    font-size: 2.25rem !important;
+  }
+}
+
+/* line 60, ../sass/nav.scss */
+body.education > nav svg,
+body.education-v2 > nav svg {
+  display: block;
+  height: 3rem;
+  width: 28rem;
+  margin-top: 1rem;
+}
+/* line 65, ../sass/nav.scss */
+body.education > nav svg.education,
+body.education-v2 > nav svg.education {
+  width: 13rem;
+  height: 2rem;
+}
+/* line 71, ../sass/nav.scss */
+body.education > nav ul,
+body.education-v2 > nav ul {
+  position: absolute;
+  right: -1rem;
+  top: 1.9rem;
+}
+/* line 76, ../sass/nav.scss */
+body.education > nav ul li,
+body.education-v2 > nav ul li {
+  display: inline-block;
+}
+/* line 79, ../sass/nav.scss */
+body.education > nav ul li a,
+body.education-v2 > nav ul li a {
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  padding: 0 2rem;
+  text-decoration: none;
+}
+/* line 88, ../sass/nav.scss */
+body.education > nav ul li a:hover,
+body.education-v2 > nav ul li a:hover {
+  opacity: .5;
+}
+/* line 96, ../sass/nav.scss */
+body.education.setup > nav ul, body.education.create > nav ul,
+body.education-v2.setup > nav ul,
+body.education-v2.create > nav ul {
+  top: 1.25rem;
+}
+
+/* line 102, ../sass/nav.scss */
+body.education-v2.home > nav {
+  padding-top: .5rem;
+}
+/* line 105, ../sass/nav.scss */
+body.education-v2.home > nav::before {
+  background: transparent;
+}
+/* line 107, ../sass/nav.scss */
+body.education-v2.home > nav svg {
+  outline: 1px solid red;
+}
+/* line 109, ../sass/nav.scss */
+body.education-v2.home > nav ul > li a {
+  color: #666;
+}
+/* line 111, ../sass/nav.scss */
+body.education-v2.home > nav > ul {
+  top: 1.5rem;
+  outline: 1px solid red;
+  right: auto;
+  left: 50%;
+  margin-left: -1rem;
+}
+/* line 117, ../sass/nav.scss */
+body.education-v2.home > nav > ul li {
+  outline: 1px solid green;
+}
+/* line 122, ../sass/nav.scss */
+body.education-v2.home #Divider, body.education-v2.home #Microsoft, body.education-v2.home #Education {
+  fill: #666666;
+}
+
+/*
+body.education-v2.home {
+	&::before{
+		background: transparent !important;
+		display: none;
+	}
+	ul > li a{
+		color: #666;
+	}
+}
+*/
+/******************************************************************************/
+/* Font Faces */
+/*
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Segoe UI Bold'), local('SegoeUI-bold'), local('segoeuib');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Segoe UI Semibold'), local('SegoeUI-Semibold');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Segoe UI'), local('SegoeUI');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Segoe UI Light'), local('SegoeUI-Light');
+}
+*/
+/* Fix - Add in weight classes to font-face declarations */
+@font-face {
+  font-family: 'Segoe UI';
+  src: url("/assets/font/segoeui.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'Segoe UI Semilight';
+  src: url("/assets/font/segoeuisl.ttf") format("truetype");
+}
+/******************************************************************************/
+/* Type Sizing */
+/* Headline */
+/* Subhead */
+/* Subhead Small */
+/* Body Small */
+/* Body */
+/* !! For some reason using a value here of $_14 messed things up */
+/* Legal */
+/******************************************************************************/
+/* Font Size Settings  */
+/******************************************************************************/
+/* Type Defaults */
+/******************************************************************************/
+/* DEFAULTS */
+/* Base Backup */
+/* line 148, ../sass/type.scss */
+body {
+  font: 400 2.25rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+}
+/* line 148, ../sass/type.scss */
+body * {
+  font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+
+/* line 150, ../sass/type.scss */
+h1 {
+  font: 200 4.25rem / 1.1764705882 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 150, ../sass/type.scss */
+h1 * {
+  font: inherit       !important;
+}
+
+/* line 151, ../sass/type.scss */
+h2 {
+  font: 200 3.25rem / 1.2307692308 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 151, ../sass/type.scss */
+h2 * {
+  font: inherit       !important;
+}
+
+/* line 152, ../sass/type.scss */
+h3 {
+  font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 152, ../sass/type.scss */
+h3 * {
+  font: inherit       !important;
+}
+
+/* line 153, ../sass/type.scss */
+h4 {
+  font: 400 2.25rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 153, ../sass/type.scss */
+h4 * {
+  font: inherit       !important;
+}
+
+/* line 155, ../sass/type.scss */
+p {
+  font: 400 2.25rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 155, ../sass/type.scss */
+p * {
+  font: inherit       !important;
+}
+
+/* line 156, ../sass/type.scss */
+p > small {
+  font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 156, ../sass/type.scss */
+p > small * {
+  font: inherit       !important;
+}
+
+/* line 158, ../sass/type.scss */
+small,
+small.legal {
+  font: 400 1.5rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 159, ../sass/type.scss */
+small *,
+small.legal * {
+  font: inherit       !important;
+}
+
+@media only screen and (min-width: 624px) {
+  /* line 163, ../sass/type.scss */
+  body {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  /* line 163, ../sass/type.scss */
+  body * {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+
+  /* line 165, ../sass/type.scss */
+  h1 {
+    font: 200 5.25rem / 1.1428571429 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 165, ../sass/type.scss */
+  h1 * {
+    font: inherit       !important;
+  }
+
+  /* line 166, ../sass/type.scss */
+  h2 {
+    font: 200 4rem / 1.25 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 166, ../sass/type.scss */
+  h2 * {
+    font: inherit       !important;
+  }
+
+  /* line 167, ../sass/type.scss */
+  h3 {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 167, ../sass/type.scss */
+  h3 * {
+    font: inherit       !important;
+  }
+
+  /* line 168, ../sass/type.scss */
+  h4 {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 168, ../sass/type.scss */
+  h4 * {
+    font: inherit       !important;
+  }
+
+  /* line 170, ../sass/type.scss */
+  p {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 170, ../sass/type.scss */
+  p * {
+    font: inherit       !important;
+  }
+
+  /* line 171, ../sass/type.scss */
+  p > small {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 171, ../sass/type.scss */
+  p > small * {
+    font: inherit       !important;
+  }
+
+  /* line 173, ../sass/type.scss */
+  small,
+  small.legal {
+    font: 400 1.5rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 174, ../sass/type.scss */
+  small *,
+  small.legal * {
+    font: inherit       !important;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 178, ../sass/type.scss */
+  body {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  /* line 178, ../sass/type.scss */
+  body * {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+
+  /* line 180, ../sass/type.scss */
+  h1 {
+    font: 200 5.25rem / 1.1428571429 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 180, ../sass/type.scss */
+  h1 * {
+    font: inherit       !important;
+  }
+
+  /* line 181, ../sass/type.scss */
+  h2 {
+    font: 200 4.25rem / 1.1764705882 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 181, ../sass/type.scss */
+  h2 * {
+    font: inherit       !important;
+  }
+
+  /* line 182, ../sass/type.scss */
+  h3 {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 182, ../sass/type.scss */
+  h3 * {
+    font: inherit       !important;
+  }
+
+  /* line 183, ../sass/type.scss */
+  h4 {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 183, ../sass/type.scss */
+  h4 * {
+    font: inherit       !important;
+  }
+
+  /* line 185, ../sass/type.scss */
+  p {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 185, ../sass/type.scss */
+  p * {
+    font: inherit       !important;
+  }
+
+  /* line 186, ../sass/type.scss */
+  p > small {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 186, ../sass/type.scss */
+  p > small * {
+    font: inherit       !important;
+  }
+
+  /* line 188, ../sass/type.scss */
+  small,
+  small.legal {
+    font: 400 1.5rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 189, ../sass/type.scss */
+  small *,
+  small.legal * {
+    font: inherit       !important;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 193, ../sass/type.scss */
+  body {
+    font: 200 3.5rem/5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  /* line 193, ../sass/type.scss */
+  body * {
+    font: 200 3.5rem/5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+
+  /* line 195, ../sass/type.scss */
+  h1 {
+    font: 200 8rem / 1.25 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 195, ../sass/type.scss */
+  h1 * {
+    font: inherit       !important;
+  }
+
+  /* line 196, ../sass/type.scss */
+  h2 {
+    font: 200 7rem / 1.1428571429 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 196, ../sass/type.scss */
+  h2 * {
+    font: inherit       !important;
+  }
+
+  /* line 197, ../sass/type.scss */
+  h3 {
+    font: 200 3rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 197, ../sass/type.scss */
+  h3 * {
+    font: inherit       !important;
+  }
+
+  /* line 198, ../sass/type.scss */
+  h4 {
+    font: 200 3.5rem/5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 198, ../sass/type.scss */
+  h4 * {
+    font: inherit       !important;
+  }
+
+  /* line 200, ../sass/type.scss */
+  p {
+    font: 200 3.5rem/5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 200, ../sass/type.scss */
+  p * {
+    font: inherit       !important;
+  }
+
+  /* line 201, ../sass/type.scss */
+  p > small {
+    font: 200 3rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 201, ../sass/type.scss */
+  p > small * {
+    font: inherit       !important;
+  }
+
+  /* line 203, ../sass/type.scss */
+  small,
+  small.legal {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 204, ../sass/type.scss */
+  small *,
+  small.legal * {
+    font: inherit       !important;
+  }
+}
+/* line 209, ../sass/type.scss */
+h4 {
+  color: #000;
+}
+
+/* line 211, ../sass/type.scss */
+body *.monospace,
+body *.monospace * {
+  font-family: monospace !important;
+}
+
+/* line 4, ../sass/sections.scss */
+body > section {
+  display: block;
+  position: relative;
+  text-align: left;
+  padding-top: 8rem;
+  /* Fix - Tie these to some patterns / values */
+}
+@media only screen and (min-width: 1840px) {
+  /* line 4, ../sass/sections.scss */
+  body > section {
+    padding-top: 20rem;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 4, ../sass/sections.scss */
+  body > section {
+    min-height: 48rem;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 4, ../sass/sections.scss */
+  body > section {
+    min-height: 64rem;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 4, ../sass/sections.scss */
+  body > section {
+    min-height: 72rem;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 4, ../sass/sections.scss */
+  body > section {
+    min-height: 88rem;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 4, ../sass/sections.scss */
+  body > section {
+    min-height: 104rem;
+  }
+}
+/* line 23, ../sass/sections.scss */
+body > section p, body > section small, body > section h1, body > section h2, body > section h3, body > section h4, body > section h5, body > section h6, body > section header, body > section ul, body > section ol {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* line 30, ../sass/sections.scss */
+body > section p strong > a {
+  display: inline-block;
+}
+/* line 33, ../sass/sections.scss */
+body > section::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: -1rem;
+  right: -1rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  z-index: 3;
+  height: 1px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  /* line 33, ../sass/sections.scss */
+  body > section::before {
+    height: .5px;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 33, ../sass/sections.scss */
+  body > section::before {
+    left: 1rem;
+    right: 1rem;
+  }
+}
+/* line 46, ../sass/sections.scss */
+body > section > p,
+body > section > header {
+  padding-right: 8rem;
+}
+@media only screen and (min-width: 928px) {
+  /* line 46, ../sass/sections.scss */
+  body > section > p,
+  body > section > header {
+    width: 50.0%;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 46, ../sass/sections.scss */
+  body > section > p,
+  body > section > header {
+    padding-right: 3rem;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 46, ../sass/sections.scss */
+  body > section > p,
+  body > section > header {
+    padding-right: 10%;
+  }
+}
+/* line 54, ../sass/sections.scss */
+body > section > header {
+  margin-top: -1rem;
+  padding-bottom: 3rem;
+}
+@media only screen and (min-width: 2448px) {
+  /* line 54, ../sass/sections.scss */
+  body > section > header {
+    margin-top: -1.5rem;
+    padding-bottom: 7.5rem;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 66, ../sass/sections.scss */
+  body > section > header h1 {
+    position: relative;
+    top: -2px;
+  }
+}
+@media only screen and (min-width: 624px) {
+  /* line 74, ../sass/sections.scss */
+  body > section > header h2 {
+    position: relative;
+    top: -2px;
+  }
+}
+/* line 83, ../sass/sections.scss */
+body > section h4 {
+  margin-top: -0.75rem;
+  padding-bottom: 0.75rem;
+}
+/* line 91, ../sass/sections.scss */
+body > section > p,
+body > section > ul > li > p {
+  margin-top: -0.75rem;
+  padding-bottom: 2.75rem;
+}
+@media only screen and (min-width: 2448px) {
+  /* line 91, ../sass/sections.scss */
+  body > section > p,
+  body > section > ul > li > p {
+    margin-top: -1.25rem;
+    padding-bottom: 7.25rem;
+  }
+}
+/* line 105, ../sass/sections.scss */
+body > section > p:last-of-type,
+body > section > ul > li > p:last-of-type {
+  padding-bottom: 3.75rem;
+}
+/* line 107, ../sass/sections.scss */
+body > section > p > strong a,
+body > section > ul > li > p > strong a {
+  position: relative;
+}
+/* line 109, ../sass/sections.scss */
+body > section > p > strong a::after,
+body > section > ul > li > p > strong a::after {
+  content: " >";
+}
+/* line 110, ../sass/sections.scss */
+body > section > p > strong a::before,
+body > section > ul > li > p > strong a::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  right: -1rem;
+  bottom: -1rem;
+}
+/* line 121, ../sass/sections.scss */
+body > section > figure {
+  position: relative;
+  box-sizing: content-box;
+  margin: 0 -2rem;
+  overflow: hidden;
+  padding: 0;
+}
+@media only screen and (min-width: 928px) {
+  /* line 121, ../sass/sections.scss */
+  body > section > figure {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 121, ../sass/sections.scss */
+  body > section > figure {
+    width: 66.666666667%;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 121, ../sass/sections.scss */
+  body > section > figure {
+    width: 62.5%;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 121, ../sass/sections.scss */
+  body > section > figure {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 121, ../sass/sections.scss */
+  body > section > figure {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 121, ../sass/sections.scss */
+  body > section > figure {
+    width: 66.6666666666%;
+  }
+}
+@media only screen and (min-width: 928px) {
+  /* line 121, ../sass/sections.scss */
+  body > section > figure {
+    position: absolute;
+    top: 0rem;
+    bottom: 1rem;
+    right: -1rem;
+    margin: 0;
+    padding: 0 1rem 0 1rem;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 121, ../sass/sections.scss */
+  body > section > figure {
+    left: 50%;
+    right: 0;
+    padding: 0 1rem 0 0;
+  }
+}
+/* line 160, ../sass/sections.scss */
+body > section > figure::before {
+  content: "";
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 69%;
+}
+/* line 168, ../sass/sections.scss */
+body > section > figure::after {
+  display: block;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  content: "";
+  /*
+  			background-color: $cyan;
+  			
+  			@include Medium-Half     { background-color: $redChalk; }
+  			@include Large           { background-color: $blueMist; }
+  			@include Large-Qtr-First { background-color: $apple;    }
+  			@include Large-Half      { background-color: $yellow;   }
+  			@include Large-Qtr-Last  { background-color: $orange;   }
+  			@include XLarge          { background-color: $lemon;    }
+  */
+}
+@media only screen and (min-width: 1232px) {
+  /* line 168, ../sass/sections.scss */
+  body > section > figure::after {
+    left: 1rem;
+  }
+}
+/* line 187, ../sass/sections.scss */
+body > section > figure.State-SizeCheck {
+  height: auto !important;
+}
+/* line 189, ../sass/sections.scss */
+body > section > figure img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+@media only screen and (min-width: 1232px) {
+  /* line 189, ../sass/sections.scss */
+  body > section > figure img {
+    left: 1rem;
+  }
+}
+/* line 204, ../sass/sections.scss */
+body > section ul.columns-thirds {
+  font-size: 0 !important;
+  padding-right: 4rem;
+}
+/* line 210, ../sass/sections.scss */
+body > section ul.columns-thirds li {
+  display: inline-block;
+  width: 33.333333333%;
+}
+/* line 214, ../sass/sections.scss */
+body > section ul.columns-thirds li + li {
+  margin: 0 -2rem 0 2rem;
+}
+/* line 215, ../sass/sections.scss */
+body > section ul.columns-thirds li + li + li {
+  margin: 0 -4rem 0 4rem;
+}
+
+/*
+.top{
+	height: 6rem;
+}
+*/
+/* line 10, ../sass/hero.scss */
+body > header {
+  position: relative;
+  box-sizing: border-box;
+  height: 100vh;
+  min-height: 100vmin;
+  max-height: 100vmin;
+  z-index: 1;
+  padding: 6rem 1rem 0 1rem;
+  -webkit-transition: height .2 ease;
+  transition: height .2 ease;
+}
+/* line 25, ../sass/hero.scss */
+body > header::before {
+  top: 0;
+  right: -1rem;
+  bottom: 0;
+  left: -1rem;
+  position: absolute;
+  content: "";
+  background-color: #71309E;
+  z-index: -1;
+}
+/* line 31, ../sass/hero.scss */
+body > header h1 {
+  padding-top: 7rem;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  top: -.125rem;
+  margin-bottom: .5em;
+}
+/* line 39, ../sass/hero.scss */
+body > header .devices {
+  display: none;
+}
+
+/* ******************************************************* */
+/* line 44, ../sass/hero.scss */
+body.education > header {
+  height: 60rem;
+  min-height: 60rem;
+  max-height: 60rem;
+  text-align: left;
+}
+/* line 55, ../sass/hero.scss */
+body.education > header > div {
+  padding-left: 2px;
+}
+/* line 57, ../sass/hero.scss */
+body.education > header h1 {
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 7rem;
+}
+@media only screen and (min-width: 1232px) {
+  /* line 57, ../sass/hero.scss */
+  body.education > header h1 {
+    width: 51%;
+  }
+}
+/* line 63, ../sass/hero.scss */
+body.education > header h1 div {
+  display: block;
+}
+/* line 66, ../sass/hero.scss */
+body.education > header p {
+  margin-top: -.3rem;
+}
+@media only screen and (min-width: 1232px) {
+  /* line 66, ../sass/hero.scss */
+  body.education > header p {
+    width: 50%;
+  }
+}
+/* line 69, ../sass/hero.scss */
+body.education > header p div {
+  display: block;
+}
+/* line 72, ../sass/hero.scss */
+body.education > header .form {
+  margin-top: 5rem;
+  width: 50%;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  top: -.3rem;
+}
+/* line 81, ../sass/hero.scss */
+body.education > header fieldset {
+  width: 66.6666666666%;
+  position: relative;
+  height: 4rem;
+}
+/* line 87, ../sass/hero.scss */
+body.education > header input[type=email],
+body.education > header input[type=button],
+body.education > header button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  line-height: 2.75rem !important;
+}
+/* line 98, ../sass/hero.scss */
+body.education > header input[type=email] {
+  right: 1.5rem;
+  left: 0rem;
+  outline: none;
+  width: calc(100% - 1.5rem);
+  background-color: transparent;
+  box-shadow: inset 0 -1px 0 0 #fff;
+}
+/* line 105, ../sass/hero.scss */
+body.education > header input[type=email]::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.66);
+}
+/* line 106, ../sass/hero.scss */
+body.education > header input[type=email]:hover::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.33);
+}
+/* line 109, ../sass/hero.scss */
+body.education > header input[type=button] {
+  margin-left: 1rem;
+  margin-left: .75rem;
+  left: 100%;
+  width: 10rem;
+  text-align: center;
+  background: #fff;
+  color: #7030a0;
+  cursor: pointer;
+  padding-bottom: .25rem;
+}
+/* line 121, ../sass/hero.scss */
+body.education > header figure {
+  position: absolute;
+  top: 0;
+  padding: 6rem 0 0 0;
+  left: 50%;
+  right: -1rem;
+  overflow: hidden;
+  margin-left: -3rem;
+}
+/* line 132, ../sass/hero.scss */
+body.education > header figure:hover #Circle {
+  stroke-dashoffset: 0;
+}
+/* line 137, ../sass/hero.scss */
+body.education > header figure .imageContainer {
+  height: 62rem;
+  margin: 3rem 0 0 0;
+  position: relative;
+  width: 104rem;
+}
+/* line 144, ../sass/hero.scss */
+body.education > header figure img {
+  width: auto;
+  height: 62rem;
+}
+/* line 149, ../sass/hero.scss */
+body.education > header figure #inking #box {
+  display: none;
+}
+/* line 153, ../sass/hero.scss */
+body.education > header figure #Circle {
+  stroke-dasharray: 160, 160;
+  stroke-dashoffset: 160;
+  pointer-events: all;
+  -webkit-transition: stroke-dashoffset .5s ease-out;
+}
+/* line 161, ../sass/hero.scss */
+body.education > header figure .drawOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 62rem;
+  width: 104rem;
+}
+
+/* ******************************************************* */
+/* line 175, ../sass/hero.scss */
+body > figure.color {
+  margin-top: 5rem;
+  padding: 2rem 1rem;
+  font-size: 0px !important;
+}
+/* line 182, ../sass/hero.scss */
+body > figure.color h3 {
+  margin-top: 3rem;
+  position: relative;
+  min-height: 3rem;
+  color: #999;
+}
+/* line 187, ../sass/hero.scss */
+body > figure.color h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+/* line 197, ../sass/hero.scss */
+body > figure.color dl, body > figure.color dt, body > figure.color dd {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+/* line 203, ../sass/hero.scss */
+body > figure.color dl {
+  font-size: 0px !important;
+  padding-top: 4rem;
+}
+/* line 208, ../sass/hero.scss */
+body > figure.color dt {
+  display: inline-block;
+  width: 33.33333333333334%;
+  height: 12rem;
+  color: #fff;
+  text-indent: .5rem;
+  text-transform: capitalize;
+  position: relative;
+}
+/* line 216, ../sass/hero.scss */
+body > figure.color dt.purpleBrand, body > figure.color dt.purpleBrandDark, body > figure.color dt.purpleBrandLight {
+  width: 100%;
+}
+/* line 218, ../sass/hero.scss */
+body > figure.color dt.purpleBrand + dd, body > figure.color dt.purpleBrandDark + dd, body > figure.color dt.purpleBrandLight + dd {
+  left: -100%;
+}
+/* line 220, ../sass/hero.scss */
+body > figure.color dt.purpleBrand {
+  height: 24rem;
+}
+/* line 223, ../sass/hero.scss */
+body > figure.color dt.purpleBrandDark, body > figure.color dt.purpleBrandLight {
+  height: 6rem;
+}
+/* line 228, ../sass/hero.scss */
+body > figure.color dd {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 0;
+  height: 14rem;
+  padding-top: 3rem;
+  vertical-align: top;
+  position: relative;
+  left: -33.33333333333334%;
+  text-indent: .5rem;
+  padding-bottom: 8rem;
+  color: #fff;
+}
+/* line 243, ../sass/hero.scss */
+body > figure.color > p {
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: .75rem;
+  padding-top: 2.25rem;
+}
+@media only screen and (min-width: 624px) {
+  /* line 243, ../sass/hero.scss */
+  body > figure.color > p {
+    width: 50%;
+  }
+}
+/* line 253, ../sass/hero.scss */
+body > figure.color > p:first-child {
+  top: -1rem;
+}
+@media only screen and (min-width: 624px) {
+  /* line 257, ../sass/hero.scss */
+  body > figure.color > p:nth-of-type(odd) {
+    padding-right: 1rem;
+  }
+  /* line 258, ../sass/hero.scss */
+  body > figure.color > p:nth-of-type(odd) + p {
+    padding-left: 1rem;
+  }
+}
+
+/* line 263, ../sass/hero.scss */
+.purpleBrand {
+  background-color: #71309E;
+}
+
+/* line 264, ../sass/hero.scss */
+.purpleBrandLight {
+  background-color: #491b7d;
+}
+
+/* line 265, ../sass/hero.scss */
+.purpleBrandDark {
+  background-color: #b498d4;
+}
+
+/* line 268, ../sass/hero.scss */
+.yellow {
+  background-color: #fabd13;
+}
+
+/* line 269, ../sass/hero.scss */
+.tan {
+  background-color: #c6a477;
+}
+
+/* line 270, ../sass/hero.scss */
+.orange {
+  background-color: #f7630c;
+}
+
+/* line 271, ../sass/hero.scss */
+.red {
+  background-color: #e81123;
+}
+
+/* line 272, ../sass/hero.scss */
+.redChalk {
+  background-color: #c10051;
+}
+
+/* line 273, ../sass/hero.scss */
+.magenta {
+  background-color: #d30078;
+}
+
+/* line 274, ../sass/hero.scss */
+.purple {
+  background-color: #ac008c;
+}
+
+/* line 275, ../sass/hero.scss */
+.purpleMist {
+  background-color: #5b2d91;
+}
+
+/* line 276, ../sass/hero.scss */
+.blue {
+  background-color: #004f8c;
+}
+
+/* line 277, ../sass/hero.scss */
+.blueMist {
+  background-color: #0063af;
+}
+
+/* line 278, ../sass/hero.scss */
+.teal {
+  background-color: #0099bc;
+}
+
+/* line 279, ../sass/hero.scss */
+.cyan {
+  background-color: #00b7c1;
+}
+
+/* line 280, ../sass/hero.scss */
+.green {
+  background-color: #0f893d;
+}
+
+/* line 281, ../sass/hero.scss */
+.apple {
+  background-color: #00ad56;
+}
+
+/* line 282, ../sass/hero.scss */
+.lemon {
+  background-color: #7ec500;
+}
+
+/* line 283, ../sass/hero.scss */
+.silver {
+  background-color: #849399;
+}
+
+/* line 284, ../sass/hero.scss */
+.none {
+  background-color: #7a7572;
+}
+
+/* line 286, ../sass/hero.scss */
+.greyLight1 {
+  background-color: #f4f4f4;
+}
+
+/* line 287, ../sass/hero.scss */
+.greyLight2 {
+  background-color: #ebebeb;
+}
+
+/* line 288, ../sass/hero.scss */
+.greyLight3 {
+  background-color: #dddddd;
+}
+
+/* line 289, ../sass/hero.scss */
+.greyLight4 {
+  background-color: #cccccc;
+}
+
+/* line 290, ../sass/hero.scss */
+.grey {
+  background-color: #999999;
+}
+
+/* line 291, ../sass/hero.scss */
+.greyMedium {
+  background-color: #666666;
+}
+
+/* line 292, ../sass/hero.scss */
+.greyDark1 {
+  background-color: #333333;
+}
+
+/* line 293, ../sass/hero.scss */
+.greyDark2 {
+  background-color: #222222;
+}
+
+/* line 299, ../sass/hero.scss */
+.greyLight1 p > small,
+.greyLight2 p > small,
+.greyLight3 p > small,
+.greyLight4 p > small {
+  color: #000;
+}
+
+/* line 3, ../sass/footer.scss */
+body > footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  margin: 0;
+  overflow: hidden;
+}
+/* line 14, ../sass/footer.scss */
+body > footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  z-index: 3;
+  height: 1px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  /* line 14, ../sass/footer.scss */
+  body > footer::before {
+    height: .5px;
+  }
+}
+/* line 26, ../sass/footer.scss */
+body > footer nav {
+  padding: 0 1rem;
+  height: 100%;
+  padding-top: 1.5rem;
+  position: relative;
+}
+/* line 34, ../sass/footer.scss */
+body > footer svg.msEduLogo #divider,
+body > footer svg.msEduLogo #education-text {
+  display: none;
+}
+/* line 36, ../sass/footer.scss */
+body > footer svg.msEduLogo #microsoft-text {
+  fill: #757575;
+}
+/* line 39, ../sass/footer.scss */
+body > footer ul {
+  position: absolute;
+  right: 1rem;
+  font-size: 0;
+  top: 0;
+  padding: 0;
+  margin: 0 -1.5rem 0 0;
+}
+/* line 46, ../sass/footer.scss */
+body > footer ul li {
+  padding: 1.5rem 1.5rem;
+  margin: 0;
+  display: inline-block;
+}
+/* line 50, ../sass/footer.scss */
+body > footer ul li a {
+  color: #757575;
+}
+
+/* line 8, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image,
+html > body.education.home > div.fixed-footer,
+html > body.education.create > figure.placeholder-image,
+html > body.education.create > div.fixed-footer,
+html > body.education.dashboard > figure.placeholder-image,
+html > body.education.dashboard > div.fixed-footer {
+  min-width: 1232px;
+  height: auto;
+  padding: 0;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 19, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image img,
+html > body.education.home > div.fixed-footer img,
+html > body.education.create > figure.placeholder-image img,
+html > body.education.create > div.fixed-footer img,
+html > body.education.dashboard > figure.placeholder-image img,
+html > body.education.dashboard > div.fixed-footer img {
+  margin: 0 auto;
+  position: relative;
+  min-width: 1232px;
+}
+/* line 25, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image a,
+html > body.education.home > div.fixed-footer a,
+html > body.education.create > figure.placeholder-image a,
+html > body.education.create > div.fixed-footer a,
+html > body.education.dashboard > figure.placeholder-image a,
+html > body.education.dashboard > div.fixed-footer a {
+  left: 0;
+  right: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  			/*
+  			width: 200px;
+  			height: 48px;
+  */
+  background: "";
+  z-index: 2;
+  margin-left: -448px;
+  opacity: 0;
+}
+/* line 41, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image a:hover,
+html > body.education.home > div.fixed-footer a:hover,
+html > body.education.create > figure.placeholder-image a:hover,
+html > body.education.create > div.fixed-footer a:hover,
+html > body.education.dashboard > figure.placeholder-image a:hover,
+html > body.education.dashboard > div.fixed-footer a:hover {
+  opacity: .25;
+}
+
+/* ******************************************************************************** */
+/* line 50, ../sass/education-prototype.scss */
+html > body.education.dashboard {
+  background: #F2F2ED;
+}
+/* line 53, ../sass/education-prototype.scss */
+html > body.education.dashboard > figure.placeholder-image {
+  padding-top: 14rem;
+}
+/* line 56, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav,
+html > body.education.dashboard > div.fixed-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  text-align: center;
+}
+/* line 65, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav {
+  background-image: url("../_/img/dashboard-nav-bg.png");
+  background-position: center top;
+  background-repeat: repeat-x;
+}
+/* line 73, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav::before,
+html > body.education.dashboard > div.fixed-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e5e5e5;
+}
+/* line 83, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav {
+  height: 112px;
+  background-color: #fff;
+}
+/* line 86, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav::before {
+  bottom: 0;
+}
+/* line 90, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-footer {
+  top: 100vh;
+  margin-top: -24rem;
+  min-width: 1232px;
+  background-color: #fff;
+}
+
+/* ******************************************************************************** */
+/* line 103, ../sass/education-prototype.scss */
+html > body.education.setup .spacer-setup {
+  height: 10rem;
+}
+@media only screen and (min-width: 1232px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+/* line 113, ../sass/education-prototype.scss */
+html > body.education > section::before {
+  display: none;
+}
+/* line 115, ../sass/education-prototype.scss */
+html > body.education > section h1 + h4 {
+  position: relative;
+  top: 1rem;
+}
+/* line 120, ../sass/education-prototype.scss */
+html > body.education > section header {
+  margin-bottom: 3rem;
+}
+/* line 122, ../sass/education-prototype.scss */
+html > body.education > section .form {
+  width: 50%;
+}
+/* line 124, ../sass/education-prototype.scss */
+html > body.education > section fieldset {
+  position: relative;
+  width: 83.63636364%;
+}
+/* line 129, ../sass/education-prototype.scss */
+html > body.education > section input[type=email],
+html > body.education > section input[type=text],
+html > body.education > section input[type=password] {
+  width: 100%;
+  display: block;
+  padding: 0;
+  -webkit-appearance: none;
+  line-height: 2.75rem !important;
+  height: 4rem;
+}
+/* line 140, ../sass/education-prototype.scss */
+html > body.education > section label {
+  position: relative;
+  height: 4rem;
+  display: block;
+  margin-bottom: 2rem;
+}
+/* line 147, ../sass/education-prototype.scss */
+html > body.education > section input[type=email].completed + .check {
+  width: 6px;
+  height: 12px;
+  box-shadow: inset -2px -2px 0 #05a955;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: -.125rem;
+  margin-top: -.125rem;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+/* line 163, ../sass/education-prototype.scss */
+html > body.education > section input[type=email],
+html > body.education > section input[type=text],
+html > body.education > section input[type=password] {
+  left: 0;
+  right: 1.5rem;
+  outline: none;
+  color: #656565;
+  background-color: "#fff";
+  box-shadow: inset 0 -1px 0 0 #c8c8c8;
+}
+/* line 173, ../sass/education-prototype.scss */
+html > body.education > section input[type=email]::-webkit-input-placeholder,
+html > body.education > section input[type=text]::-webkit-input-placeholder,
+html > body.education > section input[type=password]::-webkit-input-placeholder {
+  color: #c8c8c8;
+}
+/* line 175, ../sass/education-prototype.scss */
+html > body.education > section input[type=email]:hover::-webkit-input-placeholder,
+html > body.education > section input[type=text]:hover::-webkit-input-placeholder,
+html > body.education > section input[type=password]:hover::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.15);
+}
+/* line 179, ../sass/education-prototype.scss */
+html > body.education > section input[type=button] {
+  margin-top: 2rem;
+  height: 6rem;
+  min-width: 12rem;
+  text-align: center;
+  background: #71309E;
+  background: #fff;
+  color: #fff;
+  color: #71309E;
+  cursor: pointer;
+  padding: 0 2rem .25rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 0 0 1px #71309E;
+  box-shadow: inset 0 0 0 2px #71309E;
+}
+/* line 194, ../sass/education-prototype.scss */
+html > body.education > section input[type=button]:hover {
+  box-shadow: inset 0 0 0 2px #71309E;
+}
+/* line 198, ../sass/education-prototype.scss */
+html > body.education > section figure {
+  margin-left: -4rem;
+  margin-top: 6.625rem;
+  padding-left: 4rem;
+  background-color: transparent;
+  height: auto;
+  padding-bottom: 2rem !important;
+  bottom: 0;
+  top: 0;
+}
+/* line 207, ../sass/education-prototype.scss */
+html > body.education > section figure img {
+  width: 93rem;
+  height: 66rem;
+  background: none;
+  mix-blend-mode: none;
+}
+
+/* ******************************************************************************** */
+/* line 221, ../sass/education-prototype.scss */
+html > body.education.create > section header + p {
+  margin-top: -3.75rem;
+  padding-bottom: 2.75rem;
+}
+@media only screen and (min-width: 2448px) {
+  /* line 221, ../sass/education-prototype.scss */
+  html > body.education.create > section header + p {
+    margin-top: -4.25rem;
+    padding-bottom: 7.25rem;
+  }
+}
+/* line 234, ../sass/education-prototype.scss */
+html > body.education.create > section .form {
+  margin-top: 2rem;
+}
+
+/* ******************************************************************************** */
+@media only screen and (min-width: 1232px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 42rem;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 58rem;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 66rem;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 82rem;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 98rem;
+  }
+}
+/* line 251, ../sass/education-prototype.scss */
+html > body.education.home > section ul.columns-thirds {
+  padding-top: 18rem;
+}
+/* line 255, ../sass/education-prototype.scss */
+html > body.education.home > section ul.columns-thirds li {
+  position: relative;
+  padding-top: 1rem;
+}
+/* line 260, ../sass/education-prototype.scss */
+html > body.education.home > section ul.columns-thirds p > a {
+  position: relative;
+  top: -1rem;
+}
+/* line 265, ../sass/education-prototype.scss */
+html > body.education.home > section ul.columns-thirds figure {
+  width: 12rem;
+  height: 9rem;
+  position: absolute;
+  top: -10rem;
+  padding-top: none;
+  margin-top: 0;
+}
+
+/* line 276, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image {
+  left: -1rem;
+}
+/* line 279, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image img {
+  margin: 0 auto;
+  position: relative;
+  min-width: 1232px;
+}

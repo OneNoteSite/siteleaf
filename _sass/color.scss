@@ -1,0 +1,82 @@
+$gray:   #696969;
+$grayHr: #91a1a2;
+
+
+$white: #fff;
+$black: #000;
+$clear: transparent;
+
+$purpleBrand: 			#5c2e91;
+$purpleBrand-Dark: 	#491b7d;
+$purpleBrand-Light: #b498d4;
+
+$purpleAlternate: #71309E;
+$purpleBrand: $purpleAlternate;
+
+// Colors via http://jrdn.io/image/1Z2J0J2W0x3B Password: onenote
+
+$yellow: 			#fabd13;
+$tan: 				#c6a477;
+$orange:			#f7630c;
+$red:					#e81123;
+$redChalk:		#c10051;
+$magenta:			#d30078;
+$purple:			#ac008c;
+$purpleMist:	#5b2d91;
+$blue: 				#004f8c;
+$blueMist:		#0063af;
+$teal:				#0099bc;
+$cyan:				#00b7c1;
+$green:				#0f893d;
+$apple:				#00ad56;
+$lemon:				#7ec500;
+$silver:			#849399;
+$none: 				#7a7572;
+
+$yellow-Text: 					adjust-color($yellow,     $hue: 0, $saturation: 20, $lightness: -20);
+$tan-Text: 							adjust-color($tan,        $hue: 0, $saturation: 20, $lightness: -20);
+$orange-Text:						adjust-color($orange,     $hue: 0, $saturation: 20, $lightness: -20);
+$red-Text:							adjust-color($red,        $hue: 0, $saturation: 20, $lightness: -20);
+$redChalk-Text:					adjust-color($redChalk,   $hue: 0, $saturation: 20, $lightness: -20);
+$magenta-Text:					adjust-color($magenta,    $hue: 0, $saturation: 20, $lightness: -20);
+$purple-Text:						adjust-color($purple,     $hue: 0, $saturation: 20, $lightness: -20);
+$purpleMist-Text:				adjust-color($purpleMist, $hue: 0, $saturation: 20, $lightness: -20);
+$blue-Text: 						adjust-color($blue,       $hue: 0, $saturation: 20, $lightness: -20);
+$blueMist-Text:					adjust-color($blueMist,   $hue: 0, $saturation: 20, $lightness: -20);
+$teal-Text:							adjust-color($teal,       $hue: 0, $saturation: 20, $lightness: -20);
+$cyan-Text:							adjust-color($cyan,       $hue: 0, $saturation: 20, $lightness: -20);
+$green-Text:						adjust-color($green,      $hue: 0, $saturation: 20, $lightness: -20);
+$apple-Text:						adjust-color($apple,      $hue: 0, $saturation: 20, $lightness: -20);
+$lemon-Text:						adjust-color($lemon,      $hue: 0, $saturation: 20, $lightness: -20);
+$silver-Text:						adjust-color($silver,     $hue: 0, $saturation: 20, $lightness: -20);
+$none-Text: 						adjust-color($none,       $hue: 0, $saturation: 20, $lightness: -20);
+
+$yellow-Text-hover: 		adjust-color($yellow,     $hue: 0, $saturation: 40, $lightness: -40);
+$tan-Text-hover: 				adjust-color($tan,        $hue: 0, $saturation: 40, $lightness: -40);
+$orange-Text-hover:			adjust-color($orange,     $hue: 0, $saturation: 40, $lightness: -40);
+$red-Text-hover:				adjust-color($red,        $hue: 0, $saturation: 40, $lightness: -40);
+$redChalk-Text-hover:		adjust-color($redChalk,   $hue: 0, $saturation: 40, $lightness: -40);
+$magenta-Text-hover:		adjust-color($magenta,    $hue: 0, $saturation: 40, $lightness: -40);
+$purple-Text-hover:			adjust-color($purple,     $hue: 0, $saturation: 40, $lightness: -40);
+$purpleMist-Text-hover:	adjust-color($purpleMist, $hue: 0, $saturation: 40, $lightness: -40);
+$blue-Text-hover: 			adjust-color($blue,       $hue: 0, $saturation: 40, $lightness: -40);
+$blueMist-Text-hover:		adjust-color($blueMist,   $hue: 0, $saturation: 40, $lightness: -40);
+$teal-Text-hover:				adjust-color($teal,       $hue: 0, $saturation: 40, $lightness: -40);
+$cyan-Text-hover:				adjust-color($cyan,       $hue: 0, $saturation: 40, $lightness: -40);
+$green-Text-hover:			adjust-color($green,      $hue: 0, $saturation: 40, $lightness: -40);
+$apple-Text-hover:			adjust-color($apple,      $hue: 0, $saturation: 40, $lightness: -40);
+$lemon-Text-hover:			adjust-color($lemon,      $hue: 0, $saturation: 40, $lightness: -40);
+$silver-Text-hover:			adjust-color($silver,     $hue: 0, $saturation: 40, $lightness: -40);
+$none-Text-hover: 			adjust-color($none,       $hue: 0, $saturation: 40, $lightness: -40);
+
+
+/*
+.greyLight1  { background-color: #f4f4f4; }
+.greyLight2  { background-color: #ebebeb; }
+.greyLight3  { background-color: #dddddd; }
+.greyLight4  { background-color: #cccccc; }
+.grey        { background-color: #999999; }
+.greyMedium  { background-color: #666666; }
+.greyDark1   { background-color: #333333; }
+.greyDark2   { background-color: #222222; }
+*/

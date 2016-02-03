@@ -1,0 +1,299 @@
+@import "global";
+
+$color: #3BFFFF;
+$clear: transparent;
+$gridOpacity: .5;
+
+/*		From global.scss
+	
+			$grid-column-width-s:     50%;
+			$grid-column-width-m:     25%;
+			$grid-column-width-m-h:   16.666666667%;
+			$grid-column-width-l:     12.5%;
+			$grid-column-width-l-q-f: 10%;
+			$grid-column-width-l-h:   8.3333333333%;
+			$grid-column-width-l-q-l: 7.1428571429%;
+			$grid-column-width-xl:    6.25%;
+*/
+
+
+
+#grid {
+	$edgeColor: rgba(0,255,255,.15);
+	$blending: difference;
+	$blending: multiply;
+
+  pointer-events: none;
+  
+	position: absolute;
+	top:    0;
+	bottom: 0;
+  left:   1rem;
+  right:  1rem;
+  z-index: 3000000;
+  
+	box-shadow: 0 2rem 0 1rem $edgeColor;
+	
+	mix-blend-mode: $blending;
+	opacity: $gridOpacity;
+	
+	transition: opacity .25s ease;
+	
+	&::after {
+		position: absolute;
+		content: "";
+		top:   0;
+		left:  -1rem;
+		right: -1rem;
+		height: 1rem;
+		background-color: $edgeColor;
+	}
+	
+	&.hidden { opacity: 0; }
+  
+  * { pointer-events: none; }
+	
+	#rule_v {
+		/* Vertical lines of 8px */
+		$color: red;
+		// $color: transparent;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		opacity: .33;
+		background-size:     1rem 1rem;
+		background-image:    linear-gradient($color 12.5%, $clear 12.5%);
+		background-position: 50% 0;
+		padding: 0 1rem;
+		margin-left: -1rem;
+	}
+
+	#columnGroup {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		bottom: 0;
+		text-align: center;
+
+		$rowsPerCell: 6;
+		$unitVal:     8;
+		
+		$height:     $u       * $rowsPerCell;
+		$cellHeight: $unitVal * $rowsPerCell;
+
+		$rowHeight:  100% / $rowsPerCell;
+		
+		$marginTop:  $rowHeight;
+		$marginBot:  100% - $rowHeight;
+		
+		$lineHeight: $rowHeight / 8;
+		
+		.gridColumn {
+			
+			display: none;
+			
+			$color: #00adef;
+			$topLineTop: $marginTop;			
+			$topLineBot: $marginTop + $lineHeight; 
+			$botLineTop: $marginBot - $lineHeight;
+			$botLineBot: $marginBot;
+			
+			box-shadow: inset 0 6rem 0 1rem $edgeColor;
+
+			position: absolute;
+			top:    1rem;
+			bottom: 0;
+			width: 50%;
+			
+			/* Fix takes these values and move them out to global */
+			
+			@include Medium          { width: $grid-column-width-m;     } // 4  Columns @  624px
+			@include Medium-Half     { width: $grid-column-width-m-h;   } // 6  Columns @  928px
+			@include Large           { width: $grid-column-width-l;     } // 8  Columns @ 1232px
+			@include Large-Qtr-First { width: $grid-column-width-l-q-f; } // 10 Columns @ 1536px
+			@include Large-Half      { width: $grid-column-width-l-h;   } // 12 Columns @ 1840px
+			@include Large-Qtr-Last  { width: $grid-column-width-l-q-l; } // 14 Columns @ 2144px
+			@include XLarge          { width: $grid-column-width-xl;    } // 16 Columns @ 2448px
+
+			display: none;
+			
+			&::after,
+			&::before{
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left:  1rem;
+				right: 1rem;
+				background-repeat: repeat-y;
+			}
+			
+			&::before{
+				top: 0;
+				background-size:   1.0px $height, 1.0px $height, 100% $height, 100% $height;
+				/* @include Retina {
+					background-size: 0.5px $height, 0.5px $height, 100% $height, 100% $height;
+				} */
+				background-position: left top, right top, left top, left 1px;
+				background-image:
+					linear-gradient($clear $marginTop,  $color $marginTop,  $color $marginBot,  $clear $marginBot  ),
+					linear-gradient($clear $marginTop,  $color $marginTop,  $color $marginBot,  $clear $marginBot  ),
+					linear-gradient($clear $marginTop,  $color $topLineTop, $color $topLineBot, $clear $topLineBot ),
+					linear-gradient($clear $botLineTop, $color $botLineTop, $color $botLineBot, $clear $botLineBot );
+			}
+			
+			&::after {
+				
+				$stripeColor: rgba(59,255,255,.5);
+				//$stripeColor: rgba(59,255,255, 0);
+
+				$cellCount: 3;				
+				$rowHeight: 100% / ( $rowsPerCell * $cellCount );
+				$marginTop: $rowHeight;
+				$marginBot: 100% - $rowHeight;
+				
+				top: $height;
+				
+				background-size: 1.0px ($height * $cellCount), 1.0px ($height * $cellCount), 2rem 2rem;
+				background-position: left top, right top, left top;
+				background-repeat: repeat-y, repeat-y, repeat;
+				background-image: 
+					linear-gradient($clear $marginTop, $color $marginTop, $color $marginBot, $clear $marginBot ),
+					linear-gradient($clear $marginTop, $color $marginTop, $color $marginBot, $clear $marginBot ),
+					linear-gradient(90deg, $clear 50%,  $stripeColor 50%);
+				background-image: 
+					linear-gradient($clear $marginTop, $color $marginTop, $color $marginBot, $clear $marginBot ),
+					linear-gradient($clear $marginTop, $color $marginTop, $color $marginBot, $clear $marginBot );
+			}
+		}
+		
+		/* Handle Column Widths and which should be shown */
+		
+		$mid: $grid-column-width-s;
+		
+		#column8 { right: $mid; }
+		#column9 { left:  $mid; }
+
+		@include Medium {
+			$val: $grid-column-width-m;
+			
+			#column7  { right: $mid + $val * 1; }
+			#column8  { right: $mid + $val * 0; }
+			#column9  { left:  $mid + $val * 0; }
+			#column10 { left:  $mid + $val * 1; }			
+		}
+		
+		@include Medium-Half {
+			$val: $grid-column-width-m-h;
+
+			#column6  { right: $mid + $val * 2; }
+			#column7  { right: $mid + $val * 1; }
+			#column8  { right: $mid + $val * 0; }
+			#column9  { left:  $mid + $val * 0; }
+			#column10 { left:  $mid + $val * 1; }			
+			#column11 { left:  $mid + $val * 2; }			
+		}
+		
+		@include Large {
+			$val: $grid-column-width-l;
+			
+			#column5  { right: $mid + $val * 3; }
+			#column6  { right: $mid + $val * 2; }
+			#column7  { right: $mid + $val * 1; }
+			#column8  { right: $mid + $val * 0; }
+			#column9  { left:  $mid + $val * 0; }
+			#column10 { left:  $mid + $val * 1; }
+			#column11 { left:  $mid + $val * 2; }
+			#column12 { left:  $mid + $val * 3; }
+		}
+		
+		@include Large-Qtr-First {
+			$val: $grid-column-width-l-q-f;
+			
+			#column4  { right: $mid + $val * 4; }
+			#column5  { right: $mid + $val * 3; }
+			#column6  { right: $mid + $val * 2; }
+			#column7  { right: $mid + $val * 1; }
+			#column8  { right: $mid + $val * 0; }
+			#column9  { left:  $mid + $val * 0; }
+			#column10 { left:  $mid + $val * 1; }
+			#column11 { left:  $mid + $val * 2; }
+			#column12 { left:  $mid + $val * 3; }
+			#column13 { left:  $mid + $val * 4; }
+		}
+		
+		@include Large-Half {
+			$val: $grid-column-width-l-h;
+			
+			#column3  { right: $mid + $val * 5; }
+			#column4  { right: $mid + $val * 4; }
+			#column5  { right: $mid + $val * 3; }
+			#column6  { right: $mid + $val * 2; }
+			#column7  { right: $mid + $val * 1; }
+			#column8  { right: $mid + $val * 0; }
+			#column9  { left:  $mid + $val * 0; }
+			#column10 { left:  $mid + $val * 1; }
+			#column11 { left:  $mid + $val * 2; }
+			#column12 { left:  $mid + $val * 3; }
+			#column13 { left:  $mid + $val * 4; }
+			#column14 { left:  $mid + $val * 5; }
+		}
+		
+		@include Large-Qtr-Last {
+			$val: $grid-column-width-l-q-l;
+			
+			#column2  { right: $mid + $val * 6; }
+			#column3  { right: $mid + $val * 5; }
+			#column4  { right: $mid + $val * 4; }
+			#column5  { right: $mid + $val * 3; }
+			#column6  { right: $mid + $val * 2; }
+			#column7  { right: $mid + $val * 1; }
+			#column8  { right: $mid + $val * 0; }
+			#column9  { left:  $mid + $val * 0; }
+			#column10 { left:  $mid + $val * 1; }
+			#column11 { left:  $mid + $val * 2; }
+			#column12 { left:  $mid + $val * 3; }
+			#column13 { left:  $mid + $val * 4; }
+			#column14 { left:  $mid + $val * 5; }
+			#column15 { left:  $mid + $val * 6; }
+		}
+		
+		@include XLarge {
+			$val: $grid-column-width-xl;
+			
+			#column1  { right: $mid + $val * 7; }
+			#column2  { right: $mid + $val * 6; }
+			#column3  { right: $mid + $val * 5; }
+			#column4  { right: $mid + $val * 4; }
+			#column5  { right: $mid + $val * 3; }
+			#column6  { right: $mid + $val * 2; }
+			#column7  { right: $mid + $val * 1; }
+			#column8  { right: $mid + $val * 0; }
+			#column9  { left:  $mid + $val * 0; }
+			#column10 { left:  $mid + $val * 1; }
+			#column11 { left:  $mid + $val * 2; }
+			#column12 { left:  $mid + $val * 3; }
+			#column13 { left:  $mid + $val * 4; }
+			#column14 { left:  $mid + $val * 5; }
+			#column15 { left:  $mid + $val * 6; }
+			#column16 { left:  $mid + $val * 7; }
+		}
+		
+		#column8, #column9 { display: block; }
+		
+		@include Medium         { #column7,#column10 { display: block; }}
+		@include Medium-Half    { #column6,#column11 { display: block; }}
+		@include Large          { #column5,#column12 { display: block; }}
+		@include Large-Qtr-First{ #column4,#column13 { display: block; }}
+		@include Large-Half     { #column3,#column14 { display: block; }}
+		@include Large-Qtr-Last { #column2,#column15 { display: block; }}
+		@include XLarge         { #column1,#column16 { display: block; }}
+	}
+}
+
+body.gridHidden *,
+body.gridHidden *::before,
+body.gridHidden *::after {
+	transition: outline .25s ease;
+	outline: none !important;
+}

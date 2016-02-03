@@ -1,0 +1,49 @@
+
+@import "utilities";
+@import "breakpoints";
+@import "color";
+
+
+/* TO DOs
+ * type.scss - Fix - Add in weight classes to font-face declarations
+*/
+
+/* Base Units */
+
+$unit: 8px;
+$u:    $unit;
+
+$gutter-width: 2rem;
+$gutter-width-half: $gutter-width/2;
+
+/* Column Widths */
+
+$grid-column-width-s:     50%;
+$grid-column-width-m:     25%;
+$grid-column-width-m-h:   16.666666667%;
+$grid-column-width-l:     12.5%;
+$grid-column-width-l-q-f: 10%;
+$grid-column-width-l-h:   8.3333333333%;
+$grid-column-width-l-q-l: 7.1428571429%;
+$grid-column-width-xl:    6.25%;
+
+
+/* Cell Measurements */
+
+$cell-Height: 4rem;
+$cell-Margin:	2rem;
+$cell-HeightWithMargin: $cell-Height + $cell-Margin;
+
+$cell-MarginInside:		$cell-Margin;	// 2rem
+$cellGroup-MarginTop: $cell-Margin;	// 2rem
+
+$cellGroup-HeightContent: ($cell-Height * 3) + ($cell-MarginInside * 2);		// 16rem
+$cellGroup-Height:        $cellGroup-HeightContent + $cellGroup-MarginTop;  // 18rem
+
+$section-MarginTop: 7rem;
+
+/* General UI ELEMENTs */
+
+$nav-Height:    $cell-Height + $cell-Margin;
+$footer-Height: $cell-Height + $cell-Margin;
+

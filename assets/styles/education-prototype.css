@@ -1,0 +1,380 @@
+@charset "UTF-8";
+/*
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+*/
+/*
+@function cellGroup($number) {
+	
+	$value
+	
+}
+*/
+/*
+.greyLight1  { background-color: #f4f4f4; }
+.greyLight2  { background-color: #ebebeb; }
+.greyLight3  { background-color: #dddddd; }
+.greyLight4  { background-color: #cccccc; }
+.grey        { background-color: #999999; }
+.greyMedium  { background-color: #666666; }
+.greyDark1   { background-color: #333333; }
+.greyDark2   { background-color: #222222; }
+*/
+/* TO DOs
+ * type.scss - Fix - Add in weight classes to font-face declarations
+*/
+/* Base Units */
+/* Column Widths */
+/* Cell Measurements */
+/* General UI ELEMENTs */
+/* line 8, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image,
+html > body.education.home > div.fixed-footer,
+html > body.education.create > figure.placeholder-image,
+html > body.education.create > div.fixed-footer,
+html > body.education.dashboard > figure.placeholder-image,
+html > body.education.dashboard > div.fixed-footer {
+  min-width: 1232px;
+  height: auto;
+  padding: 0;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 19, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image img,
+html > body.education.home > div.fixed-footer img,
+html > body.education.create > figure.placeholder-image img,
+html > body.education.create > div.fixed-footer img,
+html > body.education.dashboard > figure.placeholder-image img,
+html > body.education.dashboard > div.fixed-footer img {
+  margin: 0 auto;
+  position: relative;
+  min-width: 1232px;
+}
+/* line 25, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image a,
+html > body.education.home > div.fixed-footer a,
+html > body.education.create > figure.placeholder-image a,
+html > body.education.create > div.fixed-footer a,
+html > body.education.dashboard > figure.placeholder-image a,
+html > body.education.dashboard > div.fixed-footer a {
+  left: 0;
+  right: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  			/*
+  			width: 200px;
+  			height: 48px;
+  */
+  background: "";
+  z-index: 2;
+  margin-left: -448px;
+  opacity: 0;
+}
+/* line 41, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image a:hover,
+html > body.education.home > div.fixed-footer a:hover,
+html > body.education.create > figure.placeholder-image a:hover,
+html > body.education.create > div.fixed-footer a:hover,
+html > body.education.dashboard > figure.placeholder-image a:hover,
+html > body.education.dashboard > div.fixed-footer a:hover {
+  opacity: .25;
+}
+
+/* ******************************************************************************** */
+/* line 50, ../sass/education-prototype.scss */
+html > body.education.dashboard {
+  background: #F2F2ED;
+}
+/* line 53, ../sass/education-prototype.scss */
+html > body.education.dashboard > figure.placeholder-image {
+  padding-top: 14rem;
+}
+/* line 56, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav,
+html > body.education.dashboard > div.fixed-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  text-align: center;
+}
+/* line 65, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav {
+  background-image: url("../_/img/dashboard-nav-bg.png");
+  background-position: center top;
+  background-repeat: repeat-x;
+}
+/* line 73, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav::before,
+html > body.education.dashboard > div.fixed-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e5e5e5;
+}
+/* line 83, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav {
+  height: 112px;
+  background-color: #fff;
+}
+/* line 86, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-nav::before {
+  bottom: 0;
+}
+/* line 90, ../sass/education-prototype.scss */
+html > body.education.dashboard > div.fixed-footer {
+  top: 100vh;
+  margin-top: -24rem;
+  min-width: 1232px;
+  background-color: #fff;
+}
+
+/* ******************************************************************************** */
+/* line 103, ../sass/education-prototype.scss */
+html > body.education.setup .spacer-setup {
+  height: 10rem;
+}
+@media only screen and (min-width: 1232px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 105, ../sass/education-prototype.scss */
+  html > body.education > section {
+    min-height: auto !important;
+  }
+}
+/* line 113, ../sass/education-prototype.scss */
+html > body.education > section::before {
+  display: none;
+}
+/* line 115, ../sass/education-prototype.scss */
+html > body.education > section h1 + h4 {
+  position: relative;
+  top: 1rem;
+}
+/* line 120, ../sass/education-prototype.scss */
+html > body.education > section header {
+  margin-bottom: 3rem;
+}
+/* line 122, ../sass/education-prototype.scss */
+html > body.education > section .form {
+  width: 50%;
+}
+/* line 124, ../sass/education-prototype.scss */
+html > body.education > section fieldset {
+  position: relative;
+  width: 83.63636364%;
+}
+/* line 129, ../sass/education-prototype.scss */
+html > body.education > section input[type=email],
+html > body.education > section input[type=text],
+html > body.education > section input[type=password] {
+  width: 100%;
+  display: block;
+  padding: 0;
+  -webkit-appearance: none;
+  line-height: 2.75rem !important;
+  height: 4rem;
+}
+/* line 140, ../sass/education-prototype.scss */
+html > body.education > section label {
+  position: relative;
+  height: 4rem;
+  display: block;
+  margin-bottom: 2rem;
+}
+/* line 147, ../sass/education-prototype.scss */
+html > body.education > section input[type=email].completed + .check {
+  width: 6px;
+  height: 12px;
+  box-shadow: inset -2px -2px 0 #05a955;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: -.125rem;
+  margin-top: -.125rem;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+/* line 163, ../sass/education-prototype.scss */
+html > body.education > section input[type=email],
+html > body.education > section input[type=text],
+html > body.education > section input[type=password] {
+  left: 0;
+  right: 1.5rem;
+  outline: none;
+  color: #656565;
+  background-color: "#fff";
+  box-shadow: inset 0 -1px 0 0 #c8c8c8;
+}
+/* line 173, ../sass/education-prototype.scss */
+html > body.education > section input[type=email]::-webkit-input-placeholder,
+html > body.education > section input[type=text]::-webkit-input-placeholder,
+html > body.education > section input[type=password]::-webkit-input-placeholder {
+  color: #c8c8c8;
+}
+/* line 175, ../sass/education-prototype.scss */
+html > body.education > section input[type=email]:hover::-webkit-input-placeholder,
+html > body.education > section input[type=text]:hover::-webkit-input-placeholder,
+html > body.education > section input[type=password]:hover::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.15);
+}
+/* line 179, ../sass/education-prototype.scss */
+html > body.education > section input[type=button] {
+  margin-top: 2rem;
+  height: 6rem;
+  min-width: 12rem;
+  text-align: center;
+  background: #71309E;
+  background: #fff;
+  color: #fff;
+  color: #71309E;
+  cursor: pointer;
+  padding: 0 2rem .25rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 0 0 1px #71309E;
+  box-shadow: inset 0 0 0 2px #71309E;
+}
+/* line 194, ../sass/education-prototype.scss */
+html > body.education > section input[type=button]:hover {
+  box-shadow: inset 0 0 0 2px #71309E;
+}
+/* line 198, ../sass/education-prototype.scss */
+html > body.education > section figure {
+  margin-left: -4rem;
+  margin-top: 6.625rem;
+  padding-left: 4rem;
+  background-color: transparent;
+  height: auto;
+  padding-bottom: 2rem !important;
+  bottom: 0;
+  top: 0;
+}
+/* line 207, ../sass/education-prototype.scss */
+html > body.education > section figure img {
+  width: 93rem;
+  height: 66rem;
+  background: none;
+  mix-blend-mode: none;
+}
+
+/* ******************************************************************************** */
+/* line 221, ../sass/education-prototype.scss */
+html > body.education.create > section header + p {
+  margin-top: -3.75rem;
+  padding-bottom: 2.75rem;
+}
+@media only screen and (min-width: 2448px) {
+  /* line 221, ../sass/education-prototype.scss */
+  html > body.education.create > section header + p {
+    margin-top: -4.25rem;
+    padding-bottom: 7.25rem;
+  }
+}
+/* line 234, ../sass/education-prototype.scss */
+html > body.education.create > section .form {
+  margin-top: 2rem;
+}
+
+/* ******************************************************************************** */
+@media only screen and (min-width: 1232px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 42rem;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 58rem;
+  }
+}
+@media only screen and (min-width: 1840px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 66rem;
+  }
+}
+@media only screen and (min-width: 2144px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 82rem;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 241, ../sass/education-prototype.scss */
+  html > body.education.home > section {
+    min-height: 98rem;
+  }
+}
+/* line 251, ../sass/education-prototype.scss */
+html > body.education.home > section ul.columns-thirds {
+  padding-top: 18rem;
+}
+/* line 255, ../sass/education-prototype.scss */
+html > body.education.home > section ul.columns-thirds li {
+  position: relative;
+  padding-top: 1rem;
+}
+/* line 260, ../sass/education-prototype.scss */
+html > body.education.home > section ul.columns-thirds p > a {
+  position: relative;
+  top: -1rem;
+}
+/* line 265, ../sass/education-prototype.scss */
+html > body.education.home > section ul.columns-thirds figure {
+  width: 12rem;
+  height: 9rem;
+  position: absolute;
+  top: -10rem;
+  padding-top: none;
+  margin-top: 0;
+}
+
+/* line 276, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image {
+  left: -1rem;
+}
+/* line 279, ../sass/education-prototype.scss */
+html > body.education.home > figure.placeholder-image img {
+  margin: 0 auto;
+  position: relative;
+  min-width: 1232px;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="137px" height="136px" viewBox="0 0 137 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>OneNote_Tile</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="ON_Live_Tiles_01" sketch:type="MSArtboardGroup">
+            <g id="OneNote_Tile" sketch:type="MSLayerGroup">
+                <path d="M0.06,0 L136.06,0 L136.06,136 L0.06,136 L0.06,0 L0.06,0 Z" id="Bg" fill="#7030A0" sketch:type="MSShapeGroup"></path>
+                <path d="M32,40 L32,96 L72,104 L72,32 L32,40" id="Fill-11" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M103,62 L100,62 L100,74 L103,74 C103.553,74 104,73.553 104,73 L104,63 C104,62.447 103.553,62 103,62" id="Fill-12" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M103,77 L100,77 L100,89 L103,89 C103.553,89 104,88.553 104,88 L104,78 C104,77.447 103.553,77 103,77" id="Fill-13" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M102,44 L98,44 L98,42 C98,40.896 97.104,40 96,40 L74,40 L74,50 L92,50 L92,52 L74,52 L74,57 L92,57 L92,59 L74,59 L74,64 L92,64 L92,66 L74,66 L74,71 L92,71 L92,73 L74,73 L74,78 L92,78 L92,80 L74,80 L74,85 L92,85 L92,87 L74,87 L74,96 L96,96 C97.104,96 98,95.104 98,94 L98,60 L102,60 C103.104,60 104,59.104 104,58 L104,46 C104,44.895 103.104,44 102,44" id="Fill-14" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M44,80 L47,80 L47,61 L59,80 L62,80 L62,56 L59,56 L59,75 L47,56 L44,56 L44,80" id="Fill-15" fill="#7030A0" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

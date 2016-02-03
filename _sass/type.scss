@@ -1,0 +1,214 @@
+@import "breakpoints";
+@import "color";
+
+/******************************************************************************/
+/* Font Faces */
+
+/*
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Segoe UI Bold'), local('SegoeUI-bold'), local('segoeuib');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Segoe UI Semibold'), local('SegoeUI-Semibold');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Segoe UI'), local('SegoeUI');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Segoe UI Light'), local('SegoeUI-Light');
+}
+*/
+
+$face-backups: 'Helvetica Neue', -apple-system, Roboto, Helvetica, sans-serif;
+$face-regular: 'Segoe UI', Segoe, 'Segoe WP', $face-backups;
+$face-light:   'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light', $face-regular;
+
+/* Fix - Add in weight classes to font-face declarations */
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('/_/font/segoeui.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Segoe UI Semilight';
+	src: url('/_/font/segoeuisl.ttf') format('truetype');
+}
+
+/******************************************************************************/
+/* Type Sizing */
+
+$light:   200;
+$regular: 400;
+
+$_25: 1.25;
+$_50: 1.5;
+$_14: 1.1428571429;
+$_17: 1.1764705882;
+$_23: 1.2307692308;
+$_33: 1.3333333333;
+
+$type-xl-Headline: 			$light 		8.00rem / #{$_25}; /* Headline */
+$type-lg-Headline: 			$light 		5.25rem / #{$_14};
+$type-md-Headline: 			$light 		5.25rem / #{$_14};
+$type-sm-Headline: 			$light 		4.25rem / #{$_17};
+
+$type-xl-Subhead: 			$light 		7.00rem / #{$_14}; /* Subhead */
+$type-lg-Subhead: 			$light 		4.25rem / #{$_17};
+$type-md-Subhead: 			$light 		4.00rem / #{$_25};
+$type-sm-Subhead: 			$light 		3.25rem / #{$_23};
+
+$type-xl-SubheadSmall: 	$light		3.00rem / #{$_33}; /* Subhead Small */
+$type-lg-SubheadSmall: 	$regular	2.00rem / #{$_50};
+$type-md-SubheadSmall: 	$regular	2.00rem / #{$_50};
+$type-sm-SubheadSmall: 	$regular	2.00rem / #{$_50};
+
+$type-xl-BodySmall:    	$light		3.00rem / #{$_33}; /* Body Small */
+$type-lg-BodySmall:    	$regular 	2.00rem / #{$_50};
+$type-md-BodySmall:    	$regular 	2.00rem / #{$_50};
+$type-sm-BodySmall:    	$regular 	2.00rem / #{$_50};
+
+$type-xl-Body:         	$light 		3.50rem / 5rem;    /* Body */ /* !! For some reason using a value here of $_14 messed things up */
+$type-lg-Body:         	$light 		2.25rem / #{$_33};
+$type-md-Body:         	$light 		2.25rem / #{$_33};
+$type-sm-Body:         	$regular 	2.25rem / #{$_33};
+
+$type-xl-Legal:        	$regular  2.00rem / #{$_50}; /* Legal */
+$type-lg-Legal:        	$regular  1.50rem / #{$_33};
+$type-md-Legal:        	$regular 	1.50rem / #{$_33};
+$type-sm-Legal:        	$regular 	1.50rem / #{$_33};
+
+$type-base-Headline:     $type-sm-Headline;
+$type-base-Subhead:      $type-sm-Subhead;
+$type-base-SubheadSmall: $type-sm-SubheadSmall;
+$type-base-BodySmall:    $type-sm-BodySmall;
+$type-base-Body:         $type-sm-Body;
+$type-base-Legal:        $type-sm-Legal;
+
+/******************************************************************************/
+/* Font Size Settings  */
+
+$font-xl-Headline: 			$type-xl-Headline			$face-light;
+$font-lg-Headline: 			$type-lg-Headline			$face-light;
+$font-md-Headline: 			$type-md-Headline			$face-light;
+$font-sm-Headline: 			$type-sm-Headline			$face-light;
+
+$font-xl-Subhead:				$type-xl-Subhead			$face-light;
+$font-lg-Subhead:				$type-lg-Subhead			$face-light;
+$font-md-Subhead:				$type-md-Subhead			$face-light;
+$font-sm-Subhead:				$type-sm-Subhead			$face-light;
+
+$font-xl-SubheadSmall: 	$type-xl-SubheadSmall	$face-light;
+$font-lg-SubheadSmall: 	$type-lg-SubheadSmall	$face-regular;
+$font-md-SubheadSmall: 	$type-md-SubheadSmall	$face-regular;
+$font-sm-SubheadSmall: 	$type-sm-SubheadSmall	$face-regular;
+
+$font-xl-BodySmall:			$type-xl-BodySmall		$face-light;
+$font-lg-BodySmall:			$type-lg-BodySmall		$face-regular;
+$font-md-BodySmall:			$type-md-BodySmall		$face-regular;
+$font-sm-BodySmall:			$type-sm-BodySmall		$face-regular;
+
+$font-xl-Body: 					$type-xl-Body 				$face-light;
+$font-lg-Body: 					$type-lg-Body 				$face-light;
+$font-md-Body: 					$type-md-Body 				$face-light;
+$font-sm-Body: 					$type-sm-Body 				$face-regular;
+
+$font-xl-Legal:					$type-xl-Legal				$face-regular;
+$font-lg-Legal:					$type-lg-Legal				$face-regular;
+$font-md-Legal:					$type-md-Legal				$face-regular;
+$font-sm-Legal:					$type-sm-Legal				$face-regular;
+
+/******************************************************************************/
+/* Type Defaults */
+
+$font-base-Headline:     $font-sm-Headline;
+$font-base-Subhead:      $font-sm-Subhead;
+$font-base-SubheadSmall: $font-sm-SubheadSmall;
+$font-base-BodySmall:    $font-sm-BodySmall;
+$font-base-Body:         $font-sm-Body;
+$font-base-Legal:        $font-sm-Legal;
+
+/******************************************************************************/
+/* DEFAULTS */
+
+/* Base Backup */
+
+	body        { font: $font-base-Body;                    * { font: $font-md-Body !important; }}
+	
+	h1          { font: $font-base-Headline     !important; * { font: inherit       !important; }}
+	h2          { font: $font-base-Subhead      !important; * { font: inherit       !important; }}
+	h3          { font: $font-base-SubheadSmall !important; * { font: inherit       !important; }}
+	h4          { font: $font-base-Body         !important; * { font: inherit       !important; }}
+	
+	p           { font: $font-base-Body         !important; * { font: inherit       !important; }}
+	p > small   { font: $font-base-BodySmall    !important; * { font: inherit       !important; }}
+	
+	small,
+	small.legal { font: $font-base-Legal        !important; * { font: inherit       !important; }}
+
+					
+@include Medium {
+	body        { font: $font-md-Body;                    * { font: $font-md-Body !important; }}
+	
+	h1          { font: $font-md-Headline     !important; * { font: inherit       !important; }}
+	h2          { font: $font-md-Subhead      !important; * { font: inherit       !important; }}
+	h3          { font: $font-md-SubheadSmall !important; * { font: inherit       !important; }}
+	h4          { font: $font-md-Body         !important; * { font: inherit       !important; }}
+		
+	p           { font: $font-md-Body         !important; * { font: inherit       !important; }}
+	p > small   { font: $font-md-BodySmall    !important; * { font: inherit       !important; }}
+	
+	small,
+	small.legal { font: $font-md-Legal        !important; * { font: inherit       !important; }}	
+}
+
+@include Large {
+	body        { font: $font-lg-Body;                    * { font: $font-lg-Body !important; }}
+	
+	h1          { font: $font-lg-Headline     !important; * { font: inherit       !important; }}
+	h2          { font: $font-lg-Subhead      !important; * { font: inherit       !important; }}
+	h3          { font: $font-lg-SubheadSmall !important; * { font: inherit       !important; }}
+	h4          { font: $font-lg-Body         !important; * { font: inherit       !important; }}	
+
+	p           { font: $font-lg-Body         !important; * { font: inherit       !important; }}
+	p > small   { font: $font-lg-BodySmall    !important; * { font: inherit       !important; }}
+	
+	small,
+	small.legal { font: $font-lg-Legal        !important; * { font: inherit       !important; }}	
+}
+
+@include XLarge {
+	body        { font: $font-xl-Body;                    * { font: $font-xl-Body !important; }}
+	
+	h1          { font: $font-xl-Headline     !important; * { font: inherit       !important; }}
+	h2          { font: $font-xl-Subhead      !important; * { font: inherit       !important; }}
+	h3          { font: $font-xl-SubheadSmall !important; * { font: inherit       !important; }}
+	h4          { font: $font-xl-Body         !important; * { font: inherit       !important; }}
+		
+	p           { font: $font-xl-Body         !important; * { font: inherit       !important; }}
+	p > small   { font: $font-xl-BodySmall    !important; * { font: inherit       !important; }}
+	
+	small,
+	small.legal { font: $font-xl-Legal        !important; * { font: inherit       !important; }}	
+}
+
+
+
+h4 { color: $black; }
+
+body *.monospace,
+body *.monospace *{
+	font-family: monospace !important;
+}

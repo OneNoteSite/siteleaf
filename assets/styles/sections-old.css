@@ -1,0 +1,799 @@
+@charset "UTF-8";
+/*
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+*/
+/*
+@function cellGroup($number) {
+	
+	$value
+	
+}
+*/
+/*
+.greyLight1  { background-color: #f4f4f4; }
+.greyLight2  { background-color: #ebebeb; }
+.greyLight3  { background-color: #dddddd; }
+.greyLight4  { background-color: #cccccc; }
+.grey        { background-color: #999999; }
+.greyMedium  { background-color: #666666; }
+.greyDark1   { background-color: #333333; }
+.greyDark2   { background-color: #222222; }
+*/
+/* TO DOs
+ * type.scss - Fix - Add in weight classes to font-face declarations
+*/
+/* Base Units */
+/* Column Widths */
+/* Cell Measurements */
+/* General UI ELEMENTs */
+/******************************************************************************/
+/* Font Faces */
+/*
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Segoe UI Bold'), local('SegoeUI-bold'), local('segoeuib');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Segoe UI Semibold'), local('SegoeUI-Semibold');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Segoe UI'), local('SegoeUI');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Segoe UI Light'), local('SegoeUI-Light');
+}
+*/
+/* Fix - Add in weight classes to font-face declarations */
+@font-face {
+  font-family: 'Segoe UI';
+  src: url("/_/font/segoeui.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'Segoe UI Semilight';
+  src: url("/_/font/segoeuisl.ttf") format("truetype");
+}
+/******************************************************************************/
+/* Type Sizing */
+/* Headline */
+/* Subhead */
+/* Subhead Small */
+/* Body Small */
+/* Body */
+/* !! For some reason using a value here of $_14 messed things up */
+/* Legal */
+/******************************************************************************/
+/* Font Size Settings  */
+/******************************************************************************/
+/* Type Defaults */
+/******************************************************************************/
+/* DEFAULTS */
+/* Base Backup */
+/* line 148, ../sass/type.scss */
+body {
+  font: 400 2.25rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+}
+/* line 148, ../sass/type.scss */
+body * {
+  font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+
+/* line 150, ../sass/type.scss */
+h1 {
+  font: 200 4.25rem / 1.1764705882 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 150, ../sass/type.scss */
+h1 * {
+  font: inherit       !important;
+}
+
+/* line 151, ../sass/type.scss */
+h2 {
+  font: 200 3.25rem / 1.2307692308 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 151, ../sass/type.scss */
+h2 * {
+  font: inherit       !important;
+}
+
+/* line 152, ../sass/type.scss */
+h3 {
+  font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 152, ../sass/type.scss */
+h3 * {
+  font: inherit       !important;
+}
+
+/* line 153, ../sass/type.scss */
+h4 {
+  font: 400 2.25rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 153, ../sass/type.scss */
+h4 * {
+  font: inherit       !important;
+}
+
+/* line 155, ../sass/type.scss */
+p {
+  font: 400 2.25rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 155, ../sass/type.scss */
+p * {
+  font: inherit       !important;
+}
+
+/* line 156, ../sass/type.scss */
+p > small {
+  font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 156, ../sass/type.scss */
+p > small * {
+  font: inherit       !important;
+}
+
+/* line 158, ../sass/type.scss */
+small,
+small.legal {
+  font: 400 1.5rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+}
+/* line 159, ../sass/type.scss */
+small *,
+small.legal * {
+  font: inherit       !important;
+}
+
+@media only screen and (min-width: 624px) {
+  /* line 163, ../sass/type.scss */
+  body {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  /* line 163, ../sass/type.scss */
+  body * {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+
+  /* line 165, ../sass/type.scss */
+  h1 {
+    font: 200 5.25rem / 1.1428571429 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 165, ../sass/type.scss */
+  h1 * {
+    font: inherit       !important;
+  }
+
+  /* line 166, ../sass/type.scss */
+  h2 {
+    font: 200 4rem / 1.25 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 166, ../sass/type.scss */
+  h2 * {
+    font: inherit       !important;
+  }
+
+  /* line 167, ../sass/type.scss */
+  h3 {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 167, ../sass/type.scss */
+  h3 * {
+    font: inherit       !important;
+  }
+
+  /* line 168, ../sass/type.scss */
+  h4 {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 168, ../sass/type.scss */
+  h4 * {
+    font: inherit       !important;
+  }
+
+  /* line 170, ../sass/type.scss */
+  p {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 170, ../sass/type.scss */
+  p * {
+    font: inherit       !important;
+  }
+
+  /* line 171, ../sass/type.scss */
+  p > small {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 171, ../sass/type.scss */
+  p > small * {
+    font: inherit       !important;
+  }
+
+  /* line 173, ../sass/type.scss */
+  small,
+  small.legal {
+    font: 400 1.5rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 174, ../sass/type.scss */
+  small *,
+  small.legal * {
+    font: inherit       !important;
+  }
+}
+@media only screen and (min-width: 1232px) {
+  /* line 178, ../sass/type.scss */
+  body {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  /* line 178, ../sass/type.scss */
+  body * {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+
+  /* line 180, ../sass/type.scss */
+  h1 {
+    font: 200 5.25rem / 1.1428571429 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 180, ../sass/type.scss */
+  h1 * {
+    font: inherit       !important;
+  }
+
+  /* line 181, ../sass/type.scss */
+  h2 {
+    font: 200 4.25rem / 1.1764705882 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 181, ../sass/type.scss */
+  h2 * {
+    font: inherit       !important;
+  }
+
+  /* line 182, ../sass/type.scss */
+  h3 {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 182, ../sass/type.scss */
+  h3 * {
+    font: inherit       !important;
+  }
+
+  /* line 183, ../sass/type.scss */
+  h4 {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 183, ../sass/type.scss */
+  h4 * {
+    font: inherit       !important;
+  }
+
+  /* line 185, ../sass/type.scss */
+  p {
+    font: 200 2.25rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 185, ../sass/type.scss */
+  p * {
+    font: inherit       !important;
+  }
+
+  /* line 186, ../sass/type.scss */
+  p > small {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 186, ../sass/type.scss */
+  p > small * {
+    font: inherit       !important;
+  }
+
+  /* line 188, ../sass/type.scss */
+  small,
+  small.legal {
+    font: 400 1.5rem / 1.3333333333 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 189, ../sass/type.scss */
+  small *,
+  small.legal * {
+    font: inherit       !important;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  /* line 193, ../sass/type.scss */
+  body {
+    font: 200 3.5rem/5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  /* line 193, ../sass/type.scss */
+  body * {
+    font: 200 3.5rem/5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+
+  /* line 195, ../sass/type.scss */
+  h1 {
+    font: 200 8rem / 1.25 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 195, ../sass/type.scss */
+  h1 * {
+    font: inherit       !important;
+  }
+
+  /* line 196, ../sass/type.scss */
+  h2 {
+    font: 200 7rem / 1.1428571429 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 196, ../sass/type.scss */
+  h2 * {
+    font: inherit       !important;
+  }
+
+  /* line 197, ../sass/type.scss */
+  h3 {
+    font: 200 3rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 197, ../sass/type.scss */
+  h3 * {
+    font: inherit       !important;
+  }
+
+  /* line 198, ../sass/type.scss */
+  h4 {
+    font: 200 3.5rem/5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 198, ../sass/type.scss */
+  h4 * {
+    font: inherit       !important;
+  }
+
+  /* line 200, ../sass/type.scss */
+  p {
+    font: 200 3.5rem/5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 200, ../sass/type.scss */
+  p * {
+    font: inherit       !important;
+  }
+
+  /* line 201, ../sass/type.scss */
+  p > small {
+    font: 200 3rem / 1.3333333333 "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 201, ../sass/type.scss */
+  p > small * {
+    font: inherit       !important;
+  }
+
+  /* line 203, ../sass/type.scss */
+  small,
+  small.legal {
+    font: 400 2rem / 1.5 "Segoe UI", Segoe, "Segoe WP", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  }
+  /* line 204, ../sass/type.scss */
+  small *,
+  small.legal * {
+    font: inherit       !important;
+  }
+}
+/* line 209, ../sass/type.scss */
+h4 {
+  color: #000;
+}
+
+/* line 211, ../sass/type.scss */
+body *.monospace,
+body *.monospace * {
+  font-family: monospace !important;
+}
+
+/* line 4, ../sass/sections-old.scss */
+body > section {
+  display: block;
+  position: relative;
+  text-align: left;
+  padding-top: 8rem;
+  background-size: 0 0;
+  background-repeat: no-repeat;
+}
+@media only screen and (min-width: 624px) {
+  /* line 4, ../sass/sections-old.scss */
+  body > section {
+    min-height: 54rem;
+  }
+}
+@media only screen and (min-width: 928px) {
+  /* line 4, ../sass/sections-old.scss */
+  body > section {
+    background-color: blue;
+  }
+}
+/* line 19, ../sass/sections-old.scss */
+body > section p, body > section small, body > section h1, body > section h2, body > section h3, body > section h4, body > section h5, body > section h6, body > section header {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* line 26, ../sass/sections-old.scss */
+body > section p strong > a {
+  display: inline-block;
+}
+/* line 30, ../sass/sections-old.scss */
+body > section::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: -1rem;
+  right: -1rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  z-index: 3;
+  height: 1px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  /* line 30, ../sass/sections-old.scss */
+  body > section::before {
+    height: .5px;
+  }
+}
+@media only screen and (min-width: 624px) {
+  /* line 30, ../sass/sections-old.scss */
+  body > section::before {
+    /* left: 1rem; right: 1rem; */
+  }
+}
+/* line 43, ../sass/sections-old.scss */
+body > section.grey::before {
+  bottom: 0;
+  top: 0;
+  height: auto;
+  background-color: #E8ECED !important;
+  z-index: -1;
+  box-shadow: none;
+}
+/* line 52, ../sass/sections-old.scss */
+body > section > header {
+  margin-top: -1rem;
+  /* Fix - Move out to responsive type */
+  padding-bottom: 3rem;
+}
+@media only screen and (min-width: 624px) {
+  /* line 60, ../sass/sections-old.scss */
+  body > section > header h2 {
+    position: relative;
+    top: -2px;
+  }
+}
+/* line 69, ../sass/sections-old.scss */
+body > section > p {
+  margin-top: -0.75rem;
+  padding-bottom: 2.75rem;
+  outline: 1px solid blue;
+}
+/* line 75, ../sass/sections-old.scss */
+body > section > p > strong a {
+  position: relative;
+}
+/* line 77, ../sass/sections-old.scss */
+body > section > p > strong a::after {
+  content: " >";
+}
+/* line 78, ../sass/sections-old.scss */
+body > section > p > strong a::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  right: -1rem;
+  bottom: -1rem;
+}
+@media only screen and (min-width: 624px) {
+  /* line 89, ../sass/sections-old.scss */
+  body > section > p,
+  body > section > header {
+    width: 50.0%;
+    padding-right: 1rem;
+  }
+}
+/* line 94, ../sass/sections-old.scss */
+body > section.inking > figure {
+  position: relative;
+  display: block;
+  box-sizing: padding-box;
+  height: 52rem;
+  left: -2rem;
+  padding: 1rem 2rem 0 2rem;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+@media only screen and (min-width: 624px) {
+  /* line 94, ../sass/sections-old.scss */
+  body > section.inking > figure {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 50%;
+    right: -1rem;
+    bottom: 0;
+    padding: 0;
+    margin-left: -1rem;
+    overflow: hidden;
+  }
+}
+/* line 123, ../sass/sections-old.scss */
+body > section.inking > figure > span {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+@media only screen and (min-width: 624px) {
+  /* line 123, ../sass/sections-old.scss */
+  body > section.inking > figure > span {
+    top: 0;
+  }
+}
+/* line 135, ../sass/sections-old.scss */
+body > section.inking > figure > span.primary {
+  background-repeat: no-repeat;
+}
+/* line 137, ../sass/sections-old.scss */
+body > section.inking > figure > span.primary {
+  z-index: 2;
+  background-size: 50% auto;
+  background-position: center 6rem;
+}
+@media only screen and (min-width: 624px) {
+  /* line 137, ../sass/sections-old.scss */
+  body > section.inking > figure > span.primary {
+    left: 50%;
+    margin-left: -1rem;
+    top: 12rem;
+    background-size: 236px auto;
+    /* Could this be fluid ? */
+    background-size: 115% auto;
+    background-position: left top;
+  }
+}
+/* line 153, ../sass/sections-old.scss */
+body > section.inking > figure img {
+  display: none !important;
+}
+/* line 158, ../sass/sections-old.scss */
+body > section.phone > figure {
+  position: relative;
+  display: block;
+  box-sizing: padding-box;
+  height: 34rem;
+  left: -2rem;
+  padding: 1rem 2rem 0 2rem;
+  top: 0;
+  width: 100%;
+}
+@media only screen and (min-width: 624px) {
+  /* line 158, ../sass/sections-old.scss */
+  body > section.phone > figure {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 50%;
+    right: -1rem;
+    bottom: 0;
+    padding: 0;
+    margin-left: -1rem;
+    overflow: hidden;
+  }
+}
+/* line 187, ../sass/sections-old.scss */
+body > section.phone > figure > span {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+@media only screen and (min-width: 624px) {
+  /* line 187, ../sass/sections-old.scss */
+  body > section.phone > figure > span {
+    top: 0;
+  }
+}
+/* line 199, ../sass/sections-old.scss */
+body > section.phone > figure > span.primary, body > section.phone > figure > span.secondary {
+  background-repeat: no-repeat;
+}
+/* line 202, ../sass/sections-old.scss */
+body > section.phone > figure > span.primary {
+  z-index: 2;
+  background-size: 50% auto;
+  background-position: center 6rem;
+}
+@media only screen and (min-width: 624px) {
+  /* line 202, ../sass/sections-old.scss */
+  body > section.phone > figure > span.primary {
+    left: 50%;
+    margin-left: -1rem;
+    top: 12rem;
+    background-size: 236px auto;
+    /* Could this be fluid ? */
+    background-size: 115% auto;
+    background-position: left top;
+  }
+}
+/* line 217, ../sass/sections-old.scss */
+body > section.phone > figure > span.secondary {
+  z-index: 1;
+  background-size: cover;
+  background-position: center top;
+}
+@media only screen and (min-width: 624px) {
+  /* line 217, ../sass/sections-old.scss */
+  body > section.phone > figure > span.secondary {
+    left: 50%;
+    margin-left: 0;
+    top: 8rem;
+    background-size: 0 0;
+    /*
+    background-position: left 8rem;
+    background-size: cover;
+    */
+  }
+  /* line 227, ../sass/sections-old.scss */
+  body > section.phone > figure > span.secondary::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    width: 300%;
+    -webkit-transform: translateX(-33.333333333%);
+    bottom: 0;
+    background-image: inherit;
+    background-position: 2rem top;
+    background-size: auto 380px;
+    background-size: 81% auto;
+    background-repeat: no-repeat;
+  }
+}
+/* line 250, ../sass/sections-old.scss */
+body > section.phone > figure img {
+  display: none !important;
+}
+
+/*
+		box-shadow: inset 0 0 0 1px rgba(0,0,0,.33);
+		$padding-adjust: $gutter-width;
+	
+		content: "";
+		display: block;
+
+		height: ($cellGroup-HeightContent * 2) + $cellGroup-MarginTop;
+		margin: 0 0 0 -2rem;
+		width:  100%;
+		padding: 0 $padding-adjust;
+*/
+/*
+		background-image:    inherit;
+		background-position: center 6rem, center top;
+		background-size:     cover;
+		background-repeat:   no-repeat;
+		box-sizing:          padding-box;
+*/
+/*
+		@include Medium {
+
+			width: 50.0%;
+			position: absolute;
+			right: 0;
+			top:    0;
+			bottom: 0;
+			margin-top: 0;
+			height: auto;
+			background-position: -5.5rem top;
+			
+			background-size: 640px auto;
+			padding: 0;
+		}
+		
+		@include Large {
+				width: 66.666666668%;
+				background-position: center top;
+				margin-left: 50%;
+				right: auto;
+		}
+*/
+/*
+section.hero{
+	margin-top:  -1rem;
+	padding-top: 13rem;
+	height: 78rem;
+	background-color: transparent;
+	*{ color: #fff !important; }
+	
+	&::before,
+	&::after{ display: none; }
+	
+	h1{ max-width: 100%; }
+}
+
+section{
+	
+	&::before,
+	&::after{
+		position: absolute;
+		content: "";
+		top:    0;
+		bottom: 0;
+		background-color: #fff;
+		z-index: -1;
+		width: 50%;
+	}
+	
+	&::before{  left: -1rem; padding-left:  1rem; }
+	&::after { right: -1rem; padding-right: 1rem; }
+	
+	
+	p, h1, h2, h3, h4, h5, h6, small{
+		display: block;
+		box-sizing: border-box;
+	}
+	
+	@include Medium {	
+		p, h1, h2, h3, h4, h5, h6{
+			max-width: 50%;
+			padding-right: 1rem;
+		}
+		&.right{
+			padding-left: 16.666666667% * 3;
+			p, h1, h2, h3, h4, h5, h6{
+				max-width: 100%;
+				padding-left:  1rem;
+				padding-right: 0;
+			}
+		}
+	}
+
+	@include Large {
+		&::before,
+		&::after{
+			width: 16.666666667% * 4;
+		}		
+		&::before{
+			left: -16.666666667%;
+			margin-left: -1rem;
+			padding-left: 1rem;
+		}
+		&::after{
+			right: -16.666666667%;
+			margin-right: -1rem;
+			padding-right: 1rem;
+		}
+		&.right{ padding-left: 12.5% * 3; }
+	}
+	
+	a{
+		margin-top: 1rem;
+		display: inline-block;
+		font-weight: 500 !important;
+		text-decoration: none;
+		color: #5B2D91;
+	}
+
+}
+
+section.insert {
+	&::before,
+	&::after{
+		background-color: #E8ECED;
+	}
+	
+}
+*/
