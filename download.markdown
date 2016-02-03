@@ -8,6 +8,7 @@ Data List:
 Object Item:
   Object Key 1: Object Value 1
   Object Key 2: Object Value 2
+layout: default
 ---
 
 # Get OneNote on your PC for Free
