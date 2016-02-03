@@ -1,8 +1,9 @@
 .DS_Store
 .sass-cache
-Archive.zip
-*.gz
-config.ru
+.git
+config/*.*
+Gemfile.lock
+Gemfile
 .siteleaf.yml
 _site
 .jekyll-metadata
