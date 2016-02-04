@@ -4,8 +4,12 @@ url: http://onenote.work
 timezone: America/Los_Angeles
 collections:
   posts:
-    title: Posts
+    title: Components
     output: true
+    Components:
+    - hero
+    - hero-full
+    - section
   uploads:
     title: Uploads
     output: true
