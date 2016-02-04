@@ -12,9 +12,6 @@ collections:
   items:
     title: Items
     output: true
-  other-components:
-    title: Other Components
-    output: true
   uploads:
     title: Uploads
     output: true
