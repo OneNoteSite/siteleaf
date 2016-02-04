@@ -2,7 +2,7 @@
 title: ondc
 date: 2016-01-25 23:39:00 -08:00
 hero:
-  headline: Your intelligent digial notebook
+  headline: Your intelligent digital notebook
   account: Create a free account
   action: Download OneNote
   text: Send app to my phone
