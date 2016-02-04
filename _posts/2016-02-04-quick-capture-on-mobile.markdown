@@ -3,7 +3,7 @@ title: Quick capture on mobile
 date: 2016-02-04 14:43:00 -08:00
 published: false
 categories:
-- section
+- feature
 tags:
 - left
 - bleed
