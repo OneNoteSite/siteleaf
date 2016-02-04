@@ -1,7 +1,7 @@
 @import "global";
 @import "type";
 
-body > section {
+main > section {
 
 	display:     block;
 	position:    relative;
@@ -11,6 +11,7 @@ body > section {
 	$big-padding-top:  ($cell-Height * 3) + ($cell-Margin * 4); // 20rem
 	
 	padding-top: $base-padding-top;
+	
 	@include Large-Half { padding-top: $big-padding-top; }
 	
 	/* Fix - Tie these to some patterns / values */

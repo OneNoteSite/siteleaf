@@ -1,10 +1,5 @@
----
----
-
-/*
 @import "compass/reset";
 @import "compass/css3";
-*/
 
 @import "global";
 @import "grid";
@@ -29,7 +24,7 @@
 	margin: 0;
 	padding: 0;
 	border: none;
-// 	-webkit-user-select: none;
+	// -webkit-user-select: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -60,9 +55,7 @@ html:before {
 
 /* General Layout Adjustments */
 
-html{
-	height: 100%;
-}
+html{ height: 100%; }
 
 body {
 	min-height: 100%;
@@ -83,42 +76,44 @@ a{ text-decoration: none; }
 
 body                   { color: $gray;   }
 h1, h2, h3, h4, h5, h6 { color: $black;	 }
-body > header *        { color: $white;  }
-section a              { color: $purple; }
+main > header *        { color: $white;  }
+main section a         { color: $purple; }
 
 /* Top Level Sections */
 
 body {
 
 	> *,
-	> header *,
-	> footer * { text-align: left;   }
-	> header,
-	> footer   { text-align: center; }
+	> main > header *,
+	> main > footer * { text-align: left;   }
+	
+	> main > header,
+	> main > footer   { text-align: center; }
 
 	> nav,
-	> section,
-	> figure,
-	> header h1,
-	> header div,
-	> footer > nav {
+	> main > section,
+	> main > figure,
+	> main > header > h1,
+	> main > header > hgroup,
+	> main > header > ul,
+	> main > footer > nav {
 		margin:  0 auto;
 		box-sizing: border-box;
 	}
 	
 	> nav,
-	> figure,
-	> section,
-	> footer {
+	> main > figure,
+	> main > section,
+	> main > footer {
 		padding: 0 $gutter-width-half;
 	}
 
 	> nav,
-	> section,
-	> figure,
-	> header > h1,
-	> header > div,
-	> footer > nav {
+	> main > section,
+	> main > figure,
+	> main > header > h1,
+	> main > header > hgroup,
+	> main > footer > nav {
 		@include Large           { width: $grid-column-width-l     *  6; }
 		@include Large-Qtr-First { width: $grid-column-width-l-q-f *  8; }
 		@include Large-Half      { width: $grid-column-width-l-h   * 10; }
@@ -131,13 +126,8 @@ body {
 	
 }
 
-.top{
-	background: green;
-	width: 100%;
-	height: 6rem;
-}
 
-#page-cover {
+#unsupported-message {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -153,10 +143,58 @@ body {
 	}
 }
 
-
-@import "nav";
 @import "type";
-@import "sections";
+@import "nav";
 @import "hero";
+@import "sections";
+
+
+.purpleBrand      { background-color: $purpleBrand; }
+.purpleBrandLight { background-color: #491b7d; }
+.purpleBrandDark  { background-color: #b498d4; }
+
+
+.yellow      { background-color: $yellow;      }
+.tan         { background-color: $tan;         }
+.orange      { background-color: $orange;      }
+.red         { background-color: $red;         }
+.redChalk    { background-color: $redChalk;    }
+.magenta     { background-color: $magenta;     }
+.purple      { background-color: $purple;      }
+.purpleMist  { background-color: $purpleMist;  }
+.blue        { background-color: $blue;        }
+.blueMist    { background-color: $blueMist;    }
+.teal        { background-color: $teal;        }
+.cyan        { background-color: $cyan;        }
+.green       { background-color: $green;       }
+.apple       { background-color: $apple;       }
+.lemon       { background-color: $lemon;       }
+.silver      { background-color: $silver;      }
+.none        { background-color: $none;        }
+
+.greyLight1  { background-color: #f4f4f4; }
+.greyLight2  { background-color: #ebebeb; }
+.greyLight3  { background-color: #dddddd; }
+.greyLight4  { background-color: #cccccc; }
+.grey        { background-color: #999999; }
+.greyMedium  { background-color: #666666; }
+.greyDark1   { background-color: #333333; }
+.greyDark2   { background-color: #222222; }
+
+.greyLight1,
+.greyLight2,
+.greyLight3,
+.greyLight4{
+	p > small{
+		color: #000;
+	}
+}
+
+/*
+
+
+
+
 @import "footer";
 @import "education-prototype";
+*/

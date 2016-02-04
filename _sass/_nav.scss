@@ -1,0 +1,55 @@
+@import "global";
+
+body {
+
+	> nav {
+		position: relative;
+		padding-top: 1rem;
+		z-index: 2;
+		height:         $nav-Height;
+		max-height:     $nav-Height;
+		margin-bottom: -$nav-Height;
+		background: green;
+		
+		h1 a { display: none; }
+		
+		svg {
+			display: block;
+			height: 3rem;
+			width: 28rem;
+			margin-top: .5rem;
+		}
+
+		&::after{
+			content: "";
+			background: $purpleBrand;
+			position: absolute;
+			bottom: 0;
+			top:    0;
+			width: 133.33333333333%;
+			margin-left: -16.666666667%;
+			left: -1rem;
+			padding: 0 1rem;
+			box-sizing: content-box;
+			z-index: -1;
+		}
+		
+		ul{
+			position: absolute;
+			right: -1rem;
+			top: 1.5rem;
+			
+			li {
+				display: inline-block;
+				
+				a{
+					padding: 0 2rem;
+					text-decoration: none;
+					color: $white;
+					@include Large { font-size: 2.25rem !important; }
+					&:hover{ opacity: .5; }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+https://gist.github.com/xavez/6293288
+
+Static site Guard setup. Use Compass, Jammit, Jekyll and LiveReload to compile static sites. 1. `cd` into project root 2. `gem update --system && gem install bundler && bundle install` 3. `bundle exec guard`
+
+To RUN CD into directory and run
+
+bundle exec jekyll serve --no-watch
+
+bundle exec guard

@@ -1,0 +1,17 @@
+gzip_assets: off
+javascript_compressor: closure-compiler
+
+# javascripts:
+#   $/js:
+#     - $/js/app.js
+
+
+
+# javascripts:
+#   js/scripts-min:
+#     - js/src/lib/*.js
+#     - js/src/app.js
+# 
+# stylesheets:
+#   css/style-min:
+#     - css/style.css

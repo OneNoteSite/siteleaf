@@ -7,40 +7,128 @@
 }
 */
 
-body > header {
-	position: relative;
-	box-sizing: border-box;
-
+/*
 	height: 100vh;
 	min-height: 100vmin;
 	max-height: 100vmin;
+*/
+
+main > header {
+	
+	//outline: 1px solid gold;
+	
+	$height: ($cellGroup-Height * 4) + $nav-Height;
+	$topPadding: $nav-Height + $cellGroup-Height + $cell-HeightWithMargin;
+	$groupHeight: $cell-HeightWithMargin + $cell-Margin;
+	$horzPadding: $gutter-width-half/4;
+	$headlineAdjustment: -.125rem;
+	
+	position: relative;
+	box-sizing: border-box;
+
+	height:     $height;
+	min-height: $height;
+	max-height: $height;
+	
 	z-index: 1;
 	
-	padding: $nav-Height $gutter-width-half 0 $gutter-width-half;
+	padding: $topPadding $horzPadding 0 $horzPadding;
+	margin:  0rem;
 	
 	-webkit-transition: height .2 ease;
-	transition: height .2 ease;
+	transition:         height .2 ease;
 	
 	// Background Color
 	&::before{
 		@include absoluteSnapPseudo($left: -1rem, $right: -1rem);
 		background-color: $purpleBrand;
+		background-color: #C1C1C1;
 		z-index: -1;
 	}
 	
-	h1{
-		padding-top: $nav-Height + 1rem;
-		-webkit-font-smoothing: antialiased;
+	> hgroup {
+
 		position: relative;
-		top: -.125rem;
-		margin-bottom: .5em;
+		box-sizing: content-box;
+		display: block;
+		min-height: $groupHeight;
+		font-size: 0 !important;
+		
+		> * {
+			display: inline-block;
+			min-height: $groupHeight;
+			vertical-align: top;			
+		}
+		
+		#hero-logo {
+			width: $percentThird;
+			padding-left: $gutter-width-half;
+			svg {
+				display: block;
+				width: auto;
+				height: 8rem;
+				margin-right: $gutter-width;
+			}
+		}
+		
+		h1{
+			//outline: 1px solid red;
+			position: relative;
+			top: 1rem + $headlineAdjustment;
+			width: auto !important;
+			-webkit-font-smoothing: antialiased;
+			margin: 0;
+		}
+		
+		ul{
+			//outline: 1px solid orange;
+			padding-top: $cell-HeightWithMargin;
+			display: block;
+			color: black;
+			position: relative;
+			font-size: 0 !important;
+			margin: 0 0;
+			
+			li{
+				box-sizing: border-box;
+				display: inline-block;
+				height: $cell-HeightWithMargin;
+				min-width: 25%;
+				padding: 0 1rem;
+
+				a{
+					box-sizing: border-box;
+					display: block;
+					height: $cell-HeightWithMargin;
+					text-decoration: none;
+					padding: 1.5rem 2rem;
+					text-align: center;
+					-webkit-transition: all 1 ease;
+					transition: all 1 ease;
+					-webkit-transform: scale(1);
+					-webkit-transform-origin: top middle;
+					transform-origin: top middle;
+
+					&:hover{
+						text-decoration: none;			
+						opacity: .66
+					}
+				}
+				
+				&.action  a,
+				&.text    a { color: #fff; }
+				&.account a { color: #C1C1C1; background-color: #fff; }
+				&.action  a { box-shadow: inset 0 0 0 1px #fff; }
+				&.text    a { opacity: .5; }
+			}
+		}
 	}
-	
-	.devices{ display: none; }
+// 	.devices{ display: none; }
 }
 
 /* ******************************************************* */
 
+/*
 body.education > header {
 
 	$height: ($cellGroup-Height * 3) + $nav-Height;
@@ -167,11 +255,13 @@ body.education > header {
 		}
 	}
 }
+*/
 
 
 
 /* ******************************************************* */
 
+/*
 body > figure.color {
 	margin-top: 5rem;
 	padding: $gutter-width $gutter-width-half;
@@ -259,47 +349,9 @@ body > figure.color {
 		}		
 	}	
 }
-
-.purpleBrand      { background-color: $purpleBrand; }
-.purpleBrandLight { background-color: #491b7d; }
-.purpleBrandDark  { background-color: #b498d4; }
+*/
 
 
-.yellow      { background-color: $yellow;      }
-.tan         { background-color: $tan;         }
-.orange      { background-color: $orange;      }
-.red         { background-color: $red;         }
-.redChalk    { background-color: $redChalk;    }
-.magenta     { background-color: $magenta;     }
-.purple      { background-color: $purple;      }
-.purpleMist  { background-color: $purpleMist;  }
-.blue        { background-color: $blue;        }
-.blueMist    { background-color: $blueMist;    }
-.teal        { background-color: $teal;        }
-.cyan        { background-color: $cyan;        }
-.green       { background-color: $green;       }
-.apple       { background-color: $apple;       }
-.lemon       { background-color: $lemon;       }
-.silver      { background-color: $silver;      }
-.none        { background-color: $none;        }
-
-.greyLight1  { background-color: #f4f4f4; }
-.greyLight2  { background-color: #ebebeb; }
-.greyLight3  { background-color: #dddddd; }
-.greyLight4  { background-color: #cccccc; }
-.grey        { background-color: #999999; }
-.greyMedium  { background-color: #666666; }
-.greyDark1   { background-color: #333333; }
-.greyDark2   { background-color: #222222; }
-
-.greyLight1,
-.greyLight2,
-.greyLight3,
-.greyLight4{
-	p > small{
-		color: #000;
-	}
-}
 
 
 

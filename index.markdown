@@ -5,6 +5,7 @@ hero:
   headline: Your intelligent digial notebook
   account: Create a free account
   action: Download OneNote
+  text: Send app to my phone
 feature:
   headline: Collaboaration
   body: Lorem ipsum dolor site amet, ...
