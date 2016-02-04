@@ -1,6 +1,7 @@
 ---
 title: Section for verticals, partners, etc.
 date: 2000-01-30 00:00:00 -08:00
+published: false
 categories:
 - grid
 tags:
