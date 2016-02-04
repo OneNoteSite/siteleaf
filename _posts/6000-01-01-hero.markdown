@@ -8,6 +8,6 @@ tags:
 - hero
 ---
 
-[Create a free account](#)
-[Download OneNote](#)
-[Send app to my phone](#)
+* [Create a free account](#)
+* [Download OneNote](#)
+* [Send app to my phone](#)
