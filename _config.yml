@@ -9,6 +9,9 @@ collections:
     Components:
     - hero
     - hero-full
+  items:
+    title: Items
+    output: true
   other-components:
     title: Other Components
     output: true
