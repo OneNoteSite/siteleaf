@@ -2,7 +2,7 @@
 title: ondc
 date: 2016-01-25 23:39:00 -08:00
 hero:
-  headline: OneNote will save you.
+  headline: OneNote to rule them all.
   account: Create a free account
   action: Download OneNote
   text: Send app to my phone
