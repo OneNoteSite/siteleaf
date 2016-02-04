@@ -9,6 +9,7 @@ collections:
     Components:
     - hero
     - hero-full
+    - section
   items:
     title: Items
     output: true
