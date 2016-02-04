@@ -1,6 +1,6 @@
 ---
 title: Section for verticals, partners, etc.
-date: 4000-01-01 00:00:00 -08:00
+date: 2000-01-30 00:00:00 -08:00
 categories:
 - grid
 tags:
