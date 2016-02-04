@@ -6,9 +6,6 @@ collections:
   posts:
     title: Components
     output: true
-  components:
-    title: Components
-    output: true
   uploads:
     title: Uploads
     output: true
