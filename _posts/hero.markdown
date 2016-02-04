@@ -1,6 +1,5 @@
 ---
 title: Hero
-date: 2016-02-04 14:13:00 -08:00
 published: false
 ---
 
