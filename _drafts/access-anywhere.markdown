@@ -8,3 +8,9 @@ tags:
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam bibendum risus quis ante vehicula, et ultrices mauris luctus.
+
+**See all platforms**
+
+* [Windows](#windows)
+* [Apple](#apple)
+* [Android](Android)
