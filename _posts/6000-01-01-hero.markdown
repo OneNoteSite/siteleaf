@@ -1,5 +1,5 @@
 ---
-title: Your Intelligent Digital Notebook
+title: Your intelligent digital notebook
 date: 6000-01-01 00:00:00 -08:00
 published: false
 categories:
