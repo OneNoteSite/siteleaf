@@ -85,10 +85,10 @@ body {
 
 	> *,
 	> main > header *,
-	> main > footer * { text-align: left;   }
+	> footer * { text-align: left;   }
 	
 	> main > header,
-	> main > footer   { text-align: center; }
+	> footer   { text-align: center; }
 
 	> nav,
 	> main > section,
@@ -96,7 +96,7 @@ body {
 	> main > header > h1,
 	> main > header > hgroup,
 	> main > header > ul,
-	> main > footer > nav {
+	> footer > nav {
 		margin:  0 auto;
 		box-sizing: border-box;
 	}
@@ -104,7 +104,7 @@ body {
 	> nav,
 	> main > figure,
 	> main > section,
-	> main > footer {
+	> footer {
 		padding: 0 $gutter-width-half;
 	}
 
@@ -113,7 +113,7 @@ body {
 	> main > figure,
 	> main > header > h1,
 	> main > header > hgroup,
-	> main > footer > nav {
+	> footer > nav {
 		@include Large           { width: $grid-column-width-l     *  6; }
 		@include Large-Qtr-First { width: $grid-column-width-l-q-f *  8; }
 		@include Large-Half      { width: $grid-column-width-l-h   * 10; }
@@ -147,6 +147,7 @@ body {
 @import "nav";
 @import "hero";
 @import "sections";
+@import "footer";
 
 
 .purpleBrand      { background-color: $purpleBrand; }
