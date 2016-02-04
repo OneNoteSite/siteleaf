@@ -6,7 +6,9 @@ collections:
   posts:
     title: Components
     output: true
-    Components: hero
+    Components:
+    - hero
+    - hero-full
   uploads:
     title: Uploads
     output: true
