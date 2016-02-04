@@ -3,11 +3,11 @@ title: OneNote
 url: http://onenote.work
 timezone: America/Los_Angeles
 collections:
-  components:
+  posts:
     title: Components
     output: true
-  posts:
-    title: Posts
+  components:
+    title: Components
     output: true
   uploads:
     title: Uploads
