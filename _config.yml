@@ -22,5 +22,11 @@ defaults:
   values:
     layout: page
 permalink: pretty
-destination: ./_site
-exclude: ['Gem*','Guard*','*.rb','.sass-cache','.git*','config.rb']
+destination: "./_site"
+exclude:
+- Gem*
+- Guard*
+- "*.rb"
+- ".sass-cache"
+- ".git*"
+- config.rb
