@@ -1,6 +1,8 @@
 ---
 title: Access Anywhere
 date: 2016-02-04 14:27:00 -08:00
+categories:
+- section
 tags:
 - section
 ---
