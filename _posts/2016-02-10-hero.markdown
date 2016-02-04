@@ -1,10 +1,12 @@
 ---
-title: Hero
+title: Your Intelligent Digital Notebook
 date: 2016-02-10 00:00:00 -08:00
 published: false
+categories:
+- hero
+tags:
+- hero
 ---
-
-Your Intelligent Digital Notebook
 
 [Create a free account](#)
 [Download OneNote](#)
