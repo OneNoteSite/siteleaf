@@ -1,5 +1,5 @@
 ---
-title: index
+title: Index
 date: 2016-01-25 23:39:00 -08:00
 hero:
   headline: Your intelligent digial notebook
@@ -26,9 +26,7 @@ feature-multi:
 - headline: Integrations
   body: OneNote lets you insert files directly into your notes so you have them when
     you need them.
-layout: home
+layout: default
 ---
 
 <!-- Enter Code here you want on your page... -->
-
-Welcome to OneNote.work
