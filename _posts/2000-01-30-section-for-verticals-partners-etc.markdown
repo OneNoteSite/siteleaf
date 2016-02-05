@@ -8,12 +8,12 @@ tags:
 - three-up
 ---
 
-* ##Education
+* **Education**
 * OneNote lets you insert files directly into your notes so you have them when you need them.
 
 
-* ##Developers
+* **Developers**
 * Like writing instead of typing? OneNote converts handwriting to text. View that ink seamlessly.
 
-* ##Integrations
+* **Integrations**
 * OneNote lets you insert files directly into your notes so you have them when you need them.
