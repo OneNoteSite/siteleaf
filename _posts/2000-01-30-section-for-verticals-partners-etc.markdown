@@ -8,6 +8,7 @@ tags:
 - three-up
 ---
 
+___
 * **Education**
 * OneNote lets you insert files directly into your notes so you have them when you need them.
 
