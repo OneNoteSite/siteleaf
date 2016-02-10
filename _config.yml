@@ -16,6 +16,9 @@ collections:
   homepage:
     title: Homepage
     output: true
+  jordan:
+    title: Jordan
+    output: true
   uploads:
     title: Uploads
     output: true
