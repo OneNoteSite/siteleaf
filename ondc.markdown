@@ -11,9 +11,10 @@ hero:
 feature:
   headline: Never forget again
   body: Put all of your ideas, notes, and to-do's in OneNote to help you get more
-    done. Whether you want to type, ink, or clip from the web, we've got you covered.
-    No matter how large or small OneNote will help you stay organized and get more
-    done with our easy to use notebook's sections, pages, and powerful search.
+    done. Whether you want to type, ink, or clip from the web, we've got you covered
+    with our free form canvas. No matter how large or small OneNote will help you
+    stay organized and get more done with our easy to use notebook's sections, pages,
+    and powerful search.
 feature-solo:
   headline: Collaborate with anyone
   body: 'Share your notes with friends, family or teammates to work together as you
@@ -21,10 +22,16 @@ feature-solo:
     list. No matter where you are, OneNote''s {ed: virtually?} real time sync will
     keep everyone on the same page, literally and figuratively! '
   image-src: none
+  Key: 
+  NEW SECTION HEADER: Think with ink
+  body for Ink section: Easily write or draw your thoughts with a stylus (or even
+    your finger!) to think the way you want. Express yourself with a variety of pens,
+    highlighters, colors, and shape recognition to put your best foot forwards. You
+    can even search your notebook for handwritten notes or convert your ink into typed
+    text.
 feature-multi:
 - headline: Education
-  body: OneNote lets you insert files directly into your notes so you have them when
-    you need them.
+  body: 
 - 
 - headline: Developers
   body: Like writing instead of typing? OneNote converts handwriting to text. View
