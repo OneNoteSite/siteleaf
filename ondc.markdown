@@ -15,8 +15,11 @@ feature:
     No matter how large or small OneNote will help you stay organized and get more
     done with our easy to use notebook's sections, pages, and powerful search.
 feature-solo:
-  headline: Quick capture on mobile
-  body: Lorem ipsum dolor site amet, ...
+  headline: Collaborate with anyone
+  body: 'Share your notes with friends, family or teammates to work together as you
+    try to conquer your next big idea at the office or check off the family shopping
+    list. No matter where you are, OneNote''s {ed: virtually?} real time sync will
+    keep everyone on the same page, literally and figuratively! '
   image-src: none
 feature-multi:
 - headline: Education
