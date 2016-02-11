@@ -23,12 +23,15 @@ feature-solo:
     keep everyone on the same page, literally and figuratively! '
   image-src: none
   Key: 
-  NEW SECTION HEADER: Think with ink
+  NEW SECTION HEADER: Access from anywhere
   body for Ink section: Easily write or draw your thoughts with a stylus (or even
     your finger!) to think the way you want. Express yourself with a variety of pens,
     highlighters, colors, and shape recognition to put your best foot forwards. You
     can even search your notebook for handwritten notes or convert your ink into typed
     text.
+  body for access: Get your notes and content from anywhere. Easily start on your
+    laptop and switch to your phone on the go, no matter the device OneNote is free
+    and works seamlessly across them all.
 feature-multi:
 - headline: Education
   body: 
