@@ -2,14 +2,18 @@
 title: ondc
 date: 2016-01-25 23:39:00 -08:00
 hero:
-  headline: OneNote to rule them all.
-  account: Create a free account
+  headline: Organize your life
+  Sub header: Capture all your notes, ideas, and files in one digital notebook. OneNote
+    makes it easier to stay organized, keep focused, and get more done.
+  account: Sign in
   action: Download OneNote
-  text: Send app to my phone
+  text: Text me a link
 feature:
-  headline: Collaboaration
-  body: Lorem ipsum dolor site amet, ...
-  action: See all platforms
+  headline: Never forget again
+  body: Put all of your ideas, notes, and to-do's in OneNote to help you get more
+    done. Whether you want to type, ink, or clip from the web, we've got you covered.
+    No matter how large or small OneNote will help you stay organized and get more
+    done with our easy to use notebook's sections, pages, and powerful search.
 feature-solo:
   headline: Quick capture on mobile
   body: Lorem ipsum dolor site amet, ...
