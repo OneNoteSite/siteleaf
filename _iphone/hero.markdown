@@ -1,6 +1,7 @@
 ---
 title: Hero
 date: 2016-02-12 09:20:00 -08:00
+tags: "[hero]"
 ---
 
 OneNote on your iPhone
