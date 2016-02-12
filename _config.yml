@@ -3,9 +3,6 @@ title: OneNote
 url: http://onenote.work
 timezone: America/Los_Angeles
 collections:
-  ailsas-page:
-    title: Ailsa's page
-    output: true
   posts:
     title: Components
     output: true
