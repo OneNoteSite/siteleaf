@@ -34,7 +34,7 @@ feature-solo:
     and works seamlessly across them all.
 feature-multi:
 - headline: Education
-  body: 
+  body: This doesn't have copy yet...
 - 
 - headline: Developers
   body: Like writing instead of typing? OneNote converts handwriting to text. View
