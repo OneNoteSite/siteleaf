@@ -6,6 +6,14 @@ collections:
   components:
     title: Components
     output: false
+    Components:
+      hero:
+      - custom
+      - full
+      feature:
+      - left
+      - right
+      - full
   posts:
     title: Do Not Modify
     output: true
