@@ -10,9 +10,6 @@ collections:
     - hero
     - hero-full
     - section
-  homepage:
-    title: Homepage
-    output: true
   uploads:
     title: Uploads
     output: true
