@@ -1,6 +1,8 @@
 ---
 title: Grid
 date: 2016-02-12 09:32:00 -08:00
+image1:
+  image: "/uploads/2426639.gif"
 ---
 
 OneNote for iPhone at a glance
@@ -8,7 +10,7 @@ OneNote for iPhone at a glance
 [1] Record Audio [image1]
 Easily record lectures, leave an audio note, or capture musical inspiration.
 
-[2] Inking [image2]
+[2] Inking [image2]![2467523.gif](/uploads/2467523.gif)
 Draw quickly with your finger or a stylus on the iPhone
 
 [3] Office Lens [image3]
