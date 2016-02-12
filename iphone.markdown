@@ -7,6 +7,7 @@ Hero:
     the app store, or text yourself a download link for later."
   Text CTA: Text me a link
   action: Download
+  image: image
 Announcement:
   Text: Shape recognition is now available on OneNote for iPhone! Draw quick diagrams,
     and let OneNote worry about making it look perfect.
