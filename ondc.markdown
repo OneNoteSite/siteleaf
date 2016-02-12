@@ -22,19 +22,19 @@ feature-solo:
     list. No matter where you are, OneNote''s {ed: virtually?} real time sync will
     keep everyone on the same page, literally and figuratively! '
   image-src: none
-  Key: 
-  NEW SECTION HEADER: Access from anywhere
+  NEW SECTION INK: Think with ink
   body for Ink section: Easily write or draw your thoughts with a stylus (or even
     your finger!) to think the way you want. Express yourself with a variety of pens,
     highlighters, colors, and shape recognition to put your best foot forwards. You
     can even search your notebook for handwritten notes or convert your ink into typed
     text.
+  NEW SECTION HEADER: Access from anywhere
   body for access: Get your notes and content from anywhere. Easily start on your
     laptop and switch to your phone on the go, no matter the device OneNote is free
     and works seamlessly across them all.
 feature-multi:
 - headline: Education
-  body: This doesn't have copy yet...
+  body: 
 - 
 - headline: Developers
   body: Like writing instead of typing? OneNote converts handwriting to text. View
