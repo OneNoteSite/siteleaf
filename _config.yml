@@ -3,6 +3,9 @@ title: OneNote
 url: http://onenote.work
 timezone: America/Los_Angeles
 collections:
+  components:
+    title: Components
+    output: true
   posts:
     title: Do Not Modify
     output: true
