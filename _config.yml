@@ -13,6 +13,9 @@ collections:
   uploads:
     title: Uploads
     output: true
+  enus:
+    title: enus
+    output: true
   iphone:
     title: iPhone
     output: true
