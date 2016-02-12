@@ -10,11 +10,11 @@ collections:
     - hero
     - hero-full
     - section
+  enus:
+    title: ENUS-homepage-items
+    output: true
   uploads:
     title: Uploads
-    output: true
-  enus:
-    title: enus-homepage-items
     output: true
   iphone:
     title: iPhone
