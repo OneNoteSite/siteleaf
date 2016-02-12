@@ -4,7 +4,7 @@ url: http://onenote.work
 timezone: America/Los_Angeles
 collections:
   posts:
-    title: Components
+    title: Do Not Modify
     output: true
     Components:
     - hero
