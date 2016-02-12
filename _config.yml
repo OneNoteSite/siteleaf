@@ -14,7 +14,7 @@ collections:
     title: Uploads
     output: true
   enus:
-    title: enus
+    title: homepage-items
     output: true
   iphone:
     title: iPhone
