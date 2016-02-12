@@ -3,6 +3,7 @@ title: Grid
 date: 2016-02-12 09:32:00 -08:00
 image1:
   image: "/uploads/2426639.gif"
+position: 2
 ---
 
 OneNote for iPhone at a glance
