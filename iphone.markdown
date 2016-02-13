@@ -25,6 +25,19 @@ Grid:
   Item 3 text: Use Office Lens to snap a picture of a business card and drop it straight
     into OneNote, contact information and all.
   more grid items (eg 9): 
+Jordan Grid:
+- Headline: OneNote for iPhone at a glance
+- Items:
+  - title: Record Audio
+    image: image
+    body: Easily record lectures, leave an audio note, or capture musical inspiration.
+  - title: Inking
+    image: image
+    body: Draw quickly with your finger or a stylus on the iPhone
+  - title: Office Lens
+    image: image
+    body: Use Office Lens to snap a picture of a business card and drop it straight
+      into OneNote, contact information and all.
 ---
 
 Note: Text-me CTA doesn't show on mobile devices
