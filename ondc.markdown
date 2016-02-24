@@ -3,7 +3,8 @@ title: ondc
 date: 2016-01-25 23:39:00 -08:00
 hero:
   headline: Organize your life
-  body: Capture all your notes, ideas, and files in one digital notebook. OneNote makes it easier to stay organized, keep focused, and get more done.
+  body: Capture all your notes, ideas, and files in one digital notebook. OneNote
+    makes it easier to stay organized, keep focused, and get more done.
   action: Download OneNote
 feature:
   headline: Never forget again
