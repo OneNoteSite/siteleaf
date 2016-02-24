@@ -4,12 +4,11 @@ body > footer {
 	$dim-text: #757575;
 	position: absolute;
 	bottom: 0;
-	left: 0;
-	right: 0;
+	left:   0;
+	right:  0;
 	height: $footer-Height;
 	margin: 0;
 	overflow: hidden;
-	
 
 	&::before {
 		content: "";
@@ -33,10 +32,17 @@ body > footer {
 	svg.msEduLogo {
 		#divider, 
 		#education-text{ display: none; }
-		#microsoft-text{ fill: $dim-text; }
+		#microsoft-text{ fill: $charcoalLight; }
+		#Yellow-Square,
+		#Blue-Square,
+		#Red-Square,
+		#Green-Square{ fill: $charcoalLight; }
 	}
 	
+	
+	
 	ul{
+		display: none;
 		position: absolute;
 		right: 1rem;
 		font-size: 0;

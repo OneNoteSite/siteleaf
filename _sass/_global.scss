@@ -4,19 +4,21 @@
 @import "color";
 
 
-/* TO DOs
- * type.scss - Fix - Add in weight classes to font-face declarations
-*/
-
 /* Base Units */
 
 $unit: 8px;
 $u:    $unit;
 
-$gutter-width: 2rem;
+$gutter-width:      2rem;
 $gutter-width-half: $gutter-width/2;
 
-$percentThird: 33.333333333%;
+
+// Simple percentages
+$percentQuarter: 			 25%;
+$percentThird:   			 33.333333333%;
+$percentHalf:    			 50%;
+$percentThreeQuarters: 75%;
+$percentTwoThirds: 		 66.666666666%;
 
 /* Column Widths */
 
@@ -48,4 +50,3 @@ $section-MarginTop: 7rem;
 
 $nav-Height:    $cell-Height + $cell-Margin;
 $footer-Height: $cell-Height + $cell-Margin;
-

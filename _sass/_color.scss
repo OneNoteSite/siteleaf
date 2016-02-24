@@ -1,17 +1,33 @@
+
+
+/*
 $gray:   #696969;
 $grayHr: #91a1a2;
+*/
 
 
-$white: #fff;
-$black: #000;
-$clear: transparent;
+$clear:						transparent;
+$white:						#fff;
+$black:						#000;
+$greyLight: 			#f4f4f4;
+$greyRegular: 		#ebebeb;
+$greyMedium: 			#ddd;
+$greyDark: 				#ccc;
+$charcoalLight: 	#999;
+$charcoalRegular:	#666;
+$charcoalMedium: 	#333;
+$charcoalDark: 		#222;
+$charcoalBlack: 	#191919;
 
-$purpleBrand: 			#5c2e91;
-$purpleBrand-Dark: 	#491b7d;
-$purpleBrand-Light: #b498d4;
 
+$purpleBrand: 			#7321a6;
+$purpleBrand-Dark: 	#631296;
+$purpleBrand-Light: #e1b1ff;
+
+/*
 $purpleAlternate: #71309E;
 $purpleBrand: $purpleAlternate;
+*/
 
 // Colors via http://jrdn.io/image/1Z2J0J2W0x3B Password: onenote
 
@@ -68,6 +84,10 @@ $apple-Text-hover:			adjust-color($apple,      $hue: 0, $saturation: 40, $lightn
 $lemon-Text-hover:			adjust-color($lemon,      $hue: 0, $saturation: 40, $lightness: -40);
 $silver-Text-hover:			adjust-color($silver,     $hue: 0, $saturation: 40, $lightness: -40);
 $none-Text-hover: 			adjust-color($none,       $hue: 0, $saturation: 40, $lightness: -40);
+
+
+
+
 
 
 /*

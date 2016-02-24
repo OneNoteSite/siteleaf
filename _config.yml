@@ -2,6 +2,7 @@
 title: OneNote
 url: http://onenote.work
 timezone: America/Los_Angeles
+host: 0.0.0.0
 collections:
   posts:
     title: Components

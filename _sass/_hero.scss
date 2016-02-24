@@ -15,25 +15,30 @@
 
 main > header {
 	
-	//outline: 1px solid gold;
-	
-	$height: ($cellGroup-Height * 4) + $nav-Height;
-	$topPadding: $nav-Height + $cellGroup-Height + $cell-HeightWithMargin;
+	// Not used 
 	$groupHeight: $cell-HeightWithMargin + $cell-Margin;
-	$horzPadding: $gutter-width-half/4;
-	$headlineAdjustment: -.125rem;
-	
-	position: relative;
-	box-sizing: border-box;
 
+
+	$topPadding:    $nav-Height;
+	$height: 			  $topPadding + 40rem;
+	
+	$height-logo:   $cell-Margin;
+	$height-button: $cell-Margin * 2;
+	
+	$headline-adjustment-small:      $height-logo/2;
+	$logo-parent-height-difference: .5rem;
+	
+	$hero-background-color: $purpleBrand;
+
+	position: relative;
+	padding: $topPadding 0 0 0;
+	margin: 0;
+	
 	height:     $height;
 	min-height: $height;
 	max-height: $height;
 	
 	z-index: 1;
-	
-	padding: $topPadding $horzPadding 0 $horzPadding;
-	margin:  0rem;
 	
 	-webkit-transition: height .2 ease;
 	transition:         height .2 ease;
@@ -41,18 +46,89 @@ main > header {
 	// Background Color
 	&::before{
 		@include absoluteSnapPseudo($left: -1rem, $right: -1rem);
-		background-color: $purpleBrand;
-		background-color: #C1C1C1;
+		background-color: $hero-background-color;
 		z-index: -1;
 	}
-	
-	> hgroup {
 
-		position: relative;
+	> hgroup {
 		box-sizing: content-box;
 		display: block;
-		min-height: $groupHeight;
+		padding: 12rem $gutter-width-half 0 $gutter-width-half;
 		font-size: 0 !important;
+		color: $white;
+		
+		> *,
+		> * > * {
+			display: inline-block;
+			vertical-align: top;			
+		}
+
+		#hero-logo {
+			height: $height-logo;
+			
+			svg {
+				position: relative;
+				width:  auto;
+				height: $height-logo + $logo-parent-height-difference;
+				margin-right: $gutter-width;
+				top: -($logo-parent-height-difference/2);
+			}
+		}
+		
+		> h1 {
+			position: relative;
+			width: 100%;
+			min-height: 5rem;
+			-webkit-font-smoothing: antialiased;
+// 			top: $headline-adjustment-small - ($cell-Margin/2);
+			margin: $cell-Margin - $headline-adjustment-small 0 $cell-Margin 0;
+		}
+		
+		> p {
+			display: none;
+			width: $percentHalf;
+			@include Medium { display: block; }
+			margin: 0;
+		}
+		
+		> strong {
+			box-sizing: border-box;
+			width: $percentHalf;
+			padding-right: $gutter-width-half;
+		}
+		
+		strong > a {
+			
+			width: 100%;
+			box-sizing: border-box;
+			background-color: $white;
+			height:      $height-button;
+			line-height: $height-button !important;
+			
+			padding: 0 2rem;
+			
+			text-align: center;
+			text-decoration: none;
+			
+			-webkit-transition: all 1 ease;
+			        transition: all 1 ease;
+
+			color: $hero-background-color;
+			box-shadow: inset 0 0 0 1px $white;
+			
+			overflow: hidden;
+
+			&:hover{
+				text-decoration: none;
+				color: $white;
+				background-color: $hero-background-color;
+			}
+		}
+	}
+	
+	
+/*
+
 		
 		> * {
 			display: inline-block;
@@ -60,25 +136,9 @@ main > header {
 			vertical-align: top;			
 		}
 		
-		#hero-logo {
-			width: $percentThird;
-			padding-left: $gutter-width-half;
-			svg {
-				display: block;
-				width: auto;
-				height: 8rem;
-				margin-right: $gutter-width;
-			}
-		}
+
 		
-		h1{
-			//outline: 1px solid red;
-			position: relative;
-			top: 1rem + $headlineAdjustment;
-			width: auto !important;
-			-webkit-font-smoothing: antialiased;
-			margin: 0;
-		}
+
 		
 		ul{
 			//outline: 1px solid orange;
@@ -96,24 +156,7 @@ main > header {
 				min-width: 25%;
 				padding: 0 1rem;
 
-				a{
-					box-sizing: border-box;
-					display: block;
-					height: $cell-HeightWithMargin;
-					text-decoration: none;
-					padding: 1.5rem 2rem;
-					text-align: center;
-					-webkit-transition: all 1 ease;
-					transition: all 1 ease;
-					-webkit-transform: scale(1);
-					-webkit-transform-origin: top middle;
-					transform-origin: top middle;
 
-					&:hover{
-						text-decoration: none;			
-						opacity: .66
-					}
-				}
 				
 				&.action  a,
 				&.text    a { color: #fff; }
@@ -123,6 +166,7 @@ main > header {
 			}
 		}
 	}
+*/
 // 	.devices{ display: none; }
 }
 

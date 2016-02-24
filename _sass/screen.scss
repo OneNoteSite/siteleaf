@@ -5,18 +5,6 @@
 @import "grid";
 
 
-/*
-	TO DO
-	
-	* Add in UA controls
-	* Add in Font Faces for Regular / Light / Semibold
-	* Review Font stacks with Sean to Finalize
-	* Research Segoe UI for web w/ variant weights
-	* Determine Font resizing -webkit-font-resize: 100% etc
-	* pick a icon font?
-*/
-	
-
 
 /* Resets */	
 
@@ -74,9 +62,9 @@ small.legal { display: block; }
 
 a{ text-decoration: none; }
 
-body                   { color: $gray;   }
-h1, h2, h3, h4, h5, h6 { color: $black;	 }
-main > header *        { color: $white;  }
+body                   { color: $charcoalRegular; }
+h1, h2, h3, h4, h5, h6 { color: $black; }
+main > header *        { color: $white; }
 main section a         { color: $purple; }
 
 /* Top Level Sections */
@@ -84,35 +72,36 @@ main section a         { color: $purple; }
 body {
 
 	> *,
-	> main > header *,
-	> footer * { text-align: left;   }
+	> footer *,
+	> header *,
+	> main > header * { text-align: left;   }
 	
-	> main > header,
-	> footer   { text-align: center; }
+	> header,
+	> footer,
+	> main > header { text-align: center; }
 
-	> nav,
-	> main > section,
-	> main > figure,
-	> main > header > h1,
-	> main > header > hgroup,
-	> main > header > ul,
+	> main   > section,
+	> main   > figure,
+	> main   > header > h1,
+	> main   > header > hgroup,
+	> main   > header > ul,
+	> header > nav,
 	> footer > nav {
 		margin:  0 auto;
 		box-sizing: border-box;
 	}
 	
-	> nav,
+	> footer,
 	> main > figure,
-	> main > section,
-	> footer {
+	> main > section {
 		padding: 0 $gutter-width-half;
 	}
 
-	> nav,
-	> main > section,
-	> main > figure,
-	> main > header > h1,
-	> main > header > hgroup,
+	> main   > section,
+	> main   > figure,
+	> main   > header > h1,
+	> main   > header > hgroup,
+	> header > nav,
 	> footer > nav {
 		@include Large           { width: $grid-column-width-l     *  6; }
 		@include Large-Qtr-First { width: $grid-column-width-l-q-f *  8; }
@@ -128,6 +117,7 @@ body {
 
 
 #unsupported-message {
+	display: none;
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -173,6 +163,7 @@ body {
 .silver      { background-color: $silver;      }
 .none        { background-color: $none;        }
 
+/*
 .greyLight1  { background-color: #f4f4f4; }
 .greyLight2  { background-color: #ebebeb; }
 .greyLight3  { background-color: #dddddd; }
@@ -190,6 +181,7 @@ body {
 		color: #000;
 	}
 }
+*/
 
 /*
 

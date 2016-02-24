@@ -6,6 +6,7 @@ main > section {
 	display:     block;
 	position:    relative;
 	text-align:  left;
+// 	background:  red;
 	
 	$base-padding-top: ($cell-Height * 1) + ($cell-Margin * 2); // 8rem
 	$big-padding-top:  ($cell-Height * 3) + ($cell-Margin * 4); // 20rem

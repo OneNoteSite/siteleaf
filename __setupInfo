@@ -6,4 +6,8 @@ To RUN CD into directory and run
 
 bundle exec jekyll serve --no-watch
 
+	* Type cmd C to exit
+
 bundle exec guard
+
+	* type exit to exit

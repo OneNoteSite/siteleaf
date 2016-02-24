@@ -1,37 +1,50 @@
 @import "global";
 
-body {
+body > header {
+	
+	position: relative;
+	z-index: 2;
+	
+	&::before{
+		position: absolute;
+		content: "";
+		left:   -$gutter-width-half;
+		right:  -$gutter-width-half;
+		top:    0;
+		bottom: 0;
+		background-color: $charcoalMedium;
+	}
+	
 
 	> nav {
+		display: block;
 		position: relative;
 		padding-top: 1rem;
-		z-index: 2;
+		padding-left: 1rem;
+		padding-right: 1rem;
+
 		height:         $nav-Height;
 		max-height:     $nav-Height;
 		margin-bottom: -$nav-Height;
-		background: green;
+		background-color: $clear;
 		
-		h1 a { display: none; }
 		
-		svg {
-			display: block;
-			height: 3rem;
-			width: 28rem;
-			margin-top: .5rem;
-		}
-
-		&::after{
-			content: "";
-			background: $purpleBrand;
-			position: absolute;
-			bottom: 0;
-			top:    0;
-			width: 133.33333333333%;
-			margin-left: -16.666666667%;
-			left: -1rem;
-			padding: 0 1rem;
-			box-sizing: content-box;
-			z-index: -1;
+		> h1{
+			display: inline-block;
+			position: relative;
+			
+			> a {
+				@include absoluteSnapPseudo(-1rem, 7rem, -1.5rem, 0);
+				font-size: 0;
+				color: $clear;
+			}
+		
+			svg {
+				display: block;
+				height: 3rem;
+				width: 28rem;
+				margin-top: .5rem;
+			}
 		}
 		
 		ul{
