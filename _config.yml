@@ -4,15 +4,32 @@ url: http://onenote.work
 timezone: America/Los_Angeles
 host: 0.0.0.0
 collections:
-  posts:
+  components:
     title: Components
+    output: false
+    Components:
+      hero:
+      - custom
+      - full
+      feature:
+      - left
+      - right
+      - full
+  posts:
+    title: Do Not Modify
     output: true
     Components:
     - hero
     - hero-full
     - section
+  enus:
+    title: ENUS-homepage-items
+    output: true
   uploads:
     title: Uploads
+    output: true
+  iphone:
+    title: iPhone
     output: true
 defaults:
 - scope:
