@@ -1,50 +1,73 @@
 @import "global";
 @import "type";
 
-/*
-.top{
-	height: 6rem;
-}
-*/
-
-/*
-	height: 100vh;
-	min-height: 100vmin;
-	max-height: 100vmin;
-*/
-
 main > header {
 	
-	// Not used 
+	// Not used
 	$groupHeight: $cell-HeightWithMargin + $cell-Margin;
 
+	$hero-background-color: $purpleBrand;
+	
+	$topPadding:       $nav-Height;
 
-	$topPadding:    $nav-Height;
-	$height: 			  $topPadding + 40rem;
+	$height-sm: 			 $topPadding + 40rem;
+	$height-md-h: 		 $topPadding + 50rem;
+	$height-lg: 		   $topPadding + 72rem;
+	$height-xl: 		   $topPadding + 130rem;
 	
-	$height-logo:   $cell-Margin;
-	$height-button: $cell-Margin * 2;
+	$size-pad-top-sm:   $cell-HeightWithMargin * 2;
+	$size-pad-top-md:   $cell-HeightWithMargin;
+	$size-pad-top-md-h: $cell-HeightWithMargin * 2;
+	$size-pad-top-lg:   $cell-Margin + $cell-HeightWithMargin * 2;
+	$size-pad-top-xl:   $cell-Margin + $cell-HeightWithMargin * 3 + $cell-Height;
 	
-	$headline-adjustment-small:      $height-logo/2;
+	$height-button-sm:    $cell-Margin * 2;
+	$height-button-lg:    $cell-Margin * 3;
+	
+	$height-logo-sm:   $cell-Margin;
+	$height-logo-md:   $cell-Margin * 2;
+	$height-logo-md-h: $cell-Margin * 3;
+	$height-logo-xl:   $cell-Margin * 4;
+	
+	$width-logo-md:    15rem;
+	$width-logo-md-h:  22.5rem;
+	
+	$headline-adjustment-sm: -$height-logo-sm;
+	$headline-adjustment-md: -$height-logo-sm / 1.5;
+
+	$headline-margin-top-bs: $cell-Margin;
+	$headline-margin-top-lg: $cell-HeightWithMargin;
+	$headline-margin-top-xl: $cell-HeightWithMargin + $cell-Margin * 1.5;
+	
+	$headline-paragraph-spacing-bs:   0.125rem;
+	$headline-paragraph-spacing-md-h: 0;
+	$headline-paragraph-spacing-lg:   $cell-Margin;
+	$headline-paragraph-spacing-xl:   0;
+	
 	$logo-parent-height-difference: .5rem;
 	
-	$hero-background-color: $purpleBrand;
+	$paragraph-button-spacing-bs:   $cell-Margin * 1.5;
+	$paragraph-button-spacing-md-h: $cell-Margin;
+	$paragraph-button-spacing-lg: 	$cell-Margin * 1.5;
+	$paragraph-button-spacing-xl: 	$cell-HeightWithMargin * 1.5;
 
-	position: relative;
-	padding: $topPadding 0 0 0;
-	margin: 0;
-	
-	height:     $height;
-	min-height: $height;
-	max-height: $height;
-	
 	z-index: 1;
+	position: relative;
+	padding:  $topPadding 0 0 0;
+	margin:   0;
 	
 	-webkit-transition: height .2 ease;
-	transition:         height .2 ease;
+	        transition: height .2 ease;
+	-webkit-font-smoothing: antialiased;
 	
-	// Background Color
-	&::before{
+	min-height: $height-sm;
+	//
+	height: $height-sm;
+	@include Medium-Half { height: $height-md-h; }
+	@include Large       { height: $height-lg;   }
+	@include XLarge      { height: $height-xl;   }
+
+	&::before{ // Background Fill
 		@include absoluteSnapPseudo($left: -1rem, $right: -1rem);
 		background-color: $hero-background-color;
 		z-index: -1;
@@ -53,9 +76,15 @@ main > header {
 	> hgroup {
 		box-sizing: content-box;
 		display: block;
-		padding: 12rem $gutter-width-half 0 $gutter-width-half;
 		font-size: 0 !important;
 		color: $white;
+		padding: 0 $gutter-width-half;
+		//
+		padding-top: $size-pad-top-sm;
+		@include Medium      { padding-top: $size-pad-top-md;   }
+		@include Medium-Half { padding-top: $size-pad-top-md-h; }
+		@include Large       { padding-top: $size-pad-top-lg;   }
+		@include XLarge      { padding-top: $size-pad-top-xl;   }
 		
 		> *,
 		> * > * {
@@ -64,68 +93,144 @@ main > header {
 		}
 
 		#hero-logo {
-			height: $height-logo;
+			//
+			height: $height-logo-sm;
+			@include Medium      { height: $height-logo-md;   }
+			@include Medium-Half { height: $height-logo-md-h; }
+			@include XLarge      { height: $height-logo-xl;   }
 			
 			svg {
 				position: relative;
 				width:  auto;
-				height: $height-logo + $logo-parent-height-difference;
 				margin-right: $gutter-width;
+
+				// Adjust for odd Logo Sizes so they take up whole rows
 				top: -($logo-parent-height-difference/2);
+				@include Medium { top: 0; }
+
+				// Set Height for SVG Image
+				height: $height-logo-sm + $logo-parent-height-difference;
+				@include Medium      { height: $height-logo-md;   }
+				@include Medium-Half { height: $height-logo-md-h; }
+				@include XLarge      { height: $height-logo-xl;   }
+				
+				// Android Fix
+				@include Medium      { min-width: $width-logo-md;   }
+				@include Medium-Half { min-width: $width-logo-md-h; }
 			}
 		}
 		
 		> h1 {
 			position: relative;
 			width: 100%;
-			min-height: 5rem;
-			-webkit-font-smoothing: antialiased;
-// 			top: $headline-adjustment-small - ($cell-Margin/2);
-			margin: $cell-Margin - $headline-adjustment-small 0 $cell-Margin 0;
+
+// 			@include Small { font-size: 26px !important; }
+			
+			// For Slight Grid Adjustments
+			top: $headline-adjustment-sm;
+			@include Medium { top: $headline-adjustment-md; }
+
+			// For paragraph spacing Adjustments
+			margin-bottom: $headline-paragraph-spacing-bs;
+			@include Medium-Half { margin-bottom: $headline-paragraph-spacing-md-h; }
+			@include Large       { margin-bottom: $headline-paragraph-spacing-lg; }
+			@include XLarge      { margin-bottom: $headline-paragraph-spacing-xl; }
+			//
+			margin-top: $headline-margin-top-bs;
+			@include Large  { margin-top: $headline-margin-top-lg; }
+			@include XLarge { margin-top: $headline-margin-top-xl; }
 		}
 		
+		a{ -webkit-font-smoothing: subpixel-antialiased; }
+		
 		> p {
-			display: none;
+			position: relative;
+			box-sizing: border-box;
 			width: $percentHalf;
+			margin: $cell-Margin 0 0 0;
+			padding-right: $gutter-width-half;
+			top: -.75rem;
+			//
+			display: none;
 			@include Medium { display: block; }
-			margin: 0;
+			// Push The button away
+			margin-bottom: $paragraph-button-spacing-bs;
+			@include Medium-Half { margin-bottom: $paragraph-button-spacing-md-h; }
+			@include Large       { margin-bottom: $paragraph-button-spacing-lg;   }
+			@include XLarge      { margin-bottom: $paragraph-button-spacing-xl;   }
 		}
 		
 		> strong {
 			box-sizing: border-box;
+			margin-top: 0;
+			// 
 			width: $percentHalf;
 			padding-right: $gutter-width-half;
+			@include Medium {
+				width: $percentQuarter;
+				padding-right: $gutter-width-half + $gutter-width-half * .55;
+			}
+			@include Medium-Half {
+				width: $percentQuarter;
+				padding-right: $gutter-width-half;
+			}
+			@include Large-Qtr-First {
+				width: $percentEighth * 2;
+				padding-right: $gutter-width * .75;				
+			}
+			
+			@include Large-Half {
+				width: $percentTenth * 2;
+				padding-right: $gutter-width * .75;				
+			}
+			
+			@include XLarge {
+				width: $percentTwelveth * 2;
+				padding-right: $gutter-width * .825;				
+			}	
 		}
 		
 		strong > a {
-			
+
 			width: 100%;
+			overflow: hidden;
 			box-sizing: border-box;
-			background-color: $white;
-			height:      $height-button;
-			line-height: $height-button !important;
-			
-			padding: 0 2rem;
-			
+			padding: 0 1rem;
 			text-align: center;
 			text-decoration: none;
-			
-			-webkit-transition: all 1 ease;
-			        transition: all 1 ease;
-
-			color: $hero-background-color;
 			box-shadow: inset 0 0 0 1px $white;
-			
-			overflow: hidden;
-
-			&:hover{
-				text-decoration: none;
+			//
+			color: $hero-background-color;
+			background-color: $white;
+			@include Medium {
 				color: $white;
 				background-color: $hero-background-color;
 			}
+			//
+			@include sm-font-legal();
+			height:      $height-button-sm;
+			line-height: $height-button-sm * .99 !important;
+			
+			@include Large {
+				@include sm-font-body();
+				height:      $height-button-lg;
+				line-height: $height-button-lg * .99 !important;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			&:hover {
+				text-decoration: none;
+				// 
+				color: $white;
+				background-color: $hero-background-color;
+				@include Medium {
+					background-color: $white;
+					color: $hero-background-color;			
+				}
+				
+			}
 		}
 	}
-	
 	
 /*
 

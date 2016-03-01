@@ -9,11 +9,15 @@
 $unit: 8px;
 $u:    $unit;
 
-$gutter-width:      2rem;
+$gutter-width: 2rem;
 $gutter-width-half: $gutter-width/2;
 
 
 // Simple percentages
+$percentTwelveth: 		 8.3333333333%;
+$percentTenth: 			   10%;
+$percentEighth: 			 12.5%;
+$percentSixth:    		 16.666666667%;
 $percentQuarter: 			 25%;
 $percentThird:   			 33.333333333%;
 $percentHalf:    			 50%;
@@ -50,3 +54,10 @@ $section-MarginTop: 7rem;
 
 $nav-Height:    $cell-Height + $cell-Margin;
 $footer-Height: $cell-Height + $cell-Margin;
+
+/* 
+$size-h
+$size-w
+$size-m-/t/b/r/l/h/v/a
+$size-p-/t/b/r/l/h/v/a
+*/

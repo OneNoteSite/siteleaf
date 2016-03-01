@@ -94,7 +94,8 @@ body {
 	> footer,
 	> main > figure,
 	> main > section {
-		padding: 0 $gutter-width-half;
+		padding-left:  $gutter-width-half;
+		padding-right: $gutter-width-half;
 	}
 
 	> main   > section,
@@ -135,9 +136,10 @@ body {
 
 @import "type";
 @import "nav";
-@import "hero";
 @import "sections";
 @import "footer";
+// @import "hero";
+// @import "hero-image";
 
 
 .purpleBrand      { background-color: $purpleBrand; }

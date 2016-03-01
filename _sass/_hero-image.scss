@@ -1,0 +1,42 @@
+main > header::before{
+	background-image: url("/$/img/hero3x.png");
+	background-repeat: no-repeat;
+	
+	@include Base {
+		// 0
+/*
+		background-size:    auto 100%;
+		background-position: 100% 50% ;
+*/
+	}
+	@include Small {
+		// 320
+		background-size:    auto 100%;
+		background-position: 60% 50%;
+	}
+	@include Medium {
+		// 624
+		// background-position: 100% 50%;
+	}
+	@include Medium-Qtr {
+		// 776
+	}
+	@include Medium-Half {
+		// 928
+	}
+	@include Large {
+		// 1232 
+	}
+	@include Large-Qtr-First {
+		// 1536
+	}
+	@include Large-Half {
+		// 1840
+	}
+	@include Large-Qtr-Last {
+		// 2144
+	}
+	@include XLarge {
+		// 2448
+	}
+}

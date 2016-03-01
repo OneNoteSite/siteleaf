@@ -28,11 +28,14 @@ body > header {
 		margin-bottom: -$nav-Height;
 		background-color: $clear;
 		
+
+		
 		
 		> h1{
 			display: inline-block;
 			position: relative;
-			
+			vertical-align: top;
+				
 			> a {
 				@include absoluteSnapPseudo(-1rem, 7rem, -1.5rem, 0);
 				font-size: 0;
@@ -51,6 +54,7 @@ body > header {
 			position: absolute;
 			right: -1rem;
 			top: 1.5rem;
+			@include XLarge { top: 0; }
 			
 			li {
 				display: inline-block;
@@ -60,6 +64,7 @@ body > header {
 					text-decoration: none;
 					color: $white;
 					@include Large { font-size: 2.25rem !important; }
+
 					&:hover{ opacity: .5; }
 				}
 			}

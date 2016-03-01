@@ -56,14 +56,15 @@ $regular: 400;
 $_25: 1.25;
 $_50: 1.5;
 $_14: 1.1428571429;
-$_17: 1.1764705882;
+$_17: 1.1764705883;
 $_23: 1.2307692308;
 $_33: 1.3333333333;
 
 $type-xl-Headline: 			$light 		8.00rem / #{$_25}; /* Headline */
 $type-lg-Headline: 			$light 		5.25rem / #{$_14};
 $type-md-Headline: 			$light 		5.25rem / #{$_14};
-$type-sm-Headline: 			$light 		4.25rem / #{$_17};
+// $type-sm-Headline: 			$light 		4.25rem / #{$_17};
+$type-sm-Headline: 			$light 		4.25rem /5rem;
 
 $type-xl-Subhead: 			$light 		7.00rem / #{$_14}; /* Subhead */
 $type-lg-Subhead: 			$light 		4.25rem / #{$_17};
@@ -80,10 +81,10 @@ $type-lg-BodySmall:    	$regular 	2.00rem / #{$_50};
 $type-md-BodySmall:    	$regular 	2.00rem / #{$_50};
 $type-sm-BodySmall:    	$regular 	2.00rem / #{$_50};
 
-$type-xl-Body:         	$light 		3.50rem / 5rem;    /* Body */ /* !! For some reason using a value here of $_14 messed things up */
-$type-lg-Body:         	$light 		2.25rem / #{$_33};
-$type-md-Body:         	$light 		2.25rem / #{$_33};
-$type-sm-Body:         	$regular 	2.25rem / #{$_33};
+$type-xl-Body:         	$light 		3.50rem / 5rem;    /* Body */
+$type-lg-Body:         	$light 		2.25rem / 3rem;
+$type-md-Body:         	$light 		2.25rem / 3rem;
+$type-sm-Body:         	$regular 	2.25rem / 3rem;
 
 $type-xl-Legal:        	$regular  2.00rem / #{$_50}; /* Legal */
 $type-lg-Legal:        	$regular  1.50rem / #{$_33};
@@ -203,7 +204,6 @@ $font-base-Legal:        $font-sm-Legal;
 	small,
 	small.legal { font: $font-xl-Legal        !important; * { font: inherit       !important; }}	
 }
-
 
 
 h4 { color: $black; }

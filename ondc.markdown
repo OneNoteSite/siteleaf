@@ -2,7 +2,7 @@
 title: ondc
 date: 2016-01-25 23:39:00 -08:00
 hero:
-  headline: Organize your life
+  headline: Great ideas take shape in OneNote
   body: Capture all your notes, ideas, and files in one digital notebook. OneNote makes it easier to stay organized, keep focused, and get more done.
   action: Download OneNote
 feature:
@@ -44,3 +44,4 @@ layout: default
 ---
 
 <!-- Enter Code here you want on your page... -->
+

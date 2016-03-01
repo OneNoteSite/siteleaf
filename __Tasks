@@ -1,6 +1,10 @@
 PRIORITY
 
 	* Setup specific breakpoint includes for hacks / fixes
+	* Verify hgroup isn't same as section As far as spacing and everything else.
+	* Add font smooth / thick classes
+	* Font Smoothing cross Browser
+	* Ligatures?
 
 
 TO DO
@@ -17,4 +21,22 @@ TO DO
 	* Research Segoe UI for web w/ variant weights
 	* Determine Font resizing -webkit-font-resize: 100% etc
 	* pick a icon font? or SVG?
+*/
+
+
+
+Letover code
+
+For full screen hero
+
+/*
+.top{
+	height: 6rem;
+}
+*/
+
+/*
+	height: 100vh;
+	min-height: 100vmin;
+	max-height: 100vmin;
 */

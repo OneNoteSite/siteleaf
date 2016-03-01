@@ -2,34 +2,30 @@
 $breakpoint-base-unit:  320px;
 $breakpoint-range-unit: 304px;
 
-// MAJOR BREAKPOINTS
+// BREAKPOINT MEASUREMENTS
 
 $breakpoint-size-S:  					$breakpoint-base-unit;																		// 320
 $breakpoint-size-M:  					$breakpoint-base-unit + ( $breakpoint-range-unit     );		// 624
+$breakpoint-size-M-Qtr:  			$breakpoint-size-M    + ( $breakpoint-range-unit / 2 );		// 776  // Minor
 $breakpoint-size-M-Half: 			$breakpoint-size-M    + ( $breakpoint-range-unit     );		// 928
 $breakpoint-size-L:  					$breakpoint-base-unit + ( $breakpoint-range-unit * 3 );		// 1232 
-$breakpoint-size-L-Qtr-First: $breakpoint-size-L    + ( $breakpoint-range-unit     );
-$breakpoint-size-L-Half: 			$breakpoint-size-L    + ( $breakpoint-range-unit * 2 );
-$breakpoint-size-L-Qtr-Last:  $breakpoint-size-L    + ( $breakpoint-range-unit * 3 );
-$breakpoint-size-XL: 					$breakpoint-base-unit + ( $breakpoint-range-unit * 7 );
+$breakpoint-size-L-Qtr-First: $breakpoint-size-L    + ( $breakpoint-range-unit     );		// 1536
+$breakpoint-size-L-Half: 			$breakpoint-size-L    + ( $breakpoint-range-unit * 2 );   // 1840
+$breakpoint-size-L-Qtr-Last:  $breakpoint-size-L    + ( $breakpoint-range-unit * 3 );   // 2144
+$breakpoint-size-XL: 					$breakpoint-base-unit + ( $breakpoint-range-unit * 7 );   // 2448
 
-// MINOR BREAKPOINTS
+// BREAKPOINT STATEMENTS
 
-$breakpoint-size-M-Qtr:  			$breakpoint-size-M    + ( $breakpoint-range-unit / 2 );		// 776
-
-
-
-$breakpoint-query-S:  					"only screen and (min-width : #{ $breakpoint-size-S })";
-$breakpoint-query-M: 	 					"only screen and (min-width : #{ $breakpoint-size-M })";
-$breakpoint-query-M-Half: 			"only screen and (min-width : #{ $breakpoint-size-M-Half })";
-$breakpoint-query-L: 	 					"only screen and (min-width : #{ $breakpoint-size-L })";
+$breakpoint-query-S:  					"only screen and (min-width : #{ $breakpoint-size-S           })";
+$breakpoint-query-M: 	 					"only screen and (min-width : #{ $breakpoint-size-M           })";
+$breakpoint-query-M-Qtr: 				"only screen and (min-width : #{ $breakpoint-size-M-Qtr       })"; // Minor
+$breakpoint-query-M-Half: 			"only screen and (min-width : #{ $breakpoint-size-M-Half      })";
+$breakpoint-query-L: 	 					"only screen and (min-width : #{ $breakpoint-size-L           })";
 $breakpoint-query-L-Qtr-First: 	"only screen and (min-width : #{ $breakpoint-size-L-Qtr-First })";
-$breakpoint-query-L-Half: 			"only screen and (min-width : #{ $breakpoint-size-L-Half })";
-$breakpoint-query-L-Qtr-Last:  	"only screen and (min-width : #{ $breakpoint-size-L-Qtr-Last })";
-$breakpoint-query-XL: 					"only screen and (min-width : #{ $breakpoint-size-XL })";
+$breakpoint-query-L-Half: 			"only screen and (min-width : #{ $breakpoint-size-L-Half      })";
+$breakpoint-query-L-Qtr-Last:  	"only screen and (min-width : #{ $breakpoint-size-L-Qtr-Last  })";
+$breakpoint-query-XL: 					"only screen and (min-width : #{ $breakpoint-size-XL          })";
 
-
-$breakpoint-query-M-Qtr: 					"only screen and (min-width : #{ $breakpoint-size-M-Qtr })";
 
 @mixin Retina {
   @media
@@ -43,8 +39,10 @@ $breakpoint-query-M-Qtr: 					"only screen and (min-width : #{ $breakpoint-size-
   }
 }
 
+@mixin Base            {                                             @content;   }
 @mixin Small           { @media #{ $breakpoint-query-S           } { @content; } }
 @mixin Medium          { @media #{ $breakpoint-query-M           } { @content; } }
+@mixin Medium-Qtr      { @media #{ $breakpoint-query-M-Qtr       } { @content; } }
 @mixin Medium-Half     { @media #{ $breakpoint-query-M-Half      } { @content; } }
 @mixin Large           { @media #{ $breakpoint-query-L           } { @content; } }
 @mixin Large-Qtr-First { @media #{ $breakpoint-query-L-Qtr-First } { @content; } }
@@ -53,4 +51,3 @@ $breakpoint-query-M-Qtr: 					"only screen and (min-width : #{ $breakpoint-size-
 @mixin XLarge          { @media #{ $breakpoint-query-XL          } { @content; } }
 
 
-@mixin Medium-Qtr      { @media #{ $breakpoint-query-M-Qtr } { @content; } }

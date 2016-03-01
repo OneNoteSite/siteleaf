@@ -1,18 +1,48 @@
 @import "global";
 @import "type";
 
-main > section {
+main > .header{
+	height: 6rem;
+	overflow: hidden;
+		> * {
+			display: none;
+		}
+	}
 
-	display:     block;
-	position:    relative;
-	text-align:  left;
-// 	background:  red;
+main > section {
+	
+	////////////////////////////////////////////////////////////////////////////////
+	
+	$horzLine-height: 1px;
 	
 	$base-padding-top: ($cell-Height * 1) + ($cell-Margin * 2); // 8rem
 	$big-padding-top:  ($cell-Height * 3) + ($cell-Margin * 4); // 20rem
 	
-	padding-top: $base-padding-top;
+	$headerCapFrameAdjust:   1.0rem;
+	$headerCapFrameAdjustXl: $headerCapFrameAdjust;
+
+	$h1CapFrameAdjust:       0.25rem;
+	$h1CapFrameAdjustMd:     0.375rem;	
+	$h1CapFrameAdjustXl:     1.625rem;
+
+	$h2CapFrameAdjust:       0.0625rem;
+	$h2CapFrameAdjustMd:     0.25rem;
+	$h2CapFrameAdjustLg:     0.125rem;
+	$h2CapFrameAdjustXl:     0.9375rem;
+
+	$h4CapFrameAdjust:       0.75rem;
+	$h4CapFrameAdjustXl:     1.25rem;
 	
+	$textCapFrameAdjust:     0.75rem;
+	$textCapFrameAdjustXl:   1.4375rem;
+
+	////////////////////////////////////////////////////////////////////////////////
+
+	display:     block;
+	position:    relative;
+	text-align:  left;
+	
+	padding-top: $base-padding-top;
 	@include Large-Half { padding-top: $big-padding-top; }
 	
 	/* Fix - Tie these to some patterns / values */
@@ -27,6 +57,7 @@ main > section {
 		box-sizing: border-box;
 		margin:  0;
 		padding: 0;
+		position: relative;
 	}
 	
 	p strong > a { display: inline-block; }
@@ -35,76 +66,71 @@ main > section {
 	&::before {
 		content: "";
 		position: absolute;
-		bottom: 1px;
-		left:  -1rem;
-		right: -1rem;
-		box-shadow: 0 1px 0 rgba(0,0,0,.25);
+		bottom: $horzLine-height;
+		height: $horzLine-height;
+		left:   -$gutter-width-half;
+		right:  -$gutter-width-half;
+		box-shadow: 0 $horzLine-height 0 rgba(0,0,0,.25);
 		z-index: 3;
-		height: 1px;
-		@include Retina { height: .5px; }
-		@include Large  { left: 1rem; right: 1rem; }
+		@include Retina { height: $horzLine-height/2; }
+		@include Large  { left: $gutter-width-half; right: $gutter-width-half; }
 	}
 	
 	> p,
 	> header {
-		padding-right: 8rem;
+		@include Medium          { padding-right: 8rem; }
 		@include Medium-Half     { width: 50.0%; }
 		@include Large           { padding-right: 3rem; }
 		@include Large-Qtr-Last  { padding-right: 10%;  }
 	}
 	
+	@include Medium-Half{
+		&.text-right > p, 
+		&.text-right > header{
+			margin-left: 50%;
+			left: $gutter-width-half;
+		}
+	}
+	
 	> header {
-		$capFrameAdjust:   1.0rem;
-		$capFrameAdjustXL: 1.5rem;
-		
-		margin-top:           -$capFrameAdjust;
-		padding-bottom: 2rem + $capFrameAdjust;
+		margin-top:           -$headerCapFrameAdjust;
+		padding-bottom: 2rem + $headerCapFrameAdjust;
 		
 		@include XLarge {
-			margin-top:           -$capFrameAdjustXL;
-			padding-bottom: 6rem + $capFrameAdjustXL;
+			margin-top:           -$headerCapFrameAdjustXl;
+			padding-bottom: 6rem + $headerCapFrameAdjustXl;
 		}
 		
 		h1 {
-			@include Large {
-				$capFrameAdjust: 2px;
-				position: relative;
-				top: -$capFrameAdjust;
-			}
+			@include Base    { top: -$h1CapFrameAdjust;   }
+			@include Medium  { top: -$h1CapFrameAdjustMd; }
+			@include XLarge  { top: -$h1CapFrameAdjustXl; }
 		}
 		
 		h2 {
-			@include Medium {
-				$capFrameAdjust: 2px;
-				position: relative;
-				top: -$capFrameAdjust;
-			}
+			@include Base   { top:  $h2CapFrameAdjust;   }
+			@include Medium { top: -$h2CapFrameAdjustMd; }
+			@include Large  { top: -$h2CapFrameAdjustLg; padding-bottom: $h2CapFrameAdjustLg; }
+			@include XLarge { top: -$h2CapFrameAdjustXl; padding-bottom: 0; }
 		}
 	}
 	
 	h4 {
-		$capFrameAdjust:   .75rem;
-		$capFrameAdjustXL: 1.25rem;
-		
-		margin-top:    -$capFrameAdjust;
-		padding-bottom: $capFrameAdjust;
+		margin-top:    -$h4CapFrameAdjust;
+		padding-bottom: $h4CapFrameAdjust;
 	}
 	
 	> p,
 	> ul > li > p {
-		
-		$capFrameAdjust:   .75rem;
-		$capFrameAdjustXL: 1.25rem;
-		
-		margin-top:    -$capFrameAdjust;
-		padding-bottom: $capFrameAdjust + 2rem;
+		margin-top:    -$textCapFrameAdjust;
+		padding-bottom: $textCapFrameAdjust + 2rem;
 		
 		@include XLarge {
-			margin-top:           -$capFrameAdjustXL;
-			padding-bottom: 6rem + $capFrameAdjustXL;
+			margin-top:           -$textCapFrameAdjustXl;
+			padding-bottom: 6rem + $textCapFrameAdjustXl;
 		}
 		
-		&:last-of-type { padding-bottom: $capFrameAdjust + 3rem; }
+		&:last-of-type { padding-bottom: $textCapFrameAdjust + 3rem; }
 
 		> strong a{
 			position: relative;
@@ -173,7 +199,6 @@ main > section {
 			@include absoluteSnapPseudo();
 			@include Large           { left: 1rem;    }
 
-/*
 			background-color: $cyan;
 			
 			@include Medium-Half     { background-color: $redChalk; }
@@ -182,7 +207,6 @@ main > section {
 			@include Large-Half      { background-color: $yellow;   }
 			@include Large-Qtr-Last  { background-color: $orange;   }
 			@include XLarge          { background-color: $lemon;    }
-*/
 		}
 		
 		// This is used for a quick check of the height
