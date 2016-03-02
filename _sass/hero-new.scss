@@ -1,0 +1,53 @@
+@import "global";
+@import "type";
+
+main > header:first-child {
+	
+	margin-top: $nav-height;
+	
+	> hgroup > *,
+	> p {
+		color: $white;
+	}
+
+	&::after{
+		content: "";
+		background: $purpleBrand;
+		@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
+		z-index: -1;
+		@include Large{
+			left:  -$percentSixth;
+			right: -$percentSixth;
+			margin-left:  -$gutter-width-half;
+			margin-right: -$gutter-width-half;
+		}
+		@include Large-Qtr-First{
+			left:  -$percentEighth;
+			right: -$percentEighth;
+		}
+		@include Large-Half{
+			left:  -$percentTenth;
+			right: -$percentTenth;
+		}
+		@include Large-Qtr-Last{
+			left:  -$percentTenth * 2;
+			right: -$percentTenth * 2;
+		}
+		@include XLarge{
+			left:  -$percentSixth;
+			right: -$percentSixth;
+		}
+	}
+	
+	a { color: $white; }
+	
+/*
+	p{
+		display: none;
+		@include Medium {display: block;}
+	}
+	p + p {
+		display: block;
+	}
+*/
+}

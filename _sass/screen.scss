@@ -4,8 +4,6 @@
 @import "global";
 @import "grid";
 
-
-
 /* Resets */	
 
 * {
@@ -63,9 +61,10 @@ small.legal { display: block; }
 a{ text-decoration: none; }
 
 body                   { color: $charcoalRegular; }
-h1, h2, h3, h4, h5, h6 { color: $black; }
-main > header *        { color: $white; }
-main section a         { color: $purple; }
+h1, h2, h3, h4, h5, h6 { color: $black;           }
+main section a         { color: $purple;          }
+
+// main > header *        { color: $white; }
 
 /* Top Level Sections */
 
@@ -80,19 +79,17 @@ body {
 	> footer,
 	> main > header { text-align: center; }
 
+	> main   > header,
 	> main   > section,
 	> main   > figure,
-	> main   > header > h1,
-	> main   > header > hgroup,
-	> main   > header > ul,
 	> header > nav,
 	> footer > nav {
-		margin:  0 auto;
+		margin: 0 auto;
 		box-sizing: border-box;
 	}
 	
 	> footer,
-	> main > figure,
+	> main > header,
 	> main > section {
 		padding-left:  $gutter-width-half;
 		padding-right: $gutter-width-half;
@@ -100,8 +97,7 @@ body {
 
 	> main   > section,
 	> main   > figure,
-	> main   > header > h1,
-	> main   > header > hgroup,
+	> main   > header,
 	> header > nav,
 	> footer > nav {
 		@include Large           { width: $grid-column-width-l     *  6; }
@@ -116,7 +112,7 @@ body {
 	
 }
 
-
+/*
 #unsupported-message {
 	display: none;
 	position: fixed;
@@ -133,11 +129,13 @@ body {
 		padding: 8rem;
 	}
 }
+*/
 
 @import "type";
 @import "nav";
 @import "sections";
 @import "footer";
+@import "hero-new";
 // @import "hero";
 // @import "hero-image";
 

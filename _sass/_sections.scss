@@ -1,15 +1,8 @@
 @import "global";
 @import "type";
 
-main > .header{
-	height: 6rem;
-	overflow: hidden;
-		> * {
-			display: none;
-		}
-	}
-
-main > section {
+main > section,
+main > header {
 	
 	////////////////////////////////////////////////////////////////////////////////
 	
@@ -52,7 +45,7 @@ main > section {
 	@include Large-Qtr-Last  { min-height: $cellGroup-HeightContent * 5.5; }
 	@include XLarge          { min-height: $cellGroup-HeightContent * 6.5; }
 	
-	p, small, h1, h2, h3, h4, h5, h6, header, ul, ol {
+	p, small, h1, h2, h3, h4, h5, h6, header, hgroup, ul, ol {
 		display: block;
 		box-sizing: border-box;
 		margin:  0;
@@ -77,7 +70,8 @@ main > section {
 	}
 	
 	> p,
-	> header {
+	> header,
+	> hgroup {
 		@include Medium          { padding-right: 8rem; }
 		@include Medium-Half     { width: 50.0%; }
 		@include Large           { padding-right: 3rem; }
@@ -92,7 +86,8 @@ main > section {
 		}
 	}
 	
-	> header {
+	> header,
+	> hgroup {
 		margin-top:           -$headerCapFrameAdjust;
 		padding-bottom: 2rem + $headerCapFrameAdjust;
 		
@@ -122,6 +117,9 @@ main > section {
 	
 	> p,
 	> ul > li > p {
+		
+// 		@include outline(red);
+		
 		margin-top:    -$textCapFrameAdjust;
 		padding-bottom: $textCapFrameAdjust + 2rem;
 		
@@ -143,6 +141,21 @@ main > section {
 				right:  -1rem;
 				bottom: -1rem;
 			}
+		}
+	}
+	
+	ul.columns-thirds {
+		$adjust-middle: 2rem;
+		$adjust-last:   4rem;
+		font-size: 0 !important;
+		padding-right: $adjust-last;
+		
+		li {
+			display: inline-block;
+			width: 33.333333333%;
+			
+			& + li      { margin: 0 (-$adjust-middle) 0 $adjust-middle; }
+			& + li + li { margin: 0 (-$adjust-last  ) 0 $adjust-last;   }
 		}
 	}
 	
@@ -224,21 +237,6 @@ main > section {
 			mix-blend-mode: multiply;
 			
 			@include Large           { left: 1rem;  }
-		}
-	}
-	
-	ul.columns-thirds {
-		$adjust-middle: 2rem;
-		$adjust-last:   4rem;
-		font-size: 0 !important;
-		padding-right: $adjust-last;
-		
-		li {
-			display: inline-block;
-			width: 33.333333333%;
-			
-			& + li      { margin: 0 (-$adjust-middle) 0 $adjust-middle; }
-			& + li + li { margin: 0 (-$adjust-last  ) 0 $adjust-last;   }
 		}
 	}
 }
