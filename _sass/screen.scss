@@ -108,28 +108,8 @@ body {
 	}
 	
 	a { color: $purpleBrand; }
-	a:hover{ text-decoration: underline; }
-	
+	a:hover{ text-decoration: underline; }	
 }
-
-/*
-#unsupported-message {
-	display: none;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background: #222222;
-	z-index: 300;
-	text-align: center;
-	@include Large { display: none; }
-	> *{
-		margin: 0 auto;
-		padding: 8rem;
-	}
-}
-*/
 
 @import "type";
 @import "nav";

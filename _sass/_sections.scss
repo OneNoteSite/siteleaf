@@ -159,43 +159,13 @@ main > header {
 		}
 	}
 	
-	&.full-bleed-color {
-		&::after{
-			content: "";
-			background: $greyLight;
-			@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
-			z-index: -1;
-			@include Large {
-				left:  -$percentSixth;
-				right: -$percentSixth;
-				margin-left:  -$gutter-width-half;
-				margin-right: -$gutter-width-half;
-			}
-			@include Large-Qtr-First{
-				left:  -$percentEighth;
-				right: -$percentEighth;
-			}
-			@include Large-Half{
-				left:  -$percentTenth;
-				right: -$percentTenth;
-			}
-			@include Large-Qtr-Last{
-				left:  -$percentTenth * 2;
-				right: -$percentTenth * 2;
-			}
-			@include XLarge{
-				left:  -$percentSixth;
-				right: -$percentSixth;
-			}
-		}
-	}
-	
 	> figure {
+		
 		position: relative;
 		box-sizing: content-box;
-		margin: 0 -2rem;
-		overflow: hidden;
+		margin:  0 -$gutter-width;
 		padding: 0;
+		overflow: hidden;
 		
 		$base-width: 50%;
 		
@@ -215,11 +185,11 @@ main > header {
 
 		@include Medium-Half {
 			position: absolute;
-			top:    0rem;
-			bottom: 1rem;
-			right: -1rem;
-			margin: 0;
-			padding: 0 1rem 0 1rem;
+			top:     0;
+			bottom:  $gutter-width-half;
+			right:  -$gutter-width-half;
+			padding: 0 $gutter-width-half;
+			margin:  0;
 		}
 		
 		@include Large {
@@ -228,29 +198,35 @@ main > header {
 			padding: 0 1rem 0 0;
 		}
 		
-		// This enlargens the figure
+		&::before,
+		&::after { display: block; }
+		
+		// Make the Figure set to the correct aspect ratio
+		
 		&::before {
+			// Aspect ratio of 
 			content:"";
-			display: block;
-			width: 100%;
 			box-sizing: border-box;
-			padding-top: 69%;
+			width: 100%;
+			padding-top: 75%;
 		}
 		
 		&::after{
-			display: block;
 			z-index: 1;
 			@include absoluteSnapPseudo();
-			@include Large           { left: 1rem;    }
 
 			background-color: $cyan;
 			
+			@include Medium          { background-color: $green;  }
+			@include Medium-Qtr      { background-color: $teal;  }
 			@include Medium-Half     { background-color: $redChalk; }
 			@include Large           { background-color: $blueMist; }
 			@include Large-Qtr-First { background-color: $apple;    }
 			@include Large-Half      { background-color: $yellow;   }
 			@include Large-Qtr-Last  { background-color: $orange;   }
 			@include XLarge          { background-color: $lemon;    }
+			
+			@include Large { left: 1rem; }
 		}
 		
 		// This is used for a quick check of the height
@@ -267,7 +243,59 @@ main > header {
 			object-fit: cover;
 			mix-blend-mode: multiply;
 			
-			@include Large           { left: 1rem;  }
+			@include Large { left: 1rem;  }
+		}
+	}
+	
+	&.text-right > figure {
+		@include Medium-Half {
+			left:  -$gutter-width;
+			right: 50%;
+			padding: 0 1rem 0 0;
+		}
+		@include Large {
+			display: none;
 		}
 	}
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+main > header,
+main > section.full-bleed-color {
+	
+	&::after {
+		
+		z-index: -1;
+
+		@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
+		
+		@include Large {
+			margin-left:  -$gutter-width-half;
+			margin-right: -$gutter-width-half;
+			left:  -$percentSixth;
+			right: -$percentSixth;
+		}
+		
+		@include Large-Qtr-First{
+			left:  -$percentEighth;
+			right: -$percentEighth;
+		}
+		
+		@include Large-Half{
+			left:  -$percentTenth;
+			right: -$percentTenth;
+		}
+		
+		@include Large-Qtr-Last{
+			left:  -$percentTenth * 2;
+			right: -$percentTenth * 2;
+		}
+		
+		@include XLarge{
+			left:  -$percentSixth;
+			right: -$percentSixth;
+		}
+	}
+}
+// 			background: $greyLight;

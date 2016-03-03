@@ -9,10 +9,13 @@ main > header:first-child {
 	> p {
 		color: $white;
 	}
+	
+	&::after{ background: $purpleBrand;	}
 
+/*
 	&::after{
 		content: "";
-		background: $purpleBrand;
+
 		@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
 		z-index: -1;
 		@include Large{
@@ -38,6 +41,7 @@ main > header:first-child {
 			right: -$percentSixth;
 		}
 	}
+*/
 	
 	a { color: $white; }
 	
