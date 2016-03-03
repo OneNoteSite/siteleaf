@@ -56,6 +56,7 @@ main > header {
 	p strong > a { display: inline-block; }
 	
 	// HORIZONTAL LINE
+	
 	&::before {
 		content: "";
 		position: absolute;
@@ -65,6 +66,7 @@ main > header {
 		right:  -$gutter-width-half;
 		box-shadow: 0 $horzLine-height 0 rgba(0,0,0,.25);
 		z-index: 3;
+		display: none;
 		@include Retina { height: $horzLine-height/2; }
 		@include Large  { left: $gutter-width-half; right: $gutter-width-half; }
 	}
@@ -118,8 +120,6 @@ main > header {
 	> p,
 	> ul > li > p {
 		
-// 		@include outline(red);
-		
 		margin-top:    -$textCapFrameAdjust;
 		padding-bottom: $textCapFrameAdjust + 2rem;
 		
@@ -156,6 +156,37 @@ main > header {
 			
 			& + li      { margin: 0 (-$adjust-middle) 0 $adjust-middle; }
 			& + li + li { margin: 0 (-$adjust-last  ) 0 $adjust-last;   }
+		}
+	}
+	
+	&.full-bleed-color {
+		&::after{
+			content: "";
+			background: $greyLight;
+			@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
+			z-index: -1;
+			@include Large {
+				left:  -$percentSixth;
+				right: -$percentSixth;
+				margin-left:  -$gutter-width-half;
+				margin-right: -$gutter-width-half;
+			}
+			@include Large-Qtr-First{
+				left:  -$percentEighth;
+				right: -$percentEighth;
+			}
+			@include Large-Half{
+				left:  -$percentTenth;
+				right: -$percentTenth;
+			}
+			@include Large-Qtr-Last{
+				left:  -$percentTenth * 2;
+				right: -$percentTenth * 2;
+			}
+			@include XLarge{
+				left:  -$percentSixth;
+				right: -$percentSixth;
+			}
 		}
 	}
 	
