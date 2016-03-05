@@ -1,15 +1,20 @@
 @import "global";
 @import "type";
 
+////////////////////////////////////////////////////////////////////////////////
+
+	$horzLine-height: 1px;
+	
+	$section-base-padding-top:         ($cell-Height*1) + ($cell-Margin*2); // 8rem
+	$section-base-padding-top-Lg-Half: ($cell-Height*3) + ($cell-Margin*4); // 20rem
+	
+////////////////////////////////////////////////////////////////////////////////
+
+
 main > section,
 main > header {
 	
 	////////////////////////////////////////////////////////////////////////////////
-	
-	$horzLine-height: 1px;
-	
-	$base-padding-top: ($cell-Height * 1) + ($cell-Margin * 2); // 8rem
-	$big-padding-top:  ($cell-Height * 3) + ($cell-Margin * 4); // 20rem
 	
 	$headerCapFrameAdjust:   1.0rem;
 	$headerCapFrameAdjustXl: $headerCapFrameAdjust;
@@ -35,8 +40,8 @@ main > header {
 	position:    relative;
 	text-align:  left;
 	
-	padding-top: $base-padding-top;
-	@include Large-Half { padding-top: $big-padding-top; }
+	padding-top: $section-base-padding-top;
+	@include Large-Half { padding-top: $section-base-padding-top-Lg-Half; }
 	
 	/* Fix - Tie these to some patterns / values */
 	@include Large           { min-height: $cellGroup-HeightContent * 3;   }
@@ -54,22 +59,6 @@ main > header {
 	}
 	
 	p strong > a { display: inline-block; }
-	
-	// HORIZONTAL LINE
-	
-	&::before {
-		content: "";
-		position: absolute;
-		bottom: $horzLine-height;
-		height: $horzLine-height;
-		left:   -$gutter-width-half;
-		right:  -$gutter-width-half;
-		box-shadow: 0 $horzLine-height 0 rgba(0,0,0,.25);
-		z-index: 3;
-		display: none;
-		@include Retina { height: $horzLine-height/2; }
-		@include Large  { left: $gutter-width-half; right: $gutter-width-half; }
-	}
 	
 	> p,
 	> header,
@@ -144,20 +133,7 @@ main > header {
 		}
 	}
 	
-	ul.columns-thirds {
-		$adjust-middle: 2rem;
-		$adjust-last:   4rem;
-		font-size: 0 !important;
-		padding-right: $adjust-last;
-		
-		li {
-			display: inline-block;
-			width: 33.333333333%;
-			
-			& + li      { margin: 0 (-$adjust-middle) 0 $adjust-middle; }
-			& + li + li { margin: 0 (-$adjust-last  ) 0 $adjust-last;   }
-		}
-	}
+	////////////////////////////////////////////////////////////////////////////////
 	
 	> figure {
 		
@@ -260,13 +236,14 @@ main > header {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// Full Bleed Color Background
 
 main > header,
 main > section.full-bleed-color {
 	
 	&::after {
 		
-		z-index: -1;
+		z-index: -2;
 
 		@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
 		
@@ -298,4 +275,52 @@ main > section.full-bleed-color {
 		}
 	}
 }
-// 			background: $greyLight;
+main > section.full-bleed-color::after {
+	background: $greyLight;
+}
+////////////////////////////////////////////////////////////////////////////////
+// Full Bleed Color Background
+
+////////////////////////////////////////////////////////////////////////////////
+// Horizontal Rule
+
+main > section.horizontal-rule-bottom,
+main > section.horizontal-rule-top {
+	
+	&::after {
+		content: "";
+		position: absolute;
+		height: $horzLine-height;
+		left:   -$gutter-width-half;
+		right:  -$gutter-width-half;
+		box-shadow: 0 $horzLine-height 0 rgba(0,0,0,.25);
+		z-index: 3;
+		@include Retina { height: $horzLine-height / 2; }
+		@include Large  { left: $gutter-width-half; right: $gutter-width-half; }
+	}
+}
+
+main > section.horizontal-rule-bottom::after { bottom: $horzLine-height; }
+main > section.horizontal-rule-top::after    { top:    $horzLine-height; }
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Unused
+
+
+/*
+	ul.columns-thirds {
+		$adjust-middle: 2rem;
+		$adjust-last:   4rem;
+		font-size: 0 !important;
+		padding-right: $adjust-last;
+		
+		li {
+			display: inline-block;
+			width: 33.333333333%;
+			
+			& + li      { margin: 0 (-$adjust-middle) 0 $adjust-middle; }
+			& + li + li { margin: 0 (-$adjust-last  ) 0 $adjust-last;   }
+		}
+	}
+*/

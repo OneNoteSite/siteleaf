@@ -146,18 +146,18 @@ $font-base-Legal:        $font-sm-Legal;
 
 /* Base Backup */
 
-	body        { font: $font-base-Body;                    * { font: $font-md-Body !important; }}
+	body        { font: $font-base-Body;                    * { font: $font-base-Body !important; }}
 	
-	h1          { font: $font-base-Headline     !important; * { font: inherit       !important; }}
-	h2          { font: $font-base-Subhead      !important; * { font: inherit       !important; }}
-	h3          { font: $font-base-SubheadSmall !important; * { font: inherit       !important; }}
-	h4          { font: $font-base-Body         !important; * { font: inherit       !important; }}
+	h1          { font: $font-base-Headline     !important; * { font: inherit         !important; }}
+	h2          { font: $font-base-Subhead      !important; * { font: inherit         !important; }}
+	h3          { font: $font-base-SubheadSmall !important; * { font: inherit         !important; }}
+	h4          { font: $font-base-Body         !important; * { font: inherit         !important; }}
 	
-	p           { font: $font-base-Body         !important; * { font: inherit       !important; }}
-	p > small   { font: $font-base-BodySmall    !important; * { font: inherit       !important; }}
+	p           { font: $font-base-Body         !important; * { font: inherit         !important; }}
+	p > small   { font: $font-base-BodySmall    !important; * { font: inherit         !important; }}
 	
 	small,
-	small.legal { font: $font-base-Legal        !important; * { font: inherit       !important; }}
+	small.legal { font: $font-base-Legal        !important; * { font: inherit         !important; }}
 
 					
 @include Medium {
