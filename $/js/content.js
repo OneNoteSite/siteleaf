@@ -1,5 +1,10 @@
 var json = {
-	hero: {
+	resize: true,
+	grid: true
+};
+
+/*
+		hero: {
 		"header": "Get your classroom <div>the free tools to succeed</div>",
 		"copy": "Microsoft provides the safest and easiest way for <div>educators to connect and collaborate with students.</div>",
 		"input": "Enter your school email address",
@@ -17,6 +22,4 @@ var json = {
 		"input": "What should we call this notebook?",
 		"button": "Create my notebook"
 	},
-	resize: true,
-	grid: true
-};
+*/

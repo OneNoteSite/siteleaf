@@ -1,24 +1,33 @@
-
 $breakpoint-base-unit:  320px;
 $breakpoint-range-unit: 304px;
 
 // BREAKPOINT MEASUREMENTS
 
-$breakpoint-size-S:  					$breakpoint-base-unit;																		// 320
-$breakpoint-size-M:  					$breakpoint-base-unit + ( $breakpoint-range-unit     );		// 624
-$breakpoint-size-M-Qtr:  			$breakpoint-size-M    + ( $breakpoint-range-unit / 2 );		// 776  // Minor
-$breakpoint-size-M-Half: 			$breakpoint-size-M    + ( $breakpoint-range-unit     );		// 928
-$breakpoint-size-L:  					$breakpoint-base-unit + ( $breakpoint-range-unit * 3 );		// 1232 
-$breakpoint-size-L-Qtr-First: $breakpoint-size-L    + ( $breakpoint-range-unit     );		// 1536
-$breakpoint-size-L-Half: 			$breakpoint-size-L    + ( $breakpoint-range-unit * 2 );   // 1840
-$breakpoint-size-L-Qtr-Last:  $breakpoint-size-L    + ( $breakpoint-range-unit * 3 );   // 2144
-$breakpoint-size-XL: 					$breakpoint-base-unit + ( $breakpoint-range-unit * 7 );   // 2448
+$breakpoint-size-S:  					 $breakpoint-base-unit;																		  	// 320
+$breakpoint-size-S-Egt-First:  $breakpoint-base-unit + ( $breakpoint-range-unit * .125 );   // 358  			// Minor
+$breakpoint-size-S-Qtr-First:  $breakpoint-base-unit + ( $breakpoint-range-unit * .25  );   // 396  			// Minor
+$breakpoint-size-S-Egt-Third:  $breakpoint-base-unit + ( $breakpoint-range-unit * .375 );   // 434  			// Minor
+$breakpoint-size-S-Half:       $breakpoint-base-unit + ( $breakpoint-range-unit * .50  );   // 472  			// Minor
+$breakpoint-size-S-Qtr-Last:   $breakpoint-base-unit + ( $breakpoint-range-unit * .75  );   // 548  			// Minor
+$breakpoint-size-M:  					 $breakpoint-base-unit + ( $breakpoint-range-unit        );		// 624
+$breakpoint-size-M-Qtr:  			 $breakpoint-size-M    + ( $breakpoint-range-unit * .50  );		// 776  			// Minor
+$breakpoint-size-M-Half: 			 $breakpoint-size-M    + ( $breakpoint-range-unit        );		// 928
+$breakpoint-size-L:  					 $breakpoint-base-unit + ( $breakpoint-range-unit * 3    );		// 1232 
+$breakpoint-size-L-Qtr-First:  $breakpoint-size-L    + ( $breakpoint-range-unit        );		// 1536
+$breakpoint-size-L-Half: 			 $breakpoint-size-L    + ( $breakpoint-range-unit * 2    );   // 1840
+$breakpoint-size-L-Qtr-Last:   $breakpoint-size-L    + ( $breakpoint-range-unit * 3    );   // 2144
+$breakpoint-size-XL: 					 $breakpoint-base-unit + ( $breakpoint-range-unit * 7    );   // 2448
 
-// BREAKPOINT STATEMENTS
+// BREAKPOINT STATEMENTS - Catches everything at this width and above
 
 $breakpoint-query-S:  					"only screen and (min-width : #{ $breakpoint-size-S           })";
+$breakpoint-query-S-Egt-First:  "only screen and (min-width : #{ $breakpoint-size-S-Egt-First })"; 			// Minor
+$breakpoint-query-S-Qtr-First:  "only screen and (min-width : #{ $breakpoint-size-S-Qtr-First })"; 			// Minor
+$breakpoint-query-S-Egt-Third:  "only screen and (min-width : #{ $breakpoint-size-S-Egt-Third })"; 			// Minor
+$breakpoint-query-S-Half:       "only screen and (min-width : #{ $breakpoint-size-S-Half      })"; 			// Minor
+$breakpoint-query-S-Qtr-Last:   "only screen and (min-width : #{ $breakpoint-size-S-Qtr-Last  })"; 			// Minor
 $breakpoint-query-M: 	 					"only screen and (min-width : #{ $breakpoint-size-M           })";
-$breakpoint-query-M-Qtr: 				"only screen and (min-width : #{ $breakpoint-size-M-Qtr       })"; // Minor
+$breakpoint-query-M-Qtr: 				"only screen and (min-width : #{ $breakpoint-size-M-Qtr       })"; 			// Minor
 $breakpoint-query-M-Half: 			"only screen and (min-width : #{ $breakpoint-size-M-Half      })";
 $breakpoint-query-L: 	 					"only screen and (min-width : #{ $breakpoint-size-L           })";
 $breakpoint-query-L-Qtr-First: 	"only screen and (min-width : #{ $breakpoint-size-L-Qtr-First })";
@@ -26,6 +35,13 @@ $breakpoint-query-L-Half: 			"only screen and (min-width : #{ $breakpoint-size-L
 $breakpoint-query-L-Qtr-Last:  	"only screen and (min-width : #{ $breakpoint-size-L-Qtr-Last  })";
 $breakpoint-query-XL: 					"only screen and (min-width : #{ $breakpoint-size-XL          })";
 
+// BREAKPOINT STATEMENTS - Catches everything at below the width
+
+$breakpoint-query-before-S-Qtr-First: "only screen and (max-width : #{ $breakpoint-size-S-Qtr-First - 1px })"; // Minor
+$breakpoint-query-before-S-Half:      "only screen and (max-width : #{ $breakpoint-size-S-Half      - 1px })"; // Minor
+
+
+// RETINA - Draw thinner elements or use images that have better quality
 
 @mixin Retina {
   @media
@@ -39,15 +55,32 @@ $breakpoint-query-XL: 					"only screen and (min-width : #{ $breakpoint-size-XL 
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Set Everything at and above the width
+
 @mixin Base            {                                             @content;   }
 @mixin Small           { @media #{ $breakpoint-query-S           } { @content; } }
+@mixin Small-Egt-First { @media #{ $breakpoint-query-S-Egt-First } { @content; } } 			// Minor
+@mixin Small-Qtr-First { @media #{ $breakpoint-query-S-Qtr-First } { @content; } } 			// Minor
+@mixin Small-Egt-Third { @media #{ $breakpoint-query-S-Egt-Third } { @content; } } 			// Minor
+@mixin Small-Half      { @media #{ $breakpoint-query-S-Half      } { @content; } } 			// Minor
+@mixin Small-Qtr-Last  { @media #{ $breakpoint-query-S-Qtr-Last  } { @content; } } 			// Minor
 @mixin Medium          { @media #{ $breakpoint-query-M           } { @content; } }
-@mixin Medium-Qtr      { @media #{ $breakpoint-query-M-Qtr       } { @content; } }
+@mixin Medium-Qtr      { @media #{ $breakpoint-query-M-Qtr       } { @content; } } 			// Minor
 @mixin Medium-Half     { @media #{ $breakpoint-query-M-Half      } { @content; } }
 @mixin Large           { @media #{ $breakpoint-query-L           } { @content; } }
 @mixin Large-Qtr-First { @media #{ $breakpoint-query-L-Qtr-First } { @content; } }
 @mixin Large-Half      { @media #{ $breakpoint-query-L-Half      } { @content; } }
 @mixin Large-Qtr-Last  { @media #{ $breakpoint-query-L-Qtr-Last  } { @content; } }
 @mixin XLarge          { @media #{ $breakpoint-query-XL          } { @content; } }
+
+////////////////////////////////////////////////////////////////////////////////
+// Set Everything below the width
+//
+// These are typically only for small adjustments to the type ramp and shouldn't 
+// be used on a regular basis. If you need them regularly, your doing it wrong!
+
+@mixin Hack-Before-Small-Qtr-First { @media #{ $breakpoint-query-before-S-Qtr-First } { @content; } }  // Minor
+@mixin Hack-Before-Small-Half      { @media #{ $breakpoint-query-before-S-Half      } { @content; } }  // Minor
 
 

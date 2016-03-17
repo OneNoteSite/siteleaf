@@ -5,7 +5,9 @@
 
 	$horzLine-height: 1px;
 	
+	$section-base-padding-top-sm:      ($cell-Height*1) + ($cell-Margin*1); // 8rem
 	$section-base-padding-top:         ($cell-Height*1) + ($cell-Margin*2); // 8rem
+	$section-base-padding-top-md:      ($cell-Height*2) + ($cell-Margin*2); // 12rem
 	$section-base-padding-top-Lg-Half: ($cell-Height*3) + ($cell-Margin*4); // 20rem
 	
 ////////////////////////////////////////////////////////////////////////////////
@@ -40,11 +42,14 @@ main > header {
 	position:    relative;
 	text-align:  left;
 	
-	padding-top: $section-base-padding-top;
-	@include Large-Half { padding-top: $section-base-padding-top-Lg-Half; }
+	padding-top: $section-base-padding-top-sm;
+	@include Medium-Half { padding-top: $section-base-padding-top-md; }
+	@include Large-Half  { padding-top: $section-base-padding-top-Lg-Half; }
+	
 	
 	/* Fix - Tie these to some patterns / values */
-	@include Large           { min-height: $cellGroup-HeightContent * 3;   }
+	@include Medium-Half     { min-height: $cellGroup-HeightContent * 3;   }
+	@include Large           { min-height: $cellGroup-HeightContent * 4;   }
 	@include Large-Qtr-First { min-height: $cellGroup-HeightContent * 4;   }
 	@include Large-Half 		 { min-height: $cellGroup-HeightContent * 4.5; }
 	@include Large-Qtr-Last  { min-height: $cellGroup-HeightContent * 5.5; }
@@ -60,6 +65,7 @@ main > header {
 	
 	p strong > a { display: inline-block; }
 	
+	/* Control Width of Text */
 	> p,
 	> header,
 	> hgroup {
@@ -108,9 +114,8 @@ main > header {
 	
 	> p,
 	> ul > li > p {
-		
 		margin-top:    -$textCapFrameAdjust;
-		padding-bottom: $textCapFrameAdjust + 2rem;
+		padding-bottom: $textCapFrameAdjust + $cell-Height;
 		
 		@include XLarge {
 			margin-top:           -$textCapFrameAdjustXl;
@@ -132,14 +137,18 @@ main > header {
 			}
 		}
 	}
-	
-	////////////////////////////////////////////////////////////////////////////////
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Handling Images	
+
+main > section{
 	
 	> figure {
 		
 		position: relative;
 		box-sizing: content-box;
-		margin:  0 -$gutter-width;
+		margin:  0 (-$gutter-width);
 		padding: 0;
 		overflow: hidden;
 		
@@ -164,74 +173,50 @@ main > header {
 			top:     0;
 			bottom:  $gutter-width-half;
 			right:  -$gutter-width-half;
-			padding: 0 $gutter-width-half;
+			padding: 0;
 			margin:  0;
 		}
-		
-		@include Large {
-			left:  50%;
-			right: 0;
-			padding: 0 1rem 0 0;
-		}
-		
-		&::before,
-		&::after { display: block; }
+		@include Large       		 { right: -$grid-column-width-m-h; margin-right: (-$gutter-width-half); }
+		@include Large-Qtr-First { right: -$grid-column-width-l;     }
+		@include Large-Half      { right: -$grid-column-width-l-q-f; }
+		@include Large-Qtr-Last  { right: -($grid-column-width-l-q-f * 2); }
+		@include XLarge          { right: -($grid-column-width-l-h   * 2); }
 		
 		// Make the Figure set to the correct aspect ratio
 		
 		&::before {
-			// Aspect ratio of 
+			display: block;
 			content:"";
 			box-sizing: border-box;
+			// Aspect ratio of 4:3
 			width: 100%;
 			padding-top: 75%;
-		}
-		
-		&::after{
-			z-index: 1;
-			@include absoluteSnapPseudo();
 
-			background-color: $cyan;
-			
-			@include Medium          { background-color: $green;  }
-			@include Medium-Qtr      { background-color: $teal;  }
-			@include Medium-Half     { background-color: $redChalk; }
-			@include Large           { background-color: $blueMist; }
-			@include Large-Qtr-First { background-color: $apple;    }
-			@include Large-Half      { background-color: $yellow;   }
-			@include Large-Qtr-Last  { background-color: $orange;   }
-			@include XLarge          { background-color: $lemon;    }
-			
-			@include Large { left: 1rem; }
 		}
 		
-		// This is used for a quick check of the height
+		// This is used for a quick check of the height by Javascript
 		&.State-SizeCheck { height: auto !important; }
 		
 		img {
+			top:  0;
+			left: 50%;
 			position: absolute;
 			display: block;
 			width:  100%;
-			height: 100%;
-			top:  0;
-			left: 0;
+			height: auto;
 			z-index: 2;
-			object-fit: cover;
-			mix-blend-mode: multiply;
-			
-			@include Large { left: 1rem;  }
+			-webkit-transform: translate3d(-50%, 0, 0);
+			@include Medium-Half { margin-top: $cell-Height + $cell-Margin; }
 		}
 	}
 	
 	&.text-right > figure {
-		@include Medium-Half {
-			left:  -$gutter-width;
-			right: 50%;
-			padding: 0 1rem 0 0;
-		}
-		@include Large {
-			display: none;
-		}
+		@include Medium-Half 		 { left: -$gutter-width-half;       }
+		@include Large       		 { left: -$grid-column-width-m-h; margin-left: (-$gutter-width-half); }
+		@include Large-Qtr-First { left: -$grid-column-width-l;     }
+		@include Large-Half      { left: -$grid-column-width-l-q-f; }
+		@include Large-Qtr-Last  { left: -($grid-column-width-l-q-f * 2); }
+		@include XLarge          { left: -($grid-column-width-l-h   * 2); }
 	}
 }
 
@@ -243,7 +228,7 @@ main > section.full-bleed-color {
 	
 	&::after {
 		
-		z-index: -2;
+		z-index: -10;
 
 		@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
 		
@@ -275,11 +260,11 @@ main > section.full-bleed-color {
 		}
 	}
 }
-main > section.full-bleed-color::after {
-	background: $greyLight;
-}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Full Bleed Color Background
+
+main > section.full-bleed-color::after { background: $greyLight; }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Horizontal Rule
@@ -324,3 +309,35 @@ main > section.horizontal-rule-top::after    { top:    $horzLine-height; }
 		}
 	}
 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+		
+	/*
+		&::before,
+		&::after { display: block; }
+	*/
+		
+		
+		/*
+		&::after{
+			z-index: 1;
+			@include absoluteSnapPseudo();
+
+			background-color: $cyan;
+			
+			@include Medium          { background-color: $green;  }
+			@include Medium-Qtr      { background-color: $teal;  }
+			@include Medium-Half     { background-color: $redChalk; }
+			@include Large           { background-color: $blueMist; }
+			@include Large-Qtr-First { background-color: $apple;    }
+			@include Large-Half      { background-color: $yellow;   }
+			@include Large-Qtr-Last  { background-color: $orange;   }
+			@include XLarge          { background-color: $lemon;    }
+			
+			@include Large { left: 1rem; }
+		}
+		*/
+		
+
+

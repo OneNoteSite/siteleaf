@@ -1,5 +1,6 @@
 @import "breakpoints";
 @import "color";
+@import "global";
 
 /******************************************************************************/
 /* Font Faces */
@@ -50,46 +51,89 @@ $face-light:   'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light', $face-r
 /******************************************************************************/
 /* Type Sizing */
 
+// Weights 
+
 $light:   200;
 $regular: 400;
 
-$_25: 1.25;
-$_50: 1.5;
-$_14: 1.1428571429;
-$_17: 1.1764705883;
-$_23: 1.2307692308;
-$_33: 1.3333333333;
+// LineHeight / Kerning
 
-$type-xl-Headline: 			$light 		8.00rem / #{$_25}; /* Headline */
-$type-lg-Headline: 			$light 		5.25rem / #{$_14};
-$type-md-Headline: 			$light 		5.25rem / #{$_14};
-// $type-sm-Headline: 			$light 		4.25rem / #{$_17};
-$type-sm-Headline: 			$light 		4.25rem /5rem;
+$type-xl-Headline-lineHeight: 10rem;
+$type-lg-Headline-lineHeight: 6rem;
+$type-md-Headline-lineHeight: 6rem;
+$type-sm-Headline-lineHeight: 5rem;
 
-$type-xl-Subhead: 			$light 		7.00rem / #{$_14}; /* Subhead */
-$type-lg-Subhead: 			$light 		4.25rem / #{$_17};
-$type-md-Subhead: 			$light 		4.00rem / #{$_25};
-$type-sm-Subhead: 			$light 		3.25rem / #{$_23};
+$type-xl-Subhead-lineHeight: 8rem;
+$type-lg-Subhead-lineHeight: 5rem;
+$type-md-Subhead-lineHeight: 5rem;
+$type-sm-Subhead-lineHeight: 4rem;
 
-$type-xl-SubheadSmall: 	$light		3.00rem / #{$_33}; /* Subhead Small */
-$type-lg-SubheadSmall: 	$regular	2.00rem / #{$_50};
-$type-md-SubheadSmall: 	$regular	2.00rem / #{$_50};
-$type-sm-SubheadSmall: 	$regular	2.00rem / #{$_50};
+$type-xl-SubheadSmall-lineHeight: 4rem;
+$type-lg-SubheadSmall-lineHeight: 3rem;
+$type-md-SubheadSmall-lineHeight: 3rem;
+$type-sm-SubheadSmall-lineHeight: 3rem;
 
-$type-xl-BodySmall:    	$light		3.00rem / #{$_33}; /* Body Small */
-$type-lg-BodySmall:    	$regular 	2.00rem / #{$_50};
-$type-md-BodySmall:    	$regular 	2.00rem / #{$_50};
-$type-sm-BodySmall:    	$regular 	2.00rem / #{$_50};
+$type-xl-BodySmall-lineHeight: 4rem;
+$type-lg-BodySmall-lineHeight: 3rem;
+$type-md-BodySmall-lineHeight: 3rem;
+$type-sm-BodySmall-lineHeight: 3rem;
 
-$type-xl-Body:         	$light 		3.50rem / 5rem;    /* Body */
-$type-lg-Body:         	$light 		2.25rem / 3rem;
-$type-md-Body:         	$light 		2.25rem / 3rem;
-$type-sm-Body:         	$regular 	2.25rem / 3rem;
+$type-xl-Body-lineHeight: 5rem;
+$type-lg-Body-lineHeight: 3rem;
+$type-md-Body-lineHeight: 3rem;
+$type-sm-Body-lineHeight: 3rem;
 
-$type-xl-Legal:        	$regular  2.00rem / #{$_50}; /* Legal */
-$type-lg-Legal:        	$regular  1.50rem / #{$_33};
-$type-md-Legal:        	$regular 	1.50rem / #{$_33};
-$type-sm-Legal:        	$regular 	1.50rem / #{$_33};
+$type-xl-Legal-lineHeight: 3rem;
+$type-lg-Legal-lineHeight: 2rem;
+$type-md-Legal-lineHeight: 2rem;
+$type-sm-Legal-lineHeight: 2rem;
+
+
+// Headline
+
+$type-xl-Headline: 			$light 		8.00rem / #{$type-xl-Headline-lineHeight};
+$type-lg-Headline: 			$light 		5.25rem / #{$type-lg-Headline-lineHeight};
+$type-md-Headline: 			$light 		5.25rem / #{$type-md-Headline-lineHeight};
+$type-sm-Headline: 			$light 		4.25rem / #{$type-sm-Headline-lineHeight};
+
+// Subhead
+
+$type-xl-Subhead: 			$light 		7.00rem / #{$type-xl-Subhead-lineHeight};
+$type-lg-Subhead: 			$light 		4.25rem / #{$type-lg-Subhead-lineHeight};
+$type-md-Subhead: 			$light 		4.00rem / #{$type-md-Subhead-lineHeight};
+$type-sm-Subhead: 			$light 		3.25rem / #{$type-sm-Subhead-lineHeight};
+
+// Subhead Small
+
+$type-xl-SubheadSmall: 	$light		3.00rem / #{$type-xl-SubheadSmall-lineHeight};
+$type-lg-SubheadSmall: 	$regular	2.00rem / #{$type-lg-SubheadSmall-lineHeight};
+$type-md-SubheadSmall: 	$regular	2.00rem / #{$type-md-SubheadSmall-lineHeight};
+$type-sm-SubheadSmall: 	$regular	2.00rem / #{$type-sm-SubheadSmall-lineHeight};
+
+// Body Small
+
+$type-xl-BodySmall:    	$light		3.00rem / #{$type-xl-BodySmall-lineHeight};
+$type-lg-BodySmall:    	$regular 	2.00rem / #{$type-lg-BodySmall-lineHeight};
+$type-md-BodySmall:    	$regular 	2.00rem / #{$type-md-BodySmall-lineHeight};
+$type-sm-BodySmall:    	$regular 	2.00rem / #{$type-sm-BodySmall-lineHeight};
+
+// Body
+
+$type-xl-Body:         	$light 		3.50rem / #{$type-xl-Body-lineHeight};
+$type-lg-Body:         	$light 		2.25rem / #{$type-lg-Body-lineHeight};
+$type-md-Body:         	$light 		2.25rem / #{$type-md-Body-lineHeight};
+$type-sm-Body:         	$regular 	2.25rem / #{$type-sm-Body-lineHeight};
+
+// Legal
+
+$type-xl-Legal:        	$regular  2.00rem / #{$type-xl-Legal-lineHeight};
+$type-lg-Legal:        	$regular  1.50rem / #{$type-lg-Legal-lineHeight};
+$type-md-Legal:        	$regular 	1.50rem / #{$type-md-Legal-lineHeight};
+$type-sm-Legal:        	$regular 	1.50rem / #{$type-sm-Legal-lineHeight};
+
+
+/******************************************************************************/
+/* Base Sizes */
 
 $type-base-Headline:     $type-sm-Headline;
 $type-base-Subhead:      $type-sm-Subhead;

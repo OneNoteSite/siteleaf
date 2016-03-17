@@ -69,6 +69,13 @@ main section a         { color: $purple;          }
 /* Top Level Sections */
 
 body {
+	
+	> main {
+		overflow: hidden;
+		margin-left:  -$gutter-width-half;
+		margin-right: -$gutter-width-half;
+		padding: 0 $gutter-width-half;
+	}
 
 	> *,
 	> footer *,
@@ -86,6 +93,7 @@ body {
 	> footer > nav {
 		margin: 0 auto;
 		box-sizing: border-box;
+		display: block;
 	}
 	
 	> footer,
@@ -120,6 +128,7 @@ body {
 // @import "hero-image";
 
 
+/*
 .purpleBrand      { background-color: $purpleBrand; }
 .purpleBrandLight { background-color: #491b7d; }
 .purpleBrandDark  { background-color: #b498d4; }
@@ -142,6 +151,7 @@ body {
 .lemon       { background-color: $lemon;       }
 .silver      { background-color: $silver;      }
 .none        { background-color: $none;        }
+*/
 
 /*
 .greyLight1  { background-color: #f4f4f4; }

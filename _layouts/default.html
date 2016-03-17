@@ -21,7 +21,7 @@
 		<link rel='mask-icon'     href='/$/img/svg/pinIcon.svg' color='#5c2e91'>
 		
 		<link href="/$/css/screen.css"                  media="screen, projection" rel="stylesheet" type="text/css" />
-		<link href="/$/css/polyfill.object-fit.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<!-- 		<link href="/$/css/polyfill.object-fit.min.css" media="screen, projection" rel="stylesheet" type="text/css" /> -->
 
 		<script src="/$/js/content.js"></script>
 		
@@ -32,7 +32,7 @@
 
 		<script src="/$/js/layout.js"></script>
 		<script src="/$/js/liveReload.js"></script>
-		<script src="/$/js/polyfill.object-fit.min.js"></script>
+<!-- 		<script src="/$/js/polyfill.object-fit.min.js"></script> -->
 
 		<script src="/$/js/Utils.js"></script>
 		
@@ -40,7 +40,7 @@
 		<script src="/$/js/basil.list.js"></script>
 		<script src="/$/js/basil.set.js"></script>
 		
-<!-- 		<script>objectFit.polyfill({selector:'section > .image > img', fittype:'cover', disableCrossDomain:'true'});</script> -->
+		<script>objectFit.polyfill({selector:'section > .image > img', fittype:'cover', disableCrossDomain:'true'});</script>
 		
 	</head>
 	<body class="home">
@@ -69,7 +69,8 @@
 				<div class="align-right"></div>
 				<div class="align-top"></div>
 				<hgroup>
-					<div id="hero-onenote-logo">
+					<!--
+<div id="hero-onenote-logo">
 						<svg viewBox="0 0 240 64" fill="#FFFFFF" >
 							<g id="OneNote" transform="translate(74.000000, 17.000000)" >
 								<path d="M14.1,3.1c-3.1,0-5.6,1.1-7.6,3.3C4.6,8.6,3.6,11.5,3.6,15 c0,3.6,0.9,6.5,2.8,8.6c1.9,2.2,4.4,3.3,7.4,3.3c3.2,0,5.8-1,7.7-3.1c1.9-2.1,2.8-5,2.8-8.7c0-3.8-0.9-6.8-2.7-8.9 C19.8,4.1,17.3,3.1,14.1,3.1 M13.9,30c-4.2,0-7.6-1.4-10.1-4.1C1.3,23.2,0,19.7,0,15.3C0,10.7,1.3,7,3.9,4.2S9.9,0,14.4,0 c4.1,0,7.4,1.3,9.9,4c2.5,2.7,3.7,6.2,3.7,10.6c0,4.7-1.3,8.5-3.8,11.2S18.2,30,13.9,30"/>
@@ -85,11 +86,34 @@
 							</g>
 						</svg>
 					</div>
+-->
 					<h1 contenteditable>{{ page.hero.headline }}</h1>
+					<p class="action"><a href="#">{{ page.hero.action }}</a></p>
 				</hgroup>
-				<p class="action"><a href="#" contenteditable>{{ page.hero.action }}</a></p>
+				<!-- <p class="action"><a href="#" contenteditable>{{ page.hero.action }}</a></p> -->
+				<figure>
+					<svg viewBox="0 0 420 280" id="hero-bg">
+						<rect x="185.2" y="220.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -111.7323 220.2507)" fill="#F5B819" width="49.5"  height="49.5"  />
+						<rect x="185.2" y="150.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -62.2323 199.7472)"  fill="#3296BC" width="49.5"  height="49.5"  />
+						<rect x="220.3" y="185.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -76.7305 234.749)"   fill="#E21F27" width="49.5"  height="49.5"  />
+						<rect x="150.3" y="185.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -97.231 185.2565)"   fill="#01A857" width="49.5"  height="49.5"  />
+						<rect x="30.8"  y="65.8"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 -68.2396 115.2551)"  fill="none"    width="148.5" height="148.5" />
+						<rect x="160.5" y="20.5"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 12.0076 168.996)"    fill="#CD1879" width="99"    height="99"    />
+						<rect x="160.5" y="20.5"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 12.0076 168.996)"    fill="#CD1879" width="99"    height="99"    />
+						<rect x="240.7" y="65.8"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 -6.7352 263.7399)"   fill="#F5B819" width="148.5" height="148.5" />
+					</svg>
+				</figure>
 			</header>
 			<hr />
+			<section class="text-right">
+				<header>
+					<h2 contenteditable>Create your way</h2>
+				</header>
+				<p contenteditable>Do you scribble great ideas on napkins and post-its? Is precise filing more your style? OneNote’s got you covered whatever way you keep track of your thoughts. Type and ink with the free form feel of pen to paper. Clip from the web to anywhere.</p>
+				<figure class="image"><img src="/$/img/create.png" /></figure>
+			</section>
+			<hr />
+			<!--
 			<section class="">
 				<header>
 					<h2 contenteditable>Access anywhere</h2>
@@ -98,13 +122,13 @@
 				<p><a href="#" contenteditable>See all platforms</a></p>
 			</section>
 			<hr />
+			-->
 			<section class="full-bleed-color">
-				
 				<header>
 					<h2 contenteditable>Collaborate with anyone</h2>
 				</header>
 				<p contenteditable>Share your notes with friends, family or teammates to work together as you try to conquer your next big idea at the office or check off the family shopping list. No matter where you are, OneNote's real time sync will keep everyone on the same page, literally and figuratively.</p>
-				<figure class="image"><img src="http://www.fillmurray.com/g/2000/1471" /></figure>
+				<figure class="image"><img src="http://www.fillmurray.com/g/400/300" /></figure>
 			</section>
 			<hr />
 			<section>
@@ -112,7 +136,7 @@
 					<h2 contenteditable>Never forget again</h2>
 				</header>
 				<p contenteditable>Put all of your ideas, notes, and to-do's in OneNote to help you get more done. Whether you want to type, ink, or clip from the web, we've got you covered with our free form canvas.</p>
-				<figure class="image"><img src="http://www.fillmurray.com/g/2000/1473" /></figure>
+				<figure class="image"><img src="http://www.fillmurray.com/g/400/300" /></figure>
 			</section>
 			<hr/>
 			<section class="text-right full-bleed-color">

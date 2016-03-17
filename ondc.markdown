@@ -2,7 +2,7 @@
 title: ondc
 date: 2016-01-25 23:39:00 -08:00
 hero:
-  headline: Where ideas take shape
+  headline: <mark>Ideas</mark> take <span>shape in OneNote</span>
   body: Capture all your notes, ideas, and files in one digital notebook. OneNote
     makes it easier to stay organized, keep focused, and get more done.
   action: Download
