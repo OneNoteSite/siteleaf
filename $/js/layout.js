@@ -11,7 +11,7 @@ function print(arg) { console.log(arg); }
 			BREAKPOINTS_FOR_STACKING = ["Tiny", "Small", "Medium"];
 			
   // Private Variables
-  var baseFontSize, baseRowGroup;
+  var baseFontSize, baseRowGroup, baseRowMargin;
 
 	// Public Variables
   Layout.breakpoint = {};
@@ -23,8 +23,9 @@ function print(arg) { console.log(arg); }
   }
 	
 	function updateBaseValues(size){
-		baseFontSize = size;
-		baseRowGroup = size * 6;
+		baseFontSize  = size;
+		baseRowGroup  = size * 6;
+		baseRowMargin = size * 2;
 	}
 	
 	function getBaseFontSize() {
@@ -60,6 +61,7 @@ function print(arg) { console.log(arg); }
 			
 			before = Math.floor(image.getBoundingClientRect().height);
 			adjust = (baseFontSize - (before % baseFontSize));
+			if (adjust == baseFontSize) adjust = 0;
 			image.style.height = before + adjust + "px";
 			
 			image.classList.remove(checkClass);
@@ -79,18 +81,26 @@ function print(arg) { console.log(arg); }
 		if (!baseFontSize) updateBaseValues(getBaseFontSize());
 
 		for ( var i = 0; i < sections.length; i++ ) {
-
-			var before, adjust, section = sections[i];
+			var before, adjust, newHeight, section = sections[i];
 			// Reset so we can inspect default height or return to vertical flow
 			section.style.height = "auto";
 			// Continue on reseting but don't change them
 			if (!isValid) continue;
 			before = Math.floor(section.getBoundingClientRect().height);
-			adjust = (baseRowGroup - (before % baseRowGroup));
-			section.style.height = before + adjust + "px";
+			adjust = (baseFontSize - (before % baseFontSize));
+			if (adjust == baseFontSize) adjust = 0;
+			newHeight = before + adjust + "px";
+			section.style.height = newHeight;
+
+			// Old Method using RowGroups			
+			// adjust = (baseRowGroup - (before % baseRowGroup));
+			// if (adjust == baseRowGroup) adjust = 0;			
+
 		}
 		
-		resizeImages();
+		// Only do this at a certain point. Probably below medium		
+		// resizeImages();
+
 	}
 		
 	function setupHeroToGrid(){

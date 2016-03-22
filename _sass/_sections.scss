@@ -5,13 +5,68 @@
 
 	$horzLine-height: 1px;
 	
-	$section-base-padding-top-sm:      ($cell-Height*1) + ($cell-Margin*1); // 8rem
-	$section-base-padding-top:         ($cell-Height*1) + ($cell-Margin*2); // 8rem
-	$section-base-padding-top-md:      ($cell-Height*2) + ($cell-Margin*2); // 12rem
-	$section-base-padding-top-Lg-Half: ($cell-Height*3) + ($cell-Margin*4); // 20rem
+	$section-base-padding-top-sm:      			($cell-Height*1) + ($cell-Margin*1); // 8rem
+	$section-base-padding-top:         			($cell-Height*1) + ($cell-Margin*2); // 8rem
+	$section-base-padding-top-md:      			($cell-Height*2) + ($cell-Margin*2); // 12rem
+	$section-base-padding-top-lg:      			($cell-Height*2) + ($cell-Margin*3); // 14rem
+	$section-base-padding-top-lg-qtr-first:	($cell-Height*3) + ($cell-Margin*1); // 20rem
+	$section-base-padding-top-lg-half: 			($cell-Height*3) + ($cell-Margin*4); // 26rem
 	
 ////////////////////////////////////////////////////////////////////////////////
+// SIZING & 
 
+main > section {
+
+	//@include outline(green);	
+	padding: 0;
+	
+	> figure + hr { clear: both; }
+
+	&::before {
+		// This ensures the Section ratio is 8:3 so images (which are half width) are 4:3
+		$height-spacer-width: $gutter-width-half;
+		clear: both;
+		content: "";
+		display: none;
+		width: $height-spacer-width;
+		margin-left: -$height-spacer-width * 2;
+		float: left;
+		
+		@include Base  						{ padding-top: 37.5%; 				} // 0 
+		@include Large 						{ padding-top: 50%;   				} // 1232 
+		@include Large-Qtr-First 	{ padding-top: 47.37704918%; 	} // 1536
+		@include Large-Half 			{ padding-top: 0%; 						}	// 1840
+		@include Large-Qtr-Last  	{ padding-top: 0%; 						}	// 2144
+		@include XLarge						{ padding-top: 0%; 						}	// 2448
+	}
+	
+	@include Base {
+		padding-top: $section-base-padding-top-sm;
+	}
+	
+	@include Medium-Half {
+		&::before{ margin-top: -$section-base-padding-top-md; display: block; }
+		padding-top: 						$section-base-padding-top-md;
+	}
+	
+	@include Large { // 1232
+		&::before { margin-top: -$section-base-padding-top-lg; }
+		padding-top: 						 $section-base-padding-top-lg;
+	} 
+	
+	@include Large-Qtr-First { // 1536
+		&::before { margin-top: -$section-base-padding-top-lg-qtr-first; }
+		padding-top: 						 $section-base-padding-top-lg-qtr-first;
+	} 
+	
+	@include Large-Half { // 1840
+		&::before { margin-top: -$section-base-padding-top-lg-half; }
+		padding-top: 						 $section-base-padding-top-lg-half;
+	}
+	
+}
+
+////////////////////////////////////////////////////////////////////////////////
 
 main > section,
 main > header {
@@ -41,19 +96,20 @@ main > header {
 	display:     block;
 	position:    relative;
 	text-align:  left;
+	box-sizing:  content-box;
+
 	
-	padding-top: $section-base-padding-top-sm;
-	@include Medium-Half { padding-top: $section-base-padding-top-md; }
-	@include Large-Half  { padding-top: $section-base-padding-top-Lg-Half; }
-	
-	
-	/* Fix - Tie these to some patterns / values */
-	@include Medium-Half     { min-height: $cellGroup-HeightContent * 3;   }
-	@include Large           { min-height: $cellGroup-HeightContent * 4;   }
-	@include Large-Qtr-First { min-height: $cellGroup-HeightContent * 4;   }
-	@include Large-Half 		 { min-height: $cellGroup-HeightContent * 4.5; }
-	@include Large-Qtr-Last  { min-height: $cellGroup-HeightContent * 5.5; }
-	@include XLarge          { min-height: $cellGroup-HeightContent * 6.5; }
+/* Fix - Tie these to some patterns / values */
+/*
+	@include Medium-Half     { min-height: $cellGroup-Height * 3; } // 928
+	@include Large           { min-height: $cellGroup-Height * 4; } // 1232
+	@include Large-Qtr-First { min-height: $cellGroup-Height * 5; } // 1536
+	@include Large-Half 		 { min-height: $cellGroup-Height * 6; } // 1840
+*/
+/*
+	@include Large-Qtr-Last  { min-height: $cellGroup-HeightContent * 5.5; } // 2144
+	@include XLarge          { min-height: $cellGroup-HeightContent * 6.5; } // 2448
+*/
 	
 	p, small, h1, h2, h3, h4, h5, h6, header, hgroup, ul, ol {
 		display: block;
@@ -70,7 +126,7 @@ main > header {
 	> header,
 	> hgroup {
 		@include Medium          { padding-right: 8rem; }
-		@include Medium-Half     { width: 50.0%; }
+		@include Medium-Half     { width: 50.0%;        }
 		@include Large           { padding-right: 3rem; }
 		@include Large-Qtr-Last  { padding-right: 10%;  }
 	}
@@ -145,13 +201,13 @@ main > header {
 main > section{
 	
 	> figure {
-		
+
 		position: relative;
 		box-sizing: content-box;
 		margin:  0 (-$gutter-width);
 		padding: 0;
 		overflow: hidden;
-		
+				
 		$base-width: 50%;
 		
 		$width-l:     $base-width + $grid-column-width-m-h;
@@ -167,46 +223,42 @@ main > section{
 		@include Large-Qtr-Last  { width: $width-l-q-l; }
 		@include XLarge          { width: $width-xl;    }
 
-
 		@include Medium-Half {
 			position: absolute;
 			top:     0;
-			bottom:  $gutter-width-half;
-			right:  -$gutter-width-half;
+			bottom:  0;
+			right:   -$gutter-width-half;
 			padding: 0;
 			margin:  0;
 		}
-		@include Large       		 { right: -$grid-column-width-m-h; margin-right: (-$gutter-width-half); }
-		@include Large-Qtr-First { right: -$grid-column-width-l;     }
-		@include Large-Half      { right: -$grid-column-width-l-q-f; }
-		@include Large-Qtr-Last  { right: -($grid-column-width-l-q-f * 2); }
-		@include XLarge          { right: -($grid-column-width-l-h   * 2); }
-		
-		// Make the Figure set to the correct aspect ratio
-		
-		&::before {
-			display: block;
-			content:"";
-			box-sizing: border-box;
-			// Aspect ratio of 4:3
-			width: 100%;
-			padding-top: 75%;
 
-		}
-		
+		@include Large       		 { right: -$grid-column-width-m-h;       margin-right: (-$gutter-width-half); }
+		@include Large-Qtr-First { right: -$grid-column-width-l;         }
+		@include Large-Half      { right: -$grid-column-width-l-q-f;     }
+		@include Large-Qtr-Last  { right: -($grid-column-width-l-q-f*2); }
+		@include XLarge          { right: -($grid-column-width-l-h  *2); }
+
 		// This is used for a quick check of the height by Javascript
 		&.State-SizeCheck { height: auto !important; }
-		
+
+		// 4:3 sizing for Smaller break points where Images are inline
+		&::before{
+			content:"";
+			width: 100%;
+			padding-top: 75%;
+			display: block;
+		}
+		@include Medium-Half { &::before{ display: none; } }
+
 		img {
-			top:  0;
-			left: 50%;
+			right: 0;
+			top:   0;
+			height: 100%;
+			width:  100%;
 			position: absolute;
 			display: block;
-			width:  100%;
-			height: auto;
 			z-index: 2;
-			-webkit-transform: translate3d(-50%, 0, 0);
-			@include Medium-Half { margin-top: $cell-Height + $cell-Margin; }
+			object-fit: cover;
 		}
 	}
 	
@@ -224,14 +276,49 @@ main > section{
 // Full Bleed Color Background
 
 main > header,
-main > section.full-bleed-color {
+main > section.color-full-bleed {
+	&::after {
+		z-index: -10;
+		@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);		
+	}	
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Full Bleed Color Background
+
+main > section.color-full-bleed:after { background: $greyLight; }
+
+////////////////////////////////////////////////////////////////////////////////
+// Horizontal Rule
+
+main > section.rule-horizontal-bottom,
+main > section.rule-horizontal-top {
 	
 	&::after {
-		
-		z-index: -10;
+		content: "";
+		position: absolute;
+		height: $horzLine-height;
+		left:   -$gutter-width-half;
+		right:  -$gutter-width-half;
+		box-shadow: 0 $horzLine-height 0 rgba(0,0,0,.25);
+		z-index: 3;
+		@include Retina { height: $horzLine-height / 2; }
+		@include Large  { left: $gutter-width-half; right: $gutter-width-half; }
+	}
+}
 
-		@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
-		
+main > section.rule-horizontal-bottom::after { bottom: $horzLine-height; }
+main > section.rule-horizontal-top::after    { top:    -$horzLine-height; }
+
+////////////////////////////////////////////////////////////////////////////////
+// Full Width Design Additions
+
+main > header,
+main > section.color-full-bleed,
+main > section.rule-horizontal-bottom,
+main > section.rule-horizontal-top {
+	
+	&::after {
 		@include Large {
 			margin-left:  -$gutter-width-half;
 			margin-right: -$gutter-width-half;
@@ -260,34 +347,6 @@ main > section.full-bleed-color {
 		}
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////
-// Full Bleed Color Background
-
-main > section.full-bleed-color::after { background: $greyLight; }
-
-////////////////////////////////////////////////////////////////////////////////
-// Horizontal Rule
-
-main > section.horizontal-rule-bottom,
-main > section.horizontal-rule-top {
-	
-	&::after {
-		content: "";
-		position: absolute;
-		height: $horzLine-height;
-		left:   -$gutter-width-half;
-		right:  -$gutter-width-half;
-		box-shadow: 0 $horzLine-height 0 rgba(0,0,0,.25);
-		z-index: 3;
-		@include Retina { height: $horzLine-height / 2; }
-		@include Large  { left: $gutter-width-half; right: $gutter-width-half; }
-	}
-}
-
-main > section.horizontal-rule-bottom::after { bottom: $horzLine-height; }
-main > section.horizontal-rule-top::after    { top:    $horzLine-height; }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Unused
