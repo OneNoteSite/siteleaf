@@ -43,7 +43,7 @@ main > section {
 	@include Base {
 		padding-top: $section-base-padding-top-sm;
 	}
-	
+
 	@include Medium-Half {
 		&::before{ margin-top: -$section-base-padding-top-md; display: block; }
 		padding-top: 						$section-base-padding-top-md;
@@ -63,7 +63,7 @@ main > section {
 		&::before { margin-top: -$section-base-padding-top-lg-half; }
 		padding-top: 						 $section-base-padding-top-lg-half;
 	}
-	
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -198,7 +198,15 @@ main > header {
 ////////////////////////////////////////////////////////////////////////////////
 // Handling Images	
 
-main > section{
+main > section {
+
+	$base-width: 50%;
+	
+	$width-l:     $base-width + $grid-column-width-m-h;
+	$width-l-q-f: $base-width + $grid-column-width-l;
+	$width-l-h:   $base-width + $grid-column-width-l-q-f;
+	$width-l-q-l: $base-width + $grid-column-width-l-q-f * 2;
+	$width-xl:    $base-width + $grid-column-width-l-h   * 2;
 	
 	> figure {
 
@@ -207,14 +215,6 @@ main > section{
 		margin:  0 (-$gutter-width);
 		padding: 0;
 		overflow: hidden;
-				
-		$base-width: 50%;
-		
-		$width-l:     $base-width + $grid-column-width-m-h;
-		$width-l-q-f: $base-width + $grid-column-width-l;
-		$width-l-h:   $base-width + $grid-column-width-l-q-f;
-		$width-l-q-l: $base-width + $grid-column-width-l-q-f * 2;
-		$width-xl:    $base-width + $grid-column-width-l-h   * 2;
 		
 		@include Medium-Half     { width: $base-width;  }
 		@include Large           { width: $width-l;     }
@@ -232,22 +232,23 @@ main > section{
 			margin:  0;
 		}
 
-		@include Large       		 { right: -$grid-column-width-m-h;       margin-right: (-$gutter-width-half); }
-		@include Large-Qtr-First { right: -$grid-column-width-l;         }
-		@include Large-Half      { right: -$grid-column-width-l-q-f;     }
-		@include Large-Qtr-Last  { right: -($grid-column-width-l-q-f*2); }
-		@include XLarge          { right: -($grid-column-width-l-h  *2); }
+		@include Large       		 { right: -($grid-column-width-m-h);       margin-right: (-$gutter-width-half); }
+		@include Large-Qtr-First { right: -($grid-column-width-l        ); }
+		@include Large-Half      { right: -($grid-column-width-l-q-f    ); }
+		@include Large-Qtr-Last  { right: -($grid-column-width-l-q-f * 2); }
+		@include XLarge          { right: -($grid-column-width-l-h   * 2); }
 
 		// This is used for a quick check of the height by Javascript
 		&.State-SizeCheck { height: auto !important; }
 
 		// 4:3 sizing for Smaller break points where Images are inline
-		&::before{
+		&::before {
 			content:"";
 			width: 100%;
 			padding-top: 75%;
 			display: block;
 		}
+		
 		@include Medium-Half { &::before{ display: none; } }
 
 		img {
@@ -263,12 +264,45 @@ main > section{
 	}
 	
 	&.text-right > figure {
-		@include Medium-Half 		 { left: -$gutter-width-half;       }
-		@include Large       		 { left: -$grid-column-width-m-h; margin-left: (-$gutter-width-half); }
-		@include Large-Qtr-First { left: -$grid-column-width-l;     }
-		@include Large-Half      { left: -$grid-column-width-l-q-f; }
+		@include Medium-Half 		 { left: -($gutter-width-half          ); }
+		@include Large       		 { left: -($grid-column-width-m-h      ); margin-left: (-$gutter-width-half); }
+		@include Large-Qtr-First { left: -($grid-column-width-l        ); }
+		@include Large-Half      { left: -($grid-column-width-l-q-f    ); }
 		@include Large-Qtr-Last  { left: -($grid-column-width-l-q-f * 2); }
 		@include XLarge          { left: -($grid-column-width-l-h   * 2); }
+	}
+	
+	&.image-full-bleed > figure {
+		
+		&::before { padding-top: 37.5%; }
+		
+		z-index: -9;
+		
+		box-shadow: inset 0 0 0 1px red;
+		
+		@include Medium-Half     { width: 2 * $base-width;  }
+		@include Large           { width: 2 * $width-l;     }
+		@include Large-Qtr-First { width: 2 * $width-l-q-f; }
+		@include Large-Half      { width: 2 * $width-l-h;   }
+		@include Large-Qtr-Last  { width: 2 * $width-l-q-l; }
+		@include XLarge          { width: 2 * $width-xl;    }
+		
+		// Push out to the Edges
+		@include Medium-Half     {
+			padding: 0 $gutter-width-half; 
+			left:  -$gutter-width-half; 
+			right: -$gutter-width-half;
+		}
+		
+		@include Large       		 { left: -($grid-column-width-m-h      ); }
+		@include Large-Qtr-First { left: -($grid-column-width-l        ); }
+		@include Large-Half      { left: -($grid-column-width-l-q-f    ); }
+		@include Large-Qtr-Last  { left: -($grid-column-width-l-q-f * 2); }
+		@include XLarge          { left: -($grid-column-width-l-h   * 2); }
+		
+		@include Large { margin-left: (-$gutter-width-half); }
+		
+		
 	}
 }
 
