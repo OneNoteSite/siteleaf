@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200"
+	 enable-background="new 0 0 200 200" xml:space="preserve">
+<title>OneNote_Tile</title>
+<desc>Created with Sketch.</desc>
+<g id="ON_Live_Tiles_01" sketch:type="MSArtboardGroup">
+	<g id="OneNote_Tile" sketch:type="MSLayerGroup">
+		<g>
+			<path d="M197.2,83.3h-8.3v33.3h8.3c1.5,0,2.8-1.2,2.8-2.8V86.1C200,84.6,198.8,83.3,197.2,83.3z"/>
+			<path d="M197.2,125h-8.3v33.3h8.3c1.5,0,2.8-1.2,2.8-2.8v-27.8C200,126.2,198.8,125,197.2,125z"/>
+			<path d="M194.4,33.3h-11.1v-5.6c0-3.1-2.5-5.6-5.6-5.6h-61.1V50h50v5.6h-50v13.9h50V75h-50v13.9h50v5.6h-50v13.9h50v5.6h-50v13.9
+				h50v5.6h-50v13.9h50v5.6h-50v25h61.1c3.1,0,5.6-2.5,5.6-5.6V77.8h11.1c3.1,0,5.6-2.5,5.6-5.6V38.9
+				C200,35.8,197.5,33.3,194.4,33.3z"/>
+			<path d="M0,177.8L111.1,200V0L0,22.2V177.8z M33.3,66.7h8.3L75,119.4V66.7h8.3v66.7H75L41.7,80.6v52.8h-8.3V66.7z"/>
+		</g>
+	</g>
+</g>
+</svg>

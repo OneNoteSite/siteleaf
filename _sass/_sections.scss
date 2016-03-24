@@ -17,7 +17,7 @@
 
 main > section {
 
-// 	@include outline(green);	
+	@include outline(green);	
 	padding: 0;
 	
 	> figure + hr { clear: both; }
