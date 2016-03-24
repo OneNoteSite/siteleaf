@@ -17,7 +17,7 @@
 
 main > section {
 
-	//@include outline(green);	
+	@include outline(green);	
 	padding: 0;
 	
 	> figure + hr { clear: both; }
@@ -32,12 +32,16 @@ main > section {
 		margin-left: -$height-spacer-width * 2;
 		float: left;
 		
-		@include Base  						{ padding-top: 37.5%; 				} // 0 
-		@include Large 						{ padding-top: 50%;   				} // 1232 
+		@include Base  						{ padding-top: 37.5%; 				} // 0
+		// Fix Can I do this mathmatically?
+		@include Large 						{ padding-top: 50%;   				} // 1232
 		@include Large-Qtr-First 	{ padding-top: 47.37704918%; 	} // 1536
-		@include Large-Half 			{ padding-top: 0%; 						}	// 1840
-		@include Large-Qtr-Last  	{ padding-top: 0%; 						}	// 2144
-		@include XLarge						{ padding-top: 0%; 						}	// 2448
+		@include Large-Half 			{ padding-top: 45.39473684%;  }	// 1840
+		@include Large-Qtr-Last  	{ padding-top: 52.89473684%;  }	// 2144
+		@include XLarge						{ padding-top: 50.32894737%;  }	// 2448
+		
+		// To get these values above. Take the overall width and get the height for and 8:3 ratio.
+		// Then divide the height by the width of the section to get the percentage.
 	}
 	
 	@include Base {
