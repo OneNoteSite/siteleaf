@@ -1,6 +1,8 @@
 @import "global";
 @import "type";
 
+$sizing-spacer-width: $gutter-width-half;
+
 $height-button-sm:    $cell-Margin * 2;
 $height-button-lg:    $cell-Margin * 3;
 
@@ -17,6 +19,38 @@ $size-hero-height-xl:						146rem;
 $size-hero-padding-bottom-sm: $cell-height + $cell-margin * 2;
 
 
+////////////////////////////////////////////////////////////////////////////////
+// 16:9 SIZING & LAYOUT ADJUSTMENTS
+
+main > header:first-child {
+	
+	> hr { clear: both; }
+	
+	&::before {
+		content: "";
+		width: $sizing-spacer-width;
+		margin-left: -$sizing-spacer-width;
+		float: left;
+		position: relative;
+		
+		@include Base { padding-top: 56.25%; }
+		
+		@include Large 						{ padding-top: 75.98684211%;  } // 1232
+		@include Large-Qtr-First 	{ padding-top: 75.98684211%; 	} // 1536
+		@include Large-Half 			{ padding-top: 75.98684211%;  }	// 1840
+		@include Large-Qtr-Last  	{ padding-top: 75.98684211%;  }	// 2144
+		@include XLarge						{ padding-top: 75.98684211%;  }	// 2448
+		
+
+		@include Large-Qtr-First 	{ background-color: red; } // 1536		
+				
+			
+	}
+	
+}
+
+
+
 main > header:first-child {
 	
 	padding: 0 $gutter-width-half;
@@ -30,13 +64,15 @@ main > header:first-child {
 	     -ms-flex-align: center;
 	        align-items: center;
 	
-	min-height: $size-hero-height-sm;
+	min-height: 0;
+/*
 	@include Medium-Half     { min-height: $size-hero-height-md-half;      }
 	@include Large           { min-height: $size-hero-height-lg;           }
 	@include Large-Qtr-First { min-height: $size-hero-height-lg-qtr-first; }
 	@include Large-Half      { min-height: $size-hero-height-lg-half;      }
 	@include Large-Qtr-Last  { min-height: $size-hero-height-lg-qtr-last;  }
 	@include XLarge          { min-height: $size-hero-height-xl;           }
+*/
 
 	&::after{ background: $hero-background-color;	}
 	

@@ -1,6 +1,7 @@
-function print(arg) { console.log(arg); }
-
-
+function print(arg) { 
+	return;
+	console.log(arg);
+}
 
 (function(document){
 	
@@ -12,9 +13,11 @@ function print(arg) { console.log(arg); }
 			
   // Private Variables
   var baseFontSize, baseRowGroup, baseRowMargin;
+	var HERO;
 
 	// Public Variables
   Layout.breakpoint = {};
+	
   
   function setupBreakpointObject() {
 	  Layout.breakpoint.list     = BREAKPOINTS;
@@ -69,6 +72,7 @@ function print(arg) { console.log(arg); }
 	}
 	
 	function resizeSections() {
+		print("resize");
 		
 		var sections = document.body.getElementsByTagName("section");
 		
@@ -86,8 +90,10 @@ function print(arg) { console.log(arg); }
 			section.style.height = "auto";
 			// Continue on reseting but don't change them
 			if (!isValid) continue;
+			
 			before = Math.floor(section.getBoundingClientRect().height);
 			adjust = (baseFontSize - (before % baseFontSize));
+			
 			if (adjust == baseFontSize) adjust = 0;
 			newHeight = before + adjust + "px";
 			section.style.height = newHeight;
@@ -99,43 +105,43 @@ function print(arg) { console.log(arg); }
 		}
 		
 		// Only do this at a certain point. Probably below medium		
+		
+		
 		// resizeImages();
 
 	}
+	
+	function heroHeightToGrid() {
+		print("ping");
+		var frame, adjust, height;
+		
+		HERO.style.height    = "auto";
+		HERO.style.maxHeight = "100vmin";
+		
+		before = Math.floor(HERO.getBoundingClientRect().height);
+		adjust = baseFontSize - (before % baseFontSize);
+		
+		if (adjust == baseFontSize) adjust = 0;
+		
+		if (adjust > 0){
+			
+			height = before + adjust + "px";
+			HERO.style.height    = height;
+			HERO.style.maxHeight = height;
+			
+		}
+	}
+	
+	function adjustHeroFromFontResizeEvent(event){
+		updateBaseValues(event.detail.fontSize);
+		heroHeightToGrid();
+	}
+	
+	//////////
 		
 	function setupHeroToGrid(){
-		
-		var hero = document.getElementById("hero");
-
-		if (!hero) return;
-		
-		function heroHeightToGrid() {
-			var frame, adjust, height;
-			
-			hero.style.height    = "100vh";
-			hero.style.maxHeight = "100vmin";
-			
-			frame  = hero.getBoundingClientRect();
-			adjust = (frame.height % baseRowGroup);
-			
-			if (adjust > 0){
-				height = (frame.height + (baseRowGroup - adjust)) + "px";
-				hero.style.height    = height;
-				hero.style.maxHeight = height;		
-			}
-		}
-		
-		function adjustHeroFromFontResizeEvent(event){
-			updateBaseValues(event.detail.fontSize);
-			heroHeightToGrid();
-		}
-		
-		// Event Listeners
-		window.addEventListener  ('resize',            heroHeightToGrid);
-		window.addEventListener  ('orientationchange', heroHeightToGrid);
-		window.addEventListener  ('fontResize', adjustHeroFromFontResizeEvent);		
-
-		// Initializers
+		HERO = doc.querySelector("main > header:first-child");
+		if (!HERO) return;	
 		updateBaseValues(getBaseFontSize());
 		heroHeightToGrid();
 	}
@@ -143,7 +149,7 @@ function print(arg) { console.log(arg); }
 	function setupFontResizeEvents(){
 		// Create and insert dom element
 		var fontSizeEventEl = document.createElement('div');
-		fontSizeEventEl.id = 'fontSizeEventElement';
+		fontSizeEventEl.id  = 'fontSizeEventElement';
 		fontSizeEventEl.style.cssText = 'position:absolute; width:1px; height:6rem; -webkit-transition:height .0001s ease; transition:height .0001s ease; visibility:hidden;';
 		document.body.insertBefore(fontSizeEventEl, document.body.firstChild);
 		
@@ -159,14 +165,24 @@ function print(arg) { console.log(arg); }
 	}
 
 	function init() {
+		
+		// CONSTANTS
+
+		
 		// EVENT LISTENERS
-		doc.addEventListener(loaded,			setupBreakpointObject );
-		doc.addEventListener(loaded, 			setupFontResizeEvents );
-		doc.addEventListener(loaded, 			setupHeroToGrid );
-		doc.addEventListener(loaded, 			resizeSections  );
-		win.addEventListener(resize, 			resizeSections );
-		win.addEventListener(fontResize,  resizeSections );
-		win.addEventListener(orientation, resizeSections );
+		doc.addEventListener( loaded,			 setupBreakpointObject );
+		doc.addEventListener( loaded, 		 setupFontResizeEvents );
+		doc.addEventListener( loaded, 		 setupHeroToGrid );
+		doc.addEventListener( loaded, 		 resizeSections  );
+		
+		win.addEventListener( resize, 		 heroHeightToGrid   );
+		win.addEventListener( resize, 		 resizeSections   );
+		
+		win.addEventListener( fontResize,  resizeSections );
+		win.addEventListener( fontResize,  adjustHeroFromFontResizeEvent );
+		
+		win.addEventListener( orientation, resizeSections );
+		win.addEventListener( orientation, heroHeightToGrid );
 	}
 
 	var win = window,

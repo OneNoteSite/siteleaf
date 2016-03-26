@@ -20,7 +20,7 @@
 			"background": "rgba(0,0,0,.5)",
 				   "color": "rgba(255,255,255,1)",
 				 "padding": ".5rem 0rem 1rem 0rem",
-	 "border-radius": ".5rem",
+	 "border-radius": "1rem",
 				   "width": "6rem",
 				  "height": "3.25rem",
 			"box-sizing": "border-box",
