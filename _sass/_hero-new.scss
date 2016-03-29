@@ -26,6 +26,14 @@ main > header:first-child {
 	
 	> hr { clear: both; }
 	
+	.align-16-9{
+		background: black url('/$/img/16-9.png');
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		box-shadow: inset 0 0 0 8px yellow;
+	}
+	
 	&::before {
 		content: "";
 		width: $sizing-spacer-width;
@@ -35,16 +43,17 @@ main > header:first-child {
 		
 		@include Base { padding-top: 56.25%; }
 		
+// 		@include Base { padding-top: 62.5%; }
+		
+/*
 		@include Large 						{ padding-top: 75.98684211%;  } // 1232
-		@include Large-Qtr-First 	{ padding-top: 75.98684211%; 	} // 1536
-		@include Large-Half 			{ padding-top: 75.98684211%;  }	// 1840
+		@include Large-Qtr-First 	{ padding-top: 71.05263158%; 	} // 1536
+		@include Large-Half 			{ padding-top: 68.09210526%;  }	// 1840
 		@include Large-Qtr-Last  	{ padding-top: 75.98684211%;  }	// 2144
 		@include XLarge						{ padding-top: 75.98684211%;  }	// 2448
-		
 
-		@include Large-Qtr-First 	{ background-color: red; } // 1536		
-				
-			
+		@include Large-Half 	{ background-color: red; } // 1840
+*/
 	}
 	
 }
@@ -65,14 +74,6 @@ main > header:first-child {
 	        align-items: center;
 	
 	min-height: 0;
-/*
-	@include Medium-Half     { min-height: $size-hero-height-md-half;      }
-	@include Large           { min-height: $size-hero-height-lg;           }
-	@include Large-Qtr-First { min-height: $size-hero-height-lg-qtr-first; }
-	@include Large-Half      { min-height: $size-hero-height-lg-half;      }
-	@include Large-Qtr-Last  { min-height: $size-hero-height-lg-qtr-last;  }
-	@include XLarge          { min-height: $size-hero-height-xl;           }
-*/
 
 	&::after{ background: $hero-background-color;	}
 	
@@ -80,8 +81,7 @@ main > header:first-child {
 	> hgroup > * { color: $white; }
 	
 	> hgroup {
-		/* This avoids overflow and decent padding against the top and bottom edges */
-		padding: $cell-heightWithMargin 0;
+		padding: $cell-heightWithMargin 0; // This avoids overflow and decent padding against the top and bottom edges */
 		
 		h1 {
 			white-space: nowrap;
@@ -138,12 +138,15 @@ main > header:first-child {
 	////////////////////////////////////////////////////////////////////////////////
 	// Hero Background Image
 	
+	.align-16-9,
 	> figure,
-	> figure svg { position: absolute; }
+	> figure svg,
+	 { position: absolute; }
 	
 	> figure {
+
 		$grid-width: 101%;
-		
+				
 		padding: 0 $gutter-width-half;		
 		overflow: hidden;
 		z-index: -1;
@@ -162,6 +165,7 @@ main > header:first-child {
 			width:  auto;
 			transition: margin-left .5s ease-in-out;
 			-webkit-transform: translate3d(-50%, -50%, 0);
+			opacity: 0;
 			
 			/* Adjust Horizontal position of grid */
 			/* Be Careful here as we need to type fit things pretty tight on mobile */
@@ -215,6 +219,13 @@ main > header:first-child {
 		}
 	}
 }
+
+/*
+.align-16-9 {
+		width:  100% !important;
+		@include Large { width: 150%!important; }
+}
+*/
 
 
 /*

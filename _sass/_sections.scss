@@ -30,7 +30,7 @@ main > section {
 	// This is needed to deal with the float used for sizing and to ensure the correct height for the section
 	> figure + hr { clear: both; }
 
-	// This element ensures the Section ratio is 8:3 so images (which are half width) are 4:3
+	// This element ensures the Section ratio is 8:3 so half-width images are 4:3
 	// To get these values above. Take the overall width (screen edge to screen edge) and then
 	// calculate the height for and 8:3 ratio.
 	// Then divide the height by the actual width of the section (minus columns on right and left) to get the percentage.
@@ -51,6 +51,8 @@ main > section {
 		@include Large-Qtr-Last  	{ padding-top: 52.89473684%;  }	// 2144
 		@include XLarge						{ padding-top: 50.32894737%;  }	// 2448	
 	}
+	
+	// Adjust spacing at top to 
 	
 	@include Base {
 		padding-top: $section-base-padding-top-sm;
@@ -291,6 +293,8 @@ main > section {
 		
 		z-index: 1;
 		
+		// Set Width
+		
 		@include Medium-Half     { width: 2 * $base-width;  }
 		@include Large           { width: 2 * $width-l;     }
 		@include Large-Qtr-First { width: 2 * $width-l-q-f; }
@@ -299,6 +303,7 @@ main > section {
 		@include XLarge          { width: 2 * $width-xl;    }
 		
 		// Push out to the Edges
+		
 		@include Medium-Half     {
 			padding: 0 $gutter-width-half; 
 			left:  -$gutter-width-half; 
@@ -331,7 +336,9 @@ main > section.color-full-bleed {
 ////////////////////////////////////////////////////////////////////////////////
 // Full Bleed Color Background
 
-main > section.color-full-bleed:after { background: $greyLight; }
+main > section.color-full-bleed:after {
+	background: $greyLight;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Horizontal Rule
@@ -353,6 +360,7 @@ main > section.rule-horizontal-top {
 }
 
 main > section.rule-horizontal-bottom::after { bottom: $horzLine-height; }
+
 main > section.rule-horizontal-top::after    { top:    -$horzLine-height; }
 
 ////////////////////////////////////////////////////////////////////////////////

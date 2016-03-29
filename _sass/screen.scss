@@ -4,26 +4,6 @@
 @import "global";
 @import "grid";
 
-/* Resets */	
-
-* {
-	margin: 0;
-	padding: 0;
-	border: none;
-	// -webkit-user-select: none;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
-	   -moz-text-size-adjust: 100%;
-	    -ms-text-size-adjust: 100%;
-
-}
-
-/* Setup Default Units */
-
-html { font-size: $u; }
-
 /* Setup JS Hooks for Breakpoints */
 
 html:before {
@@ -38,6 +18,26 @@ html:before {
 	@include Large-Qtr-Last  { content: "Large-Qtr-Last";  }
 	@include XLarge          { content: "XLarge";          }
 }
+
+/* Resets */	
+
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	   -moz-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%;
+			    text-size-adjust: 100%;
+
+}
+
+/* Setup Default Units */
+
+html { font-size: $u; }
 
 /* General Layout Adjustments */
 

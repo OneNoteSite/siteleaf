@@ -1,11 +1,18 @@
 PRIORITY
 
-	* Setup specific breakpoint includes for hacks / fixes
-	* Verify hgroup isn't same as section As far as spacing and everything else.
+
+	* 16:9 for Hero
+	* Images resize if smaller than medium-half
+	
 	* Add font smooth / thick classes
 	* Font Smoothing cross Browser
 	* Ligatures?
 	* Links should always be semi-bold
+	
+	
+FINISHED
+	* Setup specific breakpoint includes for hacks / fixes
+	* Verify hgroup isn't same as section As far as spacing and everything else.
 
 
 TO DO

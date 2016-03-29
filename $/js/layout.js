@@ -1,7 +1,9 @@
+/*
 function print(arg) { 
-	return;
+	//return;
 	console.log(arg);
 }
+*/
 
 (function(document){
 	
@@ -13,7 +15,7 @@ function print(arg) {
 			
   // Private Variables
   var baseFontSize, baseRowGroup, baseRowMargin;
-	var HERO;
+	var HERO, IMAGES;
 
 	// Public Variables
   Layout.breakpoint = {};
@@ -46,33 +48,31 @@ function print(arg) {
 	}
 	
 	function resizeImages(){
-		getCurrentBreakpoint();
-		
+		//getCurrentBreakpoint();
+	
 		var images = document.getElementsByClassName("image");
-
+		
 		if (images.length < 1) return;
-				
 		if (!baseFontSize) updateBaseValues(getBaseFontSize());
 		
 		for ( var i = 0; i < images.length; i++ ) {
-			var before,
-					adjust,
-					checkClass = "State-SizeCheck",
-					image = images[i];
-			
-			image.classList.add(checkClass);
-			
-			before = Math.floor(image.getBoundingClientRect().height);
-			adjust = (baseFontSize - (before % baseFontSize));
-			if (adjust == baseFontSize) adjust = 0;
-			image.style.height = before + adjust + "px";
-			
-			image.classList.remove(checkClass);
+			var before, adjust;
+			var cls = "State-SizeCheck",
+					img = images[i];
+			if( Layout.breakpoint.vertical.indexOf(Layout.breakpoint.current) < 0) {
+				img.style.height = "auto";
+			} else {
+				img.classList.add(cls);				
+				before = Math.floor(img.getBoundingClientRect().height);
+				adjust = (baseFontSize - (before % baseFontSize));
+				if (adjust == baseFontSize) adjust = 0;
+				img.style.height = before + adjust + "px";
+				img.classList.remove(cls);
+			}
 		}
 	}
 	
 	function resizeSections() {
-		print("resize");
 		
 		var sections = document.body.getElementsByTagName("section");
 		
@@ -84,8 +84,11 @@ function print(arg) {
 		
 		if (!baseFontSize) updateBaseValues(getBaseFontSize());
 
+
 		for ( var i = 0; i < sections.length; i++ ) {
-			var before, adjust, newHeight, section = sections[i];
+			var before, adjust, newHeight;
+			var section = sections[i];
+					
 			// Reset so we can inspect default height or return to vertical flow
 			section.style.height = "auto";
 			// Continue on reseting but don't change them
@@ -98,38 +101,22 @@ function print(arg) {
 			newHeight = before + adjust + "px";
 			section.style.height = newHeight;
 
-			// Old Method using RowGroups			
-			// adjust = (baseRowGroup - (before % baseRowGroup));
-			// if (adjust == baseRowGroup) adjust = 0;			
-
 		}
 		
-		// Only do this at a certain point. Probably below medium		
-		
-		
-		// resizeImages();
-
+		resizeImages();
 	}
 	
 	function heroHeightToGrid() {
-		print("ping");
-		var frame, adjust, height;
-		
-		HERO.style.height    = "auto";
-		HERO.style.maxHeight = "100vmin";
-		
-		before = Math.floor(HERO.getBoundingClientRect().height);
+		var adjust, height;
+		var before = Math.floor(document.body.getBoundingClientRect().width * 0.5625);
+		HERO.style.height = "auto";
 		adjust = baseFontSize - (before % baseFontSize);
-		
+
 		if (adjust == baseFontSize) adjust = 0;
 		
-		if (adjust > 0){
-			
-			height = before + adjust + "px";
-			HERO.style.height    = height;
-			HERO.style.maxHeight = height;
-			
-		}
+		height = before + adjust + "px";
+// 		HERO.style.height    = height;
+		HERO.style.minHeight = height;
 	}
 	
 	function adjustHeroFromFontResizeEvent(event){
@@ -137,7 +124,7 @@ function print(arg) {
 		heroHeightToGrid();
 	}
 	
-	//////////
+	//////////////////////////////////////////////////////////////////////////////////////////
 		
 	function setupHeroToGrid(){
 		HERO = doc.querySelector("main > header:first-child");
@@ -160,28 +147,26 @@ function print(arg) {
 		// function that files the event and includes the base font size
 		function callFontResizeEvent(event){
 			var fontResizeEvent = new CustomEvent('fontResize', { 'detail': { fontSize: getBaseFontSize() }});
-			window.dispatchEvent(fontResizeEvent);
+			window.dispatchEvent( fontResizeEvent );
 		}
 	}
 
 	function init() {
-		
-		// CONSTANTS
-
 		
 		// EVENT LISTENERS
 		doc.addEventListener( loaded,			 setupBreakpointObject );
 		doc.addEventListener( loaded, 		 setupFontResizeEvents );
 		doc.addEventListener( loaded, 		 setupHeroToGrid );
 		doc.addEventListener( loaded, 		 resizeSections  );
+
 		
-		win.addEventListener( resize, 		 heroHeightToGrid   );
-		win.addEventListener( resize, 		 resizeSections   );
+		win.addEventListener( resize, 		 heroHeightToGrid );
+		setTimeout(function(){win.addEventListener( resize, resizeSections);}, 2000); 
 		
 		win.addEventListener( fontResize,  resizeSections );
 		win.addEventListener( fontResize,  adjustHeroFromFontResizeEvent );
 		
-		win.addEventListener( orientation, resizeSections );
+		win.addEventListener( orientation, resizeSections   );
 		win.addEventListener( orientation, heroHeightToGrid );
 	}
 
@@ -195,3 +180,8 @@ function print(arg) {
 	init();
   
 })(document);
+
+
+// Old Method using RowGroups			
+// adjust = (baseRowGroup - (before % baseRowGroup));
+// if (adjust == baseRowGroup) adjust = 0;
