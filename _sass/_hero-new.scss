@@ -26,6 +26,7 @@ main > header:first-child {
 	
 	> hr { clear: both; }
 	
+/*
 	.align-16-9{
 		background: black url('/$/img/16-9.png');
 		background-size: cover;
@@ -33,6 +34,7 @@ main > header:first-child {
 		background-repeat: no-repeat;
 		box-shadow: inset 0 0 0 8px yellow;
 	}
+*/
 	
 	&::before {
 		content: "";
@@ -42,8 +44,6 @@ main > header:first-child {
 		position: relative;
 		
 		@include Base { padding-top: 56.25%; }
-		
-// 		@include Base { padding-top: 62.5%; }
 		
 /*
 		@include Large 						{ padding-top: 75.98684211%;  } // 1232
@@ -134,14 +134,15 @@ main > header:first-child {
 			}
 		}
 	}
-	
+
+
 	////////////////////////////////////////////////////////////////////////////////
 	// Hero Background Image
 	
-	.align-16-9,
 	> figure,
-	> figure svg,
-	 { position: absolute; }
+	> figure svg {
+		position: absolute;
+	}
 	
 	> figure {
 
@@ -155,6 +156,7 @@ main > header:first-child {
 		left:   50%;
 
 		-webkit-transform: translate3d(-50%, 0, 0);
+						transform: translate3d(-50%, 0, 0);
 		
 		width:  $grid-width;
 		@include Large { width: $grid-width + 50%; }
@@ -165,7 +167,7 @@ main > header:first-child {
 			width:  auto;
 			transition: margin-left .5s ease-in-out;
 			-webkit-transform: translate3d(-50%, -50%, 0);
-			opacity: 0;
+							transform: translate3d(-50%, -50%, 0);
 			
 			/* Adjust Horizontal position of grid */
 			/* Be Careful here as we need to type fit things pretty tight on mobile */

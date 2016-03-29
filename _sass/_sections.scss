@@ -142,7 +142,7 @@ main > header {
 	> hgroup {
 		@include Medium          { padding-right: 8rem; }
 		@include Medium-Half     { width: 50.0%;        }
-		@include Large           { padding-right: 3rem; }
+		@include Large           { padding-right: 10rem; }
 		@include Large-Qtr-Last  { padding-right: 10%;  }
 	}
 	
@@ -399,6 +399,13 @@ main > section.rule-horizontal-top {
 			right: -$percentSixth;
 		}
 	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Color Inverse - For Dark Backgrounds
+
+main > section.color-inverse * {
+	@include Medium-Half { color: $white; }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
