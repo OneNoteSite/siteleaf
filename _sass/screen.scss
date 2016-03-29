@@ -130,6 +130,9 @@ body {
 	a:hover{ text-decoration: underline; }	
 }
 
+body > header { z-index: 100; }
+body > main   { z-index: 0; }
+
 @import "type";
 @import "nav";
 @import "sections";
