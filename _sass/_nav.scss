@@ -71,6 +71,19 @@ body > header {
 	
 	&.sticky {
 		
+		> nav { padding-left:  2rem; }
+		
+		transition: all ease-out .2s;
+		transform: translateY(0%);
+		opacity: 1;
+		
+		&.hidden {
+			transition: all ease-in .2s;
+			opacity: 0;
+			transform:translateY(-100%);
+			pointer-events: none;
+		}
+		
 		position: fixed;
 		left:  0;
 		right: 0;
@@ -78,15 +91,10 @@ body > header {
 		height: $nav-Height;
 		z-index: 1000;
 		box-shadow: 0 5px 10px rgba(0,0,0,.1);
-		> nav > h2 > a {
-			padding-left: $gutter-width-half;
-			font-size: 2.5rem !important;
-			color: $purpleBrand !important;
-			display: block;
-			position: relative;
-			top: auto;
-			bottom: auto;
-			line-height: 4rem !important;
+		
+		svg { 
+			fill: $purpleBrand;
+			width: 11rem;
 		}
 		
 		&::before {
@@ -95,6 +103,7 @@ body > header {
 			@include Base  { box-shadow: inset 0 -1px  0 rgba(0,0,0,.125); }
 			@include Retina{ box-shadow: inset 0 -.5px 0 rgba(0,0,0,.125); }
 		}
+
 		ul {
 			right: $gutter-width;
 			top: 1rem;

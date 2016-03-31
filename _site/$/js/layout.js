@@ -15,17 +15,42 @@ function print(arg) {
 			
   // Private Variables
   var baseFontSize, baseRowGroup, baseRowMargin;
-	var HERO, IMAGES;
+	var HTML, BODY, NAV, HERO, IMAGES, SECTIONS;
 
 	// Public Variables
   Layout.breakpoint = {};
-	
+  Layout.hero = {};
+  Layout.nav = {};
+  //Layout.sections = {};
+  //Layout.images = {};
+  
+	//////////////////////////////////////////////////////////////////////////////////////////
+  
+  function gatherLayoutElements() {
+		HTML     = doc.getElementsByTagName("html")[0];
+		BODY     = doc.body;
+		NAV      = doc.querySelector("body > header.sticky");
+		MAIN		 = doc.querySelector("body > main");
+		HERO     = doc.querySelector("body > main > header:first-child");
+		IMAGES   = MAIN.getElementsByClassName("image");
+		SECTIONS = MAIN.getElementsByTagName("section");
+		console.log(HTML, BODY, NAV, MAIN, HERO, IMAGES, SECTIONS);
+  }
   
   function setupBreakpointObject() {
+	  // Fix - Current breakpoint
 	  Layout.breakpoint.list     = BREAKPOINTS;
 	  Layout.breakpoint.current  = Layout.breakpoint.list[0];
 	  Layout.breakpoint.vertical = BREAKPOINTS_FOR_STACKING;
+	  Layout.hero.height         = null;
+	  Layout.nav.height          = null;
   }
+	
+	function getCurrentBreakpoint() {
+		var bp = window.getComputedStyle(HTML,':before').getPropertyValue('content');
+		Layout.breakpoint.current = bp;
+		return Layout.breakpoint.current;
+	}
 	
 	function updateBaseValues(size){
 		baseFontSize  = size;
@@ -34,33 +59,29 @@ function print(arg) {
 	}
 	
 	function getBaseFontSize() {
-		var el   = document.getElementsByTagName("html")[0],
-		    size = window.getComputedStyle(el).getPropertyValue("font-size"),
+		var size = window.getComputedStyle(HTML).getPropertyValue("font-size"),
 				unit = (size.replace("px","") * 1);
 		return unit;
 	}
 	
-	function getCurrentBreakpoint() {
-		var htmlTag = document.getElementsByTagName("html")[0];
-		var bp = window.getComputedStyle(htmlTag,':before').getPropertyValue('content');
-		Layout.breakpoint.current = bp;
-		return Layout.breakpoint.current;
-	}
+	//////////////////////////////////////////////////////////////////////////////////////////
 	
 	function resizeImages(){
-		//getCurrentBreakpoint();
-	
-		var images = document.getElementsByClassName("image");
+
+		if (IMAGES.length < 1) return;
 		
-		if (images.length < 1) return;
 		if (!baseFontSize) updateBaseValues(getBaseFontSize());
 		
-		for ( var i = 0; i < images.length; i++ ) {
+		for ( var i = 0; i < IMAGES.length; i++ ) {
+			
 			var before, adjust;
 			var cls = "State-SizeCheck",
-					img = images[i];
+					img = IMAGES[i];
+					
 			if( Layout.breakpoint.vertical.indexOf(Layout.breakpoint.current) < 0) {
 				img.style.height = "auto";
+				// Fix - Should just continue.
+				// continue;
 			} else {
 				img.classList.add(cls);				
 				before = Math.floor(img.getBoundingClientRect().height);
@@ -74,9 +95,7 @@ function print(arg) {
 	
 	function resizeSections() {
 		
-		var sections = document.body.getElementsByTagName("section");
-		
-		if (sections.length < 1) return;
+		if (SECTIONS.length < 1) return;
 		
 		var current = getCurrentBreakpoint(),
 				invalid = Layout.breakpoint.vertical,
@@ -85,53 +104,26 @@ function print(arg) {
 		if (!baseFontSize) updateBaseValues(getBaseFontSize());
 
 
-		for ( var i = 0; i < sections.length; i++ ) {
-			var before, adjust, newHeight;
-			var section = sections[i];
-					
-			// Reset so we can inspect default height or return to vertical flow
-			section.style.height = "auto";
-			// Continue on reseting but don't change them
-			if (!isValid) continue;
+		for ( var i = 0; i < SECTIONS.length; i++ ) {
+			
+			var before, adjust;
+			var section = SECTIONS[i];		
+
+			section.style.height = "auto"; 			// Reset so we can inspect default height or return to vertical flow
+			
+			if (!isValid) continue;							// Continue on reseting but don't change them
 			
 			before = Math.floor(section.getBoundingClientRect().height);
-			adjust = (baseFontSize - (before % baseFontSize));
+			adjust = baseFontSize - (before % baseFontSize);
 			
 			if (adjust == baseFontSize) adjust = 0;
-			newHeight = before + adjust + "px";
-			section.style.height = newHeight;
-
+			
+			section.style.height = before + adjust + "px";
 		}
-		
 		resizeImages();
 	}
 	
-	function heroHeightToGrid() {
-		var adjust, height;
-		var before = Math.floor(document.body.getBoundingClientRect().width * 0.5625);
-		HERO.style.height = "auto";
-		adjust = baseFontSize - (before % baseFontSize);
-
-		if (adjust == baseFontSize) adjust = 0;
-		
-		height = before + adjust + "px";
-// 		HERO.style.height    = height;
-		HERO.style.minHeight = height;
-	}
-	
-	function adjustHeroFromFontResizeEvent(event){
-		updateBaseValues(event.detail.fontSize);
-		heroHeightToGrid();
-	}
-	
 	//////////////////////////////////////////////////////////////////////////////////////////
-		
-	function setupHeroToGrid(){
-		HERO = doc.querySelector("main > header:first-child");
-		if (!HERO) return;	
-		updateBaseValues(getBaseFontSize());
-		heroHeightToGrid();
-	}
 	
 	function setupFontResizeEvents(){
 		// Create and insert dom element
@@ -150,30 +142,85 @@ function print(arg) {
 			window.dispatchEvent( fontResizeEvent );
 		}
 	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	
+	function handleNavWithScrollPosition(){
+		if (Layout.hero.height/1.75 >= BODY.scrollTop) {
+			console.log("hide");
+			NAV.classList.add("hidden");
+		}else{
+			console.log("show");
+			NAV.classList.remove("hidden");
+		}
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	
+	function heroHeightToGrid() {
+
+		var adjust, height;
+		var before = Math.floor(BODY.getBoundingClientRect().width * 0.5625);
+		
+		HERO.style.height = "auto";
+		adjust = baseFontSize - (before % baseFontSize);
+
+		if (adjust == baseFontSize) adjust = 0;
+		
+		height = before + adjust + "px";
+		HERO.style.minHeight = height;
+		Layout.hero.height = HERO.getBoundingClientRect().height;
+	}
+	
+	function adjustHeroFromFontResizeEvent(event){
+		updateBaseValues(event.detail.fontSize);
+		heroHeightToGrid();
+	}
+	
+	function setupHeroToGrid(){
+		if (!HERO) return;	
+		updateBaseValues(getBaseFontSize());
+		heroHeightToGrid();
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
 
 	function init() {
 		
 		// EVENT LISTENERS
-		doc.addEventListener( loaded,			 setupBreakpointObject );
-		doc.addEventListener( loaded, 		 setupFontResizeEvents );
-		doc.addEventListener( loaded, 		 setupHeroToGrid );
-		doc.addEventListener( loaded, 		 resizeSections  );
+		doc.addEventListener( loaded, gatherLayoutElements  );
+		doc.addEventListener( loaded, setupBreakpointObject );
+		doc.addEventListener( loaded, setupFontResizeEvents );
+		doc.addEventListener( loaded, setupHeroToGrid );
+		doc.addEventListener( loaded, resizeSections  );
+		doc.addEventListener( loaded, handleNavWithScrollPosition );
 
 		
-		win.addEventListener( resize, 		 heroHeightToGrid );
-		setTimeout(function(){win.addEventListener( resize, resizeSections);}, 2000); 
+		win.addEventListener( resize, heroHeightToGrid );
+		doc.addEventListener( resize, handleNavWithScrollPosition );
+		setTimeout(function(){ win.addEventListener(resize, resizeSections); }, 2000); 
 		
 		win.addEventListener( fontResize,  resizeSections );
 		win.addEventListener( fontResize,  adjustHeroFromFontResizeEvent );
+		win.addEventListener( fontResize,  handleNavWithScrollPosition );
+		
 		
 		win.addEventListener( orientation, resizeSections   );
 		win.addEventListener( orientation, heroHeightToGrid );
+		win.addEventListener( orientation, handleNavWithScrollPosition );
+		
+		doc.addEventListener(scroll, handleNavWithScrollPosition);
+
+		// This is the magic, this gives me "live" scroll events
+		// doc.addEventListener('gesturechange', function() { console.log("gestureScroll")});
+                                                           
 	}
 
 	var win = window,
 			doc = document,
 			loaded      = 'DOMContentLoaded',
 			resize      = 'resize',
+			scroll      = 'scroll',
 			orientation = 'orientationchange',
 			fontResize  = 'fontResize';
 
