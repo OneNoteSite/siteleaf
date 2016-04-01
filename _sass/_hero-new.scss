@@ -24,6 +24,8 @@ $size-hero-padding-bottom-sm: $cell-height + $cell-margin * 2;
 
 main > header:first-child {
 	
+	outline: 1px solid blue;
+	
 	> hr { clear: both; }
 	
 	&::before {
@@ -33,30 +35,17 @@ main > header:first-child {
 		float: left;
 		position: relative;
 		
-		@include Base { padding-top: 56.25%; }
+		/* These are all approximated as they are just a fallback if Javascript fails */
 		
-/*
-		@include Large 						{ padding-top: 75.98684211%;  } // 1232
-		@include Large-Qtr-First 	{ padding-top: 71.05263158%; 	} // 1536
-		@include Large-Half 			{ padding-top: 68.09210526%;  }	// 1840
-		@include Large-Qtr-Last  	{ padding-top: 75.98684211%;  }	// 2144
-		@include XLarge						{ padding-top: 75.98684211%;  }	// 2448
-
-		@include Large-Half 	{ background-color: red; } // 1840
-*/
+		@include Base  						{ padding-top: 58.25%; } // 0
+		@include Large 						{ padding-top: 77.5%;  } // 1232
+		@include Large-Qtr-First 	{ padding-top: 72%; 	}
+		@include Large-Half 			{ padding-top: 69%;  }	// 1840
+		@include Large-Qtr-Last  	{ padding-top: 80.25%;  } // 2144
+		@include XLarge						{ padding-top: 76.25%;  }	// 2448
 	}
 	
 }
-
-/*
-	.align-16-9{
-		background: black url('/$/img/16-9.png');
-		background-size: cover;
-		background-position: center center;
-		background-repeat: no-repeat;
-		box-shadow: inset 0 0 0 8px yellow;
-	}
-*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // General Layout
