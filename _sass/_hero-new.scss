@@ -24,8 +24,6 @@ $size-hero-padding-bottom-sm: $cell-height + $cell-margin * 2;
 
 main > header:first-child {
 	
-	outline: 1px solid blue;
-	
 	> hr { clear: both; }
 	
 	&::before {
@@ -36,11 +34,11 @@ main > header:first-child {
 		position: relative;
 		
 		/* These are all approximated as they are just a fallback if Javascript fails */
-		
-		@include Base  						{ padding-top: 58.25%; } // 0
-		@include Large 						{ padding-top: 77.5%;  } // 1232
-		@include Large-Qtr-First 	{ padding-top: 72%; 	}
-		@include Large-Half 			{ padding-top: 69%;  }	// 1840
+
+		@include Base  						{ padding-top: 58.25%;  } // 0
+		@include Large 						{ padding-top: 77.5%;   } // 1232
+		@include Large-Qtr-First 	{ padding-top: 72%; 	  } // 1536
+		@include Large-Half 			{ padding-top: 69%;     }	// 1840
 		@include Large-Qtr-Last  	{ padding-top: 80.25%;  } // 2144
 		@include XLarge						{ padding-top: 76.25%;  }	// 2448
 	}
@@ -211,96 +209,3 @@ main > header:first-child {
 		}
 	}
 }
-
-/*
-.align-16-9 {
-		width:  100% !important;
-		@include Large { width: 150%!important; }
-}
-*/
-
-
-/*
-main > header .align-right{
-	position: absolute;
-	width: 33rem;
-	height: 10rem;
-	top: 50%;
-	margin-top: -5rem;
-	background-color: cyan;
-	opacity: .2;
-	z-index: 90;
-	right: -1rem;
-}
-
-main > header .align-top {
-	position: absolute;
-	width: 4.5rem;
-	height: 4.5rem;
-	top: 0;
-	background-color: cyan;
-	opacity: .2;
-	z-index: 90;
-	right: 50%;
-}
-
-main > header .align-right,
-main > header .align-top {
-	display: none;
-}
-*/
-
-
-/*
-main > header::before{
-	
-	$ratio-multiplier: 1.6470588235;
-	$bg-image-height-sm:      $size-hero-height-sm + 0rem;
-	$bg-image-height-md-half: $size-hero-height-md-half + 4rem;
-	
-		z-index: -1;
-
-		@include absoluteSnapPseudo($left: -$gutter-width-half, $right: -$gutter-width-half);
-		
-	background-image: url("/$/img/hero3x.png");
-	background-repeat: no-repeat;
-	
-	@include Base {
-		// 0
-		background-size: ($bg-image-height-sm * $ratio-multiplier) $bg-image-height-sm;
-		background-position: 33% 50%;
-	}
-	@include Small {
-		// 320
-
-	}
-	@include Medium {
-		// 624
-		// background-position: 100% 50%;
-	}
-	@include Medium-Qtr {
-		// 776
-	}
-	@include Medium-Half {
-		// 928
-		background-size: ($bg-image-height-md-half * $ratio-multiplier) $bg-image-height-md-half;
-		background-position: 0% 100%;
-	}
-	
-	@include Large {
-		// 1232 
-	}
-	@include Large-Qtr-First {
-		// 1536
-	}
-	@include Large-Half {
-		// 1840
-	}
-	@include Large-Qtr-Last {
-		// 2144
-	}
-	@include XLarge {
-		// 2448
-	}
-}
-*/

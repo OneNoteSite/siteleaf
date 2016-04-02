@@ -1,9 +1,3 @@
-/*
-function print(arg) { 
-	//return;
-	console.log(arg);
-}
-*/
 
 (function(document){
 	
@@ -238,8 +232,3 @@ function print(arg) {
 	init();
   
 })(document);
-
-
-// Old Method using RowGroups			
-// adjust = (baseRowGroup - (before % baseRowGroup));
-// if (adjust == baseRowGroup) adjust = 0;

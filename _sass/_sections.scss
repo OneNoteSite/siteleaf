@@ -113,18 +113,6 @@ main > header {
 	box-sizing:  content-box;
 
 	
-/* Fix - Tie these to some patterns / values */
-/*
-	@include Medium-Half     { min-height: $cellGroup-Height * 3; } // 928
-	@include Large           { min-height: $cellGroup-Height * 4; } // 1232
-	@include Large-Qtr-First { min-height: $cellGroup-Height * 5; } // 1536
-	@include Large-Half 		 { min-height: $cellGroup-Height * 6; } // 1840
-*/
-/*
-	@include Large-Qtr-Last  { min-height: $cellGroup-HeightContent * 5.5; } // 2144
-	@include XLarge          { min-height: $cellGroup-HeightContent * 6.5; } // 2448
-*/
-	
 	p, small, h1, h2, h3, h4, h5, h6, header, hgroup, ul, ol {
 		display: block;
 		box-sizing: border-box;
