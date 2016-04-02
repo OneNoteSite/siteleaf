@@ -24,9 +24,6 @@ collections:
   uploads:
     title: Uploads
     output: true
-  iphone:
-    title: iPhone
-    output: true
 defaults:
 - scope:
     path: ''
