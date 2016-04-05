@@ -11,9 +11,7 @@
 */
 
 /*
-@function cellGroup($number) {
-	$value
-}
+@function cellGroup($number) { $value }
 */
 
 /* LAYOUT */
@@ -27,6 +25,9 @@
 	position: absolute;
 	content: "";
 }
+
+@mixin roundedCorners() { border-radius: .25rem; }
+
 
 /* DEBUG */
 

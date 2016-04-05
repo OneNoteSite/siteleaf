@@ -8,7 +8,8 @@
 	//////////////////////////////////////////////////////////////////////////////////////////
 	
 	var BREAKPOINTS = ["Tiny", "Small", "Medium", "Medium-Half", "Large", "Large-Qtr-First", "Large-Half", "Large-Qtr-Last", "XLarge"],
-			BREAKPOINTS_FOR_STACKING = ["Tiny", "Small", "Medium"];
+			BREAKPOINTS_FOR_STACKING = ["Tiny", "Small", "Medium"],
+			NAV_HIDDEN = "hidden";
 			
   // Private Variables
   var baseFontSize, baseRowGroup, baseRowMargin;
@@ -18,8 +19,8 @@
   Layout.breakpoint = {};
   Layout.hero = {};
   Layout.nav = {};
-  //Layout.sections = {};
-  //Layout.images = {};
+  // Layout.sections = {};
+  // Layout.images = {};
   
 	//////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////
@@ -145,12 +146,14 @@
 	//////////////////////////////////////////////////////////////////////////////////////////
 	
 	function handleNavWithScrollPosition(){
+		return;
+		var isHidden = NAV.classList.contains(NAV_HIDDEN);
 		if (Layout.hero.height/1.75 >= BODY.scrollTop) {
-			console.log("hide");
-			NAV.classList.add("hidden");
-		}else{
-			console.log("show");
-			NAV.classList.remove("hidden");
+			if (isHidden) return;
+			NAV.classList.add(NAV_HIDDEN);
+		} else {
+			if(!isHidden) return;
+			NAV.classList.remove(NAV_HIDDEN);
 		}
 	}
 	
@@ -167,7 +170,13 @@
 		if (adjust == baseFontSize) adjust = 0;
 		
 		height = before + adjust + "px";
+		
+		// Fix - Need to make sure we set minHeight on the smaller sizes
+		//if( Layout.breakpoint.vertical.indexOf(Layout.breakpoint.current) < 0) {
+				
 		HERO.style.minHeight = height;
+		HERO.style.height = height;
+		
 		Layout.hero.height = HERO.getBoundingClientRect().height;
 	}
 	
