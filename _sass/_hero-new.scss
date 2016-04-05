@@ -102,6 +102,7 @@ main > header:first-child {
 				-webkit-font-smoothing: subpixel-antialiased;
 				display: inline-block;
 				box-sizing: border-box;
+				border-radius: .25rem;
 				
 				height: $base-btn-size;
 				line-height: $base-btn-size - .25rem !important;
@@ -135,6 +136,7 @@ main > header:first-child {
 	> figure {
 
 		$grid-width: 101%;
+		$grid-width: 100%;
 				
 		padding: 0 $gutter-width-half;		
 		overflow: hidden;
@@ -152,7 +154,8 @@ main > header:first-child {
 		svg {
 			top:    50%;
 			left:   100%;
-			width:  auto;
+			width:  auto !important;
+			height: auto !important;
 			transition: margin-left .5s ease-in-out;
 			-webkit-transform: translate3d(-50%, -50%, 0);
 							transform: translate3d(-50%, -50%, 0);
