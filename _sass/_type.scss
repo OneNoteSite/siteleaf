@@ -45,7 +45,7 @@ $face-light:   'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light', $face-r
 
 @font-face {
 	font-family: 'Segoe UI Semilight';
-	src: url('/$/font/segoeuisl.ttf') format('truetype');
+	src: local('Segoe UI Light'), local('SegoeUI-Light'), url('/$/font/segoeuisl.ttf') format('truetype');
 }
 
 /******************************************************************************/
@@ -192,16 +192,16 @@ $font-base-Legal:        $font-sm-Legal;
 
 	body        { font: $font-base-Body;                    * { font: $font-base-Body !important; }}
 	
-	h1          { font: $font-base-Headline     !important; * { font: inherit         !important; }}
-	h2          { font: $font-base-Subhead      !important; * { font: inherit         !important; }}
-	h3          { font: $font-base-SubheadSmall !important; * { font: inherit         !important; }}
-	h4          { font: $font-base-Body         !important; * { font: inherit         !important; }}
+	h1          { font: $font-base-Headline     !important; * { font: inherit     !important; }}
+	h2          { font: $font-base-Subhead      !important; * { font: inherit     !important; }}
+	h3          { font: $font-base-SubheadSmall !important; * { font: inherit     !important; }}
+	h4          { font: $font-base-Body         !important; * { font: inherit     !important; }}
 	
-	p           { font: $font-base-Body         !important; * { font: inherit         !important; }}
-	p > small   { font: $font-base-BodySmall    !important; * { font: inherit         !important; }}
+	p           { font: $font-base-Body         !important; * { font: inherit     !important; }}
+	p > small   { font: $font-base-BodySmall    !important; * { font: inherit     !important; }}
 	
 	small,
-	small.legal { font: $font-base-Legal        !important; * { font: inherit         !important; }}
+	small.legal { font: $font-base-Legal        !important; * { font: inherit     !important; }}
 
 					
 @include Medium {
