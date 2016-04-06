@@ -3,9 +3,6 @@ title: OneNote
 url: http://onenote.work
 timezone: America/Los_Angeles
 collections:
-  posts:
-    title: Posts
-    output: true
   uploads:
     title: Uploads
     output: true
