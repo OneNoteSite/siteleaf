@@ -14,13 +14,6 @@ collections:
       - left
       - right
       - full
-  posts:
-    title: Do Not Modify
-    output: true
-    Components:
-    - hero
-    - hero-full
-    - section
   uploads:
     title: Uploads
     output: true
