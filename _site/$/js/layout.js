@@ -146,7 +146,6 @@
 	//////////////////////////////////////////////////////////////////////////////////////////
 	
 	function handleNavWithScrollPosition(){
-		return;
 		var isHidden = NAV.classList.contains(NAV_HIDDEN);
 		if (Layout.hero.height/1.75 >= BODY.scrollTop) {
 			if (isHidden) return;

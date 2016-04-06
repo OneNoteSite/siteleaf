@@ -40,7 +40,7 @@ $face-light:   'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light', $face-r
 
 @font-face {
 	font-family: 'Segoe UI';
-	src: url('/$/font/segoeui.ttf') format('truetype');
+	src: local('Segoe UI'), local('SegoeUI'), url('/$/font/segoeui.ttf') format('truetype');
 }
 
 @font-face {
