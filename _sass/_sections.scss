@@ -23,7 +23,6 @@
 
 main > section {
 
-	// 	@include outline(green);	
 	padding: 0;
 	
 	
@@ -42,6 +41,8 @@ main > section {
 		width: $sizing-spacer-width;
 		margin-left: -$sizing-spacer-width * 2;
 		float: left;
+		
+		background: red;
 		
 		// * Fix - Can I do this mathmatically?
 		@include Base  						{ padding-top: 37.5%; 				} // 0
@@ -183,9 +184,9 @@ main > header {
 		
 		&:last-of-type { padding-bottom: $textCapFrameAdjust + 3rem; }
 
+/*
 		> strong a{
 			position: relative;
-			&::after  { content: " >" }
 			&::before {
 				content: "";
 				position: absolute;
@@ -195,6 +196,7 @@ main > header {
 				bottom: -1rem;
 			}
 		}
+*/
 	}
 }
 
@@ -395,6 +397,125 @@ main > section.rule-horizontal-top {
 main > section.color-inverse * {
 	@include Medium-Half { color: $white; }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+main > section.columns {
+
+	// these match the padding tops set above
+	@include Base 						{ padding-bottom: .5 * $section-base-padding-top-sm; 						}
+	@include Medium-Half 			{ padding-bottom: .5 * $section-base-padding-top-md; 						}
+	@include Large 						{ padding-bottom: .5 * $section-base-padding-top-lg; 						} 
+	@include Large-Qtr-First	{ padding-bottom: .5 * $section-base-padding-top-lg-qtr-first; 	} 
+	@include Large-Half 			{ padding-bottom: .5 * $section-base-padding-top-lg-half; 			}
+	
+	.icon-svg {
+		height:  6rem;
+		display: block;
+		
+		svg {
+			display: block;
+			width:  4.25rem;
+			height: 4.25rem;
+			position: relative;
+			left: -.125rem;
+			top:  -.125rem;
+			fill: $charcoalLight;
+		}		
+	}
+	
+	p small {
+		padding-top:    .5rem;
+		margin-bottom: -.5rem;
+		a {
+			display: inline-block;
+			text-decoration: none;
+			
+			// Spacers 
+			
+			&:after {
+				content: "";
+				display: inline-block;
+				padding-right: .75rem;
+			}
+			
+			&:not(:first-child){
+				&::before{
+					content: "| ";
+					color: $greyDark;
+					padding-right: .75rem;					
+				}			
+			}
+		}
+	}
+
+	@include Medium {
+		ul {
+			display: block;
+			font-size: 0 !important;
+			li {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				
+				// We need to adjust for columns. We shouldn't have more than 4 in total
+				& + li 						{ left: $gutter-width * 1; }
+				& + li + li  			{ left: $gutter-width * 2; }
+				& + li + li + li 	{ left: $gutter-width * 3; }
+				a {
+					display: block;
+					line-height: 2 !important;
+					&::before,
+					&::after {
+						display: none;
+					}
+				}
+			}
+		}		
+	}
+	
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Horizontal Positioning
+		
+	// Fix - These should be a function
+	@include Medium {
+		$gutterCount: 3;
+		ul { margin-right: $gutter-width * $gutterCount;
+			li { width: 100% / ($gutterCount + 1); }
+		}		
+	}
+	
+	@include Medium-Half {
+		$gutterCount: 5;
+		ul { margin-right: $gutter-width * $gutterCount;
+			li { width: 100% / ($gutterCount + 1); }
+		}		
+	}
+	
+	@include Large-Qtr-First {
+		$gutterCount: 7;
+		ul { margin-right: $gutter-width * $gutterCount;
+			li { width: 100% / ($gutterCount + 1); }
+		}		
+	}
+	
+	@include Large-Half {
+		$gutterCount: 9;
+		ul { margin-right: $gutter-width * $gutterCount;
+			li { width: 100% / ($gutterCount + 1); }
+		}		
+	}
+	
+	@include XLarge {
+		$gutterCount: 11;
+		ul { margin-right: $gutter-width * $gutterCount;
+			li { width: 100% / ($gutterCount + 1); }
+		}		
+	}
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Unused

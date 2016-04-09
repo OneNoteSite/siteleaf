@@ -1,18 +1,16 @@
 @import "global";
 @import "type";
 
-/*
-@function strip-unit($number) {
+
+/* HELPER */
+
+/* @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
   @return $number;
-}
-*/
+} */
 
-/*
-@function cellGroup($number) { $value }
-*/
 
 /* LAYOUT */
 
@@ -35,10 +33,10 @@
 
 /* FONT */
 
-@mixin sm-font-h1()        { font: $font-base-Headline     !important; }
-@mixin sm-font-h2()        { font: $font-base-Subhead      !important; }
-@mixin sm-font-h3()        { font: $font-base-SubheadSmall !important; }
-@mixin sm-font-h4()        { font: $font-base-Body         !important; }
-@mixin sm-font-body()      { font: $font-base-Body         !important; }
-@mixin sm-font-bodySmall() { font: $font-base-BodySmall    !important; }
-@mixin sm-font-legal()     { font: $font-base-Legal        !important; }
+@mixin sm-font-h1()        { font: $font-base-Headline     !important; }	// 34px
+@mixin sm-font-h2()        { font: $font-base-Subhead      !important; }	// 26px
+@mixin sm-font-h3()        { font: $font-base-SubheadSmall !important; }	// 16px
+@mixin sm-font-h4()        { font: $font-base-Body         !important; }	// 18px		-> Make color black
+@mixin sm-font-body()      { font: $font-base-Body         !important; }	// 18px
+@mixin sm-font-bodySmall() { font: $font-base-BodySmall    !important; }	// 16px
+@mixin sm-font-legal()     { font: $font-base-Legal        !important; }	// 12px

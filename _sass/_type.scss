@@ -135,12 +135,12 @@ $type-sm-Legal:        	$regular 	1.50rem / #{$type-sm-Legal-lineHeight};
 /******************************************************************************/
 /* Base Sizes */
 
-$type-base-Headline:     $type-sm-Headline;
-$type-base-Subhead:      $type-sm-Subhead;
-$type-base-SubheadSmall: $type-sm-SubheadSmall;
-$type-base-BodySmall:    $type-sm-BodySmall;
-$type-base-Body:         $type-sm-Body;
-$type-base-Legal:        $type-sm-Legal;
+$type-base-Headline:     $type-sm-Headline;				// 34px
+$type-base-Subhead:      $type-sm-Subhead;				// 26px
+$type-base-Body:         $type-sm-Body;						// 18px
+$type-base-SubheadSmall: $type-sm-SubheadSmall;		// 16px
+$type-base-BodySmall:    $type-sm-BodySmall;			// 16px
+$type-base-Legal:        $type-sm-Legal;					// 12px
 
 /******************************************************************************/
 /* Font Size Settings  */

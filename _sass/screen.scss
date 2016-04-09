@@ -28,8 +28,12 @@ html:before {
 	padding: 0;
 	border: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+/*
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+*/
+	
 	-webkit-text-size-adjust: 100%;
 	   -moz-text-size-adjust: 100%;
 	    -ms-text-size-adjust: 100%;
@@ -37,11 +41,10 @@ html:before {
 
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* IE/Edge */
-  user-select: none;           /* non-prefixed version, currently
-                                  not supported by any browser */
+   -khtml-user-select: none;   /* Konqueror */
+     -moz-user-select: none;   /* Firefox */
+      -ms-user-select: none;   /* IE/Edge */
+          user-select: none;   /* non-prefixed version, currently not supported by any browser */
 }
 
 
@@ -69,11 +72,12 @@ body {
 small,
 small.legal { display: block; }
 
-a{ text-decoration: none; }
+a, a:hover { text-decoration: none; }
 
-body                   { color: $charcoalRegular; }
-h1, h2, h3, h4, h5, h6 { color: $black;           }
-main section a         { color: $purpleBrand;     }
+body                   { color: $charcoalRegular;    }
+h1, h2, h3, h4, h5, h6 { color: $black;              }
+main section a         { color: $purpleBrand;        }
+main section a:hover   { color: $purpleBrand-Darker; }
 
 /* Top Level Sections */
 
@@ -137,6 +141,7 @@ body > main   { z-index: 0; }
 @import "footer";
 @import "hero-new";
 @import "polyfill.object-fit.min";
+
 // @import "hero";
 // @import "hero-image";
 
