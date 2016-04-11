@@ -1,7 +1,4 @@
-var json = {
-	resize: true,
-	grid: true
-};
+var debug = { resize: false, grid: false };
 
 /*
 		hero: {

@@ -43,16 +43,16 @@
 	}
 	
 	function init(){
-		if (json.grid == false) return;
+		if (debug.grid == false) return;
 		doc.addEventListener(loaded, displaySize );
 		win.addEventListener(resize, displaySize );		
 	}
 	
 	var win = window,
 			doc = document,
-			loaded      = 'DOMContentLoaded',
-			resize      = 'resize',
-			timerID     = false;
+			loaded  = 'DOMContentLoaded',
+			resize  = 'resize',
+			timerID = false;
 			
 	init();
 

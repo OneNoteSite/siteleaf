@@ -25,7 +25,6 @@ main > section {
 
 	padding: 0;
 	
-	
 	// This is needed to deal with the float used for sizing and to ensure the correct height for the section
 	> figure + hr { clear: both; }
 
@@ -42,8 +41,6 @@ main > section {
 		margin-left: -$sizing-spacer-width * 2;
 		float: left;
 		
-		background: red;
-		
 		// * Fix - Can I do this mathmatically?
 		@include Base  						{ padding-top: 37.5%; 				} // 0
 		@include Large 						{ padding-top: 50%;   				} // 1232
@@ -52,6 +49,7 @@ main > section {
 		@include Large-Qtr-Last  	{ padding-top: 52.89473684%;  }	// 2144
 		@include XLarge						{ padding-top: 50.32894737%;  }	// 2448	
 	}
+	&.columns::before { padding-top: 0; }
 	
 	// Adjust spacing at top to 
 	
@@ -424,7 +422,6 @@ main > section.columns {
 			fill: $charcoalLight;
 		}		
 	}
-	
 	p small {
 		padding-top:    .5rem;
 		margin-bottom: -.5rem;
@@ -464,7 +461,10 @@ main > section.columns {
 				& + li + li  			{ left: $gutter-width * 2; }
 				& + li + li + li 	{ left: $gutter-width * 3; }
 				a {
-					display: block;
+					display: inline-block;
+					margin-right: 50%;
+					padding: 0 $gutter-width;
+					margin-left: -$gutter-width;
 					line-height: 2 !important;
 					&::before,
 					&::after {

@@ -75,17 +75,14 @@ main > header:first-child {
 		
 		h1 {
 			white-space: nowrap;
-			-webkit-font-smoothing: subpixel-antialiased;
+			@include font-smoothing(on);
 			@include Hack-Before-Small-Qtr-First {
 				font: $type-sm-Subhead $face-light !important;
 			}			
 			span {
 				display: block;
 				white-space: nowrap;
-			}
-			mark {
-				background-color: transparent;
-				color: inherit;
+				@include font-smoothing(on);
 			}
 		}
 		
@@ -98,11 +95,13 @@ main > header:first-child {
 				$base-btn-size: 4rem;
 				$base-btn-size-md-half: 6rem;
 				@include roundedCorners();
+				@include buttonHoverChanges();
+				@include font-smoothing(off);
 				
 				padding: 0 $base-btn-size;
 				background: $white;
 				color: $hero-background-color;
-				-webkit-font-smoothing: subpixel-antialiased;
+				
 				display: inline-block;
 				box-sizing: border-box;
 				
@@ -114,14 +113,15 @@ main > header:first-child {
 					line-height: $base-btn-size-md-half - .5rem !important;
 				}
 				
-				&:hover {
-					text-decoration: none;
-					box-shadow: inset 0 0 0 1px $white;
-					background: $hero-background-color;
-					color: $white;
-				}
+				// On Larger Sizes say "Free"
+				// Fix - Move this into a CSS content variable layer
 
-				@include Medium { &::before{ content: "Free "; } }
+				@include Medium { 
+					&::before{
+						content: "Free ";
+						@include font-smoothing(off);
+					}
+				}
 			}
 		}
 	}

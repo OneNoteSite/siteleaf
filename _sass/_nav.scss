@@ -70,7 +70,7 @@ body > header {
 
 					@include Large { font-size: 2.25rem !important; }
 
-					&:hover{ opacity: .5; }
+					&:hover{ color: $charcoalLight; }
 				}
 			}
 		}
@@ -115,10 +115,11 @@ body > header {
 			right: $gutter-width;
 			
 			> li > a {
-					padding-left:  1.5rem;
-					padding-right: 1.5rem;
+					padding: .4rem 1.5rem .6rem;
 					background-color: $purpleBrand;
 					@include roundedCorners();
+					@include buttonHoverChanges($white, $purpleBrand);
+					@include font-smoothing(off);
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 function createGrid() {
-	if (json.grid == false) return;
+	
+	if (debug.grid == false) return;
 	
 	var grid, rule, columns;
 	

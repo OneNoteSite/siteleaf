@@ -23,16 +23,20 @@ html:before {
 
 *[contenteditable]{ pointer-events: none; }
 
-* {
+*,
+*::before,
+*::after {
 	margin: 0;
 	padding: 0;
 	border: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 
-/*
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-*/
+	@include font-smoothing(on);
+
+	// http://jrdn.io/ffPH
+	text-rendering: optimizeLegibility;
+	font-feature-settings: "kern";
+	font-kerning: normal;
 	
 	-webkit-text-size-adjust: 100%;
 	   -moz-text-size-adjust: 100%;
@@ -72,7 +76,7 @@ body {
 small,
 small.legal { display: block; }
 
-a, a:hover { text-decoration: none; }
+a, a:hover { text-decoration: none !important; }
 
 body                   { color: $charcoalRegular;    }
 h1, h2, h3, h4, h5, h6 { color: $black;              }
