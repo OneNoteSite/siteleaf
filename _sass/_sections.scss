@@ -2,9 +2,22 @@
 @import "type";
 
 
+@mixin stackLinks(){
+	display: inline-block;
+	margin-right: 50%;
+	padding: 0 $gutter-width;
+	margin-left: -$gutter-width;
+	line-height: 2 !important;
+	&::before,
+	&::after { display: none; }	
+}
+
+
 // Fix - Move All Sizing Variables to the top
 
 ////////////////////////////////////////////////////////////////////////////////
+
+	$links-icon-height: $cell-Height;
 
 	$sizing-spacer-width: $gutter-width-half;
 
@@ -124,6 +137,7 @@ main > header {
 	p strong > a { display: inline-block; }
 	
 	/* Control Width of Text */
+	
 	> p,
 	> header,
 	> hgroup {
@@ -181,20 +195,6 @@ main > header {
 		}
 		
 		&:last-of-type { padding-bottom: $textCapFrameAdjust + 3rem; }
-
-/*
-		> strong a{
-			position: relative;
-			&::before {
-				content: "";
-				position: absolute;
-				top:    -1rem;
-				left:   -1rem;
-				right:  -1rem;
-				bottom: -1rem;
-			}
-		}
-*/
 	}
 }
 
@@ -411,8 +411,7 @@ main > section.columns {
 	.icon-svg {
 		height:  6rem;
 		display: block;
-		
-		svg {
+		> svg {
 			display: block;
 			width:  4.25rem;
 			height: 4.25rem;
@@ -422,14 +421,22 @@ main > section.columns {
 			fill: $charcoalLight;
 		}		
 	}
+	
+	.icon-svg + h4 {
+		padding-top: $gutter-width-half;
+	}
+	
+	h4{ margin-bottom: $gutter-width-half; }
+
 	p small {
 		padding-top:    .5rem;
 		margin-bottom: -.5rem;
+		
 		a {
 			display: inline-block;
 			text-decoration: none;
 			
-			// Spacers 
+			// Spacers
 			
 			&:after {
 				content: "";
@@ -460,21 +467,76 @@ main > section.columns {
 				& + li 						{ left: $gutter-width * 1; }
 				& + li + li  			{ left: $gutter-width * 2; }
 				& + li + li + li 	{ left: $gutter-width * 3; }
-				a {
-					display: inline-block;
-					margin-right: 50%;
-					padding: 0 $gutter-width;
-					margin-left: -$gutter-width;
-					line-height: 2 !important;
-					&::before,
-					&::after {
-						display: none;
-					}
-				}
+				
+				a { @include stackLinks(); }
 			}
 		}		
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////	
+	// Bottom Links 
+	
+	&#links {
+		
+		li {
+			
+			@include XLarge {
+				a, h4 { @include sm-font-bodySmall(); }
+			}
+
+			a {
+				@include stackLinks();
+				color: $charcoalRegular;
+				white-space: nowrap;
+				min-width: 40%;
+
+				&:hover { color: $charcoalDark; }
+			}
+			
+			&.icons-only { 
+				height:      $links-icon-height;
+				line-height: $links-icon-height !important;
+				padding-bottom: $links-icon-height;
+				font-size: 0 !important;
+				
+				a {
+					margin:  0 $gutter-width/4;
+					padding: 0;
+					line-height: 0 !important;
+					overflow: hidden;
+					height: $links-icon-height;
+					min-width: 0;
+
+					&:first-child { margin-left: 0; }
+					
+					svg { left: auto; }
+				}
+				
+				a       > .icon-svg > svg{ fill: $charcoalRegular; }
+				a:hover > .icon-svg > svg{ fill: $charcoalDark; 	 }
+			}
+			
+			&.align-right {
+				@include Medium {	
+					text-align: right;
+					
+					a:last-child  { margin-right: 0; }
+					
+					&.icons-only {
+						&:first-child {
+							position: absolute;
+							right: 0;
+						}
+						& + li 						{ left: $gutter-width * 0; }
+						& + li + li  			{ left: $gutter-width * 1; }
+						& + li + li + li 	{ left: $gutter-width * 2; }
+					}
+				}
+			}
+		}
+	}
+	
+
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Horizontal Positioning
@@ -484,35 +546,40 @@ main > section.columns {
 		$gutterCount: 3;
 		ul { margin-right: $gutter-width * $gutterCount;
 			li { width: 100% / ($gutterCount + 1); }
-		}		
+		}
+		&#links li.align-right.icons-only:first-child { margin-right: -($gutter-width * $gutterCount); }	
 	}
 	
 	@include Medium-Half {
 		$gutterCount: 5;
 		ul { margin-right: $gutter-width * $gutterCount;
 			li { width: 100% / ($gutterCount + 1); }
-		}		
+		}
+		&#links li.align-right.icons-only:first-child { margin-right: -($gutter-width * $gutterCount); }	
 	}
 	
 	@include Large-Qtr-First {
 		$gutterCount: 7;
 		ul { margin-right: $gutter-width * $gutterCount;
 			li { width: 100% / ($gutterCount + 1); }
-		}		
+		}
+		&#links li.align-right.icons-only:first-child { margin-right: -($gutter-width * $gutterCount); }
 	}
 	
 	@include Large-Half {
 		$gutterCount: 9;
 		ul { margin-right: $gutter-width * $gutterCount;
 			li { width: 100% / ($gutterCount + 1); }
-		}		
+		}
+		&#links li.align-right.icons-only:first-child { margin-right: -($gutter-width * $gutterCount); }
 	}
 	
 	@include XLarge {
 		$gutterCount: 11;
 		ul { margin-right: $gutter-width * $gutterCount;
 			li { width: 100% / ($gutterCount + 1); }
-		}		
+		}	
+		&#links li.align-right.icons-only:first-child { margin-right: -($gutter-width * $gutterCount); }	
 	}
 }
 

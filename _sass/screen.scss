@@ -35,6 +35,7 @@ html:before {
 
 	// http://jrdn.io/ffPH
 	text-rendering: optimizeLegibility;
+	-moz-font-feature-settings: "liga", "kern";
 	font-feature-settings: "kern";
 	font-kerning: normal;
 	
@@ -51,7 +52,9 @@ html:before {
           user-select: none;   /* non-prefixed version, currently not supported by any browser */
 }
 
-
+.hide        { display: none; }
+.invisible   { visibility: hidden; }
+.transparent { opacity: 0; }
 
 /* Setup Default Units */
 

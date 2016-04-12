@@ -68,7 +68,9 @@ body > header {
 					color: $white;
 					display: block;
 
-					@include Large { font-size: 2.25rem !important; }
+					@include Large { 
+						font-size: 2.25rem !important;
+					}
 
 					&:hover{ color: $charcoalLight; }
 				}
@@ -115,11 +117,14 @@ body > header {
 			right: $gutter-width;
 			
 			> li > a {
-					padding: .4rem 1.5rem .6rem;
-					background-color: $purpleBrand;
-					@include roundedCorners();
-					@include buttonHoverChanges($white, $purpleBrand);
-					@include font-smoothing(off);
+				padding: .4rem 1.5rem .6rem;
+				background-color: $purpleBrand;
+				@include roundedCorners();
+				@include buttonHoverChanges($white, $purpleBrand);
+				@include font-smoothing(off);
+				@media XLarge {
+					line-height: 3rem !important;
+				}
 			}
 		}
 	}

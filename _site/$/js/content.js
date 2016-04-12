@@ -1,4 +1,4 @@
-var debug = { resize: false, grid: false };
+var debug = { resize: true, grid: true };
 
 /*
 		hero: {

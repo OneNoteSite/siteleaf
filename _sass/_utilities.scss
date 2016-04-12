@@ -24,11 +24,15 @@
   }
 }
 
+@mixin buttonStyle($bg, $color){
+	box-shadow: inset 0 0 0 1px $color;
+	background: $bg;
+	color: $color;	
+}
+
 @mixin buttonHoverChanges($bg: $purpleBrand, $color: $white){
 	&:hover {
-		box-shadow: inset 0 0 0 1px $color;
-		background: $bg;
-		color: $color;
+		@include buttonStyle($bg, $color);
 	}
 }
 

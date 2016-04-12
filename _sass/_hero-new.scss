@@ -18,6 +18,9 @@ $size-hero-height-xl:						146rem;
 
 $size-hero-padding-bottom-sm: $cell-height + $cell-margin * 2;
 
+$base-btn-size: 4rem;
+$base-btn-size-md-half: 6rem;
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // 16:9 SIZING & LAYOUT ADJUSTMENTS
@@ -87,21 +90,15 @@ main > header:first-child {
 		}
 		
 		// DOWNLOAD LINK ////////////////////////////////////////////////////////////
-		
-		> p.action {
+			
+		> p.action,
+		> p.video {
 			margin-top: $gutter-width;
 			
 			> a {
-				$base-btn-size: 4rem;
-				$base-btn-size-md-half: 6rem;
 				@include roundedCorners();
-				@include buttonHoverChanges();
 				@include font-smoothing(off);
-				
-				padding: 0 $base-btn-size;
-				background: $white;
-				color: $hero-background-color;
-				
+								
 				display: inline-block;
 				box-sizing: border-box;
 				
@@ -110,22 +107,38 @@ main > header:first-child {
 				
 				@include Medium-Half {
 					height: $base-btn-size-md-half;
-					line-height: $base-btn-size-md-half - .5rem !important;
+					line-height: $base-btn-size-md-half - .125rem !important;
 				}
-				
+			}
+		}
+		
+		> p.video {
+			> a {
+				padding: 0 $base-btn-size;
+				@include buttonStyle($hero-background-color, $white);
+			}
+		}
+		
+		> p.action {
+			> a {
+				padding: 0 $base-btn-size;
+				background: $white;
+				color: $hero-background-color;
+				@include buttonHoverChanges();
+
 				// On Larger Sizes say "Free"
 				// Fix - Move this into a CSS content variable layer
-
 				@include Medium { 
 					&::before{
 						content: "Free ";
 						@include font-smoothing(off);
 					}
 				}
-			}
+			}			
 		}
 	}
 	
+/*
 	> span {
 		position: absolute;
 		left: -$gutter-width-half;
@@ -151,6 +164,7 @@ main > header:first-child {
     // background: url(polina.jpg) no-repeat;
     // background-size: cover;
 	}
+*/
 
 
 	////////////////////////////////////////////////////////////////////////////////
