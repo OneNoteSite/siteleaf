@@ -171,7 +171,7 @@
 		height = before + adjust + "px";
 		
 		// Fix - Need to make sure we set minHeight on the smaller sizes
-		//if( Layout.breakpoint.vertical.indexOf(Layout.breakpoint.current) < 0) {
+		// if( Layout.breakpoint.vertical.indexOf(Layout.breakpoint.current) < 0) {
 				
 		HERO.style.minHeight = height;
 		HERO.style.height = height;

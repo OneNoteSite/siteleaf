@@ -18,6 +18,8 @@ $size-hero-height-xl:						146rem;
 
 $size-hero-padding-bottom-sm: $cell-height + $cell-margin * 2;
 
+$size-video-volume: 4rem;
+
 $base-btn-size: 4rem;
 $base-btn-size-md-half: 6rem;
 
@@ -138,8 +140,131 @@ main > header:first-child {
 		}
 	}
 	
+
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Hero Background Video
+	
+	> figure,
+	> figure svg {
+		position: absolute;
+	}
+	
+	> figure {
+
+		$grid-width: 101%;
+		$grid-width: 100%;
+				
+		padding: 0 $gutter-width-half;		
+		overflow: hidden;
+
+		top:    0;
+		bottom: 0;
+		left:   50%;
+		
+		background-image: url("/$/img/hero.png");
+		background-size: auto 100%;
+		background-position: center center;
+		background-repeat: no-repeat;
+
+		-webkit-transform: translate3d(-50%, 0, 0);
+						transform: translate3d(-50%, 0, 0);
+		
+		width: $grid-width;
+		@include Large { width: $grid-width + 50%; }
+		
+		> .volume {
+			width:  5rem;
+			height: 5rem;
+			border-radius: 50%;
+			background-color: rgba(0,0,0,.4);
+			display: block;
+			position: absolute;
+			bottom: $gutter-width;
+			left: $gutter-width;
+			z-index: 100;
+			pointer-events: all;
+			
+			&:hover{
+				svg{
+					fill: rgba(255,255,255,1)
+				}
+			}
+			
+			svg {
+				fill: rgba(255,255,255,.75);
+				width:  $size-video-volume;
+				height: $size-video-volume;
+				margin-left: .5rem;
+				margin-top: .5rem;
+			}
+			
+			svg.on { display: none; }
+		}
+		
+		> .video {
+			position: absolute;
+			left:  -$gutter-width-half;
+			right: -$gutter-width-half;
+			top:    0;
+			bottom: 0;
+			background: $purpleBrand;
+			display: block;
+			z-index: -1;
+			
+			iframe {
+				pointer-events: none;
+			}
+			
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// STATES
+	
+	> figure > .video {
+
+		opacity: 0;
+		transition: opacity .5s ease-in;
+		
+		&.visible {
+			opacity: 1;	
+		}
+	}
+	
+	> figure > .volume {
+		opacity: 0;
+		transition: opacity .5s ease-in 1s;
+		
+		&.visible {
+			opacity: 1;
+		}
+		
+		&.volumeOn { 
+			.on { display: block; }
+			.off{ display: none;  }
+		}
+	}
+	
+	> hgroup.content {
+		opacity: 1;
+		transition: opacity .5s ease-in;
+		
+		&.hidden{
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity .5s ease-out 1s;
+// 			transition: opacity .5s ease-out 4.5s;
+		}
+	}
+}
+
+
+
+
+
 /*
-	> span {
+	
 		position: absolute;
 		left: -$gutter-width-half;
 		right: -$gutter-width-half;
@@ -166,33 +291,7 @@ main > header:first-child {
 	}
 */
 
-
-	////////////////////////////////////////////////////////////////////////////////
-	// Hero Background Image
-	
-	> figure,
-	> figure svg {
-		position: absolute;
-	}
-	
-	> figure {
-
-		$grid-width: 101%;
-		$grid-width: 100%;
-				
-		padding: 0 $gutter-width-half;		
-		overflow: hidden;
-		z-index: -1;
-		top:    0;
-		bottom: 0;
-		left:   50%;
-
-		-webkit-transform: translate3d(-50%, 0, 0);
-						transform: translate3d(-50%, 0, 0);
-		
-		width:  $grid-width;
-		@include Large { width: $grid-width + 50%; }
-		
+/*
 		svg {
 			top:    50%;
 			left:   100%;
@@ -201,8 +300,8 @@ main > header:first-child {
 			-webkit-transform: translate3d(-50%, -50%, 0);
 							transform: translate3d(-50%, -50%, 0);
 			
-			/* Adjust Horizontal position of grid */
-			/* Be Careful here as we need to type fit things pretty tight on mobile */
+			// Adjust Horizontal position of grid
+			// Be Careful here as we need to type fit things pretty tight on mobile
 			margin-left: -5rem;
 
 			@include Small-Egt-First { margin-left: -12%;  } // 358
@@ -251,5 +350,4 @@ main > header:first-child {
 				-webkit-transform: translate3d(-50%, -52%, 0);
 			}
 		}
-	}
-}
+*/

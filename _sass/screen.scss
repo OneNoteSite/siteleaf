@@ -31,7 +31,7 @@ html:before {
 	border: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 
-	@include font-smoothing(on);
+	@include font-smoothing(off);
 
 	// http://jrdn.io/ffPH
 	text-rendering: optimizeLegibility;

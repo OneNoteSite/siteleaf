@@ -49,9 +49,11 @@
 		
 		<!-- Development Only -->
 
+<!--
 		<script src="/$/js/content.js"></script>
 		<script src="/$/js/grid.js"></script>
 		<script src="/$/js/viewSize.js"></script>
+-->
 		<script src="/$/js/liveReload.js"></script>
 		<!-- <script src="/$/js/Utils.js"></script> -->
 
@@ -104,35 +106,131 @@
 			</nav>			
 		</header>
 		<hr />
-		<aside></aside>
 		<main role="main">
 			<header>
-				<hgroup>
+				<hgroup class="content">
 					<h1>Ideas take shape <span>in OneNote</span></h1>
 					<p class="action"><a href="#">Download</a></p>
-					<p class="video"><a href="#">Play</a></p>
+					<!-- <p class="video"><a href="#">Play</a></p> -->
 				</hgroup>
 				<figure>
-					<svg viewBox="0 0 420 280" id="hero-bg">
-						<rect x="185.2" y="220.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -111.7323 220.2507)" fill="#F5B819" width="49.5"  height="49.5"  />
-						<rect x="185.2" y="150.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -62.2323 199.7472)"  fill="#3296BC" width="49.5"  height="49.5"  />
-						<rect x="220.3" y="185.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -76.7305 234.749)"   fill="#E21F27" width="49.5"  height="49.5"  />
-						<rect x="150.3" y="185.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -97.231 185.2565)"   fill="#01A857" width="49.5"  height="49.5"  />
-						<rect x="30.8"  y="65.8"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 -68.2396 115.2551)"  fill="none"    width="148.5" height="148.5" />
-						<rect x="160.5" y="20.5"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 12.0076 168.996)"    fill="#CD1879" width="99"    height="99"    />
-						<rect x="160.5" y="20.5"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 12.0076 168.996)"    fill="#CD1879" width="99"    height="99"    />
-						<rect x="240.7" y="65.8"  transform="matrix(0.7071 -0.7071 0.7071 0.7071 -6.7352 263.7399)"   fill="#F5B819" width="148.5" height="148.5" />
-					</svg>
+					<span class="volume">
+						<svg class="on">
+							<use xlink:href="#volumeOn"/>
+						</svg>
+						<svg class="off">
+							<use xlink:href="#volumeOff"/>
+						</svg>
+					</span>
+					<span class="video">
+						<iframe id="player" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/hVYRg3MkjJo?modestbranding=1&enablejsapi=1&autoplay=1&html5=1&controls=0&fs=0&rel=0&showinfo=0&version=3&allowfullscreen=true&autohide=1"
+frameborder="0"></iframe>
+					</span>
+
 				</figure>
-				<span>
-<!--
-					<video autoplay loop muted id="backgroundVideo" xposter="screenshot.jpg" width="100%" height="56.25%">
-						<source src="/$/video/video.mp4" type="video/mp4">
-					</video>
--->
-				</span>
 				<hr />
 			</header>
+			<script>
+				// To do Add Mute
+				// Add Play Click to kick off video
+				// Decide if video should play in place
+				// Scroll to pause
+				
+	      var tag     = document.createElement('script'),
+	      		script  = document.getElementsByTagName('script')[0],
+	      		content = document.querySelector("main > header .content"),
+	      		wrapper = document.querySelector("main > header figure"  ),
+	      		video   = document.querySelector("main > header .video"  ),
+	      		volume  = document.querySelector("main > header .volume" ),
+	      		isMuted = true,
+	      		isDone  = false,
+	      		player, duration;
+	      		
+	      // Load the IFrame Player API code asynchronously
+	      tag.src = "//www.youtube.com/iframe_api";
+	      script.parentNode.insertBefore(tag, script);
+	      
+				if (volume.addEventListener) {
+				  volume.addEventListener('click', toggleMute, false); 
+				} else if (volume.attachEvent)  {
+				  volume.attachEvent('onclick', toggleMute);
+				}
+	
+				// Setup Object and Events
+	      function onYouTubeIframeAPIReady() {
+	        player = new YT.Player('player', {
+	          events: {
+	            'onStateChange': onPlayerStateChange,
+	            'onReady': onPlayerReady,
+	          }
+	        });
+	      }
+
+	      function toggleMute(forceMute){
+		      if(isMuted && forceMute != true){
+			    	console.log("Volume On");  
+			      isMuted = false;
+			      volume.classList.add("volumeOn");
+			      player.unMute();
+		      }else{
+			    	console.log("Volume Off");
+			      isMuted = true;
+			      volume.classList.remove("volumeOn");
+			      player.mute();
+		      }
+	      }
+	
+	      function onPlayerReady(event) {
+		      startVideoFromBeginning();
+		      // toggleMute(true);
+		      toggleMute();
+		      playVideo();
+	      }
+	      
+	      function onPlayerStateChange(event) {
+		      console.log(event.data);
+					if (event.data == YT.PlayerState.PLAYING) {
+						video.classList.add("visible");
+						content.classList.add("hidden");
+						volume.classList.add("visible");
+						// Check the duration and make sure to pause it 
+						// before it ends 
+					}
+					if(event.data == YT.PlayerState.ENDED) {
+						content.classList.remove("hidden");
+					}
+	      }
+	      
+	      function startVideoFromBeginning(){
+		      duration = player.getDuration();
+					setTimeout(function(){ showContent(); }, (duration - 3) * 1000);
+					setTimeout(function(){ pauseVideo(); }, (duration - .5) * 1000);
+	      }
+	      
+	      function showContent(){
+		      volume.classList.remove("visible");
+		      content.classList.remove("hidden");
+		    }
+	      function hideContent(){
+		      content.classList.add("hidden");
+		    }
+	      function playVideo()  { player.playVideo();  }
+	      function stopVideo()  { player.stopVideo();  }
+	      function pauseVideo() { player.pauseVideo(); }
+	      function replayVideo() {
+		      player.seekTo(0);
+		      playVideo();
+	      }
+	      
+	      
+	      
+	    </script>
+<!--
+	    <aside>
+		    <p>Did you know OneNote is available on Windows, Apple and Android? <strong>See all devices</strong></p>
+		    <hr />
+	    </aside>
+-->
 			<section class="text-right">
 				<header>
 					<h2>Create it your way</h2>
@@ -215,52 +313,13 @@
 						<p>
 							<small>
 								<a href="#">All Devices</a>
+								<a href="#">Chromebook</a>
 							</small>
 						</p>
 					</li>
 				</ul>
 				</hr>
 			</section>
-<!--
-			<section class="">
-				<ul class="columns">
-					<li class="align-right">
-						<p>
-							<a href="#">Blog</a>
-							<a href="#">Facebook</a>
-							<a href="#">Twitter</a>
-						</p>						
-					</li>
-					<li>
-						<h4>Useful Links</h4>
-						<p>
-							<a href="#">Developers</a>
-							<a href="#">Get Office</a>
-							<a href="#">Send Feedback</a>
-						</p>
-					</li>
-					<li>
-						<h4>Services</h4>
-						<p>
-							<a href="#">OneNote Clipper</a>
-							<a href="#">Email to OneNote</a>
-							<a href="#">Office Lens</a>
-							<a href="#">Featured Apps</a>
-						</p
-					</li>
-					<li>
-						<h4>Support</h4>
-						<p>
-							<a href="#">OneNote Help</a>
-							<a href="#">FAQ</a>
-							<a href="#">Community Forum</a>
-							<a href="#">Contact Support</a>
-						</p
-					</li>
-				</ul>
-				<hr />
-			</section>
--->
 			<section class="text-right">
 				<header>
 					<h2>Connect in the classroom</h2>
@@ -353,16 +412,24 @@
 				<symbol viewBox="0 0 34 34" id="web">
 					<path d="M17,1C8.2,1,1,8.2,1,17s7.2,16,16,16s16-7.2,16-16S25.8,1,17,1z M29.6,11h-5.2c-0.6-3-1.6-5.5-2.9-7.3 C25.1,5,28,7.6,29.6,11z M23,17c0,1.4-0.1,2.7-0.3,4H11.3c-0.2-1.3-0.3-2.6-0.3-4s0.1-2.7,0.3-4h11.4C22.9,14.3,23,15.6,23,17z M17,31c-2.1,0-4.3-3.2-5.4-8h10.7C21.3,27.8,19.1,31,17,31z M11.6,11c1-4.8,3.2-8,5.4-8s4.3,3.2,5.4,8H11.6z M12.5,3.7 C11.2,5.5,10.2,8,9.6,11H4.4C6,7.6,8.9,5,12.5,3.7z M3.6,13h5.7C9.1,14.3,9,15.6,9,17s0.1,2.7,0.3,4H3.6C3.2,19.7,3,18.4,3,17 S3.2,14.3,3.6,13z M4.4,23h5.2c0.6,3,1.6,5.5,2.9,7.3C8.9,29,6,26.4,4.4,23z M21.5,30.3c1.3-1.8,2.3-4.3,2.9-7.3h5.2 C28,26.4,25.1,29,21.5,30.3z M30.4,21h-5.7c0.2-1.3,0.3-2.6,0.3-4s-0.1-2.7-0.3-4h5.7c0.4,1.3,0.6,2.6,0.6,4S30.8,19.7,30.4,21z"/>
 				</symbol>
-				<symbol viewBox="0 0 34 34"  id="android">
+				<symbol viewBox="0 0 34 34" id="android">
 					<path d="M28.5,11.5c-1.1,0-2,0.9-2,2v8c0,1.1,0.9,2,2,2c1.1,0,2-0.9,2-2v-8C30.5,12.4,29.6,11.5,28.5,11.5z"/>
 					<path d="M5.5,11.5c-1.1,0-2,0.9-2,2v8c0,1.1,0.9,2,2,2c1.1,0,2-0.9,2-2v-8C7.5,12.4,6.6,11.5,5.5,11.5z"/>
 					<path d="M8.5,24.5c0,1.1,0.9,2,2,2h1v4c0,1.1,0.9,2,2,2c1.1,0,2-0.9,2-2v-4h3v4c0,1.1,0.9,2,2,2c1.1,0,2-0.9,2-2v-4h1 c1.1,0,2-0.9,2-2v-13h-17V24.5z"/>
 					<path d="M8.6,10.5h16.9c-0.3-2.3-1.6-4.3-3.4-5.6l1.3-1.9c0.3-0.5,0.2-1.1-0.3-1.4c-0.5-0.3-1.1-0.2-1.4,0.3L20.3,4 c-0.9-0.3-1.8-0.5-2.8-0.5h-1c-1,0-1.9,0.2-2.8,0.5l-1.4-2.1c-0.3-0.5-0.9-0.6-1.4-0.3c-0.5,0.3-0.6,0.9-0.3,1.4l1.3,1.9 C10.1,6.2,8.8,8.2,8.6,10.5z M13.5,8.5c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1s1,0.4,1,1C14.5,8.1,14.1,8.5,13.5,8.5z M20.5,8.5 c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1s1,0.4,1,1C21.5,8.1,21.1,8.5,20.5,8.5z"/>
 				</symbol>
+				<symbol viewBox="0 0 32 32" id="volumeOn">
+					<path id="speaker" d="M12.9,7l-4.5,4.5H5v9h3.4l4.5,4.5H14V7H12.9z M12.5,22.4L9.1,19H6.5v-6h2.6l3.4-3.4V22.4z"/>
+					<path id="sound" d="M16.2,11.9c0.6,0.6,1,1.2,1.3,1.9s0.5,1.5,0.5,2.3s-0.2,1.6-0.5,2.3s-0.7,1.4-1.3,1.9 l-1.1-1.1c0.4-0.4,0.7-0.9,1-1.5s0.3-1.1,0.3-1.7s-0.1-1.2-0.3-1.7s-0.6-1-1-1.5L16.2,11.9z M22.5,16.1c0,1.4-0.3,2.7-0.8,4 s-1.3,2.4-2.3,3.4l-1.1-1.1c0.9-0.9,1.5-1.8,2-2.9s0.7-2.2,0.7-3.4s-0.2-2.4-0.7-3.4s-1.1-2.1-2-2.9l1.1-1.1c1,1,1.7,2.1,2.3,3.4 S22.5,14.7,22.5,16.1z M22.6,5.5c0.7,0.7,1.3,1.5,1.9,2.3s1,1.7,1.4,2.6s0.7,1.8,0.8,2.8s0.3,1.9,0.3,2.9c0,1-0.1,2-0.3,2.9 s-0.5,1.9-0.8,2.8s-0.8,1.8-1.4,2.6s-1.2,1.6-1.9,2.3l-1.1-1.1c0.6-0.6,1.2-1.3,1.7-2.1s0.9-1.5,1.2-2.3s0.6-1.6,0.8-2.5 s0.3-1.8,0.3-2.6s-0.1-1.8-0.3-2.6s-0.4-1.7-0.8-2.5s-0.8-1.6-1.2-2.3s-1.1-1.4-1.7-2.1L22.6,5.5z"/>
+					</symbol>
+				<symbol viewBox="0 0 32 32" id="volumeOff">
+					<path id="muted" d="M26,12.9l-3.2,3.2l3.2,3.2l-1.1,1.1l-3.2-3.2l-3.2,3.2l-1.1-1.1l3.2-3.2l-3.2-3.2l1.1-1.1 l3.2,3.2l3.2-3.2L26,12.9z"/>
+					<path id="speaker" d="M12.9,7l-4.5,4.5H5v9h3.4l4.5,4.5H14V7H12.9z M12.5,22.4L9.1,19H6.5v-6h2.6l3.4-3.4V22.4z"/>
+					</symbol>
 		</svg>
 		<!-- All Javascript Goes Here so it's non blocking -->
 		<script src="/$/js/layout.js"></script>
-		<script src="/$/js/video.js"></script>
+		<!-- <script src="/$/js/video.js"></script> -->
 		<script src="/$/js/polyfill.object-fit.min.js"></script>
 	</body>
 </html>
