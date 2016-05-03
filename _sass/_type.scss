@@ -5,36 +5,10 @@
 /******************************************************************************/
 /* Font Faces */
 
-/*
-@font-face {
-  font-family: 'Myname';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Segoe UI Bold'), local('SegoeUI-bold'), local('segoeuib');
-}
-@font-face {
-  font-family: 'Myname';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Segoe UI Semibold'), local('SegoeUI-Semibold');
-}
-@font-face {
-  font-family: 'Myname';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Segoe UI'), local('SegoeUI');
-}
-@font-face {
-  font-family: 'Myname';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Segoe UI Light'), local('SegoeUI-Light');
-}
-*/
-
+$face-semiLight: 'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light';
 $face-backups: 'Helvetica Neue', -apple-system, Roboto, Helvetica, sans-serif;
-$face-regular: 'Segoe UI', Segoe, 'Segoe WP', $face-backups;
-$face-light:   'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light', $face-regular;
+$face-regular: 'Segoe UI', Segoe, 'Segoe WP', $face-semiLight, $face-backups;
+$face-light:   $face-semiLight, $face-regular;
 
 /* Fix - Add in weight classes to font-face declarations */
 
@@ -87,7 +61,6 @@ $type-xl-Legal-lineHeight: 3rem;
 $type-lg-Legal-lineHeight: 2rem;
 $type-md-Legal-lineHeight: 2rem;
 $type-sm-Legal-lineHeight: 2rem;
-
 
 // Headline
 
@@ -249,10 +222,9 @@ $font-base-Legal:        $font-sm-Legal;
 	small.legal { font: $font-xl-Legal        !important; * { font: inherit       !important; }}	
 }
 
-
 h4 { color: $black; }
 
 body *.monospace,
-body *.monospace *{
+body *.monospace * {
 	font-family: monospace !important;
 }

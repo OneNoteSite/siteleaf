@@ -1,7 +1,6 @@
 @import "global";
 @import "type";
 
-
 @mixin stackLinks(){
 	display: inline-block;
 	margin-right: 50%;
@@ -11,7 +10,6 @@
 	&::before,
 	&::after { display: none; }	
 }
-
 
 // Fix - Move All Sizing Variables to the top
 

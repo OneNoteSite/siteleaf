@@ -146,7 +146,8 @@ main > header:first-child {
 	// Hero Background Video
 	
 	> figure,
-	> figure svg {
+	> figure > .volume,
+	> figure > .video {
 		position: absolute;
 	}
 	
@@ -179,15 +180,15 @@ main > header:first-child {
 			border-radius: 50%;
 			background-color: rgba(0,0,0,.4);
 			display: block;
-			position: absolute;
 			bottom: $gutter-width;
 			left: $gutter-width;
 			z-index: 100;
 			pointer-events: all;
+			cursor: pointer;
 			
 			&:hover{
 				svg{
-					fill: rgba(255,255,255,1)
+					fill: rgba(255,255,255,1);
 				}
 			}
 			
@@ -200,21 +201,18 @@ main > header:first-child {
 			}
 			
 			svg.on { display: none; }
+			
 		}
 		
 		> .video {
-			position: absolute;
 			left:  -$gutter-width-half;
 			right: -$gutter-width-half;
 			top:    0;
 			bottom: 0;
 			background: $purpleBrand;
 			display: block;
-			z-index: -1;
 			
-			iframe {
-				pointer-events: none;
-			}
+			iframe { pointer-events: none; }
 			
 		}
 	}
@@ -224,7 +222,7 @@ main > header:first-child {
 	
 	> figure > .video {
 
-		opacity: 0;
+		opacity: .001;
 		transition: opacity .5s ease-in;
 		
 		&.visible {
@@ -259,7 +257,30 @@ main > header:first-child {
 	}
 }
 
+	////////////////////////////////////////////////////////////////////////////////
+	// DEBUG
 
+main > header:first-child > .overlay {
+	width: 150%;
+	height: 100px;
+	position: absolute;
+	z-index: 100;
+	background: red;
+	top: 0;
+	left: 50%;
+	display: none;
+	-webkit-transform: translate3d(-50%, 0, 0);
+					transform: translate3d(-50%, 0, 0);
+
+	> .button{
+		background: yellow;
+		width:  100px;
+		height: 100px;
+		position: absolute;
+		left: 50%;
+	}
+
+}
 
 
 

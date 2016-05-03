@@ -161,7 +161,7 @@
 	function heroHeightToGrid() {
 
 		var adjust, height;
-		var before = Math.floor(BODY.getBoundingClientRect().width * 0.5625);
+		var before = Math.floor(BODY.getBoundingClientRect().width * 0.5625); // 16:9 ratio
 		
 		HERO.style.height = "auto";
 		adjust = baseFontSize - (before % baseFontSize);
