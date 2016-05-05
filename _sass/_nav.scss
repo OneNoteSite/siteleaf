@@ -30,10 +30,6 @@ body > header {
 		margin-bottom: -$nav-Height;
 		background-color: $clear;
 		
-		svg #Microsoft {
-			fill: #ffffff;
-		}
-		
 		> h1,
 		> h2 {
 			display: inline-block;
@@ -43,6 +39,10 @@ body > header {
 				@include absoluteSnapPseudo(-1rem, 7rem, -1.5rem, 0);
 				font-size: 0;
 				color: $clear;
+			}
+			
+			.logo.microsoft svg {
+				color: #fff;
 			}
 		
 			svg {
@@ -101,7 +101,7 @@ body > header {
 		z-index: 1000;
 		box-shadow: 0 5px 10px rgba(0,0,0,.1);
 		
-		svg { 
+		.logo.onenote svg { 
 			fill: $purpleBrand;
 			width: 11.25rem;
 		}

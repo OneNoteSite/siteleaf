@@ -3,15 +3,41 @@
 @import "global";
 
 /******************************************************************************/
-/* Font Faces */
+/* Font Face Stacks */
 
 $face-semiLight: 'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light';
 $face-backups: 'Helvetica Neue', -apple-system, Roboto, Helvetica, sans-serif;
 $face-regular: 'Segoe UI', Segoe, 'Segoe WP', $face-semiLight, $face-backups;
 $face-light:   $face-semiLight, $face-regular;
 
-/* Fix - Add in weight classes to font-face declarations */
+$face-semiLight: 'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light';
+$face-backups: 'Helvetica Neue', -apple-system, Roboto, Helvetica, sans-serif;
+$face-regular: 'Segoe UI', Segoe, 'Segoe WP', $face-semiLight, $face-backups;
+$face-light:   $face-semiLight, $face-regular;
 
+$font-stack: "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+
+/******************************************************************************/
+/* Font Faces */
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'SegoeUI';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Segoe UI'), local('SegoeUI'), url('/$/font/segoeui.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'SegoeUI';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Segoe UI Light'), local('SegoeUI-Light'), url('/$/font/segoeuisl.ttf') format('truetype');
+}
+
+// "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans","S60 Sans",Arial,sans-serif;
+
+/*
 @font-face {
 	font-family: 'Segoe UI';
 	src: local('Segoe UI'), local('SegoeUI'), url('/$/font/segoeui.ttf') format('truetype');
@@ -21,13 +47,14 @@ $face-light:   $face-semiLight, $face-regular;
 	font-family: 'Segoe UI Semilight';
 	src: local('Segoe UI Light'), local('SegoeUI-Light'), url('/$/font/segoeuisl.ttf') format('truetype');
 }
+*/
 
 /******************************************************************************/
 /* Type Sizing */
 
 // Weights 
 
-$light:   200;
+$light:   300;
 $regular: 400;
 
 // LineHeight / Kerning
@@ -61,6 +88,7 @@ $type-xl-Legal-lineHeight: 3rem;
 $type-lg-Legal-lineHeight: 2rem;
 $type-md-Legal-lineHeight: 2rem;
 $type-sm-Legal-lineHeight: 2rem;
+
 
 // Headline
 
@@ -117,6 +145,7 @@ $type-base-Legal:        $type-sm-Legal;					// 12px
 
 /******************************************************************************/
 /* Font Size Settings  */
+/*
 
 $font-xl-Headline: 			$type-xl-Headline			$face-light;
 $font-lg-Headline: 			$type-lg-Headline			$face-light;
@@ -147,6 +176,40 @@ $font-xl-Legal:					$type-xl-Legal				$face-regular;
 $font-lg-Legal:					$type-lg-Legal				$face-regular;
 $font-md-Legal:					$type-md-Legal				$face-regular;
 $font-sm-Legal:					$type-sm-Legal				$face-regular;
+*/
+
+//
+
+
+$font-xl-Headline: 			$type-xl-Headline			$font-stack;
+$font-lg-Headline: 			$type-lg-Headline			$font-stack;
+$font-md-Headline: 			$type-md-Headline			$font-stack;
+$font-sm-Headline: 			$type-sm-Headline			$font-stack;
+
+$font-xl-Subhead:				$type-xl-Subhead			$font-stack;
+$font-lg-Subhead:				$type-lg-Subhead			$font-stack;
+$font-md-Subhead:				$type-md-Subhead			$font-stack;
+$font-sm-Subhead:				$type-sm-Subhead			$font-stack;
+
+$font-xl-SubheadSmall: 	$type-xl-SubheadSmall	$font-stack;
+$font-lg-SubheadSmall: 	$type-lg-SubheadSmall	$font-stack;
+$font-md-SubheadSmall: 	$type-md-SubheadSmall	$font-stack;
+$font-sm-SubheadSmall: 	$type-sm-SubheadSmall	$font-stack;
+
+$font-xl-BodySmall:			$type-xl-BodySmall		$font-stack;
+$font-lg-BodySmall:			$type-lg-BodySmall		$font-stack;
+$font-md-BodySmall:			$type-md-BodySmall		$font-stack;
+$font-sm-BodySmall:			$type-sm-BodySmall		$font-stack;
+
+$font-xl-Body: 					$type-xl-Body 				$font-stack;
+$font-lg-Body: 					$type-lg-Body 				$font-stack;
+$font-md-Body: 					$type-md-Body 				$font-stack;
+$font-sm-Body: 					$type-sm-Body 				$font-stack;
+
+$font-xl-Legal:					$type-xl-Legal				$font-stack;
+$font-lg-Legal:					$type-lg-Legal				$font-stack;
+$font-md-Legal:					$type-md-Legal				$font-stack;
+$font-sm-Legal:					$type-sm-Legal				$font-stack;
 
 /******************************************************************************/
 /* Type Defaults */
@@ -222,9 +285,25 @@ $font-base-Legal:        $font-sm-Legal;
 	small.legal { font: $font-xl-Legal        !important; * { font: inherit       !important; }}	
 }
 
+
 h4 { color: $black; }
 
 body *.monospace,
-body *.monospace * {
+body *.monospace *{
 	font-family: monospace !important;
 }
+/*
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Segoe UI Bold'), local('SegoeUI-bold'), local('segoeuib');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Segoe UI Semibold'), local('SegoeUI-Semibold');
+}
+*/
+

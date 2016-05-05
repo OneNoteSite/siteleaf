@@ -1,5 +1,5 @@
 @import "global";
-@import "type";
+// @import "type";
 
 @mixin stackLinks(){
 	display: inline-block;
@@ -37,22 +37,20 @@ main > section {
 	padding: 0;
 	
 	// This is needed to deal with the float used for sizing and to ensure the correct height for the section
-	> figure + hr { clear: both; }
+	> figure + hr,
+	> hr:last-child { clear: both; }
 
 	// This element ensures the Section ratio is 8:3 so half-width images are 4:3
-	// To get these values above. Take the overall width (screen edge to screen edge) and then
-	// calculate the height for and 8:3 ratio.
-	// Then divide the height by the actual width of the section (minus columns on right and left) to get the percentage.
 	
 	&::before { 
 		clear: both;
 		content: "";
-		display: none;
 		width: $sizing-spacer-width;
 		margin-left: -$sizing-spacer-width * 2;
 		float: left;
+		background: transparent;
 		
-		// * Fix - Can I do this mathmatically?
+		// * Fix - Lets do this mathmatically
 		@include Base  						{ padding-top: 37.5%; 				} // 0
 		@include Large 						{ padding-top: 50%;   				} // 1232
 		@include Large-Qtr-First 	{ padding-top: 47.37704918%; 	} // 1536
@@ -60,9 +58,11 @@ main > section {
 		@include Large-Qtr-Last  	{ padding-top: 52.89473684%;  }	// 2144
 		@include XLarge						{ padding-top: 50.32894737%;  }	// 2448	
 	}
-	&.columns::before { padding-top: 0; }
 	
-	// Adjust spacing at top to 
+	&.columns::before,
+	&.alert::before{ padding-top: 0; }
+	
+	// Adjust spacing at top 
 	
 	@include Base {
 		padding-top: $section-base-padding-top-sm;
@@ -150,6 +150,14 @@ main > header {
 		&.text-right > header{
 			margin-left: 50%;
 			left: $gutter-width-half;
+		}
+		
+		&.text-full-width > p,
+		&.text-full-width > header,
+		&.text-full-width > hgroup {
+			margin: 0;
+			padding-right: 0;
+			width: auto;
 		}
 	}
 	

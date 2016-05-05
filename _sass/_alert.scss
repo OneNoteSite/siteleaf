@@ -1,0 +1,25 @@
+@import "global";
+@import "utilities";
+
+$size-spacing-vertical: 2.5rem;
+$type-adjust-capHeight: -.2rem;
+
+main > section.alert {
+	padding-top: 0;
+	text-align: center;
+	> a {
+		display: block;
+		> p {
+			@include face-light();
+			position: relative;
+			top: $type-adjust-capHeight;
+			padding-top:    $size-spacing-vertical;
+			padding-bottom: $size-spacing-vertical;
+			> strong {
+				@include face-regular();
+				display: inline-block;
+				padding: 0 .25em;
+			}
+		}
+	}
+}

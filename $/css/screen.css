@@ -74,71 +74,119 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 @include XLarge						{  }	// 2448 # Major
 */
 /******************************************************************************/
+/* Font Face Stacks */
+/******************************************************************************/
 /* Font Faces */
-/* Fix - Add in weight classes to font-face declarations */
 @font-face {
-  font-family: 'Segoe UI';
+  font-family: 'SegoeUI';
+  font-style: normal;
+  font-weight: 400;
   src: local("Segoe UI"), local("SegoeUI"), url("/$/font/segoeui.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Segoe UI Semilight';
+  font-family: 'SegoeUI';
+  font-style: normal;
+  font-weight: 300;
   src: local("Segoe UI Light"), local("SegoeUI-Light"), url("/$/font/segoeuisl.ttf") format("truetype");
 }
+/*
+@font-face {
+	font-family: 'Segoe UI';
+	src: local('Segoe UI'), local('SegoeUI'), url('/$/font/segoeui.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Segoe UI Semilight';
+	src: local('Segoe UI Light'), local('SegoeUI-Light'), url('/$/font/segoeuisl.ttf') format('truetype');
+}
+*/
 /******************************************************************************/
 /* Type Sizing */
 /******************************************************************************/
 /* Base Sizes */
 /******************************************************************************/
 /* Font Size Settings  */
+/*
+
+$font-xl-Headline: 			$type-xl-Headline			$face-light;
+$font-lg-Headline: 			$type-lg-Headline			$face-light;
+$font-md-Headline: 			$type-md-Headline			$face-light;
+$font-sm-Headline: 			$type-sm-Headline			$face-light;
+
+$font-xl-Subhead:				$type-xl-Subhead			$face-light;
+$font-lg-Subhead:				$type-lg-Subhead			$face-light;
+$font-md-Subhead:				$type-md-Subhead			$face-light;
+$font-sm-Subhead:				$type-sm-Subhead			$face-light;
+
+$font-xl-SubheadSmall: 	$type-xl-SubheadSmall	$face-light;
+$font-lg-SubheadSmall: 	$type-lg-SubheadSmall	$face-regular;
+$font-md-SubheadSmall: 	$type-md-SubheadSmall	$face-regular;
+$font-sm-SubheadSmall: 	$type-sm-SubheadSmall	$face-regular;
+
+$font-xl-BodySmall:			$type-xl-BodySmall		$face-light;
+$font-lg-BodySmall:			$type-lg-BodySmall		$face-regular;
+$font-md-BodySmall:			$type-md-BodySmall		$face-regular;
+$font-sm-BodySmall:			$type-sm-BodySmall		$face-regular;
+
+$font-xl-Body: 					$type-xl-Body 				$face-light;
+$font-lg-Body: 					$type-lg-Body 				$face-light;
+$font-md-Body: 					$type-md-Body 				$face-light;
+$font-sm-Body: 					$type-sm-Body 				$face-regular;
+
+$font-xl-Legal:					$type-xl-Legal				$face-regular;
+$font-lg-Legal:					$type-lg-Legal				$face-regular;
+$font-md-Legal:					$type-md-Legal				$face-regular;
+$font-sm-Legal:					$type-sm-Legal				$face-regular;
+*/
 /******************************************************************************/
 /* Type Defaults */
 /******************************************************************************/
 /* DEFAULTS */
 /* Base Backup */
 body {
-  font: 400 2.25rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+  font: 400 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
 }
 body * {
-  font: 400 2.25rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  font: 400 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
 }
 
 h1 {
-  font: 200 4.25rem / 5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  font: 300 4.25rem / 5rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
 }
 h1 * {
   font: inherit     !important;
 }
 
 h2 {
-  font: 200 3.25rem / 4rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  font: 300 3.25rem / 4rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
 }
 h2 * {
   font: inherit     !important;
 }
 
 h3 {
-  font: 400 2rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  font: 400 2rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
 }
 h3 * {
   font: inherit     !important;
 }
 
 h4 {
-  font: 400 2.25rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  font: 400 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
 }
 h4 * {
   font: inherit     !important;
 }
 
 p {
-  font: 400 2.25rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  font: 400 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
 }
 p * {
   font: inherit     !important;
 }
 
 p > small {
-  font: 400 2rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  font: 400 2rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
 }
 p > small * {
   font: inherit     !important;
@@ -146,7 +194,7 @@ p > small * {
 
 small,
 small.legal {
-  font: 400 1.5rem / 2rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+  font: 400 1.5rem / 2rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
 }
 small *,
 small.legal * {
@@ -155,49 +203,49 @@ small.legal * {
 
 @media only screen and (min-width: 624px) {
   body {
-    font: 200 2.25rem / 3rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+    font: 300 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
   }
   body * {
-    font: 200 2.25rem / 3rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
 
   h1 {
-    font: 200 5.25rem / 6rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 5.25rem / 6rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h1 * {
     font: inherit       !important;
   }
 
   h2 {
-    font: 200 4rem / 5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 4rem / 5rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h2 * {
     font: inherit       !important;
   }
 
   h3 {
-    font: 400 2rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 400 2rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h3 * {
     font: inherit       !important;
   }
 
   h4 {
-    font: 200 2.25rem / 3rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h4 * {
     font: inherit       !important;
   }
 
   p {
-    font: 200 2.25rem / 3rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   p * {
     font: inherit       !important;
   }
 
   p > small {
-    font: 400 2rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 400 2rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   p > small * {
     font: inherit       !important;
@@ -205,7 +253,7 @@ small.legal * {
 
   small,
   small.legal {
-    font: 400 1.5rem / 2rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 400 1.5rem / 2rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   small *,
   small.legal * {
@@ -214,49 +262,49 @@ small.legal * {
 }
 @media only screen and (min-width: 1232px) {
   body {
-    font: 200 2.25rem / 3rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+    font: 300 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
   }
   body * {
-    font: 200 2.25rem / 3rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
 
   h1 {
-    font: 200 5.25rem / 6rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 5.25rem / 6rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h1 * {
     font: inherit       !important;
   }
 
   h2 {
-    font: 200 4.25rem / 5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 4.25rem / 5rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h2 * {
     font: inherit       !important;
   }
 
   h3 {
-    font: 400 2rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 400 2rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h3 * {
     font: inherit       !important;
   }
 
   h4 {
-    font: 200 2.25rem / 3rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h4 * {
     font: inherit       !important;
   }
 
   p {
-    font: 200 2.25rem / 3rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 2.25rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   p * {
     font: inherit       !important;
   }
 
   p > small {
-    font: 400 2rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 400 2rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   p > small * {
     font: inherit       !important;
@@ -264,7 +312,7 @@ small.legal * {
 
   small,
   small.legal {
-    font: 400 1.5rem / 2rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 400 1.5rem / 2rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   small *,
   small.legal * {
@@ -273,49 +321,49 @@ small.legal * {
 }
 @media only screen and (min-width: 2448px) {
   body {
-    font: 200 3.5rem / 5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+    font: 300 3.5rem / 5rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
   }
   body * {
-    font: 200 3.5rem / 5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 3.5rem / 5rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
 
   h1 {
-    font: 200 8rem / 10rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 8rem / 10rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h1 * {
     font: inherit       !important;
   }
 
   h2 {
-    font: 200 7rem / 8rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 7rem / 8rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h2 * {
     font: inherit       !important;
   }
 
   h3 {
-    font: 200 3rem / 4rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 3rem / 4rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h3 * {
     font: inherit       !important;
   }
 
   h4 {
-    font: 200 3.5rem / 5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 3.5rem / 5rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   h4 * {
     font: inherit       !important;
   }
 
   p {
-    font: 200 3.5rem / 5rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 3.5rem / 5rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   p * {
     font: inherit       !important;
   }
 
   p > small {
-    font: 200 3rem / 4rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 3rem / 4rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   p > small * {
     font: inherit       !important;
@@ -323,7 +371,7 @@ small.legal * {
 
   small,
   small.legal {
-    font: 400 2rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 400 2rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
   small *,
   small.legal * {
@@ -339,6 +387,20 @@ body *.monospace * {
   font-family: monospace !important;
 }
 
+/*
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Segoe UI Bold'), local('SegoeUI-bold'), local('segoeuib');
+}
+@font-face {
+  font-family: 'Myname';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Segoe UI Semibold'), local('SegoeUI-Semibold');
+}
+*/
 /* HELPER */
 /* @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
@@ -354,16 +416,6 @@ body *.monospace * {
 /* Column Widths */
 /* Cell Measurements */
 /* General UI ELEMENTs */
-/* 
-
-	Naming Structure
-
-	$Size-h
-	$Size-w
-	$Size-m-/t/b/r/l/h/v/a
-	$Size-p-/t/b/r/l/h/v/a
-	
-*/
 /*		From global.scss
 	
 			$grid-column-width-s:     50%;
@@ -821,6 +873,7 @@ html:before {
   pointer-events: none;
 }
 
+/* Fix */
 *,
 *::before,
 *::after {
@@ -853,6 +906,7 @@ html:before {
   /* non-prefixed version, currently not supported by any browser */
 }
 
+/* Helpers */
 .hide {
   display: none;
 }
@@ -865,16 +919,17 @@ html:before {
   opacity: 0;
 }
 
+/* MS Scrollbar helper */
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
 /* Setup Default Units */
 html {
   font-size: 8px;
 }
 
 /* General Layout Adjustments */
-html {
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
 html {
   height: 100%;
 }
@@ -887,7 +942,6 @@ body {
   max-width: 100%;
   position: relative;
   box-sizing: border-box;
-  padding-bottom: 6rem;
   margin: 0;
 }
 
@@ -913,7 +967,7 @@ main section a {
 }
 
 main section a:hover {
-  color: #490077;
+  color: #999;
 }
 
 /* Top Level Sections */
@@ -997,9 +1051,6 @@ body > main > section {
 body a {
   color: #7321a6;
 }
-body a:hover {
-  text-decoration: underline;
-}
 
 body > header {
   z-index: 100;
@@ -1034,9 +1085,6 @@ body > header > nav {
   margin-bottom: -6rem;
   background-color: transparent;
 }
-body > header > nav svg #Microsoft {
-  fill: #ffffff;
-}
 body > header > nav > h1,
 body > header > nav > h2 {
   display: inline-block;
@@ -1053,6 +1101,10 @@ body > header > nav > h2 > a {
   content: "";
   font-size: 0;
   color: transparent;
+}
+body > header > nav > h1 .logo.microsoft svg,
+body > header > nav > h2 .logo.microsoft svg {
+  color: #fff;
 }
 body > header > nav > h1 svg,
 body > header > nav > h2 svg {
@@ -1109,7 +1161,7 @@ body > header.sticky.hidden {
   transform: translateY(-100%);
   pointer-events: none;
 }
-body > header.sticky svg {
+body > header.sticky .logo.onenote svg {
   fill: #7321a6;
   width: 11.25rem;
 }
@@ -1149,16 +1201,17 @@ main > section {
   padding: 0;
   padding-top: 6rem;
 }
-main > section > figure + hr {
+main > section > figure + hr,
+main > section > hr:last-child {
   clear: both;
 }
 main > section::before {
   clear: both;
   content: "";
-  display: none;
   width: 1rem;
   margin-left: -2rem;
   float: left;
+  background: transparent;
   padding-top: 37.5%;
 }
 @media only screen and (min-width: 1232px) {
@@ -1186,7 +1239,7 @@ main > section::before {
     padding-top: 50.32894737%;
   }
 }
-main > section.columns::before {
+main > section.columns::before, main > section.alert::before {
   padding-top: 0;
 }
 @media only screen and (min-width: 928px) {
@@ -1301,6 +1354,14 @@ main > header p strong > a {
   main > header.text-right > header {
     margin-left: 50%;
     left: 1rem;
+  }
+  main > section.text-full-width > p, main > section.text-full-width > header, main > section.text-full-width > hgroup,
+  main > header.text-full-width > p,
+  main > header.text-full-width > header,
+  main > header.text-full-width > hgroup {
+    margin: 0;
+    padding-right: 0;
+    width: auto;
   }
 }
 main > section > header,
@@ -1796,7 +1857,7 @@ main > section.columns p small a:not(:first-child)::before {
 }
 @media only screen and (min-width: 2448px) {
   main > section.columns#links li a, main > section.columns#links li h4 {
-    font: 400 2rem / 3rem "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 400 2rem / 3rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
   }
 }
 main > section.columns#links li a {
@@ -1957,65 +2018,69 @@ main > section.columns#links li.icons-only a:hover > .icon-svg > svg {
 			@include Large { left: 1rem; }
 		}
 		*/
-body > footer {
+body > footer .icon-svg,
+body > footer .icon-svg svg,
+body > main > footer .icon-svg,
+body > main > footer .icon-svg svg {
+  height: 2.75rem;
+  width: 2.75rem;
+}
+body > footer .icon-svg,
+body > main > footer .icon-svg {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 6rem;
-  margin: 0;
-  overflow: hidden;
+  top: 50%;
+  margin-top: -1.375rem;
 }
-body > footer::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  z-index: 3;
-  height: 1px;
+body > footer a,
+body > footer a *,
+body > main > footer a,
+body > main > footer a * {
+  font: 400 1.5rem / 2rem "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif !important;
+  color: #666 !important;
+  fill: currentColor;
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  body > footer::before {
-    height: .5px;
-  }
+body > footer a:hover,
+body > footer a *:hover,
+body > main > footer a:hover,
+body > main > footer a *:hover {
+  color: #222 !important;
 }
-body > footer nav {
-  padding: 0 1rem;
-  height: 100%;
-  padding-top: 1.5rem;
+body > footer > nav,
+body > main > footer > nav {
+  display: block;
+  padding: 2rem 1rem;
   position: relative;
 }
-body > footer svg.msEduLogo #divider,
-body > footer svg.msEduLogo #education-text {
-  display: none;
+body > footer > nav > small,
+body > main > footer > nav > small {
+  display: inline-block;
+  position: relative;
+  top: -.25rem;
 }
-body > footer svg.msEduLogo #microsoft-text {
-  fill: #999;
+body > footer > nav > small span,
+body > main > footer > nav > small span {
+  padding-left: 3.25rem;
 }
-body > footer svg.msEduLogo #Yellow-Square,
-body > footer svg.msEduLogo #Blue-Square,
-body > footer svg.msEduLogo #Red-Square,
-body > footer svg.msEduLogo #Green-Square {
-  fill: #999;
-}
-body > footer ul {
-  display: none;
-  position: absolute;
-  right: 1rem;
+body > footer nav > ul,
+body > main > footer nav > ul {
   font-size: 0;
-  top: 0;
   padding: 0;
-  margin: 0 -1.5rem 0 0;
+  margin: 0 0 0 -1.5rem;
 }
-body > footer ul li {
-  padding: 1.5rem 1.5rem;
+@media only screen and (min-width: 624px) {
+  body > footer nav > ul,
+  body > main > footer nav > ul {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin: 0 -1.5rem 0 0;
+  }
+}
+body > footer nav > ul > li,
+body > main > footer nav > ul > li {
+  padding: 1.5rem;
   margin: 0;
   display: inline-block;
-}
-body > footer ul li a {
-  color: #757575;
 }
 
 main > header:first-child > hr {
@@ -2086,7 +2151,7 @@ main > header:first-child > hgroup h1 {
 }
 @media only screen and (max-width: 395px) {
   main > header:first-child > hgroup h1 {
-    font: 200 3.25rem / 4rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
+    font: 300 3.25rem / 4rem "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Semilight", "Segoe UI Light", "Segoe WP Light", "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif !important;
   }
 }
 main > header:first-child > hgroup h1 span {
@@ -2203,15 +2268,15 @@ main > header:first-child > figure > .video iframe {
   pointer-events: none;
 }
 main > header:first-child > figure > .video {
-  opacity: .001;
-  transition: opacity .5s ease-in;
+  opacity: 0;
+  transition: opacity .5s ease-in 2s;
 }
 main > header:first-child > figure > .video.visible {
   opacity: 1;
 }
 main > header:first-child > figure > .volume {
   opacity: 0;
-  transition: opacity .5s ease-in 1s;
+  transition: opacity .5s ease-in;
 }
 main > header:first-child > figure > .volume.visible {
   opacity: 1;
@@ -2232,7 +2297,7 @@ main > header:first-child > hgroup.content.hidden {
   transition: opacity .5s ease-out 1s;
 }
 
-main > header:first-child > .overlay {
+main > header:first-child > .fullWidth.controls {
   width: 150%;
   height: 100px;
   position: absolute;
@@ -2244,7 +2309,7 @@ main > header:first-child > .overlay {
   -webkit-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
 }
-main > header:first-child > .overlay > .button {
+main > header:first-child > .fullWidth.controls > .button {
   background: yellow;
   width: 100px;
   height: 100px;
@@ -2417,6 +2482,26 @@ x-object-fit > .x-object-fit-taller, x-object-fit > .x-object-fit-wider {
 .x-object-position-left > .x-object-fit-taller, .x-object-position-left > .x-object-fit-wider {
   left: 0 !important;
   right: auto !important;
+}
+
+main > section.alert {
+  padding-top: 0;
+  text-align: center;
+}
+main > section.alert > a {
+  display: block;
+}
+main > section.alert > a > p {
+  font-weight: 300 !important;
+  position: relative;
+  top: -0.2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+main > section.alert > a > p > strong {
+  font-weight: 400 !important;
+  display: inline-block;
+  padding: 0 .25em;
 }
 
 /*

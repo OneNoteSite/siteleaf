@@ -22,7 +22,7 @@ html:before {
 
 /* Resets */
 
-*[contenteditable]{ pointer-events: none; }
+*[contenteditable]{ pointer-events: none; } /* Fix */
 
 *,
 *::before,
@@ -53,17 +53,20 @@ html:before {
           user-select: none;   /* non-prefixed version, currently not supported by any browser */
 }
 
+/* Helpers */
+
 .hide        { display: none; }
 .invisible   { visibility: hidden; }
 .transparent { opacity: 0; }
+
+/* MS Scrollbar helper */
+html { -ms-overflow-style: -ms-autohiding-scrollbar; }
 
 /* Setup Default Units */
 
 html { font-size: $u; }
 
 /* General Layout Adjustments */
-
-html { -ms-overflow-style: -ms-autohiding-scrollbar; }
 
 html{ height: 100%; }
 
@@ -75,7 +78,6 @@ body {
 	max-width: 100%;
 	position: relative;
 	box-sizing: border-box;
-	padding-bottom: $footer-Height;
 	margin: 0;
 }
 
@@ -84,10 +86,10 @@ small.legal { display: block; }
 
 a, a:hover { text-decoration: none !important; }
 
-body                   { color: $charcoalRegular;    }
-h1, h2, h3, h4, h5, h6 { color: $black;              }
-main section a         { color: $purpleBrand;        }
-main section a:hover   { color: $purpleBrand-Darker; }
+body                   { color: $charcoalRegular; }
+h1, h2, h3, h4, h5, h6 { color: $black;           }
+main section a         { color: $purpleBrand;     }
+main section a:hover   { color: $charcoalLight;   }
 
 /* Top Level Sections */
 
@@ -139,7 +141,6 @@ body {
 	}
 	
 	a { color: $purpleBrand; }
-	a:hover{ text-decoration: underline; }	
 }
 
 body > header { z-index: 100; }

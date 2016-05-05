@@ -65,3 +65,6 @@
 @mixin sm-font-body()      { font: $font-base-Body         !important; }	// 18px
 @mixin sm-font-bodySmall() { font: $font-base-BodySmall    !important; }	// 16px
 @mixin sm-font-legal()     { font: $font-base-Legal        !important; }	// 12px
+
+@mixin face-light()  { font-weight: 300 !important; }
+@mixin face-regular(){ font-weight: 400 !important; }

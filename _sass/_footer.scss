@@ -1,59 +1,74 @@
 @import "global";
+@import "utilities";
 
-body > footer {
-	$dim-text: #757575;
-	position: absolute;
-	bottom: 0;
-	left:   0;
-	right:  0;
-	height: $footer-Height;
-	margin: 0;
-	overflow: hidden;
+$size-icon-globe: 2.75rem;
+$size-link-padding: 1.5rem;
+$color-link-inactive: $charcoalRegular;
+$color-link-hover:    $charcoalDark;
 
-	&::before {
-		content: "";
-		position: absolute;
-		top: -1px;
-		left:  0;
-		right: 0;
-		box-shadow: 0 1px 0 rgba(0,0,0,.25);
-		z-index: 3;
-		height: 1px;
-		@include Retina { height: .5px; }
+
+body > footer,
+body > main > footer {
+	
+	.icon-svg,
+	.icon-svg svg {
+		height: $size-icon-globe;
+		width:  $size-icon-globe;
 	}
 	
-	nav {
-		padding: 0 1rem;
-		height: 100%;
-		padding-top: 1.5rem;
+	.icon-svg {
+		// Vertical centering
+		position: absolute;
+		top: 50%;
+		margin-top: ($size-icon-globe/2 * -1);
+	}
+
+	a,
+	a * {
+		@include sm-font-legal();
+		color: $color-link-inactive !important;
+		fill: currentColor;
+		&:hover{
+			color: $color-link-hover !important;
+		}
+	}
+
+	> nav {
+		display: block;
+		padding: $gutter-width $gutter-width-half;
 		position: relative;
+
+		// Language Link
+		> small { 
+			display: inline-block;
+			position: relative;
+			top: -.25rem;
+			
+			// Add space for globe
+			span { 
+				padding-left: $size-icon-globe + .5rem;
+			}
+		}
 	}
 	
-	svg.msEduLogo {
-		#divider, 
-		#education-text { display: none; }
-		#microsoft-text { fill: $charcoalLight; }
-		#Yellow-Square,
-		#Blue-Square,
-		#Red-Square,
-		#Green-Square { fill: $charcoalLight; }
-	}
-	
-	
-	
-	ul{
-		display: none;
-		position: absolute;
-		right: 1rem;
-		font-size: 0;
-		top: 0;
-		padding: 0;
-		margin: 0 -1.5rem 0 0;
-		li{
-			padding: 1.5rem 1.5rem;
+	// Other Links
+	nav > ul { 
+		
+		font-size: 0; // Remove extra space between links
+		padding:   0;
+		margin: 0 0 0 ($size-link-padding * -1);
+		
+		@include Medium {
+			position: absolute;
+			top:   $gutter-width-half;
+			right: $gutter-width-half;
+			margin: 0 ($size-link-padding * -1) 0 0; 
+		}
+		
+		> li {
+			padding: $size-link-padding;
 			margin: 0;
 			display: inline-block;
-			a { color: $dim-text; }
 		}
 	}
 }

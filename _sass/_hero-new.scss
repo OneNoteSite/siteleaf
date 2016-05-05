@@ -187,9 +187,7 @@ main > header:first-child {
 			cursor: pointer;
 			
 			&:hover{
-				svg{
-					fill: rgba(255,255,255,1);
-				}
+				svg { fill: rgba(255,255,255,1); }
 			}
 			
 			svg {
@@ -222,8 +220,8 @@ main > header:first-child {
 	
 	> figure > .video {
 
-		opacity: .001;
-		transition: opacity .5s ease-in;
+		opacity: 0;
+		transition: opacity .5s ease-in 2s;
 		
 		&.visible {
 			opacity: 1;	
@@ -232,7 +230,7 @@ main > header:first-child {
 	
 	> figure > .volume {
 		opacity: 0;
-		transition: opacity .5s ease-in 1s;
+		transition: opacity .5s ease-in;
 		
 		&.visible {
 			opacity: 1;
@@ -252,7 +250,6 @@ main > header:first-child {
 			opacity: 0;
 			pointer-events: none;
 			transition: opacity .5s ease-out 1s;
-// 			transition: opacity .5s ease-out 4.5s;
 		}
 	}
 }
@@ -260,7 +257,7 @@ main > header:first-child {
 	////////////////////////////////////////////////////////////////////////////////
 	// DEBUG
 
-main > header:first-child > .overlay {
+main > header:first-child > .fullWidth.controls {
 	width: 150%;
 	height: 100px;
 	position: absolute;

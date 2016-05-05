@@ -1,5 +1,12 @@
 (function(document){
 	
+	var showSize = true;
+	
+	// Override by a global variable 
+	if(window.showSize != undefined){
+		showSize = window.showSize;
+	}
+	
 	window.Utils = window.Utils || {};
 	
 	function displaySize(){
@@ -43,7 +50,7 @@
 	}
 	
 	function init(){
-		if (debug.grid == false) return;
+		if (showSize == false) return;
 		doc.addEventListener(loaded, displaySize );
 		win.addEventListener(resize, displaySize );		
 	}
