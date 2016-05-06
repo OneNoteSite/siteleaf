@@ -52,8 +52,7 @@
 
 @mixin roundedCorners() { border-radius: .325rem; }
 
-
-/* DEBUG */
+// DEBUG
 
 @mixin outline($color: gold) { outline: 1px solid $color; }
 

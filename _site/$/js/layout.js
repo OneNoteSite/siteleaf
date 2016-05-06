@@ -3,10 +3,6 @@
 	
 	window.Layout = window.Layout || {};
 	
-	//////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////
-	
 	var BREAKPOINTS = ["Tiny", "Small", "Medium", "Medium-Half", "Large", "Large-Qtr-First", "Large-Half", "Large-Qtr-Last", "XLarge"],
 			BREAKPOINTS_FOR_STACKING = ["Tiny", "Small", "Medium"],
 			NAV_HIDDEN = "hidden";
@@ -19,12 +15,7 @@
   Layout.breakpoint = {};
   Layout.hero = {};
   Layout.nav = {};
-  // Layout.sections = {};
-  // Layout.images = {};
   
-	//////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////
   
   function gatherLayoutElements() {
 		HTML     = doc.getElementsByTagName("html")[0];
@@ -34,7 +25,6 @@
 		HERO     = doc.querySelector("body > main > header:first-child");
 		IMAGES   = MAIN.getElementsByClassName("image");
 		SECTIONS = MAIN.getElementsByTagName("section");
-		// console.log(HTML, BODY, NAV, MAIN, HERO, IMAGES, SECTIONS);
   }
   
   function setupBreakpointObject() {
@@ -103,7 +93,6 @@
 		
 		if (!baseFontSize) updateBaseValues(getBaseFontSize());
 
-
 		for ( var i = 0; i < SECTIONS.length; i++ ) {
 			
 			var before, adjust;
@@ -169,9 +158,6 @@
 		if (adjust == baseFontSize) adjust = 0;
 		
 		height = before + adjust + "px";
-		
-		// Fix - Need to make sure we set minHeight on the smaller sizes
-		// if( Layout.breakpoint.vertical.indexOf(Layout.breakpoint.current) < 0) {
 				
 		HERO.style.minHeight = height;
 		HERO.style.height = height;
@@ -185,7 +171,7 @@
 	}
 	
 	function setupHeroToGrid(){
-		if (!HERO) return;	
+		if (!HERO) return;
 		updateBaseValues(getBaseFontSize());
 		heroHeightToGrid();
 	}

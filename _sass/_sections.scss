@@ -17,18 +17,18 @@
 // Fix - Move All Sizing Variables to the top
 ////////////////////////////////////////////////////////////////////////////////
 
-	$links-icon-height: $cell-Height;
+	$links-icon-height: $cell-height;
 
 	$sizing-spacer-width: $gutter-width-half;
 
 	$horzLine-height: 1px;
 	
-	$section-base-padding-top-sm:      			($cell-Height*1) + ($cell-Margin*1); // 8rem
-	$section-base-padding-top:         			($cell-Height*1) + ($cell-Margin*2); // 8rem
-	$section-base-padding-top-md:      			($cell-Height*2) + ($cell-Margin*2); // 12rem
-	$section-base-padding-top-lg:      			($cell-Height*2) + ($cell-Margin*3); // 14rem
-	$section-base-padding-top-lg-qtr-first:	($cell-Height*3) + ($cell-Margin*1); // 20rem
-	$section-base-padding-top-lg-half: 			($cell-Height*3) + ($cell-Margin*4); // 26rem
+	$section-base-padding-top-sm:      			($cell-height*1) + ($cell-margin*1); // 8rem
+	$section-base-padding-top:         			($cell-height*1) + ($cell-margin*2); // 8rem
+	$section-base-padding-top-md:      			($cell-height*2) + ($cell-margin*2); // 12rem
+	$section-base-padding-top-lg:      			($cell-height*2) + ($cell-margin*3); // 14rem
+	$section-base-padding-top-lg-qtr-first:	($cell-height*3) + ($cell-margin*1); // 20rem
+	$section-base-padding-top-lg-half: 			($cell-height*3) + ($cell-margin*4); // 26rem
 	
 	
 ////////////////////////////////////////////////////////////////////////////////
@@ -195,7 +195,7 @@ main > header {
 	> p,
 	> ul > li > p {
 		margin-top:    -$textCapFrameAdjust;
-		padding-bottom: $textCapFrameAdjust + $cell-Height;
+		padding-bottom: $textCapFrameAdjust + $cell-height;
 		
 		@include XLarge {
 			margin-top:           -$textCapFrameAdjustXl;
@@ -206,6 +206,7 @@ main > header {
 	}
 	
 	// Button
+	
 	> p > a.button:first-child {
 		
 		@include buttonStyle($white, $purpleBrand);
@@ -222,7 +223,7 @@ main > header {
 		
 		@include Medium-Half {
 			height:      $base-btn-size-md-half;
-			line-height: $base-btn-size-md-half - .125rem !important;
+			line-height: $base-btn-size-md-half - .25rem !important;
 		}
 		
 		@include XLarge {

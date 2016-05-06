@@ -1,8 +1,5 @@
 @import "utilities";
 
-/* Fix - remove uppercase formatting clones */
-
-
 /* Base Units */
 
 $unit: 8px;
@@ -33,34 +30,24 @@ $grid-column-width-l-h:   8.3333333333%;
 $grid-column-width-l-q-l: 7.1428571429%;
 $grid-column-width-xl:    6.25%;
 
-
 /* Cell Measurements */
 
-$cell-Height: 4rem;
 $cell-height: 4rem;
-$cell-Margin:	2rem;
 $cell-margin:	2rem;
-$cell-HeightWithMargin: $cell-height + $cell-margin;
 $cell-heightWithMargin: $cell-height + $cell-margin;
 
-$cell-MarginInside:		$cell-margin;	// 2rem
+
 $cell-marginInside:		$cell-margin;	// 2rem
-$cellGroup-MarginTop: $cell-margin;	// 2rem
 $cellGroup-marginTop: $cell-margin;	// 2rem
 
-$cellGroup-HeightContent: ($cell-Height * 3) + ($cell-MarginInside * 2);		// 16rem
 $cellGroup-heightContent: ($cell-height * 3) + ($cell-marginInside * 2);		// 16rem
-$cellGroup-Height:        $cellGroup-HeightContent + $cellGroup-MarginTop;  // 18rem
 $cellGroup-height:        $cellGroup-heightContent + $cellGroup-marginTop;  // 18rem
 
-$section-MarginTop: 7rem;
 $section-marginTop: 7rem;
 
 /* General UI ELEMENTs */
 
-$nav-Height:    $cell-height + $cell-margin;
 $nav-height:    $cell-height + $cell-margin;
-
 
 /* General Buttons */
 

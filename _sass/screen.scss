@@ -1,11 +1,13 @@
-@import "compass/reset";
-/* Fix - Using this!? */
-@import "compass/css3";
+// Unused
+// @import "compass/css3";
 
-@import "global";
+// Development Only
 @import "grid";
 
-/* JS Hooks for Breakpoints */
+@import "compass/reset";
+@import "global";
+
+/* JavaScript Hooks for Detecting Breakpoints */
 
 html:before {
 	display: none;
@@ -21,8 +23,6 @@ html:before {
 }
 
 /* Resets */
-
-//*[contenteditable]{ pointer-events: none; } /* Fix */
 
 *,
 *::before,
@@ -53,13 +53,8 @@ html:before {
           user-select: none;   /* non-prefixed version, currently not supported by any browser */
 }
 
-/* Helpers */
-
-.hide        { display: none; }
-.invisible   { visibility: hidden; }
-.transparent { opacity: 0; }
-
 /* MS Scrollbar helper */
+
 html { -ms-overflow-style: -ms-autohiding-scrollbar; }
 
 /* Setup Default Units */
@@ -81,10 +76,11 @@ body {
 	margin: 0;
 }
 
-small,
-small.legal { display: block; }
+small, small.legal { display: block; }
 
 a, a:hover { text-decoration: none !important; }
+
+/* Basic Color Settings */
 
 body                   { color: $charcoalRegular; }
 h1, h2, h3, h4, h5, h6 { color: $black;           }
@@ -99,7 +95,7 @@ body {
 		overflow: hidden;
 		margin-left:  -$gutter-width-half;
 		margin-right: -$gutter-width-half;
-		padding: 0 $gutter-width-half;
+		padding: 0     $gutter-width-half;
 	}
 
 	> *,
@@ -139,75 +135,16 @@ body {
 		@include Large-Qtr-Last  { width: $grid-column-width-l-q-l * 10; }
 		@include XLarge          { width: $grid-column-width-xl    * 12; }
 	}
-	
 	a { color: $purpleBrand; }
 }
 
 body > header { z-index: 100; }
-body > main   { z-index: 0; }
+body > main   { z-index: 0;   }
 
 @import "type";
 @import "nav";
 @import "sections";
 @import "footer";
-@import "hero-new";
-@import "polyfill.object-fit.min";
+@import "hero";
+@import "polyfill.object-fit.min"; /* Fix - remove this */
 @import "alert";
-
-// @import "hero";
-// @import "hero-image";
-
-
-/*
-.purpleBrand      { background-color: $purpleBrand; }
-.purpleBrandLight { background-color: #491b7d; }
-.purpleBrandDark  { background-color: #b498d4; }
-
-
-.yellow      { background-color: $yellow;      }
-.tan         { background-color: $tan;         }
-.orange      { background-color: $orange;      }
-.red         { background-color: $red;         }
-.redChalk    { background-color: $redChalk;    }
-.magenta     { background-color: $magenta;     }
-.purple      { background-color: $purple;      }
-.purpleMist  { background-color: $purpleMist;  }
-.blue        { background-color: $blue;        }
-.blueMist    { background-color: $blueMist;    }
-.teal        { background-color: $teal;        }
-.cyan        { background-color: $cyan;        }
-.green       { background-color: $green;       }
-.apple       { background-color: $apple;       }
-.lemon       { background-color: $lemon;       }
-.silver      { background-color: $silver;      }
-.none        { background-color: $none;        }
-*/
-
-/*
-.greyLight1  { background-color: #f4f4f4; }
-.greyLight2  { background-color: #ebebeb; }
-.greyLight3  { background-color: #dddddd; }
-.greyLight4  { background-color: #cccccc; }
-.grey        { background-color: #999999; }
-.greyMedium  { background-color: #666666; }
-.greyDark1   { background-color: #333333; }
-.greyDark2   { background-color: #222222; }
-
-.greyLight1,
-.greyLight2,
-.greyLight3,
-.greyLight4{
-	p > small{
-		color: #000;
-	}
-}
-*/
-
-/*
-
-
-
-
-@import "footer";
-@import "education-prototype";
-*/
