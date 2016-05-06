@@ -25,19 +25,22 @@ $font-stack: "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "
   src: local('Segoe UI Light'), local('SegoeUI-Light'), url('/$/font/segoeuisl.ttf') format('truetype');
 }
 
+// OLDER METHOD OF LOADING FONT (Part 1)
 
 // $face-semiLight: 'Segoe UI Semilight', 'Segoe UI Light', 'Segoe WP Light';
 // $face-backups: 'Helvetica Neue', -apple-system, Roboto, Helvetica, sans-serif;
 // $face-regular: 'Segoe UI', Segoe, 'Segoe WP', $face-semiLight, $face-backups;
 // $face-light:   $face-semiLight, $face-regular;
-// @font-face {
-// 	font-family: 'Segoe UI';
-// 	src: local('Segoe UI'), local('SegoeUI'), url('/$/font/segoeui.ttf') format('truetype');
-// }
-// @font-face {
-// 	font-family: 'Segoe UI Semilight';
-// 	src: local('Segoe UI Light'), local('SegoeUI-Light'), url('/$/font/segoeuisl.ttf') format('truetype');
-// }
+/*
+@font-face {
+	font-family: 'Segoe UI';
+	src: local('Segoe UI'), local('SegoeUI'), url('/$/font/segoeui.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Segoe UI Semilight';
+	src: local('Segoe UI Light'), local('SegoeUI-Light'), url('/$/font/segoeuisl.ttf') format('truetype');
+}
+*/
 
 /******************************************************************************/
 /* Type Sizing */
@@ -135,6 +138,8 @@ $type-base-Legal:        $type-sm-Legal;					// 12px
 
 /******************************************************************************/
 /* Font Size Settings  */
+
+// OLDER METHOD OF LOADING FONT (Part 2)
 
 /*
 $font-xl-Headline: 			$type-xl-Headline			$face-light;
