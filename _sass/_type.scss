@@ -2,10 +2,19 @@
 @import "color";
 @import "global";
 
+
+
 /******************************************************************************/
 /* Font Face Stacks */
 
 $font-stack: "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", -apple-system, Roboto, Helvetica, "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+
+@mixin setFont($weight, $size, $line-height){
+		font-weight: 	$weight;
+		font-size:		$size;
+		line-height: 	$line-height;
+		font-family: 	$font-stack;
+}
 
 /******************************************************************************/
 /* Font Faces */
@@ -24,6 +33,8 @@ $font-stack: "SegoeUI", "Segoe UI", Segoe, "Segoe WP", "Segoe UI Web Regular", "
   font-weight: 300;
   src: local('Segoe UI Light'), local('SegoeUI-Light'), url('/$/font/segoeuisl.ttf') format('truetype');
 }
+
+
 
 // OLDER METHOD OF LOADING FONT (Part 1)
 
@@ -82,6 +93,40 @@ $type-lg-Legal-lineHeight: 2rem;
 $type-md-Legal-lineHeight: 2rem;
 $type-sm-Legal-lineHeight: 2rem;
 
+// Sizes
+
+$type-xl-Headline-size: 8.00rem;
+$type-lg-Headline-size: 5.25rem;
+$type-md-Headline-size: 5.25rem;
+$type-sm-Headline-size: 4.25rem;
+
+$type-xl-Subhead-size: 7.00rem;
+$type-lg-Subhead-size: 4.25rem;
+$type-md-Subhead-size: 4.00rem;
+$type-sm-Subhead-size: 3.25rem;
+
+$type-xl-SubheadSmall-size: 3.00rem;
+$type-lg-SubheadSmall-size: 2.00rem;
+$type-md-SubheadSmall-size: 2.00rem;
+$type-sm-SubheadSmall-size: 2.00rem;
+
+$type-xl-BodySmall-size: 3.00rem;
+$type-lg-BodySmall-size: 2.00rem;
+$type-md-BodySmall-size: 2.00rem;
+$type-sm-BodySmall-size: 2.00rem;
+
+$type-xl-Body-size: 3.50rem;
+$type-lg-Body-size: 2.25rem;
+$type-md-Body-size: 2.25rem;
+$type-sm-Body-size: 2.25rem;
+
+$type-xl-Legal-size: 2.00rem;
+$type-lg-Legal-size: 1.50rem;
+$type-md-Legal-size: 1.50rem;
+$type-sm-Legal-size: 1.50rem;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// SET & COMBINE WEIGHT SIZE / LINE-HEIGHT
 
 // Headline
 
@@ -175,6 +220,9 @@ $font-sm-Legal:					$type-sm-Legal				$face-regular;
 
 //
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// ADD FONT STACK
+
 
 $font-xl-Headline: 			$type-xl-Headline			$font-stack;
 $font-lg-Headline: 			$type-lg-Headline			$font-stack;
@@ -221,18 +269,28 @@ $font-base-Legal:        $font-sm-Legal;
 
 /* Base Backup */
 
-	body        { font: $font-base-Body;                    * { font: $font-base-Body !important; }}
+// 	body        { font: $font-base-Body;                    * { font: $font-base-Body !important; }}
 	
-	h1          { font: $font-base-Headline     !important; * { font: inherit     !important; }}
-	h2          { font: $font-base-Subhead      !important; * { font: inherit     !important; }}
-	h3          { font: $font-base-SubheadSmall !important; * { font: inherit     !important; }}
-	h4          { font: $font-base-Body         !important; * { font: inherit     !important; }}
-	
-	p           { font: $font-base-Body         !important; * { font: inherit     !important; }}
-	p > small   { font: $font-base-BodySmall    !important; * { font: inherit     !important; }}
-	
+// 	h1          { font: $font-base-Headline     !important; * { font: inherit     !important; }}
+// 	h2          { font: $font-base-Subhead      !important; * { font: inherit     !important; }}
+// 	h3          { font: $font-base-SubheadSmall !important; * { font: inherit     !important; }}
+//  h4          { font: $font-base-Body         !important; * { font: inherit     !important; }}
+//	p { font: $font-base-Body         !important; * { font: inherit     !important; }}	
+//	p > small   { font: $font-base-BodySmall    !important; * { font: inherit     !important; }}
+//	small,
+//	small.legal { font: $font-base-Legal        !important; * { font: inherit     !important; }}
+
+
+	h1 				  { @include setFont($light,   $type-sm-Headline-size,     $type-sm-Headline-lineHeight     ); * { font: inherit !important; }}
+	h2 				  { @include setFont($light,   $type-sm-Subhead-size,      $type-sm-Subhead-lineHeight      ); * { font: inherit !important; }}	
+	h3 				  { @include setFont($regular, $type-sm-SubheadSmall-size, $type-sm-SubheadSmall-lineHeight ); * { font: inherit !important; }}	
+	h4,
+	p,
+	body  			{ @include setFont($regular, $type-sm-Body-size,         $type-sm-Body-lineHeight         ); * { font: inherit !important; }}
+	p > small   { @include setFont($regular, $type-sm-BodySmall-size,    $type-sm-BodySmall-lineHeight    ); * { font: inherit !important; }}
 	small,
-	small.legal { font: $font-base-Legal        !important; * { font: inherit     !important; }}
+	small.legal { @include setFont($regular, $type-sm-Legal-size,        $type-sm-Legal-lineHeight        ); * { font: inherit !important; }}
+
 
 					
 @include Medium {

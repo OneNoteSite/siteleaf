@@ -30,6 +30,14 @@
 	color: $color;	
 }
 
+
+@mixin setFont($weight, $size, $line-height, $family){
+		font-weight: 	$weight;
+		font-size:		$size;
+		line-height: 	$line-height;
+		font-family: 	$family;
+}
+
 @mixin buttonHoverChanges($bg: $purpleBrand, $color: $white, $shadow: $white){
 	&:hover {
 		@include buttonStyle($bg, $color);
