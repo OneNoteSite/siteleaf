@@ -93,8 +93,8 @@ main > header:first-child {
 		
 		// DOWNLOAD LINK ////////////////////////////////////////////////////////////
 			
-		> p.action,
-		> p.video {
+		//> p.video, 
+		> p.action{
 			margin-top: $gutter-width;
 			
 			> a {
@@ -111,15 +111,21 @@ main > header:first-child {
 					height: $base-btn-size-md-half;
 					line-height: $base-btn-size-md-half - .125rem !important;
 				}
+				
+				@include XLarge {
+					line-height: $base-btn-size-md-half - .325rem !important;
+				}
 			}
 		}
 		
+		/*
 		> p.video {
 			> a {
 				padding: 0 $base-btn-size;
 				@include buttonStyle($hero-background-color, $white);
 			}
 		}
+		*/
 		
 		> p.action {
 			> a {
@@ -128,11 +134,14 @@ main > header:first-child {
 				color: $hero-background-color;
 				@include buttonHoverChanges();
 
-				// On Larger Sizes say "Free"
-				// Fix - Move this into a CSS content variable layer
+				// On Larger Sizes allow to prepend or append text
 				@include Medium { 
 					&::before{
-						content: "Free ";
+						content: attr(data-text-prepend);
+						@include font-smoothing(off);
+					}
+					&::after{
+						content: attr(data-text-append);
 						@include font-smoothing(off);
 					}
 				}

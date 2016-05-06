@@ -5,7 +5,7 @@
 @import "global";
 @import "grid";
 
-/* Setup JS Hooks for Breakpoints */
+/* JS Hooks for Breakpoints */
 
 html:before {
 	display: none;
@@ -22,7 +22,7 @@ html:before {
 
 /* Resets */
 
-*[contenteditable]{ pointer-events: none; } /* Fix */
+//*[contenteditable]{ pointer-events: none; } /* Fix */
 
 *,
 *::before,

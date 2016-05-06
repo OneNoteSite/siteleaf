@@ -416,6 +416,7 @@ body *.monospace * {
 /* Column Widths */
 /* Cell Measurements */
 /* General UI ELEMENTs */
+/* General Buttons */
 /*		From global.scss
 	
 			$grid-column-width-s:     50%;
@@ -822,7 +823,7 @@ body.gridHidden *::after {
   outline: none !important;
 }
 
-/* Setup JS Hooks for Breakpoints */
+/* JS Hooks for Breakpoints */
 html:before {
   display: none;
   content: "Tiny";
@@ -869,11 +870,6 @@ html:before {
 }
 
 /* Resets */
-*[contenteditable] {
-  pointer-events: none;
-}
-
-/* Fix */
 *,
 *::before,
 *::after {
@@ -1181,7 +1177,7 @@ body > header.sticky ul {
 body > header.sticky ul > li > a {
   padding: .4rem 1.5rem .6rem;
   background-color: #7321a6;
-  border-radius: .25rem;
+  border-radius: .325rem;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
   font-smoothing: auto;
@@ -1190,6 +1186,7 @@ body > header.sticky ul > li > a:hover {
   box-shadow: inset 0 0 0 1px #7321a6;
   background: #fff;
   color: #7321a6;
+  box-shadow: inset 0 0 0 1px #fff;
 }
 @media XLarge {
   body > header.sticky ul > li > a {
@@ -1460,6 +1457,48 @@ main > section > ul > li > p:last-of-type,
 main > header > p:last-of-type,
 main > header > ul > li > p:last-of-type {
   padding-bottom: 3.75rem;
+}
+main > section > p > a.button:first-child,
+main > header > p > a.button:first-child {
+  box-shadow: inset 0 0 0 1px #7321a6;
+  background: #fff;
+  color: #7321a6;
+  border-radius: .325rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-smoothing: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 4rem;
+  height: 4rem;
+  line-height: 3.75rem !important;
+  margin-top: -.25rem;
+}
+main > section > p > a.button:first-child:hover,
+main > header > p > a.button:first-child:hover {
+  box-shadow: inset 0 0 0 1px #fff;
+  background: #7321a6;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px #7321a6;
+}
+@media only screen and (min-width: 928px) {
+  main > section > p > a.button:first-child,
+  main > header > p > a.button:first-child {
+    height: 6rem;
+    line-height: 5.875rem !important;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  main > section > p > a.button:first-child,
+  main > header > p > a.button:first-child {
+    line-height: 5.75rem !important;
+  }
+}
+@media only screen and (min-width: 2448px) {
+  main > section > p > a.button:first-child,
+  main > header > p > a.button:first-child {
+    margin-top: .5rem;
+  }
 }
 
 main > section > figure {
@@ -2029,7 +2068,7 @@ body > footer .icon-svg,
 body > main > footer .icon-svg {
   position: absolute;
   top: 50%;
-  margin-top: -1.375rem;
+  margin-top: -1.5rem;
 }
 body > footer a,
 body > footer a *,
@@ -2048,14 +2087,16 @@ body > main > footer a *:hover {
 body > footer > nav,
 body > main > footer > nav {
   display: block;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
   position: relative;
 }
 body > footer > nav > small,
 body > main > footer > nav > small {
   display: inline-block;
   position: relative;
-  top: -.25rem;
+  top: -0.25rem;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
 }
 body > footer > nav > small span,
 body > main > footer > nav > small span {
@@ -2072,7 +2113,7 @@ body > main > footer nav > ul {
   body > main > footer nav > ul {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 0;
     margin: 0 -1.5rem 0 0;
   }
 }
@@ -2142,6 +2183,14 @@ main > header:first-child > hgroup > * {
 }
 main > header:first-child > hgroup {
   padding: 6rem 0;
+  /*
+  > p.video {
+  	> a {
+  		padding: 0 $base-btn-size;
+  		@include buttonStyle($hero-background-color, $white);
+  	}
+  }
+  */
 }
 main > header:first-child > hgroup h1 {
   white-space: nowrap;
@@ -2161,13 +2210,11 @@ main > header:first-child > hgroup h1 span {
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
 }
-main > header:first-child > hgroup > p.action,
-main > header:first-child > hgroup > p.video {
+main > header:first-child > hgroup > p.action {
   margin-top: 2rem;
 }
-main > header:first-child > hgroup > p.action > a,
-main > header:first-child > hgroup > p.video > a {
-  border-radius: .25rem;
+main > header:first-child > hgroup > p.action > a {
+  border-radius: .325rem;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
   font-smoothing: auto;
@@ -2177,17 +2224,10 @@ main > header:first-child > hgroup > p.video > a {
   line-height: 3.75rem !important;
 }
 @media only screen and (min-width: 928px) {
-  main > header:first-child > hgroup > p.action > a,
-  main > header:first-child > hgroup > p.video > a {
+  main > header:first-child > hgroup > p.action > a {
     height: 6rem;
     line-height: 5.875rem !important;
   }
-}
-main > header:first-child > hgroup > p.video > a {
-  padding: 0 4rem;
-  box-shadow: inset 0 0 0 1px #fff;
-  background: #7321a6;
-  color: #fff;
 }
 main > header:first-child > hgroup > p.action > a {
   padding: 0 4rem;
@@ -2198,10 +2238,17 @@ main > header:first-child > hgroup > p.action > a:hover {
   box-shadow: inset 0 0 0 1px #fff;
   background: #7321a6;
   color: #fff;
+  box-shadow: inset 0 0 0 1px #fff;
 }
 @media only screen and (min-width: 624px) {
   main > header:first-child > hgroup > p.action > a::before {
-    content: "Free ";
+    content: attr(data-text-prepend);
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    font-smoothing: auto;
+  }
+  main > header:first-child > hgroup > p.action > a::after {
+    content: attr(data-text-append);
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
     font-smoothing: auto;

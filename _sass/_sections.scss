@@ -1,5 +1,8 @@
 @import "global";
-// @import "type";
+@import "utilities";
+
+////////////////////////////////////////////////////////////////////////////////
+// 8:3 SIZING & LAYOUT ADJUSTMENTS
 
 @mixin stackLinks(){
 	display: inline-block;
@@ -12,7 +15,6 @@
 }
 
 // Fix - Move All Sizing Variables to the top
-
 ////////////////////////////////////////////////////////////////////////////////
 
 	$links-icon-height: $cell-Height;
@@ -45,12 +47,12 @@ main > section {
 	&::before { 
 		clear: both;
 		content: "";
-		width: $sizing-spacer-width;
+		width:        $sizing-spacer-width;
 		margin-left: -$sizing-spacer-width * 2;
 		float: left;
 		background: transparent;
 		
-		// * Fix - Lets do this mathmatically
+		// * Fix - Lets do this mathmatically?
 		@include Base  						{ padding-top: 37.5%; 				} // 0
 		@include Large 						{ padding-top: 50%;   				} // 1232
 		@include Large-Qtr-First 	{ padding-top: 47.37704918%; 	} // 1536
@@ -201,6 +203,35 @@ main > header {
 		}
 		
 		&:last-of-type { padding-bottom: $textCapFrameAdjust + 3rem; }
+	}
+	
+	// Button
+	> p > a.button:first-child {
+		
+		@include buttonStyle($white, $purpleBrand);
+		@include roundedCorners();
+		@include font-smoothing(off);
+		@include buttonHoverChanges($purpleBrand, $white, $purpleBrand);						
+		
+		display: inline-block;
+		box-sizing: border-box;
+		
+		padding:   0 $base-btn-size;
+		height:      $base-btn-size;
+		line-height: $base-btn-size - .25rem !important;
+		
+		@include Medium-Half {
+			height:      $base-btn-size-md-half;
+			line-height: $base-btn-size-md-half - .125rem !important;
+		}
+		
+		@include XLarge {
+			line-height: $base-btn-size-md-half - .25rem !important;
+		}
+		
+		@include Base   { margin-top: -.25rem;	}
+		@include XLarge { margin-top: .5rem; }
+
 	}
 }
 

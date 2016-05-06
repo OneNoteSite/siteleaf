@@ -3,6 +3,7 @@
 
 $size-icon-globe: 2.75rem;
 $size-link-padding: 1.5rem;
+$text-adjust-capHeight: .25rem;
 $color-link-inactive: $charcoalRegular;
 $color-link-hover:    $charcoalDark;
 
@@ -20,7 +21,7 @@ body > main > footer {
 		// Vertical centering
 		position: absolute;
 		top: 50%;
-		margin-top: ($size-icon-globe/2 * -1);
+		margin-top: (($size-icon-globe/2 + $text-adjust-capHeight/2) * -1);
 	}
 
 	a,
@@ -35,14 +36,17 @@ body > main > footer {
 
 	> nav {
 		display: block;
-		padding: $gutter-width $gutter-width-half;
+		padding: $gutter-width 0;
 		position: relative;
+		//outline: 1px solid blue;
 
 		// Language Link
 		> small { 
 			display: inline-block;
 			position: relative;
-			top: -.25rem;
+			top: ($text-adjust-capHeight * -1);
+			padding-bottom: $text-adjust-capHeight;
+			margin-bottom: 1rem;
 			
 			// Add space for globe
 			span { 
@@ -52,8 +56,7 @@ body > main > footer {
 	}
 	
 	// Other Links
-	nav > ul { 
-		
+	nav > ul {
 		font-size: 0; // Remove extra space between links
 		padding:   0;
 		margin: 0 0 0 ($size-link-padding * -1);
@@ -61,7 +64,7 @@ body > main > footer {
 		@include Medium {
 			position: absolute;
 			top:   $gutter-width-half;
-			right: $gutter-width-half;
+			right: 0;
 			margin: 0 ($size-link-padding * -1) 0 0; 
 		}
 		
