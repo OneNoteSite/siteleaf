@@ -53,6 +53,12 @@ html:before {
           user-select: none;   /* non-prefixed version, currently not supported by any browser */
 }
 
+/* Helpers - Used to Hide text label helpers, spacers, etc. */
+
+.hide        { display: none; }
+.invisible   { visibility: hidden; }
+.transparent { opacity: 0; }
+
 /* MS Scrollbar helper */
 
 html { -ms-overflow-style: -ms-autohiding-scrollbar; }

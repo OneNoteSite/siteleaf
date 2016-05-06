@@ -197,6 +197,12 @@ main > header {
 		margin-top:    -$textCapFrameAdjust;
 		padding-bottom: $textCapFrameAdjust + $cell-height;
 		
+		@include font-smoothing();
+		
+		@include Medium {
+			@include font-smoothing(off);			
+		}
+		
 		@include XLarge {
 			margin-top:           -$textCapFrameAdjustXl;
 			padding-bottom: 6rem + $textCapFrameAdjustXl;
